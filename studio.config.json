@@ -1,0 +1,58 @@
+{
+  "$schema": "./docs/studio.config.schema.json",
+  "project": {
+    "name": "Trailer Stage",
+    "tagline": "write a brief, get a trailer",
+    "about": "A programmable stage that films a running app and narrates it. This block is what the brief compiler reads when no --project is given; replace it with your own product in a sentence or two.",
+    "url": ""
+  },
+  "target": {
+    "url": "",
+    "basePath": "/app",
+    "storage": {}
+  },
+  "theme": {
+    "ground": "#f6f7f9",
+    "panel": "#ffffff",
+    "panel2": "#eef0f4",
+    "line": "#dfe2ea",
+    "ink": "#171821",
+    "inkDim": "#4b4e5f",
+    "inkFaint": "#666a7c",
+    "accent": "#4630c9",
+    "accentInk": "#ffffff",
+    "positive": "#0c7d70",
+    "negative": "#b3162f",
+    "fontDisplay": "\"Space Grotesk\", ui-sans-serif, system-ui, sans-serif",
+    "fontBody": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+    "fontMono": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, monospace",
+    "fontHref": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap",
+    "logo": "",
+    "wordmark": "TRAILER STAGE",
+    "plate": "write a brief, get a trailer"
+  },
+  "voice": {
+    "id": "",
+    "name": "narrator",
+    "model": "eleven_v3",
+    "stability": 0.4,
+    "brief": "A warm, expressive narrator with real dynamic range: rises with delight, drops to a confiding hush, leans on the words that matter, never flat."
+  },
+  "mix": {
+    "prerollSec": 4,
+    "tailSec": 3,
+    "bedGainDb": 1.5,
+    "duckDb": 4
+  },
+  "record": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "lufs": -23
+  },
+  "paths": {
+    "trailers": "trailers",
+    "takes": ".takes",
+    "audio": ".audio"
+  }
+}

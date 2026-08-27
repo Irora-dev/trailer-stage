@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+/* The theme's tokens arrive as inline custom properties on the stage root
+   (see themeVars in src/lib/config.ts), so nothing here hard-codes a colour. */
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--ground, #0b0d10);
+  color: var(--ink, #f2f4f7);
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+}
+
+/* While a take is being filmed the page is the SET: no scrollbars, no
+   selection, no caret, and nothing outside the stage may paint. */
+html[data-stage] {
+  overflow: hidden;
+}
+html[data-stage] body {
+  overflow: hidden;
+  cursor: none;
+  user-select: none;
+}
+
+/* A number that changes mid-take pops rather than swapping silently. */
+@keyframes stage-pop {
+  0% {
+    transform: scale(1);
+  }
+  38% {
+    transform: scale(1.055);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.stage-pop {
+  display: inline-block;
+  animation: stage-pop 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* The diagonal glint that crosses a tile. Phase and duration are set per tile
+   so a grid never marches in sync. */
+@keyframes stage-sheen {
+  0% {
+    background-position: 220% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+.stage-sheen {
+  background-size: 300% 100%;
+  animation-name: stage-sheen;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* An optional film grade over the whole set: scanlines plus a vignette. It is
+   deterministic (no animation), so a retake is the same take. */
+.stage-crt::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 48;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 3px),
+    radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+  mix-blend-mode: multiply;
+}
+
+.stage-grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 47;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.5'/></svg>");
+}
+
+/* The studio's own chrome: dark, quiet, and never mistaken for the set. */
+.studio {
+  scrollbar-color: var(--line, #272d36) transparent;
+  scrollbar-width: thin;
+}
+.studio *::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+  background: transparent;
+}
+.studio *::-webkit-scrollbar-thumb {
+  background: var(--line, #272d36);
+  border-radius: 5px;
+}

@@ -1,0 +1,364 @@
+/**
+ * THE PIECE VOCABULARY — what a trailer can put on the stage.
+ *
+ * A clip whose `params.piece` names one of the kinds below is rendered by
+ * `components/stage/from-timeline.tsx` through the pieces in that folder.
+ * Nothing here draws: this file is the grammar (the kinds, their knobs, how
+ * times resolve) plus the pure derivations the renderer and the editor share.
+ *
+ * TIMES. Anywhere a piece wants a time it takes a `TimeRef`: mix seconds, or a
+ * cue reference — "@card", "@card+0.4", "@card-1", "@card.end" (that clip's
+ * `until`), "@end" (the cut), "@blackout". Every clip id is a cue, so a piece
+ * keys its beats to the same markers the narration does. Booleans gate flatly:
+ * true = from t0, false = never.
+ *
+ * GATES. A piece's booleans (a reveal's stages, a header's fade-ins) become
+ * SYNTHETIC CUES named `__<clipId>~<key>`, so they flip in the latching playback
+ * machine and derive under the editor's scrub. The stage shell never learns what
+ * a piece is, and the recorder's per-cue stills skip `__` names.
+ *
+ * THE KINDS (params, `piece` omitted):
+ *  browserFrame  the app you are filming, in a browser card, driven like a user:
+ *                light?, intro? (let the app's own splash play), storage? ({key:
+ *                value} written before the frame mounts — a theme, a flag),
+ *                startPath?, width? ('86vw'), height? ('76vh'), chromePx? (32;
+ *                0 = no bar), mountAt? (default: the clip's at − 1), dimAt?,
+ *                actions: [{ at, do: 'nav'|'click'|'clickText'|'type'|'scrollTo'
+ *                |'scrollToHeading'|'wait', path?, selector?, text?, within?,
+ *                cps?, enter?, y?, frac?, waitFor? }] — actions run IN ORDER,
+ *                each after the previous settled, and a click POLLS for an
+ *                enabled target: the app answers on the network's clock.
+ *  card          a themed panel: width?, height?, header? { identity {name, sub,
+ *                iconSrc?, emoji?, at?}, right? {at?, statsAt?}, headline?
+ *                {text, altText?, color?, altColor?}, tape? (a marketTape clip
+ *                id: the header reads live from it), stats: [{label, value?,
+ *                altValue?, tone?, readout?: 'total'|'scaled', factor?}], altAt? }
+ *  marketTape    seed, start, count, from, stepSec | stepUntil (+stepPad),
+ *                pullbacks?, buy? {at, factor}, carry? {count, from, stepSec},
+ *                crash? {at, stepSec, count, heightPx, growthFactor, slotStart,
+ *                factors}, slots, window {from, until}, plotHeaderPx? (118),
+ *                supply?, freezeAt?, colors? {up, down}, growSec?
+ *  lineChart     series: [{label, color, kind: 'area'|'dotted', points: [{at, v}],
+ *                altAt?, altColor?, format? {prefix?, decimals?, suffix?}}],
+ *                window {from, until}, plotHeaderPx?, gap? {at, until?, label},
+ *                pin? {at, label, seriesIdx}
+ *  bento         items: [{label, weightPct, color, logo?}], aspect?, widthVw?,
+ *                topVh?, locked?, scatter? (TimeRef: the tiles fly apart)
+ *  groupFold     the fold: many items across groups become ONE card per group.
+ *                name, ticker?, groups: [{id, label, color, mark?, ticker?,
+ *                items: [{label, weightPct, color}]}], gatherAt, foldAt,
+ *                settleAt, unit? ('token')
+ *  logoReveal    the brand's arrival: cues? {mark, markUp, wordmark, plate,
+ *                powered, extra, bar, entered, morphOut} (default "@mark" …),
+ *                wordmark?, plateText?, poweredText?, extraText?, query?,
+ *                typing? {at, secPerChar?}, placeholder?
+ *  endCard       url?, chips?, note?, wordmark?, plate?, canvasId?
+ *  text          text, style?: 'display'|'headline'|'plate'|'pill'|'eyebrow'|'mono',
+ *                leftVw?, topVh?, bottomVh?, maxWidthCh?, sizePx?, color?, bg?,
+ *                font?, weight?, letterSpacing?, typing? {at, secPerChar?}, canvasId?
+ *  chipRow       style: 'stamp'|'row', track? (each clip of that track is a chip,
+ *                lit on its own cue) | items: [string | {label, at?}], bottomVh?
+ *  image         src, widthVw?, leftVw?, topVh?, rounded?, shadow?, canvasId?
+ *  videoActor    an alpha video standing on chart geometry: src, playAt?,
+ *                pauseAt?, anchor {tape, slot: number|'latest', height?, aspect?, dy?}
+ *  sprite        src, frames, frameW, frameH, fps?, from?, until?, loop?, scale?,
+ *                leftVw?, topVh?, canvasId?
+ *  pin           label, arrow?, color?, borderColor?, anchor {tape, slot, value?, dy?}
+ *  channelFlip   times?: [TimeRef] (default: the clip's own at)
+ *  caption       text (or any clip on the `captions` track)
+ */
+
+import { buildLeg, mulberry32, type Candle } from './tape'
+import { cuesOf, endCue, offsetsOf, type ParamValue, type TimelineClip, type TrailerTimeline } from './timeline'
+
+export type TimeRef = number | string | boolean
+
+export const PIECE_KINDS = [
+  'browserFrame',
+  'card',
+  'marketTape',
+  'lineChart',
+  'bento',
+  'groupFold',
+  'logoReveal',
+  'endCard',
+  'text',
+  'chipRow',
+  'image',
+  'videoActor',
+  'sprite',
+  'pin',
+  'channelFlip',
+  'caption',
+] as const
+export type PieceKind = (typeof PIECE_KINDS)[number]
+
+export type Params = Record<string, ParamValue>
+
+// ── param readers (fail soft: a missing knob is a default, never a crash) ──
+export const obj = (v: ParamValue | undefined): Params =>
+  v !== null && typeof v === 'object' && !Array.isArray(v) ? (v as Params) : {}
+export const arr = (v: ParamValue | undefined): ParamValue[] => (Array.isArray(v) ? v : [])
+export const num = (v: ParamValue | undefined, d: number): number =>
+  typeof v === 'number' && Number.isFinite(v)
+    ? v
+    : typeof v === 'string' && v.trim() !== '' && Number.isFinite(Number(v))
+      ? Number(v)
+      : d
+export const str = (v: ParamValue | undefined, d = ''): string =>
+  typeof v === 'string' ? v : v === undefined || v === null ? d : String(v)
+export const bool = (v: ParamValue | undefined, d: boolean): boolean => (typeof v === 'boolean' ? v : d)
+export const timeRef = (v: ParamValue | undefined): TimeRef | undefined =>
+  typeof v === 'number' || typeof v === 'string' || typeof v === 'boolean' ? v : undefined
+export const optStr = (v: ParamValue | undefined) => (v === undefined || v === null ? undefined : str(v))
+export const optNum = (v: ParamValue | undefined, d: number) => (v === undefined || v === null ? undefined : num(v, d))
+
+/** The piece kind a clip names, or undefined for a plain cue / marker. */
+export function pieceOf(clip: TimelineClip): string | undefined {
+  const p = clip.params?.piece
+  return typeof p === 'string' ? p : undefined
+}
+
+export function hasPieces(tl: TrailerTimeline): boolean {
+  return tl.tracks.some((tr) => tr.clips.some((c) => pieceOf(c) !== undefined))
+}
+
+/** Synthetic cue name for a piece's boolean gate. */
+export const gateName = (clipId: string, key: string) => `__${clipId}~${key}`
+
+/**
+ * Resolve a TimeRef against a cue map. Returns null for "never" (false, an
+ * unknown cue, garbage) so a caller picks its own default — a piece must
+ * degrade to OFF, never to t=0, where it would sit on screen from the first
+ * frame of the take.
+ */
+export function resolveTime(ref: TimeRef | undefined, cues: Record<string, number>, end: number): number | null {
+  if (ref === undefined) return null
+  if (typeof ref === 'boolean') return ref ? 0 : null
+  if (typeof ref === 'number') return Number.isFinite(ref) ? ref : null
+  const s = ref.trim()
+  if (!s.startsWith('@')) {
+    const n = Number(s)
+    return s !== '' && Number.isFinite(n) ? n : null
+  }
+  const m = /^@([A-Za-z0-9_.~-]+?)(?:\s*([+-])\s*(\d+(?:\.\d+)?))?$/.exec(s)
+  if (!m) return null
+  const [, name, sign, delta] = m
+  let base: number | undefined
+  if (name === 'end') base = end
+  else if (name === 'blackout') base = cues.__blackout
+  else if (name.endsWith('.end')) base = cues[endCue(name.slice(0, -4))]
+  else base = cues[name]
+  if (base === undefined) return null
+  return base + (sign ? (sign === '-' ? -1 : 1) * Number(delta) : 0)
+}
+
+export const REVEAL_GATES = ['mark', 'markUp', 'wordmark', 'plate', 'powered', 'extra', 'bar', 'entered', 'morphOut'] as const
+export const REVEAL_DEFAULT_CUE: Record<(typeof REVEAL_GATES)[number], string> = {
+  mark: '@mark',
+  markUp: '@markUp',
+  wordmark: '@wordmark',
+  plate: '@plate',
+  powered: '@powered',
+  extra: '@bar',
+  bar: '@bar',
+  entered: '@entered',
+  morphOut: '@morph',
+}
+
+/** The boolean gates a piece clip declares, as [key, ref] pairs. */
+export function pieceGates(clip: TimelineClip): Array<[string, TimeRef]> {
+  const P = clip.params ?? {}
+  const out: Array<[string, TimeRef]> = []
+  const push = (key: string, v: ParamValue | undefined) => {
+    const r = timeRef(v)
+    if (r !== undefined) out.push([key, r])
+  }
+  switch (pieceOf(clip)) {
+    case 'card': {
+      const header = obj(P.header)
+      push('identityAt', obj(header.identity).at)
+      push('rightAt', obj(header.right).at)
+      push('statsAt', obj(header.right).statsAt)
+      push('alt', header.altAt)
+      break
+    }
+    case 'logoReveal': {
+      const cues = obj(P.cues)
+      for (const k of REVEAL_GATES) push(k, cues[k] ?? REVEAL_DEFAULT_CUE[k])
+      break
+    }
+    case 'chipRow': {
+      arr(P.items).forEach((it, i) => push(`item${i}`, obj(it).at))
+      break
+    }
+    case 'browserFrame': {
+      push('mount', P.mountAt ?? `@${clip.id}-1`)
+      push('dim', P.dimAt)
+      break
+    }
+    case 'bento': {
+      push('scatter', P.scatter)
+      break
+    }
+    case 'groupFold': {
+      push('gather', P.gatherAt)
+      push('fold', P.foldAt)
+      push('settle', P.settleAt)
+      break
+    }
+  }
+  return out
+}
+
+/** The complete cue map of a data trailer: every clip, every clip end, every
+ *  piece gate, the blackout. The editor derives the same map, so a live drag
+ *  retimes a piece exactly as it retimes a plain cue. */
+export function deriveCues(tl: TrailerTimeline): Record<string, number> {
+  const cues = cuesOf(tl)
+  for (const tr of tl.tracks) {
+    if (tr.kind === 'audio') continue
+    for (const c of tr.clips) {
+      if (pieceOf(c) === undefined) continue
+      for (const [key, ref] of pieceGates(c)) {
+        const t = resolveTime(ref, cues, tl.end)
+        if (t !== null) cues[gateName(c.id, key)] = t
+      }
+    }
+  }
+  return cues
+}
+
+export type StageMetaLike = {
+  name: string
+  mix: string | null
+  end: number
+  camera?: Array<{ at: number; until: number; from: number; to: number; cx?: number; cy?: number }>
+  cues?: Record<string, number>
+}
+
+export type DerivedStage = {
+  meta: StageMetaLike
+  cues: Record<string, number>
+  blackoutAt: number
+  offsets: Record<string, { dx: number; dy: number }>
+  end: number
+}
+
+export function deriveStage(tl: TrailerTimeline): DerivedStage {
+  const cues = deriveCues(tl)
+  const camera = (tl.camera ?? [])
+    .map((m) => {
+      const at = resolveTime(m.at, cues, tl.end)
+      const until = resolveTime(m.until, cues, tl.end)
+      return at === null || until === null ? null : { at, until, from: m.from, to: m.to, cx: m.cx, cy: m.cy }
+    })
+    .filter((m): m is NonNullable<typeof m> => m !== null)
+  return {
+    meta: { name: tl.name, mix: tl.mix, end: tl.end, ...(camera.length ? { camera } : {}) },
+    cues,
+    blackoutAt: cues.__blackout,
+    offsets: offsetsOf(tl),
+    end: tl.end,
+  }
+}
+
+// ── the market tape, from data ──────────────────────────────────────────────
+
+export type BuiltTape = {
+  leg: Candle[]
+  all: Candle[]
+  crashPrices: number[]
+  /** The value every readout measures against (the first open). */
+  base: number
+  crashAt: number
+  crashStepSec: number
+  crashCount: number
+  crashHeightPx: number
+  crashGrowth: number
+  crashSlotStart: number
+  /** Readouts stop advancing here; null = never. */
+  freezeAt: number | null
+  slots: number
+  window: { from: number; until: number }
+  supply: number
+  growSec: number
+}
+
+export function buildTapeFromSpec(P: Params, cues: Record<string, number>, end: number): BuiltTape | null {
+  const t = (v: ParamValue | undefined, d: number | null = null) => resolveTime(timeRef(v), cues, end) ?? d
+  const from = t(P.from)
+  const win = obj(P.window)
+  const winFrom = t(win.from)
+  const winUntil = t(win.until, end)
+  if (from === null || winFrom === null || winUntil === null) return null
+
+  const count = Math.max(1, Math.round(num(P.count, 20)))
+  const rnd = mulberry32(Math.round(num(P.seed, 1337)))
+  let stepSec = num(P.stepSec, NaN)
+  if (!Number.isFinite(stepSec)) {
+    const untilRef = t(P.stepUntil)
+    stepSec = untilRef !== null ? (untilRef - from - num(P.stepPad, 0.4)) / count : 0.4
+  }
+  const leg = buildLeg({
+    rnd,
+    start: num(P.start, 0.0000042),
+    count,
+    from,
+    stepSec,
+    pullbacks: arr(P.pullbacks).map((v) => num(v, -1)),
+  })
+  const all: Candle[] = [...leg]
+
+  const buy = obj(P.buy)
+  const buyAt = t(buy.at)
+  if (buyAt !== null) {
+    const open = all[all.length - 1].close
+    const close = open * num(buy.factor, 1.16)
+    all.push({ at: buyAt, open, close, high: close * num(buy.highPad, 1.018), low: open * num(buy.lowPad, 0.995), up: close >= open })
+  }
+
+  const carry = obj(P.carry)
+  const carryCount = Math.round(num(carry.count, 0))
+  const carryFrom = t(carry.from)
+  if (carryCount > 0 && carryFrom !== null) {
+    let c = all[all.length - 1].close
+    const step = num(carry.stepSec, 0.4)
+    for (let i = 0; i < carryCount; i++) {
+      const open = c
+      const close = open * (num(carry.growBase, 1.035) + rnd() * num(carry.growRand, 0.03))
+      all.push({
+        at: carryFrom + i * step,
+        open,
+        close,
+        high: close * (1 + num(carry.highBase, 0.006) + rnd() * num(carry.highRand, 0.01)),
+        low: open * (1 - num(carry.lowBase, 0.005) - rnd() * num(carry.lowRand, 0.008)),
+        up: true,
+      })
+      c = close
+    }
+  }
+
+  const crash = obj(P.crash)
+  const crashAt = t(crash.at)
+  let c = all[all.length - 1].close
+  const crashPrices = crashAt === null ? [] : arr(crash.factors).map((f) => (c *= num(f, 0.5)))
+
+  return {
+    leg,
+    all,
+    crashPrices,
+    base: leg[0].open,
+    crashAt: crashAt ?? Number.POSITIVE_INFINITY,
+    crashStepSec: num(crash.stepSec, 0.48),
+    crashCount: crashPrices.length,
+    crashHeightPx: num(crash.heightPx, 40),
+    crashGrowth: num(crash.growthFactor, 1.34),
+    crashSlotStart: Math.round(num(crash.slotStart, all.length)),
+    freezeAt: t(P.freezeAt),
+    slots: Math.round(num(P.slots, all.length + crashPrices.length)),
+    window: { from: winFrom, until: winUntil },
+    supply: num(P.supply, 1),
+    growSec: num(P.growSec, 0.26),
+  }
+}

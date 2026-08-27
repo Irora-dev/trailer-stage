@@ -1,0 +1,215 @@
+# Working in this repo (for an AI assistant)
+
+You have been dropped into a **trailer stage**: a system that films a running app,
+narrates it, and cuts the result to the voice. Somebody wants a video about their
+product. Your job is to get them one they are proud of, without spending their
+money or their credibility by accident.
+
+Read this file first. It is written for you, but a human can read it too, and
+they should be able to check any claim you make against it.
+
+---
+
+## 1. What this thing actually is
+
+A trailer here is **three text files** in `trailers/`:
+
+| file | what it holds |
+|---|---|
+| `<name>.timeline.json` | the picture: tracks of clips, each clip a piece on the stage at a time |
+| `<name>.mix.json` | the sound: narration lines, gaps, a music bed, effects — as a SPEC, not audio |
+| `<name>.storyboard.md` | the human read: beats, lines, what it will cost, what to check |
+
+Nothing is a video until somebody runs the pipeline. That is deliberate: text is
+cheap to argue with, and video is not.
+
+Two ideas carry the whole system, and if you understand only two things, make it
+these:
+
+**The picture is data.** Every clip names a `piece` (a card, a chart, the app in
+a browser frame, a logo reveal) and its knobs. One generic renderer plays any
+timeline, so you never write a component to make a trailer — you write JSON.
+The vocabulary is documented at the top of `src/lib/pieces.ts`. Read it before
+you write a single clip.
+
+**Time comes from the voice.** A clip carries an `anchor` — `"line:hook.end+0.4"`
+— saying where its time came from. After the narration is rendered, the mix
+builder measures where every word actually landed and `resolve-cues` rewrites
+every anchored number. So re-recording one line silently re-times everything
+that hangs off it. **You never hand-tune a timestamp.** If you find yourself
+nudging numbers to make something line up, you have skipped the anchor and you
+are about to create work for whoever edits next.
+
+---
+
+## 2. Before you touch anything
+
+Orient in this order. It takes two minutes and it prevents most bad first moves.
+
+```bash
+cat studio.config.json          # the project, the app to film, the theme, the voice
+ls trailers/                    # what already exists
+npm run dev                     # the stage and the studio (leave it running)
+npm run sweep                   # what this repo would publish
+```
+
+Then read `src/lib/pieces.ts` (the vocabulary) and `docs/MANUAL.md` (the craft:
+the method, the laws, the traps that have cost real takes).
+
+**If `trailers/example.timeline.json` exists, read it.** It is a complete, working
+trailer and it will teach you the shape faster than any description.
+
+---
+
+## 3. What to ask the person — before you write anything
+
+This is the part most likely to be skipped and most likely to waste a day. A
+trailer is a claim about somebody's product, in their voice, that they will show
+to their customers. You cannot infer that from a codebase.
+
+Ask these in one message, grouped, with your own proposed answer next to each so
+they can just say "yes, except…". Do not ask them one at a time.
+
+**The story — the only truly required answers**
+
+1. **Who is watching, and what should they do or believe afterwards?** ("a
+   developer evaluating us should understand it works with their existing stack")
+2. **What is the ONE thing this trailer must land?** If they name three, ask which
+   one survives if the other two are cut.
+3. **How long, and where does it go?** A 30-second autoplay loop on a landing page
+   and a 2-minute explainer for a docs page are different films.
+4. **Is there anything that must NOT appear on screen?** Unreleased features,
+   customer names, real balances or accounts, pricing that is not final, a
+   teammate's face in a screenshot. **Ask this every time.** It is the question
+   that prevents the unrecoverable mistake.
+
+**The picture**
+
+5. **Can I film the real app?** If yes: what URL is it on, and does it need a
+   login, seeded data, or a feature flag? (Set `target.url` and
+   `target.storage`.) If it needs a real account or real money to look right, say
+   so now — filming a login wall is a waste of everyone's time.
+6. **What state should it be in?** A demo account, a fixture mode, a specific
+   dataset. Anything on screen that is invented must be visibly labelled as an
+   example — see the honesty law below.
+7. **Brand:** logo file, wordmark, colours, fonts. Or "read them off the app" — in
+   which case put them in `studio.config.json` yourself and show them the result.
+
+**The voice**
+
+8. **Do they have a narrator, or should you audition one?** If auditioning:
+   who is talking — warm and plain, dry and precise, big and theatrical? Give
+   them two or three sentences of description to react to, not an open question.
+9. **Do they want captions?** (Most feeds play muted; captions are a flag on the
+   recorder, not a rewrite.)
+
+**The money and the sign-off**
+
+10. **Who approves the cut, and who authorises the spend?** Rendering narration
+    and music costs real money on their account. Get an explicit yes before the
+    first `--go`, tell them roughly what it will cost, and never re-render
+    something that exists.
+
+If they cannot answer something, these defaults are safe: no music bed, no
+effects, no camera moves, captions off, the theme from their app, one voice
+audition round before committing. These are NOT safe to assume: what may be shown
+on screen, whether the numbers are real, and whether they want to spend anything.
+
+---
+
+## 4. The loop you run
+
+```bash
+# 1. Compile a brief into a trailer. Text only: nothing renders, nothing spends.
+npm run draft -- brief.md --name my-trailer --project ../their-app
+
+# 2. Read the storyboard yourself before showing it. Then show it and get a yes.
+cat trailers/my-trailer.storyboard.md
+
+# 3. Dry run: prints every render it would pay for, and stops.
+npm run trailer -- my-trailer
+
+# 4. The human's click. Renders, builds the mix, re-times from the measured
+#    audio, records, compares against the approved take.
+npm run trailer -- my-trailer --go
+
+# 5. Look at the frames. Then let them watch it.
+npm run critic -- my-trailer      # optional: a ranked defect list from the stills
+npm run review                    # the board: every trailer, newest take, approve button
+```
+
+`--project` accepts a directory or a git URL (it clones shallow). It builds a
+capped, redacted digest — README, structure, routes — so the trailer talks about
+the real product. Run `--print-digest` first if the codebase is sensitive: it
+prints exactly what would be sent and exits.
+
+**Editing a cut.** Do not rewrite the timeline by hand.
+
+```bash
+npm run draft -- notes.md --edit my-trailer --stills 12
+```
+
+The notes can be as loose as "at fourteen seconds the logo lands too early, and
+the second line should be warmer". It gets the current files, the measured cue
+map and the take's stills, and returns a revised set. **Lines whose words did not
+change keep their audio**, so a re-render only pays for what actually changed.
+
+---
+
+## 5. Laws you do not break
+
+**Money.** `--go` is the only thing that spends, and it belongs to the human. A
+file that exists is never re-rendered. Never put a render behind a watcher, a
+retry loop, or a "while I'm here". If a step failed after the spend, fix the
+step — do not re-render to make the error go away.
+
+**Approval.** You never approve a take. Approval is a button on the review board,
+pressed by a person. It writes the golden that every later take is compared
+against.
+
+**Publishing.** You do not push, post, deploy or share anything outward. You
+prepare it and hand over the command.
+
+**Honesty on screen.** Anything invented must be visibly labelled as an example.
+Never show a fabricated number, balance, review, or customer as though it were
+real — not "just for the demo". If the brief asks for a screen you cannot produce
+honestly, say so and offer the honest version instead.
+
+**Determinism.** No `Date.now()`, no `Math.random()` anywhere in a timeline.
+Seeded generators only. If a retake is not the same take, the frame comparison
+that proves an edit changed one thing is worthless — and that comparison is the
+only thing standing between "I fixed the caption" and "I also broke the chart".
+
+**Look at the frames.** Every recording extracts one labelled still per cue. Read
+them before you call a take good. A log cannot see a caption sitting on a logo.
+Most defects in this system's history were found in a still and invisible
+everywhere else.
+
+---
+
+## 6. When something goes wrong
+
+| symptom | what it actually is |
+|---|---|
+| the take is mostly static, tiny file | the picture never moved: check the beats have anchors and the clips have `until` |
+| a click in the app did nothing | it fired before the app was ready. Actions run in order and poll; a DISABLED control means "not yet", so give it `waitFor` |
+| a click hit the wrong thing | `clickText` prefers exact over prefix over substring — pass a longer string, or `within` a container |
+| the cut fades before the last word | `blackoutAnchor` / `endAnchor` are missing, so the edges never re-timed |
+| a beat drifts after re-rendering a line | that clip has a hard number instead of an anchor |
+| "nothing answers at localhost:3000" | start `npm run dev` yourself; the recorder will not start a server (two dev servers on one build cache corrupt it) |
+| ffmpeg missing | `npm i -D ffmpeg-static`, or `FFMPEG_PATH=…` |
+| no API key | everything except rendering works without one; say so rather than stalling |
+
+---
+
+## 7. What to hand back
+
+When you have something to show, give them: **the file path of the take**, the
+review board URL, what it cost, what you are unsure about, and the one or two
+decisions you had to make on their behalf. Name anything you invented and
+anything you could not verify.
+
+If you changed how the system works — a new piece, a new law learned from a
+defect — write it down in `docs/MANUAL.md`, in the section it belongs to. Put the
+LAW in, not the war story: "a disabled control means not-ready, so poll" helps a
+stranger; "this cost us an afternoon on Tuesday" does not.

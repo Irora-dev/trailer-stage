@@ -1,0 +1,236 @@
+{
+ "name": "example",
+ "end": 35.5,
+ "blackoutAt": 33.5,
+ "endAnchor": "line:close.end+2.5",
+ "blackoutAnchor": "line:close.end+0.5",
+ "mix": ".audio/example/example.wav",
+ "scene": { "kind": "theme", "overlay": "grain" },
+ "tracks": [
+  {
+   "id": "open",
+   "name": "Title",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "title",
+     "at": 1.2,
+     "until": 4.2,
+     "params": {
+      "piece": "text",
+      "style": "display",
+      "text": "TRAILER STAGE",
+      "topVh": 44,
+      "sizePx": 72,
+      "letterSpacing": "0.12em"
+     }
+    },
+    {
+     "id": "titlePlate",
+     "at": 1.9,
+     "until": 4.2,
+     "params": { "piece": "text", "style": "eyebrow", "text": "write a brief, get a trailer", "topVh": 55 }
+    }
+   ]
+  },
+  {
+   "id": "chart",
+   "name": "Card & chart",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "card",
+     "at": 4.4,
+     "until": 16.0,
+     "anchor": "line:open.start+0.4",
+     "anchorUntil": "line:pieces.start+3.9",
+     "params": {
+      "piece": "card",
+      "header": {
+       "identity": { "name": "Example Co", "sub": "an example · every number here is invented", "emoji": "◆" },
+       "right": { "at": "@cardNumbers", "statsAt": "@cardNumbers" },
+       "tape": "tape",
+       "prefix": "$",
+       "stats": [{ "label": "total", "readout": "total" }]
+      }
+     }
+    },
+    {
+     "id": "tape",
+     "at": 4.4,
+     "until": 16.0,
+     "anchor": "line:open.start+0.4",
+     "anchorUntil": "line:pieces.start+3.9",
+     "params": {
+      "piece": "marketTape",
+      "seed": 7,
+      "start": 1.2,
+      "count": 18,
+      "from": "@card+0.8",
+      "stepSec": 0.42,
+      "pullbacks": [4, 11],
+      "slots": 20,
+      "supply": 1000,
+      "window": { "from": "@card+0.4", "until": "@card.end+0.6" },
+      "plotHeaderPx": 118
+     }
+    }
+   ]
+  },
+  {
+   "id": "grid",
+   "name": "Weighted tiles",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "bento",
+     "at": 16.3,
+     "until": 21.4,
+     "anchor": "line:pieces.start+4.2",
+     "anchorUntil": "line:pieces.end+0.3",
+     "params": {
+      "piece": "bento",
+      "widthVw": 62,
+      "topVh": 50,
+      "aspect": 1.9,
+      "items": [
+       { "label": "CARD", "weightPct": 22, "color": "#5b45e0" },
+       { "label": "CHART", "weightPct": 18, "color": "#0c7d70" },
+       { "label": "FRAME", "weightPct": 16, "color": "#2152d4" },
+       { "label": "REVEAL", "weightPct": 14, "color": "#8886f7" },
+       { "label": "TEXT", "weightPct": 12, "color": "#b3162f" },
+       { "label": "GRID", "weightPct": 10, "color": "#c2571a" },
+       { "label": "SPRITE", "weightPct": 8, "color": "#3f7fbf" }
+      ]
+     }
+    },
+    {
+     "id": "gridNote",
+     "at": 16.9,
+     "until": 21.4,
+     "params": { "piece": "text", "style": "eyebrow", "text": "every piece is a clip in a JSON file", "bottomVh": 12 }
+    }
+   ]
+  },
+  {
+   "id": "anchors",
+   "name": "The anchor idea",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "anchorLine",
+     "at": 22.2,
+     "until": 28.8,
+     "anchor": "line:timing.start+0.4",
+     "anchorUntil": "line:timing.end",
+     "params": {
+      "piece": "text",
+      "style": "mono",
+      "text": "\"anchor\": \"line:close.start+0.4\"",
+      "topVh": 44,
+      "sizePx": 26
+     }
+    },
+    {
+     "id": "anchorNote",
+     "at": 23.4,
+     "until": 28.8,
+     "params": {
+      "piece": "text",
+      "style": "eyebrow",
+      "text": "re-record a line and every beat that hangs off it moves with it",
+      "topVh": 56,
+      "maxWidthCh": 46
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "name": "Reveal & close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "mark",
+     "at": 29.5,
+     "anchor": "line:close.start",
+     "params": { "piece": "logoReveal", "plateText": "write a brief, get a trailer", "poweredText": "open source · CC0" }
+    },
+    { "id": "markUp", "at": 30.1 },
+    { "id": "wordmark", "at": 30.6 },
+    { "id": "plate", "at": 31.2 },
+    { "id": "powered", "at": 31.7 },
+    { "id": "flip", "at": 29.3, "params": { "piece": "channelFlip", "durationMs": 380 } }
+   ]
+  },
+  {
+   "id": "beats",
+   "name": "Beats",
+   "kind": "marker",
+   "clips": [{ "id": "cardNumbers", "at": 6.0, "anchor": "line:open.start+2", "params": { "label": "the readings arrive" } }]
+  },
+  {
+   "id": "captions",
+   "name": "Captions",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cap1",
+     "at": 4.0,
+     "until": 11.4,
+     "anchor": "line:open.start",
+     "anchorUntil": "line:open.end",
+     "params": { "piece": "caption", "text": "This is a trailer stage. It films your app, narrates it, and cuts itself to the voice." }
+    },
+    {
+     "id": "cap2",
+     "at": 12.1,
+     "until": 21.1,
+     "anchor": "line:pieces.start",
+     "anchorUntil": "line:pieces.end",
+     "params": { "piece": "caption", "text": "Everything you see is a JSON file. A card, a chart, a grid of weights, all of it data you can edit by hand." }
+    },
+    {
+     "id": "cap3",
+     "at": 21.8,
+     "until": 28.8,
+     "anchor": "line:timing.start",
+     "anchorUntil": "line:timing.end",
+     "params": { "piece": "caption", "text": "And every beat is anchored to a line of narration, so re-recording one line re-times the whole cut." }
+    },
+    {
+     "id": "cap4",
+     "at": 29.5,
+     "until": 33.0,
+     "anchor": "line:close.start",
+     "anchorUntil": "line:close.end",
+     "params": { "piece": "caption", "text": "Write a brief. Get a trailer." }
+    }
+   ]
+  },
+  {
+   "id": "lines",
+   "name": "Narration lines",
+   "kind": "marker",
+   "locked": true,
+   "clips": [
+    { "id": "__line-open", "at": 4.0, "until": 11.4, "anchor": "line:open.start", "anchorUntil": "line:open.end", "params": { "label": "open" } },
+    { "id": "__line-pieces", "at": 12.1, "until": 21.1, "anchor": "line:pieces.start", "anchorUntil": "line:pieces.end", "params": { "label": "pieces" } },
+    { "id": "__line-timing", "at": 21.8, "until": 28.8, "anchor": "line:timing.start", "anchorUntil": "line:timing.end", "params": { "label": "timing" } },
+    { "id": "__line-close", "at": 29.5, "until": 33.0, "anchor": "line:close.start", "anchorUntil": "line:close.end", "params": { "label": "close" } }
+   ]
+  },
+  {
+   "id": "vo",
+   "name": "Narration (estimated until the mix is built)",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    { "id": "vo-open", "at": 4.0, "until": 11.4, "params": { "label": "open" } },
+    { "id": "vo-pieces", "at": 12.1, "until": 21.1, "params": { "label": "pieces" } },
+    { "id": "vo-timing", "at": 21.8, "until": 28.8, "params": { "label": "timing" } },
+    { "id": "vo-close", "at": 29.5, "until": 33.0, "params": { "label": "close" } }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+  "comment": "The worked example's sound, as a SPEC — nothing is rendered until someone runs `npm run trailer -- example --go` with a voice key. Until then the timeline plays as a silent draft, which is exactly how you iterate on picture for free. Note the direction in the lines: bracketed tags, ellipses for real pauses, CAPS on the word that carries the sentence. A line handed over as plain text is read flat.",
+  "parts": [
+    {
+      "id": "open",
+      "src": ".audio/example/example-open.vo.mp3",
+      "render": {
+        "voice": "narrator",
+        "text": "[warmly] This is a trailer stage. It films your app, narrates it... and cuts itself to the voice."
+      }
+    },
+    { "gap": 0.7 },
+    {
+      "id": "pieces",
+      "src": ".audio/example/example-pieces.vo.mp3",
+      "render": {
+        "voice": "narrator",
+        "text": "[curious] Everything you see is a JSON file. A card, a chart, a grid of weights... all of it DATA, that you can edit by hand."
+      }
+    },
+    { "gap": 0.7 },
+    {
+      "id": "timing",
+      "src": ".audio/example/example-timing.vo.mp3",
+      "render": {
+        "voice": "narrator",
+        "text": "And every beat is anchored to a line of narration. So re-record ONE line... and the whole cut re-times itself."
+      }
+    },
+    { "gap": 0.7 },
+    {
+      "id": "close",
+      "src": ".audio/example/example-close.vo.mp3",
+      "render": { "voice": "narrator", "text": "[confident] Write a brief. Get a trailer." }
+    }
+  ],
+  "bed": {
+    "src": ".audio/example/example-bed.music.mp3",
+    "render": {
+      "prompt": "Minimal, elegant, modern ambient for a product explainer: soft felt piano, warm analog pads, a light steady pulse, unhurried and optimistic, instrumental, no vocals, clean and spacious",
+      "seconds": 40
+    }
+  },
+  "bedGainDb": 1.5,
+  "duckDb": 4,
+  "prerollSec": 4,
+  "tailSec": 3
+}

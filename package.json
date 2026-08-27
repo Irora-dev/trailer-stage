@@ -1,0 +1,44 @@
+{
+  "name": "trailer-stage",
+  "version": "0.1.0",
+  "private": false,
+  "license": "CC0-1.0",
+  "description": "Write a brief, get a trailer. A programmable stage that films your own running app, narrates it, and re-times itself from the measured voice.",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src",
+    "draft": "node scripts/draft.mjs",
+    "trailer": "node scripts/trailer.mjs",
+    "resolve": "node scripts/resolve-cues.mjs",
+    "mix": "node scripts/build-mix.mjs",
+    "record": "node scripts/record.mjs",
+    "review": "node scripts/review.mjs",
+    "critic": "node scripts/critic.mjs",
+    "compare": "node scripts/compare.mjs",
+    "export": "node scripts/export.mjs",
+    "sweep": "node scripts/sweep.mjs",
+    "verify": "tsc --noEmit && eslint src && next build"
+  },
+  "dependencies": {
+    "next": "16.1.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "puppeteer-core": "^25.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "optionalDependencies": {},
+  "engines": { "node": ">=20.11" }
+}
