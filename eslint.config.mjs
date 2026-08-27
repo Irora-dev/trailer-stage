@@ -1,10 +1,16 @@
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { FlatCompat } from '@eslint/eslintrc'
+// Flat config, imported directly from eslint-config-next.
+//
+// Going through the eslintrc compatibility layer instead crashes while it tries
+// to serialise its own config for an error message (a circular reference in the
+// plugin graph), which looks like a broken repo and is not.
 
-const compat = new FlatCompat({ baseDirectory: dirname(fileURLToPath(import.meta.url)) })
+import coreWebVitals from 'eslint-config-next/core-web-vitals'
+import typescript from 'eslint-config-next/typescript'
+
+const flat = (c) => (Array.isArray(c) ? c : [c])
 
 export default [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  { ignores: ['.next/**', 'node_modules/**', 'scripts/**', '.takes/**'] },
+  ...flat(coreWebVitals),
+  ...flat(typescript),
+  { ignores: ['.next/**', 'node_modules/**', 'scripts/**', '.takes/**', '.audio/**'] },
 ]

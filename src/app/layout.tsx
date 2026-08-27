@@ -15,10 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" style={vars}>
       <head>
         {/* The theme's own type, so stage furniture matches the app it films. */}
-        {cfg.theme.fontHref ? (
-          // eslint-disable-next-line @next/next/no-page-custom-font
-          <link rel="stylesheet" href={cfg.theme.fontHref} />
-        ) : null}
+        {cfg.theme.fontHref ? <link rel="stylesheet" href={cfg.theme.fontHref} /> : null}
       </head>
       <body>{children}</body>
     </html>
