@@ -24,12 +24,13 @@ export type PlotRect = { x: number; y: number; w: number; h: number }
 /** The plot rect inside a centred card. `headerPx` is the band the card's own
  *  header occupies; a chart must leave it alone or it draws over the title. */
 export const plotFor =
-  (widthVw: number, heightVh: number, headerPx: number) =>
+  (widthVw: number, heightVh: number, headerPx: number, cxVw = 50, cyVh = 50) =>
   (W: number, H: number): PlotRect => {
     const cardW = W * (widthVw / 100)
     const cardH = H * (heightVh / 100)
-    const cardX = (W - cardW) / 2
-    const cardY = (H - cardH) / 2
+    // The card's centre in viewport units; 50/50 is the middle-card law's default.
+    const cardX = W * (cxVw / 100) - cardW / 2
+    const cardY = H * (cyVh / 100) - cardH / 2
     return { x: cardX + 14, y: cardY + headerPx, w: cardW - 28, h: cardH - headerPx - 18 }
   }
 

@@ -28,7 +28,9 @@
  *                cps?, enter?, y?, frac?, waitFor? }] — actions run IN ORDER,
  *                each after the previous settled, and a click POLLS for an
  *                enabled target: the app answers on the network's clock.
- *  card          a themed panel: width?, height?, header? { identity {name, sub,
+ *  card          a themed panel: width?, height?, leftVw?, topVh? (its CENTRE in
+ *                viewport units, 50/50 = the middle; a chart drawn inside it takes the
+ *                same pair), header? { identity {name, sub,
  *                iconSrc?, emoji?, at?}, right? {at?, statsAt?}, headline?
  *                {text, altText?, color?, altColor?}, tape? (a marketTape clip
  *                id: the header reads live from it), stats: [{label, value?,
@@ -41,7 +43,8 @@
  *  lineChart     series: [{label, color, kind: 'area'|'dotted', points: [{at, v}],
  *                altAt?, altColor?, format? {prefix?, decimals?, suffix?}}],
  *                window {from, until}, plotHeaderPx?, gap? {at, until?, label},
- *                pin? {at, label, seriesIdx}
+ *                pin? {at, label, seriesIdx}, cardWidthVw? (86), cardHeightVh? (76),
+ *                leftVw?, topVh? (the plot box's centre; match the card it sits in)
  *  bento         items: [{label, weightPct, color, logo?}], aspect?, widthVw?,
  *                topVh?, locked?, scatter? (TimeRef: the tiles fly apart)
  *  groupFold     the fold: many items across groups become ONE card per group.

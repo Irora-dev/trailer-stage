@@ -317,7 +317,7 @@ function CardPiece({ clip, on, p }: PieceProps) {
   })
   const readout: Readout | undefined = chartId ? { value: snap.value, pct: snap.pct, total: snap.total } : undefined
   return (
-    <StageCard visible={on} width={str(P.width, '86vw')} height={str(P.height, '76vh')}>
+    <StageCard visible={on} width={str(P.width, '86vw')} height={str(P.height, '76vh')} leftVw={num(P.leftVw, 50)} topVh={num(P.topVh, 50)}>
       {Object.keys(header).length > 0 && (
         <StageCardHeader
           identity={{
@@ -355,7 +355,7 @@ function TapePiece({ clip, d, on }: PieceProps) {
   const store = useChartStore(clip.id)
   const tapeRef = useRef<{ geom: () => TapeGeometry } | null>(null)
   const headerPx = num(P.plotHeaderPx, 118)
-  const plotOf = useMemo(() => plotFor(num(P.cardWidthVw, 86), num(P.cardHeightVh, 76), headerPx), [P, headerPx])
+  const plotOf = useMemo(() => plotFor(num(P.cardWidthVw, 86), num(P.cardHeightVh, 76), headerPx, num(P.leftVw, 50), num(P.topVh, 50)), [P, headerPx])
 
   useEffect(() => {
     store.attach(built, () => tapeRef.current?.geom() ?? null)
@@ -462,7 +462,7 @@ function LineChartPiece({ clip, d, on }: PieceProps) {
     }
   }, [P, d, clip.at, clip.until])
   const headerPx = num(P.plotHeaderPx, 118)
-  const plotOf = useMemo(() => plotFor(num(P.cardWidthVw, 86), num(P.cardHeightVh, 76), headerPx), [P, headerPx])
+  const plotOf = useMemo(() => plotFor(num(P.cardWidthVw, 86), num(P.cardHeightVh, 76), headerPx, num(P.leftVw, 50), num(P.topVh, 50)), [P, headerPx])
   return <StageLineChart series={series} window={{ from, until }} plotOf={plotOf} visible={on} gap={gap} pin={pin} />
 }
 

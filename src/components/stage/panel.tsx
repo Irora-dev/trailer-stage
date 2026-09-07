@@ -21,17 +21,25 @@ export function StageCard({
   visible,
   width = '86vw',
   height = '76vh',
+  leftVw = 50,
+  topVh = 50,
   children,
 }: {
   visible: boolean
   width?: string
   height?: string
+  /** The card's CENTRE, in viewport units (50/50 = the middle of the stage). A chart
+   *  drawn inside it passes the same pair to `plotFor`, so both move together. */
+  leftVw?: number
+  topVh?: number
   children?: ReactNode
 }) {
   return (
     <div
-      className="fixed top-1/2 left-1/2 z-20 overflow-hidden rounded-3xl transition-all duration-700 ease-out"
+      className="fixed z-20 overflow-hidden rounded-3xl transition-all duration-700 ease-out"
       style={{
+        left: `${leftVw}vw`,
+        top: `${topVh}vh`,
         width,
         height,
         opacity: visible ? 1 : 0,
