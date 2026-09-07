@@ -375,9 +375,17 @@ LINE RULES — these are trailer lines, and the model that speaks them takes dir
   "render" block: provider ("fal" or "gemini"), model (an id from the catalogue in the manual's
   footage chapter), prompt (ONE shot: subject · action · camera and lens · light · texture; no
   on-screen text, no logos, no real or recognisable people), negative ("text, logos, real
-  people"), seconds "auto", resolution "720p", aspect "16:9", audio false. fit "cover" for a
-  full-bleed shot, "contain" or "card" for a shot in a box. Six shots or fewer, each 3 to 8 s
-  of the cut. Nothing renders until a person runs the pipeline with --go and pays for it.
+  people"), seconds 4 to 6 (never "auto" for a shot meant to be cut short), resolution "720p",
+  aspect "16:9", audio false. fit "cover" for a full-bleed shot, "contain" or "card" for a shot
+  in a box. DIRECT IT LIKE A FILM, NOT A SLIDESHOW: for 30 s of cut, ten to fourteen shots of 2
+  to 4 s each on the cut, with coverage (a wide, a medium and a close of every scene; inserts of
+  hands, boots, props; a reaction close after every turn), one clear action per shot, one camera
+  move at most, the lens named (35 mm wides, 50 mm mediums, 85 mm faces). Repeat the SAME look
+  paragraph, the same time of day and light, and the SAME reference set (named @Image1..
+  @Video1) in every shot of a scene: the model has no memory between shots. Never fiddly prop
+  business (a monocle popping, a card caught, a cane in a run): props stay in hand or are dropped
+  in their own beat. One model for the whole piece. Nothing renders until a person runs the
+  pipeline with --go and pays for it.
   To put the REAL product inside a generated scene, give a reference-to-video model the stage's
   own recording as a reference: refs.images may hold "@still:<clipId>+<s>" (one frame of the
   recorded take at that clip's time) and refs.videos "@take:newest:<clipId>..<clipId>+<s>" (a

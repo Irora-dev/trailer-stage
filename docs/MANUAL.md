@@ -206,6 +206,17 @@ box. `hold: 'freeze'` is the default because the narration re-times spans by
 fractions and a frozen last frame reads as a beat; `loop` is for ambience;
 `black` cuts.
 
+**Direct a film, not a slideshow.** Four shots of ten seconds each is a
+screensaver (2026-09-07: every piece that evening lingered). For thirty seconds of
+cut, write ten to fourteen shots of two to four seconds each, with coverage: a
+wide, a medium and a close of every scene, inserts of hands and boots and props,
+a reaction close after every turn. Generate each at 4 to 6 s (the models' minimum
+is 4) and let the anchor cut it short; a shot's cost is its generated length, not
+its cut length, and a 1080p Seedance shot takes eight to thirteen minutes
+whatever its length, so `--parallel 4`. Repeat the same look paragraph, time of
+day, light and reference set in every shot of a scene: the model has no memory
+between shots. One camera move at most, the lens named.
+
 **A reference sets the style as much as the identity.** A flat, thick-outlined
 mascot PNG handed to a reference-to-video model as "the character" pulls the whole
 shot flat, whatever the prompt says about brushwork (2026-09-07: three shots of one
