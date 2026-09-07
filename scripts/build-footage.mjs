@@ -482,7 +482,7 @@ async function renderOne(r, file) {
       for (const w of warnings) console.log(`      ⚠ ${w}`)
     } catch (e) {
       failed++
-      console.log(`\n      FAILED: ${e.message.split('\n')[0].slice(0, 300)}`)
+      console.log(`\n      FAILED ${label}: ${e.message.split('\n')[0].slice(0, 300)}`)
       if (readPending(file)) console.log('      (a pending marker remains: the next run fetches this render instead of paying again; --resubmit to pay again)')
     }
   }
