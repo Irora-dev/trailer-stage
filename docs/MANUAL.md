@@ -261,12 +261,15 @@ upload), and per-shot take picking on the review board.
   makes frame comparison useless. If it must be identical, make it a sprite. (The
   `footage` piece narrows this to about two frames by seeking to the stage clock,
   and a frozen last frame is exact.)
-- **The recorder's clock is the browser's frame delivery.** Frames are encoded at
-  a fixed rate, so a take whose screencast delivered fewer frames than the rate
-  runs fast: 569 frames for a 21 s cut plays in 19 s. Two takes of one trailer
-  then land their cue stills on different moments and compare low everywhere,
-  not only on video. Read the "N frames → Xs (want Ys)" line before trusting a
-  comparison, and record on a quiet machine.
+- **The take's clock is the wall clock, not the frame count.** The screencast only
+  sends a frame when the page repaints, so a static hold (a frozen shot, a card at
+  rest) would vanish from a take encoded at a fixed rate, and every later beat
+  would land early against the mix and the cue stills — 569 frames for a 21 s cut
+  once played in 19 s. The recorder therefore places each frame at its wall-clock
+  slot, repeating the previous frame across a gap and dropping one when the
+  browser runs ahead, and reports `captured → placed · held · dropped`. A large
+  `dropped` count means the machine is too slow for the rate: record on a quiet
+  machine or lower `record.fps`.
 - **Zero captured frames looks like a mux error downstream.** The recorder names
   it instead: if it says the browser produced no frames, the page never painted.
 - **Do not run two dev servers against one build cache.** The recorder refuses to

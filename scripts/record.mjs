@@ -156,16 +156,45 @@ let encErr = ''
 enc.stderr.on('data', (d) => (encErr += d.toString()))
 
 const client = await page.createCDPSession()
-let frames = 0
+let frames = 0 // delivered by the browser
+let written = 0 // placed on the wall clock
+let held = 0 // repeats written across gaps (a static hold, a slow paint)
+let merged = 0 // frames that arrived inside an already-filled slot (they become the next hold frame, nothing is lost)
 let armed = false
+let startedAt = 0
+let last = null
+const emit = (buf) => {
+  enc.stdin.write(buf)
+  written++
+}
 client.on('Page.screencastFrame', async ({ data, sessionId }) => {
   frames++
-  enc.stdin.write(Buffer.from(data, 'base64'))
-  // Arm the stage clock only once a frame has actually been captured: this is
-  // what makes footage time equal mix time.
+  const buf = Buffer.from(data, 'base64')
   if (!armed) {
+    // Arm the stage clock only once a frame has actually been captured: this is
+    // what makes footage time equal mix time. The wall clock starts here too.
     armed = true
+    startedAt = Date.now()
+    emit(buf)
+    last = buf
     await page.evaluate(() => window.__stage.start())
+  } else {
+    // THE TAKE'S CLOCK IS THE WALL CLOCK, NOT THE FRAME COUNT. The screencast only
+    // sends a frame when the page repaints, so a static hold (a frozen shot, a
+    // card at rest) would otherwise vanish from the take and every later beat
+    // would land early — against the mix, and against the cue stills. So each
+    // frame is placed at its wall-clock slot: the previous frame is repeated
+    // across a gap, and a frame that lands in a slot already filled is kept as
+    // the next hold frame rather than written (delivery is jittery: clumps of
+    // frames, then none — the clock, not the clump, decides what is a frame).
+    const slot = Math.round(((Date.now() - startedAt) / 1000) * FPS)
+    while (written < slot) {
+      emit(last)
+      held++
+    }
+    if (written <= slot) emit(buf)
+    else merged++
+    last = buf
   }
   try {
     await client.send('Page.screencastFrameAck', { sessionId })
@@ -177,6 +206,15 @@ await client.send('Page.startScreencast', { format: 'jpeg', quality: 92, maxWidt
 
 await new Promise((res) => setTimeout(res, (END + 1.2) * 1000))
 await client.send('Page.stopScreencast').catch(() => {})
+// Hold the last frame to the end of the cut, so a take never comes up short
+// because nothing repainted after the final beat (the mux trims at END).
+if (last) {
+  const need = Math.round((END + 0.4) * FPS)
+  while (written < need) {
+    emit(last)
+    held++
+  }
+}
 enc.stdin.end()
 await new Promise((res) => enc.on('close', res))
 await browser.close()
@@ -188,8 +226,13 @@ if (frames === 0) {
   console.error(encErr.split('\n').slice(-8).join('\n'))
   process.exit(1)
 }
-const capturedSec = frames / FPS
-console.log(`  take        ${frames} frames → ${capturedSec.toFixed(2)}s (want ${END.toFixed(2)}s)`)
+const capturedSec = written / FPS
+console.log(
+  `  take        ${frames} frames captured → ${written} placed on the clock (${capturedSec.toFixed(2)}s; want ${END.toFixed(2)}s) · ${held} held · ${merged} merged`,
+)
+// Holds are normal (a static beat repaints nothing). A take that is MOSTLY holds
+// means the browser could not keep up: the picture will step, not move.
+if (held > written * 0.5) console.log('  ⚠ more than half the take is held frames — the machine could not paint at this rate; record on a quiet machine or lower record.fps')
 
 // ── the mux ─────────────────────────────────────────────────────────────────
 const CAM_SS = 4
