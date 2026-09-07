@@ -46,7 +46,7 @@ import { abs, disclosureProblem, fmtUsd, footageRenders, isRemote, validatePlan 
 import { isStageRef, resolveStageRef, stageRefProblem } from './footage/refs.mjs'
 import { conformInput, inputSchemaOf, loadSchema, validateInput } from './footage/schema.mjs'
 import { acquireLock, appendSpend, capProblems, clearPending, ledgerPathOf, monthToDate, readPending, writePending } from './footage/spend.mjs'
-import { download, falAwait, falGenerate, falInput, falKey, imageDataUri, uploadToFal } from './footage/providers/fal.mjs'
+import { download, elideDataUris, falAwait, falGenerate, falInput, falKey, imageDataUri, uploadToFal } from './footage/providers/fal.mjs'
 import { geminiKey, omniAwait, omniGenerate, veoAwait, veoGenerate } from './footage/providers/gemini.mjs'
 
 const target = process.argv[2]
@@ -448,7 +448,7 @@ for (const r of owed) {
             prompt: r.render.prompt,
             negative: r.render.negative ?? null,
             refs: meta.refs ?? null,
-            request: request ?? null,
+            request: request ? elideDataUris(request) : null,
             schema: r.provider === 'fal' ? { source: schemas.get(r.model)?.source ?? null, notes: schemaNotes } : null,
             secondsAsked: r.seconds,
             secondsReturned: probe.seconds,

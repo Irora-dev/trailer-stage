@@ -299,8 +299,33 @@ cat .footage/<n>/<shot>.footage.json                   # read the sidecar: reque
 
 Then the real shots. Everything in the first three lines runs without a key.
 
-Not yet: per-shot take picking on the review board, and the adapters' first live
-call.
+**Loops — a shot that comes back to its start.** A hero background or an ambient
+plate wants a seamless loop, and a generator will hand you one: put the SAME still
+in `refs.images` twice on an image-to-video endpoint (Kling 3.0 Pro takes
+`start_image_url` + `end_image_url`, Seedance 2.0 `image_url` + `end_image_url`,
+MiniMax likewise), ask for even, unhurried motion "so the scene arrives back
+exactly where it began", and keep the camera locked off. Then close it for free:
+
+```bash
+npm run loop -- <n> <shot>                 # .footage/<n>/<shot>.loop.mp4 + .loop.json + .loop.seam.jpg + .loop-x3.mp4
+npm run loop -- <n> <shot> --out ~/site/public/hero-loop.mp4 --blend 8   # copy it out; force an 8-frame blend
+```
+
+The tool reads the master, finds the tail frame that is frame 0 again (SSIM) and
+cuts there so the moment is not shown twice, measures the seam — the luma step
+from the loop's last frame back to its first — against the median step between
+neighbouring frames, and blends the head over the tail only when that seam steps
+more than 1.6× a normal step (`--blend auto`, the default; `off`, or a frame
+count). It also reports how the model eased into its end frame (`ease out ×0.7`
+means it braked to 70% of its pace): a low figure is the one thing a blend cannot
+fix, and a retake with a stronger "no pause, no change of speed" line usually can.
+The result is cover-fitted to the record size, encoded at CRF 18, and the report
+says whether the file's own loop point is seamless (exit 0) or still steps (exit 2).
+The preview plays the loop three times in one file, so the join is judged without
+a player's own gap. The math is in `scripts/footage/loop-math.mjs`, tested offline.
+
+Not yet: per-shot take picking on the review board. (The adapters' first live call
+happened 2026-09-07: one first-light shot, then a five-shot trailer and two loops.)
 
 ---
 

@@ -24,9 +24,10 @@ import { ffmpegPath, paths, ROOT } from '../lib.mjs'
 import { MODELS, modelInfo, pickSeconds, priceOf } from './models.mjs'
 import { disclosureProblem, footageManifest, footageRenders, footageSrcOf, takeFile, validatePlan } from './plan.mjs'
 import { cueTimes, parseStageRef, parseTimeExpr, resolveStageRef, stageRefProblem } from './refs.mjs'
-import { falInput } from './providers/fal.mjs'
+import { elideDataUris, falInput } from './providers/fal.mjs'
 import { omniRequest, veoRequest } from './providers/gemini.mjs'
 import { conformInput, inputSchemaOf, loadSchema, validateInput } from './schema.mjs'
+import { blendFrames, blendPlan, evenFrames, median, motionProfile, pickCut, seamVerdict } from './loop-math.mjs'
 import { acquireLock, appendSpend, capProblems, clearPending, ledgerPathOf, monthToDate, readPending, writePending } from './spend.mjs'
 
 let pass = 0
@@ -289,6 +290,62 @@ try {
     const gateOff = run(['scripts/trailer.mjs', missName, '--go', '--skip-footage', '--no-disclosure-check', '--no-record'])
     ok(gateOff.status === 0, '--no-disclosure-check lets a draft through (status ' + gateOff.status + ')')
   } else console.log('  (ffmpeg not found: builder and gate tests skipped)')
+
+  // ── sidecars: inline references elided ────────────────────────────────────
+  section('sidecars elide inline data URIs')
+  const big = `data:image/png;base64,${Buffer.alloc(3000, 7).toString('base64')}`
+  const el = elideDataUris({ prompt: 'p', start_image_url: big, nested: [big, 'https://x/y.png', 8] })
+  ok(el.prompt === 'p' && /^data:image\/png;base64,<elided 3000 bytes · sha1 [0-9a-f]{40}>$/.test(el.start_image_url) && el.nested[0] === el.start_image_url && el.nested[1] === 'https://x/y.png' && el.nested[2] === 8, 'data URIs become a mime + byte count + sha1 note; everything else is untouched')
+  ok(elideDataUris('data:image/png;base64,AAAA') === 'data:image/png;base64,AAAA', 'a short data URI is left alone')
+
+  // ── loops: a shot generated first-frame = last-frame, closed for free ─────
+  section('loops (footage/loop-math.mjs + scripts/loop.mjs)')
+  ok(median([]) === 0 && median([3, 1, 2]) === 2 && median([4, 1, 3, 2]) === 2.5, 'median: empty, odd, even')
+  const even = Array.from({ length: 40 }, () => 2)
+  const braked = [...Array.from({ length: 4 }, () => 0.5), ...Array.from({ length: 32 }, () => 2), ...Array.from({ length: 4 }, () => 0.5)]
+  ok(motionProfile(even).easeIn === 1 && motionProfile(even).easeOut === 1 && motionProfile(even).median === 2, 'an even clip eases ×1 at both ends')
+  const mp = motionProfile(braked)
+  ok(mp.median === 2 && mp.easeIn === 0.25 && mp.easeOut === 0.25, `a clip that brakes into its end frame reads as ease ×0.25 (${mp.easeIn}/${mp.easeOut})`)
+  const c1 = pickCut(240, [{ index: 236, ssim: 0.91 }, { index: 238, ssim: 0.985 }, { index: 239, ssim: 0.97 }])
+  ok(c1.cut === 238 && c1.dropped === 2 && c1.duplicate === 238, 'the best-matching tail frame is the duplicate; it and everything after it are dropped')
+  const c2 = pickCut(240, [{ index: 238, ssim: 0.9 }, { index: 239, ssim: 0.93 }])
+  ok(c2.cut === 240 && c2.dropped === 0 && c2.duplicate === null && c2.ssim === 0.93, 'no tail frame clearing the bar keeps every frame')
+  ok(pickCut(240, [{ index: 0, ssim: 1 }, { index: 240, ssim: 1 }]).cut === 240, 'frame 0 and an index past the end are never the duplicate')
+  ok(seamVerdict(2.4, 2).seamless && !seamVerdict(4, 2).seamless && seamVerdict(0, 0).seamless && !seamVerdict(1, 0).seamless, 'a seam is clean at ≤1.6× the median step; a still clip with a stepping seam is not')
+  const bp = blendPlan(240, 8, 24)
+  ok(bp.outFrames === 232 && bp.bodyFrom === 8 && bp.headTo === 8 && Math.abs(bp.durationSec - 1 / 3) < 1e-9 && Math.abs(bp.offsetSec - 224 / 24) < 1e-9, "the blend plan: body [8,240), head [0,8), fade over the body's last 8 frames")
+  let shortBlend = false
+  try {
+    blendPlan(20, 8, 24)
+  } catch {
+    shortBlend = true
+  }
+  ok(shortBlend, 'a clip too short for its blend is refused')
+  ok(blendFrames(24) === 8 && blendFrames(30) === 10 && blendFrames(1) === 2, 'blend frames ≈ a third of a second, never fewer than 2')
+  ok(JSON.stringify(evenFrames([2, 2, 2, 2, 2], 6, 2, 2)) === JSON.stringify([0, 1, 2, 3, 4, 5]), 'an even clip comes back whole from the even pass')
+  const ev = evenFrames([2, 2, 2, 2, 2, 2, 0.5, 0.5, 0.5, 0.5, 0.5], 12, 2, 2)
+  ok(ev[0] === 0 && ev.every((v, i) => i === 0 || v > ev[i - 1]) && ev.every((v) => v < 12) && ev.length >= 8 && ev.length < 12, `a braked tail is thinned to an even pace, frames only dropped (${JSON.stringify(ev)})`)
+  ok(evenFrames([], 1, 0, 2).length === 1 && evenFrames([1, 1], 3, 1, 0).length === 3, 'a one-frame clip and a zero target step pass through untouched')
+  if (FF) {
+    // A 25-frame clip whose white square circles once per second at 24 fps (a true circle, so the
+    // pace is even): frame 24 is frame 0 again.
+    const sample = join(TMP, 'circle.mp4')
+    const gen = spawnSync(FF, ['-y', '-v', 'error', '-f', 'lavfi', '-i', 'color=c=black:s=320x180:r=24', '-f', 'lavfi', '-i', 'color=c=white:s=40x40:r=24', '-filter_complex', '[0][1]overlay=x=round(140+40*sin(2*PI*t)):y=round(70+40*cos(2*PI*t))', '-frames:v', '25', '-pix_fmt', 'yuv420p', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '12', sample], { encoding: 'utf8' })
+    ok(gen.status === 0 && existsSync(sample), 'the synthetic loop clip renders')
+    const l1 = run(['scripts/loop.mjs', '--file', sample, '--size', '320x180', '--cycles', '2'])
+    const repPath = join(TMP, 'circle.loop.json')
+    const rep = existsSync(repPath) ? JSON.parse(readFileSync(repPath, 'utf8')) : null
+    ok(l1.status === 0 && rep, `loop.mjs closes the clip (status ${l1.status}: ${(l1.stdout + l1.stderr).trim().split('\n').pop()})`)
+    ok(rep && rep.cut.duplicate === 24 && rep.cut.dropped === 1 && rep.output.frames === 24, `frame 24 is found as the duplicate and dropped (${JSON.stringify(rep?.cut)}, out ${rep?.output?.frames} frames)`)
+    ok(rep && rep.blend === null && rep.outputSeam.seamless, `a clip that arrives home needs no blend and loops seamlessly (ratio ${rep?.outputSeam?.ratio})`)
+    ok(existsSync(join(TMP, 'circle.loop-x2.mp4')) && existsSync(join(TMP, 'circle.loop.seam.jpg')), 'the preview and the seam sheet are written')
+    const l2 = run(['scripts/loop.mjs', '--file', sample, '--size', '320x180', '--cycles', '0', '--blend', '4'])
+    const rep2 = existsSync(repPath) ? JSON.parse(readFileSync(repPath, 'utf8')) : null
+    ok(l2.status === 0 && rep2?.blend?.n === 4 && rep2.output.frames === 20, `a forced 4-frame blend yields 20 frames (status ${l2.status}, ${rep2?.output?.frames} frames)`)
+    const l3 = run(['scripts/loop.mjs', '--file', sample, '--size', '320x180', '--cycles', '0', '--even', 'on'])
+    const rep3 = existsSync(repPath) ? JSON.parse(readFileSync(repPath, 'utf8')) : null
+    ok(l3.status === 0 && rep3 && rep3.blend === null && rep3.output.frames >= 22 && rep3.output.frames <= 24, `--even on an even clip keeps (nearly) every frame and skips the blend (status ${l3.status}, ${rep3?.output?.frames} frames, even ${JSON.stringify(rep3?.even)})`)
+  }
 } finally {
   for (const c of cleanup)
     try {

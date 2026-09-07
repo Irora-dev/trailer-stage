@@ -167,7 +167,9 @@ in dollars, `--go` renders it under four caps (per run, per shot, per month, and
 the age of the price table) after the request has been validated against the
 provider's own schema, and each shot leaves a provenance sidecar and a ledger
 row. Tell the person the figure before they click. Run `npm run footage:test` and
-a `--mock --go` before the first real shot on any new key or endpoint.
+a `--mock --go` before the first real shot on any new key or endpoint. Closing a
+rendered shot into a loop (`npm run loop`) is free and never re-renders: it reads
+the master and writes beside it.
 
 **Approval.** You never approve a take. Approval is a button on the review board,
 pressed by a person. It writes the golden that every later take is compared

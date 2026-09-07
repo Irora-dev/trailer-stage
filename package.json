@@ -21,6 +21,7 @@
     "export": "node scripts/export.mjs",
     "footage": "node scripts/build-footage.mjs",
     "footage:test": "node scripts/footage/test.mjs",
+    "loop": "node scripts/loop.mjs",
     "sweep": "node scripts/sweep.mjs",
     "verify": "tsc --noEmit && eslint src && node scripts/footage/test.mjs && next build"
   },

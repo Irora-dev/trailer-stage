@@ -133,6 +133,12 @@ tests, and `--mock --go` runs the whole path on a generated clip for nothing.
 The rules of the craft — what a shot may depict, the disclosure every cut with
 footage owes — are in the manual's footage chapter.
 
+A **looping** shot (a hero background, an ambient plate) is generated with the
+same still as first and last frame (`refs.images: [still, still]` on an
+image-to-video endpoint) and closed for free by `npm run loop -- <name> <shot>`,
+which trims the duplicate frame, measures the seam against the clip's own motion,
+blends it only when it steps, and writes a report and a 3-cycle preview.
+
 ## Commands
 
 | command | does |
@@ -146,6 +152,7 @@ footage owes — are in the manual's footage chapter.
 | `npm run export -- <n>` | the approved cut plus re-recorded social ratios |
 | `npm run footage -- <n> [--go\|--check\|--mock --go]` | the shots the picture owes, priced; `--go` renders them; `--check` validates the render blocks against the providers' schemas; `--mock` runs the path for free |
 | `npm run footage:test` | the footage lane's offline tests: no key, no network, no spend |
+| `npm run loop -- <n> <shot>` | close a shot generated first-frame = last-frame into a seamless loop: duplicate trimmed, seam measured, blended only if it steps, a 3-cycle preview; free |
 | `npm run sweep` | what this repo would publish: paths, keys, addresses, internal notes |
 
 ## Publishing your own trailers repo

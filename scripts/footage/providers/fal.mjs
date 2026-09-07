@@ -22,6 +22,7 @@
  * keep it to one short, cheap shot.
  */
 
+import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { extname } from 'node:path'
@@ -46,6 +47,25 @@ export function imageDataUri(path) {
   const mime = MIME[extname(path).toLowerCase()]
   if (!mime) throw new Error(`not an image reference: ${path}`)
   return `data:${mime};base64,${readFileSync(path).toString('base64')}`
+}
+
+/**
+ * A copy of a request with every inline data URI replaced by a short note (mime,
+ * byte count, sha1) — for sidecars and logs. The bytes are already hashed under
+ * the sidecar's `refs`; a 4 MB string per reference makes a provenance file
+ * nobody can open, and two of them made one 7.7 MB (2026-09-07).
+ */
+export function elideDataUris(value) {
+  if (typeof value === 'string') {
+    if (value.length < 200) return value
+    const m = /^data:([^;,]+);base64,(.+)$/s.exec(value)
+    if (!m) return value
+    const bytes = Buffer.from(m[2], 'base64')
+    return `data:${m[1]};base64,<elided ${bytes.length} bytes · sha1 ${createHash('sha1').update(bytes).digest('hex')}>`
+  }
+  if (Array.isArray(value)) return value.map(elideDataUris)
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, elideDataUris(v)]))
+  return value
 }
 
 async function json(url, init, label) {
