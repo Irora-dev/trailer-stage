@@ -70,8 +70,11 @@ const model = board.model ?? (provider === 'meshy' ? 'meshy/nano-banana-2' : 'fa
 const info = imageModelInfo(model, cfg.footage?.imagePrices)
 const usdPerCredit = typeof board.meshyUsdPerCredit === 'number' ? board.meshyUsdPerCredit : null
 const perImageUsd = info?.usd ?? (info?.credits != null && usdPerCredit != null ? r2(info.credits * usdPerCredit) : null)
+// The board's size, or an entry's own (a site board mixes 16:9 heroes, 1:1 tiles and 9:16 phones).
 const size = board.size ?? 'landscape_16_9'
-const aspect = /16_9|16:9/.test(size) ? '16:9' : /9_16|9:16/.test(size) ? '9:16' : /4_3/.test(size) ? '4:3' : /3_4/.test(size) ? '3:4' : '1:1'
+const aspectOfSize = (sz) => (/16_9|16:9/.test(sz) ? '16:9' : /9_16|9:16/.test(sz) ? '9:16' : /4_3/.test(sz) ? '4:3' : /3_4/.test(sz) ? '3:4' : /3_2|3:2/.test(sz) ? '3:2' : /2_3|2:3/.test(sz) ? '2:3' : '1:1')
+const aspect = aspectOfSize(size)
+const sizeOf = (s) => (typeof s.size === 'string' && s.size ? s.size : size)
 const dir = footageDir(name)
 const stylesDir = join(dir, 'styles')
 const rel = (p) => String(p).replace(`${ROOT}/`, '')
@@ -184,19 +187,19 @@ async function refs(list) {
 const refsOf = (s) => (Array.isArray(s.refs?.images) ? s.refs.images : board.refs?.images ?? [])
 
 /** The fal request for one cell, per family, then conformed to the schema. */
-function falRequest(prompt, images) {
+function falRequest(prompt, images, cellSize = size) {
   const fam = info?.family ?? (model.includes('seedream') ? 'seedream' : model.includes('nano-banana') ? 'nano-banana' : model.includes('recraft') ? 'recraft' : 'other')
   let input
   if (fam === 'seedream') {
-    input = { prompt, image_size: size, num_images: 1, enhance_prompt_mode: 'standard' }
+    input = { prompt, image_size: cellSize, num_images: 1, enhance_prompt_mode: 'standard' }
     if (images.length && model.endsWith('/edit')) input.image_urls = images
   } else if (fam === 'nano-banana') {
-    input = { prompt, aspect_ratio: aspect, num_images: 1, output_format: 'png' }
+    input = { prompt, aspect_ratio: aspectOfSize(cellSize), num_images: 1, output_format: 'png' }
     if (images.length && model.endsWith('/edit')) input.image_urls = images
   } else if (fam === 'recraft') {
-    input = { prompt, image_size: size, style: 'digital_illustration' }
+    input = { prompt, image_size: cellSize, style: 'digital_illustration' }
   } else {
-    input = { prompt, image_size: size }
+    input = { prompt, image_size: cellSize }
     if (images.length) input.image_urls = images
   }
   if (typeof board.seed === 'number') input.seed = board.seed
@@ -238,7 +241,7 @@ async function renderOne(s) {
       const images = await refs(refsOf(s))
       const onSubmitted = (sub) => writePending(file, { provider, kind: provider, endpoint: model, clip: s.id, take: 1, est, ...sub })
       if (provider === 'fal') {
-        const r = falRequest(prompt, images)
+        const r = falRequest(prompt, images, sizeOf(s))
         request = r.input
         notes = r.notes
         if (r.errors.length) throw new Error(`schema: ${r.errors.join('; ')}`)
@@ -246,7 +249,7 @@ async function renderOne(s) {
         buffer = await download(out.url)
         meta = { requestId: out.requestId, seed: out.seed ?? null, url: out.url }
       } else {
-        const { kind, input } = meshyInput({ model, prompt, aspect, refs: { images } })
+        const { kind, input } = meshyInput({ model, prompt, aspect: aspectOfSize(sizeOf(s)), refs: { images } })
         request = input
         const out = await meshyGenerate({ kind, input, key: keys.meshy, onLog, onSubmitted })
         buffer = await download(out.url)
