@@ -31,3 +31,5 @@ yarn-error.log*
 .idea/
 next-env.d.ts
 *.tsbuildinfo
+# Brand assets staged for a trailer (a product's logo is not this tool's to publish).
+public/local/
