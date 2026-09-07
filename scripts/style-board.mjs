@@ -58,7 +58,10 @@ if (!styles.length) {
   console.error(`\n  the board has no styles${ONLY ? ` matching ${ONLY}` : ''}\n`)
   process.exit(1)
 }
-const provider = board.provider ?? (String(board.model ?? '').startsWith('meshy/') ? 'meshy' : 'fal')
+// Default provider: Meshy (nano-banana-2) when a Meshy key exists, else fal's Seedream. On the
+// first two boards (2026-09-07) the Meshy cells were judged far stronger as pictures; Seedream's
+// held the character's identity more tightly. A board may name either.
+const provider = board.provider ?? (String(board.model ?? '').startsWith('meshy/') ? 'meshy' : String(board.model ?? '').startsWith('fal-ai/') ? 'fal' : meshyKey({ required: false }) ? 'meshy' : 'fal')
 const model = board.model ?? (provider === 'meshy' ? 'meshy/nano-banana-2' : 'fal-ai/bytedance/seedream/v4/edit')
 const info = imageModelInfo(model, cfg.footage?.imagePrices)
 const usdPerCredit = typeof board.meshyUsdPerCredit === 'number' ? board.meshyUsdPerCredit : null
