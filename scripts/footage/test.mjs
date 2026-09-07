@@ -147,6 +147,8 @@ try {
     ['minimax/h3-max/text-to-video', 'minimax', (i) => i.resolution === '768P' && i.duration === 8 && i.prompt_expansion_mode === 'balanced' && i.seed === 7],
     ['minimax/h3-max/image-to-video', 'minimax', (i) => i.image_url === 'https://x/1.png' && i.aspect_ratio === undefined],
     ['minimax/h3/text-to-video', 'minimax', (i) => i.resolution === '768P'],
+    ['fal-ai/veo3.1', 'veo', (i) => i.duration === '8s' && i.resolution === '720p' && i.aspect_ratio === '16:9' && i.generate_audio === false && i.negative_prompt === 'text' && i.seed === 7 && i.image_url === undefined],
+    ['fal-ai/veo3.1/image-to-video', 'veo', (i) => i.image_url === 'https://x/1.png' && i.aspect_ratio === undefined && i.duration === '8s' && i.end_image_url === undefined],
   ]
   for (const [id, family, shape] of cases) {
     const schema = await schemaFor(id)

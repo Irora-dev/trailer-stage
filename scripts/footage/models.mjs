@@ -76,6 +76,27 @@ export const MODELS = {
     provider: 'fal', family: 'minimax', seconds: [5, 15], resolutions: ['480p', '768p', '2k', '4k'], defaultResolution: '768p',
     prices: { '480p': 0.05, '768p': 0.06, '2k': 0.13, '4k': 0.16 }, refs: { images: 0, videos: 0, audio: 0 }, verified: true,
   },
+  // ── Google Veo 3.1 served by fal (prices read on fal.ai/models/fal-ai/veo3.1, 2026-09-07:
+  //    standard $0.20/s, $0.40/s with audio; 4K $0.40/$0.60; fast $0.10/$0.15, 4K $0.30/$0.35;
+  //    8 s max per generation, 24 fps, SynthID watermark always on) ──────────────────────
+  'fal-ai/veo3.1': {
+    provider: 'fal', family: 'veo', seconds: [4, 8], grid: [4, 6, 8], resolutions: ['720p', '1080p', '4k'], defaultResolution: '1080p',
+    prices: { '720p': 0.2, '1080p': 0.2, '4k': 0.4 }, audioPrices: { '720p': 0.4, '1080p': 0.4, '4k': 0.6 }, refs: { images: 0, videos: 0, audio: 0 }, verified: true,
+    note: 'native audio (dialogue, ambience) when audio: true; arena #14 text-to-video with audio in Sep 2026, but the "real footage" look is judged by eye',
+  },
+  'fal-ai/veo3.1/fast': {
+    provider: 'fal', family: 'veo', seconds: [4, 8], grid: [4, 6, 8], resolutions: ['720p', '1080p', '4k'], defaultResolution: '1080p',
+    prices: { '720p': 0.1, '1080p': 0.1, '4k': 0.3 }, audioPrices: { '720p': 0.15, '1080p': 0.15, '4k': 0.35 }, refs: { images: 0, videos: 0, audio: 0 }, verified: true,
+  },
+  'fal-ai/veo3.1/image-to-video': {
+    provider: 'fal', family: 'veo', seconds: [4, 8], grid: [4, 6, 8], resolutions: ['720p', '1080p', '4k'], defaultResolution: '1080p',
+    prices: { '720p': 0.2, '1080p': 0.2, '4k': 0.4 }, audioPrices: { '720p': 0.4, '1080p': 0.4, '4k': 0.6 }, refs: { images: 1, videos: 0, audio: 0 }, verified: true,
+    note: 'the image is the first frame (image_url)',
+  },
+  'fal-ai/veo3.1/fast/image-to-video': {
+    provider: 'fal', family: 'veo', seconds: [4, 8], grid: [4, 6, 8], resolutions: ['720p', '1080p', '4k'], defaultResolution: '1080p',
+    prices: { '720p': 0.1, '1080p': 0.1, '4k': 0.3 }, audioPrices: { '720p': 0.15, '1080p': 0.15, '4k': 0.35 }, refs: { images: 1, videos: 0, audio: 0 }, verified: true,
+  },
   // ── Google (Gemini API, paid tier) ────────────────────────────────────────
   'gemini-omni-1.1-flash': {
     provider: 'gemini', family: 'omni', seconds: [3, 10], resolutions: ['360p', '720p', '1080p', '4k'], defaultResolution: '720p',

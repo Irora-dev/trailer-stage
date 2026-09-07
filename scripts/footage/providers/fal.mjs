@@ -168,6 +168,9 @@ export async function download(url) {
  *   minimax   duration an INTEGER 5..15; resolution UPPERCASE ("480P","768P","2K","4K");
  *             prompt_expansion_mode is REQUIRED (default "balanced"); seed; image-to-video
  *             takes image_url + end_image_url.
+ *   veo       (Google Veo 3.1 on fal) duration a STRING enum "4s"|"6s"|"8s"; resolution
+ *             720p|1080p|4k; generate_audio; negative_prompt; seed; image-to-video takes
+ *             image_url; text-to-video takes aspect_ratio 16:9|9:16.
  * `raw` (the render block's `input`) is merged LAST so any field can be corrected
  * without touching this file; the schema conform pass runs after this anyway.
  */
@@ -191,6 +194,16 @@ export function falInput({ family, endpoint, prompt, negative, seconds, resoluti
       if (images[0]) input.start_image_url = images[0]
       if (images[1]) input.end_image_url = images[1]
     } else input.aspect_ratio = aspect ?? '16:9'
+  } else if (family === 'veo') {
+    // Google Veo 3.1 served by fal (schema read 2026-09-07): duration is a STRING
+    // enum "4s"|"6s"|"8s"; resolution 720p|1080p|4k; generate_audio; negative_prompt;
+    // image-to-video takes image_url and its aspect_ratio allows "auto".
+    input = { prompt, duration: `${Math.round(seconds)}s`, resolution, generate_audio: audio === true }
+    if (negative) input.negative_prompt = negative
+    if (endpoint.endsWith('/image-to-video')) {
+      if (images[0]) input.image_url = images[0]
+    } else input.aspect_ratio = aspect ?? '16:9'
+    if (seed !== undefined && seed !== null) input.seed = seed
   } else if (family === 'minimax') {
     input = { prompt, duration: Math.round(seconds), resolution: String(resolution).toUpperCase(), prompt_expansion_mode: 'balanced' }
     if (!endpoint.endsWith('/image-to-video')) input.aspect_ratio = aspect ?? '16:9'
