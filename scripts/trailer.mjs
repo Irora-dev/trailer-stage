@@ -12,6 +12,7 @@
  *          --skip-audio (picture only, even if a mix spec exists)
  *          --skip-footage (record with placeholder plates where shots are missing)
  *          --footage-only (render the owed shots, then stop)
+ *          --no-disclosure-check (record a cut with footage but no disclosure chip: drafts only)
  *
  * Footage (the `footage` piece's generated shots) rides the same gate as the
  * sound: the dry run prices every missing shot in dollars, and `--go` renders
@@ -34,8 +35,10 @@ import { spawnSync } from 'node:child_process'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { arg, config, ffmpegPath, has, mixSpecPath, ROOT, takesDir, timelinePath } from './lib.mjs'
-import { fmtUsd, footageRenders } from './footage/plan.mjs'
+import { disclosureProblem, fmtUsd, footageRenders } from './footage/plan.mjs'
 import { PRICES_AS_OF } from './footage/models.mjs'
+import { ledgerPathOf, monthToDate } from './footage/spend.mjs'
+import { paths } from './lib.mjs'
 
 const name = process.argv[2]
 if (!name || name.startsWith('--')) {
@@ -95,6 +98,10 @@ if (renders.length || footage.length) {
     : ''
   const footageLine = footage.length ? `${footage.reduce((n, r) => n + r.missing.length, 0)} footage render(s) = ${footageSec}s ≈ ${fmtUsd(footageUsd)} (prices as of ${cfg.footage?.pricesAsOf || PRICES_AS_OF})` : ''
   console.log(`\n  THIS WOULD SPEND: ${[audioLine, footageLine].filter(Boolean).join(' · ')}`)
+  if (footage.length) {
+    const spent = monthToDate(ledgerPathOf(paths().footage))
+    console.log(`  footage spent this month so far: ${fmtUsd(spent)} of $${cfg.footage?.monthlyUsd ?? 200} (footage.monthlyUsd)`)
+  }
   for (const r of renders)
     console.log(`    ${r.kind.padEnd(7)} ${r.file}\n            ← "${String(r.text).replace(/\s+/g, ' ').slice(0, 110)}${String(r.text).length > 110 ? '…' : ''}"`)
   for (const r of footage)
@@ -139,6 +146,20 @@ if (!has('skip-footage') && (footage.length || has('footage-only'))) {
 } else if (has('footage-only')) {
   console.log('\n  footage: nothing owed — every shot is on disk\n')
   process.exit(0)
+}
+
+// ── the disclosure law, on the cut that is about to be filmed ────────────────
+// The compiler's check enforces it on drafts; a hand-edited timeline gets the
+// same rule here. A dry run warns; a --go record refuses unless overridden.
+{
+  const disclosure = disclosureProblem(tl)
+  if (disclosure) {
+    if (GO && !has('no-record') && !has('no-disclosure-check')) {
+      console.error(`\n  ⚠ ${disclosure}\n  Not recording. Add the chip, or pass --no-disclosure-check for a draft you will not ship.\n`)
+      process.exit(1)
+    }
+    console.log(`\n  ⚠ ${disclosure}`)
+  }
 }
 
 // ── the live server ─────────────────────────────────────────────────────────

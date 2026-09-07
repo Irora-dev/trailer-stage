@@ -50,7 +50,19 @@ export interface StudioConfig {
    *  and per-second price overrides keyed by model id then resolution. Prices
    *  move monthly; `pricesAsOf` is printed with every dry run so a stale table
    *  is visible. */
-  footage: { budgetUsd: number; pricesAsOf: string; prices: Record<string, Record<string, number>> }
+  footage: {
+    budgetUsd: number
+    /** Across runs: the ledger `.footage/SPEND.jsonl` is summed for the calendar month. */
+    monthlyUsd: number
+    /** Any single render above this refuses without --allow-expensive. */
+    perShotUsd: number
+    /** A price table older than this refuses without --accept-stale-prices. */
+    priceMaxAgeDays: number
+    /** A cached endpoint schema older than this is re-fetched before a spend. */
+    schemaMaxAgeDays: number
+    pricesAsOf: string
+    prices: Record<string, Record<string, number>>
+  }
 }
 
 const DEFAULTS: StudioConfig = {
@@ -80,7 +92,7 @@ const DEFAULTS: StudioConfig = {
   mix: { prerollSec: 4, tailSec: 3, bedGainDb: 1.5, duckDb: 4 },
   record: { width: 1280, height: 720, fps: 30, lufs: -23 },
   paths: { trailers: 'trailers', takes: '.takes', audio: '.audio', footage: '.footage' },
-  footage: { budgetUsd: 100, pricesAsOf: '', prices: {} },
+  footage: { budgetUsd: 100, monthlyUsd: 200, perShotUsd: 10, priceMaxAgeDays: 30, schemaMaxAgeDays: 7, pricesAsOf: '', prices: {} },
 }
 
 function readJson(path: string): Record<string, unknown> | null {

@@ -13,7 +13,7 @@
  * so the spend list a person sees is computed once.
  */
 
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { isAbsolute, join } from 'node:path'
 import { ROOT } from '../lib.mjs'
 import { guessProvider, modelInfo, pickSeconds, priceOf } from './models.mjs'
@@ -88,6 +88,70 @@ export function footageRenders(tl, cfg = {}) {
 
 export const fmtUsd = (n) => (n == null ? '$?' : `$${n.toFixed(2)}`)
 
+/** Every footage clip in a timeline (scene video excluded). */
+export function footageClips(tl) {
+  const out = []
+  for (const tr of tl.tracks ?? []) for (const c of tr.clips ?? []) if (c.params?.piece === 'footage') out.push({ trackId: tr.id, clip: c })
+  return out
+}
+
+/**
+ * The disclosure law: a cut with any footage clip carries an endCard chip that
+ * says so. Returns the problem, or null. (The compiler's check enforces the same
+ * rule on drafts; this one reads a finished timeline, however it was made.)
+ */
+export function disclosureProblem(tl) {
+  if (!footageClips(tl).length) return null
+  const chips = []
+  for (const tr of tl.tracks ?? [])
+    for (const c of tr.clips ?? [])
+      if (c.params?.piece === 'endCard' && Array.isArray(c.params.chips)) chips.push(...c.params.chips.map(String))
+  return chips.some((ch) => /ai[- ]generated/i.test(ch)) ? null : 'this cut contains footage but no endCard chip discloses it — add a chip like "Contains AI-generated footage"'
+}
+
+/**
+ * What a take was filmed with: every footage shot, whether its file was on disk,
+ * its hash, and the essentials of its provenance sidecar. The recorder writes
+ * this beside each take so any frame traces to a model, a prompt and a cost.
+ */
+export function footageManifest(tl, footageDirAbs, { hashOf } = {}) {
+  const shots = []
+  for (const { trackId, clip } of footageClips(tl)) {
+    const P = clip.params ?? {}
+    const render = P.render && typeof P.render === 'object' ? P.render : null
+    const src = footageSrcOf(tl.name, clip)
+    const takes = Math.max(1, Math.round(Number(render?.takes) || 1))
+    const use = Math.min(takes, Math.max(1, Math.round(Number(render?.use) || 1)))
+    const playing = takes > 1 ? takeFile(src, use) : src
+    const file = isRemote(playing) || playing.startsWith('/') ? null : abs(playing)
+    const present = file ? existsSync(file) : null
+    let sidecar = null
+    if (file) {
+      const sc = file.replace(/(\.[a-z0-9]+)$/i, '.footage.json')
+      if (existsSync(sc)) {
+        try {
+          const j = JSON.parse(readFileSync(sc, 'utf8'))
+          sidecar = { provider: j.provider ?? null, model: j.model ?? null, seed: j.seed ?? null, requestId: j.requestId ?? null, costUsdEstimated: j.costUsdEstimated ?? null, renderedAt: j.renderedAt ?? null }
+        } catch {
+          sidecar = null
+        }
+      }
+    }
+    shots.push({
+      clip: clip.id,
+      track: trackId,
+      at: clip.at,
+      until: clip.until ?? null,
+      src: playing,
+      present,
+      sha1: present && hashOf ? hashOf(file) : null,
+      model: render?.model ?? null,
+      sidecar,
+    })
+  }
+  return { trailer: tl.name, footageDir: footageDirAbs, at: new Date().toISOString(), present: shots.filter((s) => s.present).length, shots }
+}
+
 /** Problems a person should fix before spending. Empty when the plan is sound.
  *  `opts.stageRef(ref, render)` judges `@still:` / `@take:` references (see refs.mjs);
  *  without it they are reported as unresolvable. */
@@ -100,8 +164,8 @@ export function validatePlan(plan, opts = {}) {
     if (r.info && !r.info.resolutions.includes(r.resolution))
       problems.push(`${where}: ${r.model} does not offer ${r.resolution} (it offers ${r.info.resolutions.join(', ')})`)
     if (r.perSec == null) problems.push(`${where}: no price for ${r.model} at ${r.resolution} — add footage.prices in studio.config.json or render.pricePerSec`)
-    if (r.info && !r.info.verified && r.missing.length)
-      problems.push(`${where}: the endpoint id "${r.model}" is catalogued from the family's naming, not read off the provider's page — confirm it before --go`)
+    if (r.info && !r.info.verified && r.missing.length && !(opts.verified && opts.verified(r)))
+      problems.push(`${where}: the endpoint id "${r.model}" is catalogued from the family's naming, not read off the provider's page — confirm it before --go (a fetched schema counts)`)
     if (typeof r.render.prompt !== 'string' || !r.render.prompt.trim()) problems.push(`${where}: render.prompt is empty`)
     const refs = r.render.refs ?? {}
     for (const k of ['images', 'videos', 'audio']) {

@@ -58,6 +58,10 @@
   },
   "footage": {
     "budgetUsd": 100,
+    "monthlyUsd": 200,
+    "perShotUsd": 10,
+    "priceMaxAgeDays": 30,
+    "schemaMaxAgeDays": 7,
     "pricesAsOf": "2026-09-07",
     "prices": {}
   }

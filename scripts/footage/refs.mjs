@@ -23,14 +23,17 @@ import { ffmpeg, r2 } from '../lib.mjs'
 
 export const isStageRef = (s) => typeof s === 'string' && /^@(still|take):/.test(s)
 
-/** Every cue a timeline exposes, as seconds: clip ids, `<id>.end`, and `end`. */
+/** Every cue a timeline exposes, as seconds: clip ids, `<id>.end`, and `end` —
+ *  which is always the cut's end, even when a clip is named "end" (the stage's
+ *  own "@end" means the same thing). */
 export function cueTimes(tl) {
-  const cues = { end: tl.end }
+  const cues = {}
   for (const tr of tl.tracks ?? [])
     for (const c of tr.clips ?? []) {
       if (typeof c.at === 'number') cues[c.id] = c.at
       if (typeof c.until === 'number') cues[`${c.id}.end`] = c.until
     }
+  cues.end = tl.end
   return cues
 }
 

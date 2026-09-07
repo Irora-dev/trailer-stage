@@ -20,8 +20,9 @@
     "compare": "node scripts/compare.mjs",
     "export": "node scripts/export.mjs",
     "footage": "node scripts/build-footage.mjs",
+    "footage:test": "node scripts/footage/test.mjs",
     "sweep": "node scripts/sweep.mjs",
-    "verify": "tsc --noEmit && eslint src && next build"
+    "verify": "tsc --noEmit && eslint src && node scripts/footage/test.mjs && next build"
   },
   "dependencies": {
     "next": "16.1.1",

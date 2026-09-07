@@ -20,9 +20,11 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process'
-import { createWriteStream, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs'
+import { createWriteStream, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { arg, config, ensureDir, ffmpeg, ffmpegPath, has, ROOT, takesDir } from './lib.mjs'
+import { createHash } from 'node:crypto'
+import { arg, config, ensureDir, ffmpeg, ffmpegPath, footageDir, has, readTimeline, ROOT, takesDir } from './lib.mjs'
+import { footageManifest } from './footage/plan.mjs'
 
 const name = process.argv[2]
 if (!name || name.startsWith('--')) {
@@ -333,6 +335,23 @@ if (!has('no-stills') && META.cues) {
     )
   }
   console.log(`    stills: ${shots.length} cue frames → ${framesDir}/`)
+
+  // What this take was filmed WITH: every footage shot, on disk or not, hashed,
+  // with the essentials of its provenance — so a frame traces to a model, a
+  // prompt and a cost, and a later re-render is visibly a different take.
+  try {
+    const tlNow = readTimeline(name)
+    if (tlNow) {
+      const m = footageManifest(tlNow, footageDir(name), { hashOf: (f) => createHash('sha1').update(readFileSync(f)).digest('hex') })
+      if (m.shots.length) {
+        const mf = OUT.replace(/\.mp4$/, '.footage.json')
+        writeFileSync(mf, JSON.stringify(m, null, 2) + '\n')
+        console.log(`    footage: ${m.present}/${m.shots.length} shot(s) on disk → ${mf.split('/').pop()}${m.present < m.shots.length ? ' (the rest recorded as placeholder plates)' : ''}`)
+      }
+    }
+  } catch (e) {
+    console.log(`    footage manifest not written: ${e.message}`)
+  }
 
   // If a take of this trailer has been approved, rank this one against it now.
   try {

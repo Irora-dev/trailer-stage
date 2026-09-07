@@ -123,8 +123,15 @@ costs (per-second prices, dated); `--go` renders them, normalises them for the
 stage, and writes a provenance sidecar beside each file. `npm run trailer -- <name>`
 folds the same figure into its dry run and renders footage after the mix has
 been measured, so each shot is asked for at its final length. A file that exists
-is never re-rendered. The rules of the craft — what a shot may depict, the
-disclosure every cut with footage owes — are in the manual's footage chapter.
+is never re-rendered.
+
+Before anything is paid for, the request is conformed to and validated against
+the provider's own published schema, four caps are checked (per run, per shot,
+per month from a ledger, and the age of the price table), and a pending marker
+makes a crash unable to pay twice. `npm run footage:test` runs the lane's offline
+tests, and `--mock --go` runs the whole path on a generated clip for nothing.
+The rules of the craft — what a shot may depict, the disclosure every cut with
+footage owes — are in the manual's footage chapter.
 
 ## Commands
 
@@ -137,7 +144,8 @@ disclosure every cut with footage owes — are in the manual's footage chapter.
 | `npm run critic -- <n>` | a ranked defect list read off the take's own frames |
 | `npm run cast -- --line … --describe …` | audition and cast a narrator |
 | `npm run export -- <n>` | the approved cut plus re-recorded social ratios |
-| `npm run footage -- <n> [--go\|--check]` | the shots the picture owes, priced; `--go` renders them; `--check` validates the render blocks offline |
+| `npm run footage -- <n> [--go\|--check\|--mock --go]` | the shots the picture owes, priced; `--go` renders them; `--check` validates the render blocks against the providers' schemas; `--mock` runs the path for free |
+| `npm run footage:test` | the footage lane's offline tests: no key, no network, no spend |
 | `npm run sweep` | what this repo would publish: paths, keys, addresses, internal notes |
 
 ## Publishing your own trailers repo

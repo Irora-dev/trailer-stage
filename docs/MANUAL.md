@@ -253,6 +253,52 @@ product (a `browserFrame` alone, captions off). Small images travel to fal as
 data URIs; anything else is uploaded to fal storage at `--go` and passed by URL.
 Gemini takes image references only here.
 
+**Before a dollar moves, five more checks run.**
+
+- **The provider's own schema.** fal publishes an OpenAPI document per endpoint
+  (free, no key); the builder loads it (cache, else the network, else the committed
+  fixture in `scripts/footage/fixtures/schemas/`), CONFORMS the request to it —
+  drops fields the endpoint has no idea about, fixes enum case (`768p` → `768P`),
+  coerces `8` ↔ `"8"`, fills a required field from its default — and validates
+  what is left. An error refuses the spend; the notes print. An endpoint whose
+  schema loaded counts as verified whatever the catalogue says. `--check` shows
+  the conformed request per shot.
+- **Caps that outlive a run.** `footage.budgetUsd` per run, `footage.perShotUsd`
+  for any single render (a mistyped duration cannot render a $40 shot; pass
+  `--allow-expensive` deliberately), `footage.monthlyUsd` summed from the ledger
+  `.footage/SPEND.jsonl` (one row per paid render), and `footage.priceMaxAgeDays`:
+  a price table older than that refuses unless you pass `--accept-stale-prices`.
+  The dry run prints what this month has spent so far.
+- **A crash cannot pay twice.** A `<shot>.pending.json` marker is written at submit
+  and removed at success. A re-run finds it and FETCHES that render instead of
+  paying again; `--resubmit` throws the marker away on purpose.
+- **One builder per trailer.** `.footage/<name>/.lock` holds the live process id;
+  a second builder refuses, a dead one's lock is taken over.
+- **The disclosure law, on the finished cut.** The compiler's check enforces the
+  chip on drafts; the builder's `--check` and the pipeline enforce it on any
+  timeline: `npm run trailer -- <n> --go` refuses to record a footage cut with no
+  chip (`--no-disclosure-check` for a draft you will not ship).
+
+**After a render, the file is read back.** Duration and frame size are probed:
+a shot shorter than its span says how long it will freeze, an aspect that differs
+from the request says a cover fit will crop it, and footage audio (which the
+stage never plays) is put beside the shot as `<shot>.audio.m4a` for a future
+sfx part. The recorder writes `take-NNN.footage.json` beside each take: every
+footage shot, on disk or not, hashed, with its provenance essentials, so a frame
+traces to a model, a prompt and a cost.
+
+**First light — the ritual for a new key or a new endpoint.**
+
+```bash
+npm run footage:test                                   # the lane's offline tests, no key, no spend
+npm run footage -- footage-demo --check                # schemas, prices, references, the chip
+npm run footage -- footage-demo --mock --go            # the whole path on a generated clip, $0
+npm run footage -- <n> --go --only <shot> --seconds 5 --resolution 480p   # ONE cheap shot (≈ 25¢ on H3 Max)
+cat .footage/<n>/<shot>.footage.json                   # read the sidecar: request, seconds returned, size, warnings
+```
+
+Then the real shots. Everything in the first three lines runs without a key.
+
 Not yet: per-shot take picking on the review board, and the adapters' first live
 call.
 

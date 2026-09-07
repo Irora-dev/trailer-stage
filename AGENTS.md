@@ -163,8 +163,11 @@ file that exists is never re-rendered. Never put a render behind a watcher, a
 retry loop, or a "while I'm here". If a step failed after the spend, fix the
 step — do not re-render to make the error go away. Generated footage (the
 `footage` piece) is a spend like narration: the dry run prices every missing shot
-in dollars, `--go` renders it under `footage.budgetUsd`, and each shot leaves a
-provenance sidecar. Tell the person the figure before they click.
+in dollars, `--go` renders it under four caps (per run, per shot, per month, and
+the age of the price table) after the request has been validated against the
+provider's own schema, and each shot leaves a provenance sidecar and a ledger
+row. Tell the person the figure before they click. Run `npm run footage:test` and
+a `--mock --go` before the first real shot on any new key or endpoint.
 
 **Approval.** You never approve a take. Approval is a button on the review board,
 pressed by a person. It writes the golden that every later take is compared
@@ -207,6 +210,10 @@ everywhere else.
 | no API key | everything except rendering works without one; say so rather than stalling |
 | a shot shows a striped plate with a prompt on it | that footage is not rendered yet: `npm run footage -- <n>` prices it, `--go` renders it; a plate in a take is not a defect, it is an unpaid shot |
 | a footage shot freezes before its clip ends | by design when the file is shorter than the span; ask for more `seconds`, or accept the freeze as the beat it is |
+| a `<shot>.pending.json` sits beside a missing shot | a previous run submitted that render and never fetched it; the next `--go` fetches it without paying again (`--resubmit` pays again on purpose) |
+| "another footage builder holds the lock" | two builders on one trailer; wait for the other, or remove `.footage/<n>/.lock` if that process is gone |
+| "request rejected by …'s schema" | the render block asks for something the endpoint does not offer (a resolution, a duration, too many references); `--check` prints the conformed request — fix the block, not the schema |
+| "the price table is N days old" | prices in this market move monthly; re-verify `scripts/footage/models.mjs` against the providers' pages, or pass `--accept-stale-prices` knowingly |
 
 ---
 
