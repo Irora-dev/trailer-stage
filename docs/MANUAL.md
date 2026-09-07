@@ -206,6 +206,15 @@ box. `hold: 'freeze'` is the default because the narration re-times spans by
 fractions and a frozen last frame reads as a beat; `loop` is for ambience;
 `black` cuts.
 
+**A reference sets the style as much as the identity.** A flat, thick-outlined
+mascot PNG handed to a reference-to-video model as "the character" pulls the whole
+shot flat, whatever the prompt says about brushwork (2026-09-07: three shots of one
+trailer came out as a different cartoon from the first). Once one shot has the
+look you want, make IT the reference: a few frames of it as images, the shot
+itself as a video reference, and "identity only, never style" for any flat asset
+you still need for a detail (a monocle). Render the shot that defines the face
+first, then hand its frame to the rest, so one character walks through the cut.
+
 **What footage is for.** The world around the product, never the product. The
 app comes from `browserFrame`, or from real stills placed inside a generated
 scene as references. A footage prompt that describes a product feature is a
