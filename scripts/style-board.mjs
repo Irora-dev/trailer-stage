@@ -8,7 +8,8 @@
  *   flags: --only <styleId> · --parallel N (default 6) · --resubmit · --no-schema · --refresh-schemas · --no-sheet
  *
  * A board is boards/<name>.board.json:
- *   { "name", "provider": "fal" | "meshy", "model": "<endpoint id, see footage/board.mjs>",
+ *   { "name", "kind": "styles" (default: one subject, N styles) | "scenes" (one style in `subject`, N scenes in the entries),
+ *     "provider": "fal" | "meshy", "model": "<endpoint id, see footage/board.mjs>",
  *     "subject": "the shot, described once", "negative": "…", "size": "landscape_16_9", "seed": 7,
  *     "refs": { "images": [paths] },                         // identity + world, handed to every cell
  *                                                            // (a style may carry its own "refs" instead:
@@ -215,7 +216,9 @@ let spentUsd = 0
 let spentCredits = 0
 async function renderOne(s) {
   const file = targetOf(s)
-  const prompt = boardPrompt(board.subject, s.style, board.negative)
+  // A "styles" board (default) varies the style around one subject; a "scenes" board keeps one
+  // style (board.subject) and varies the scene (each entry's `style` field is the scene).
+  const prompt = board.kind === 'scenes' ? boardPrompt(s.style, board.subject, board.negative) : boardPrompt(board.subject, s.style, board.negative)
   const pending = readPending(file)
   const est = perImageUsd ?? 0
   process.stdout.write(`  ${pending && !has('resubmit') ? 'fetching' : 'rendering'} ${s.id} (${s.label ?? ''}${perImageUsd != null ? `, ≈ $${perImageUsd.toFixed(2)}` : info?.credits != null ? `, ${info.credits} credits` : ''}) … `)
