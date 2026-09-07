@@ -11,6 +11,9 @@
  *   { "name", "provider": "fal" | "meshy", "model": "<endpoint id, see footage/board.mjs>",
  *     "subject": "the shot, described once", "negative": "…", "size": "landscape_16_9", "seed": 7,
  *     "refs": { "images": [paths] },                         // identity + world, handed to every cell
+ *                                                            // (a style may carry its own "refs" instead:
+ *                                                            //  e.g. a keyframe board where each cell's
+ *                                                            //  reference is that style's own winning still)
  *     "meshyUsdPerCredit": 0.02,                             // optional: dollars for Meshy credits
  *     "styles": [ { "id": "painterly", "label": "Soft painterly 3D", "style": "…" }, … ] }
  *
@@ -150,16 +153,17 @@ try {
 }
 process.on('exit', release)
 
-// ── references, once for the whole board ────────────────────────────────────
+// ── references: the board's, or a style's own (a per-cell look, e.g. that cell's own still) ──
 const DATA_URI_MAX = 3 * 1024 * 1024
-let refUrls = null
+const refCache = new Map()
 let refHashes = []
-async function refs() {
-  if (refUrls) return refUrls
-  refUrls = []
-  for (const ref of board.refs?.images ?? []) {
+async function refs(list) {
+  const key = JSON.stringify(list)
+  if (refCache.has(key)) return refCache.get(key)
+  const urls = []
+  for (const ref of list) {
     if (/^https?:\/\//.test(ref)) {
-      refUrls.push(ref)
+      urls.push(ref)
       refHashes.push({ ref, sha1: null })
       continue
     }
@@ -167,14 +171,16 @@ async function refs() {
     if (!existsSync(p)) throw new Error(`reference not found: ${ref}`)
     const bytes = readFileSync(p)
     refHashes.push({ ref, sha1: sha1(bytes) })
-    if (provider === 'meshy' || bytes.length <= DATA_URI_MAX) refUrls.push(imageDataUri(p))
+    if (provider === 'meshy' || bytes.length <= DATA_URI_MAX) urls.push(imageDataUri(p))
     else {
       process.stdout.write(`\n      uploading ${rel(p)} (${(bytes.length / 1048576).toFixed(1)} MB) … `)
-      refUrls.push(await uploadToFal(p, keys.fal))
+      urls.push(await uploadToFal(p, keys.fal))
     }
   }
-  return refUrls
+  refCache.set(key, urls)
+  return urls
 }
+const refsOf = (s) => (Array.isArray(s.refs?.images) ? s.refs.images : board.refs?.images ?? [])
 
 /** The fal request for one cell, per family, then conformed to the schema. */
 function falRequest(prompt, images) {
@@ -226,7 +232,7 @@ async function renderOne(s) {
       meta = { requestId: pending.requestId, resumed: true, credits: out.credits ?? null, seed: out.seed ?? null }
     } else {
       if (pending) clearPending(file)
-      const images = await refs()
+      const images = await refs(refsOf(s))
       const onSubmitted = (sub) => writePending(file, { provider, kind: provider, endpoint: model, clip: s.id, take: 1, est, ...sub })
       if (provider === 'fal') {
         const r = falRequest(prompt, images)
@@ -264,7 +270,7 @@ async function renderOne(s) {
           model,
           prompt,
           stylePhrase: s.style,
-          refs: refHashes,
+          refs: refHashes.filter((h) => refsOf(s).includes(h.ref)),
           request: request ? elideDataUris(request) : null,
           schemaNotes: notes,
           seed: meta.seed ?? board.seed ?? null,
