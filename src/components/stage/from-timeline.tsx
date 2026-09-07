@@ -38,7 +38,7 @@ import { StageMarketTape, StageLineChart, StagePin, plotFor, type ChartSeries, t
 import { StageBento, StageGroupFold, type BentoItem, type FoldGroup, type FoldStage } from './bento'
 import { StageLogoReveal, StageEndCard } from './reveal'
 import { StageText, StageCaptions, StageChipRow, type ChipItem, type TextStyle } from './text'
-import { StageImage, StageVideoActor, StageSprite, StageChannelFlip } from './media'
+import { StageImage, StageVideoActor, StageSprite, StageChannelFlip, StageFootage } from './media'
 import { StageBrowserFrame, type FrameDrive } from './browser-frame'
 import type { DitherColor } from '@/lib/dither'
 import { captionsOf, endCue, type ParamValue, type TimelineClip, type TrailerTimeline } from '@/lib/timeline'
@@ -47,6 +47,7 @@ import {
   bool,
   buildTapeFromSpec,
   deriveStage,
+  footageFileOf,
   gateName,
   num,
   obj,
@@ -137,6 +138,9 @@ type PieceProps = {
   logo?: string
   wordmark: string
   plate: string
+  /** Footage files on disk for this trailer (names), read server-side: a
+   *  `footage` piece whose file is absent draws a plate instead of a <video>. */
+  footageFiles: string[]
 }
 
 const P_OF = (clip: TimelineClip): Params => clip.params ?? {}
@@ -149,12 +153,14 @@ export function FromTimeline({
   logo,
   wordmark = '',
   plate = '',
+  footageFiles = [],
 }: {
   tl: TrailerTimeline
   basePath?: string
   logo?: string
   wordmark?: string
   plate?: string
+  footageFiles?: string[]
 }) {
   const d = useMemo(() => deriveStage(tl), [tl])
   const sc = tl.scene ?? {}
@@ -193,7 +199,7 @@ export function FromTimeline({
       overlay={sc.overlay ?? 'none'}
     >
       <StoresProvider>
-        <Scenes tl={tl} d={d} basePath={basePath} logo={logo} wordmark={wordmark} plate={plate} />
+        <Scenes tl={tl} d={d} basePath={basePath} logo={logo} wordmark={wordmark} plate={plate} footageFiles={footageFiles} />
       </StoresProvider>
     </StageShell>
   )
@@ -206,6 +212,7 @@ function Scenes({
   logo,
   wordmark,
   plate,
+  footageFiles,
 }: {
   tl: TrailerTimeline
   d: DerivedStage
@@ -213,6 +220,7 @@ function Scenes({
   logo?: string
   wordmark: string
   plate: string
+  footageFiles: string[]
 }) {
   const p = useStagePhases<string>()
   const clips = useMemo(
@@ -238,6 +246,7 @@ function Scenes({
           logo={logo}
           wordmark={wordmark}
           plate={plate}
+          footageFiles={footageFiles}
         />
       ))}
       <StageCaptions lines={captions} canvasId="captions" />
@@ -267,6 +276,8 @@ function Piece(props: PieceProps) {
       return <ChipRowPiece {...props} />
     case 'image':
       return <ImagePiece {...props} />
+    case 'footage':
+      return <FootagePiece {...props} />
     case 'videoActor':
       return <VideoActorPiece {...props} />
     case 'sprite':
@@ -618,6 +629,46 @@ function ImagePiece({ clip, on }: PieceProps) {
       rounded={num(P.rounded, 16)}
       shadow={bool(P.shadow, true)}
       canvasId={optStr(P.canvasId)}
+    />
+  )
+}
+
+/**
+ * A shot, generated or not, played against the stage clock. A repo path is
+ * served by /api/footage/<trailer>/<file>; a /public path or a URL plays as is.
+ * A shot not on disk yet draws a labelled plate: the page knew the footage
+ * directory's listing when it rendered, so no request is made and readiness
+ * never waits on a 404.
+ */
+function FootagePiece({ tl, clip, d, on, footageFiles }: PieceProps) {
+  const P = P_OF(clip)
+  const render = obj(P.render)
+  const { path, file, isUrl } = footageFileOf(clip, tl.name)
+  const present = isUrl || footageFiles.includes(file)
+  const src = isUrl ? path : `/api/footage/${encodeURIComponent(tl.name)}/${encodeURIComponent(file)}`
+  const playAt = resolveTime(timeRef(P.playAt), d.cues, d.end) ?? clip.at
+  const hold: 'freeze' | 'loop' | 'black' = P.hold === 'loop' ? 'loop' : P.hold === 'black' ? 'black' : 'freeze'
+  const fit: 'cover' | 'contain' | 'card' = P.fit === 'contain' ? 'contain' : P.fit === 'card' ? 'card' : 'cover'
+  const grade: 'none' | 'crt' | 'grain' = P.grade === 'crt' ? 'crt' : P.grade === 'grain' ? 'grain' : 'none'
+  const span = (clip.until ?? d.end) - clip.at
+  const seconds = typeof render.seconds === 'number' ? `${render.seconds}s` : `auto ≈ ${Math.ceil(Math.max(0, span) + 1.5)}s`
+  return (
+    <StageFootage
+      src={present ? src : undefined}
+      visible={on}
+      playAt={playAt}
+      rate={num(P.rate, 1)}
+      hold={hold}
+      fit={fit}
+      widthVw={num(P.widthVw, 86)}
+      leftVw={num(P.leftVw, 50)}
+      topVh={num(P.topVh, 50)}
+      rounded={num(P.rounded, 18)}
+      shadow={bool(P.shadow, true)}
+      grade={grade}
+      label={optStr(P.label)}
+      canvasId={optStr(P.canvasId)}
+      placeholder={present ? undefined : { title: clip.id, prompt: str(render.prompt), model: str(render.model), seconds }}
     />
   )
 }

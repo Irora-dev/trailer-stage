@@ -161,7 +161,10 @@ change keep their audio**, so a re-render only pays for what actually changed.
 **Money.** `--go` is the only thing that spends, and it belongs to the human. A
 file that exists is never re-rendered. Never put a render behind a watcher, a
 retry loop, or a "while I'm here". If a step failed after the spend, fix the
-step — do not re-render to make the error go away.
+step — do not re-render to make the error go away. Generated footage (the
+`footage` piece) is a spend like narration: the dry run prices every missing shot
+in dollars, `--go` renders it under `footage.budgetUsd`, and each shot leaves a
+provenance sidecar. Tell the person the figure before they click.
 
 **Approval.** You never approve a take. Approval is a button on the review board,
 pressed by a person. It writes the golden that every later take is compared
@@ -173,7 +176,10 @@ prepare it and hand over the command.
 **Honesty on screen.** Anything invented must be visibly labelled as an example.
 Never show a fabricated number, balance, review, or customer as though it were
 real — not "just for the demo". If the brief asks for a screen you cannot produce
-honestly, say so and offer the honest version instead.
+honestly, say so and offer the honest version instead. Generated footage depicts
+the world around the product, never the product and never a real or recognisable
+person; a cut that contains any of it carries the endCard chip "Contains
+AI-generated footage" (the compiler's check insists).
 
 **Determinism.** No `Date.now()`, no `Math.random()` anywhere in a timeline.
 Seeded generators only. If a retake is not the same take, the frame comparison
@@ -199,6 +205,8 @@ everywhere else.
 | "nothing answers at localhost:3000" | start `npm run dev` yourself; the recorder will not start a server (two dev servers on one build cache corrupt it) |
 | ffmpeg missing | `npm i -D ffmpeg-static`, or `FFMPEG_PATH=…` |
 | no API key | everything except rendering works without one; say so rather than stalling |
+| a shot shows a striped plate with a prompt on it | that footage is not rendered yet: `npm run footage -- <n>` prices it, `--go` renders it; a plate in a take is not a defect, it is an unpaid shot |
+| a footage shot freezes before its clip ends | by design when the file is shorter than the span; ask for more `seconds`, or accept the freeze as the beat it is |
 
 ---
 

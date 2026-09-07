@@ -36,7 +36,7 @@ function tracked() {
 function walk(dir, acc = [], depth = 0) {
   if (depth > 6) return acc
   for (const e of readdirSync(dir, { withFileTypes: true })) {
-    if (['node_modules', '.git', '.next', '.takes', '.audio', '.cache', 'dist', 'build'].includes(e.name)) continue
+    if (['node_modules', '.git', '.next', '.takes', '.audio', '.footage', '.cache', 'dist', 'build'].includes(e.name)) continue
     const p = join(dir, e.name)
     if (e.isDirectory()) walk(p, acc, depth + 1)
     else acc.push(p.replace(`${ROOT}/`, ''))

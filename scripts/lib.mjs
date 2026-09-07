@@ -43,6 +43,7 @@ export function paths() {
     trailers: abs(p.trailers, 'trailers'),
     takes: abs(p.takes, '.takes'),
     audio: abs(p.audio, '.audio'),
+    footage: abs(p.footage, '.footage'),
   }
 }
 
@@ -51,6 +52,7 @@ export const mixSpecPath = (name) => join(paths().trailers, `${name}.mix.json`)
 export const storyboardPath = (name) => join(paths().trailers, `${name}.storyboard.md`)
 export const takesDir = (name) => join(paths().takes, name)
 export const audioDir = (name) => join(paths().audio, name)
+export const footageDir = (name) => join(paths().footage, name)
 
 export function ensureDir(d) {
   mkdirSync(d, { recursive: true })

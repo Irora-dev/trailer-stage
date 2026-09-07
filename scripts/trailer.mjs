@@ -10,6 +10,13 @@
  *
  *   flags: --base <url> · --captions · --size WxH · --no-record · --critic
  *          --skip-audio (picture only, even if a mix spec exists)
+ *          --skip-footage (record with placeholder plates where shots are missing)
+ *          --footage-only (render the owed shots, then stop)
+ *
+ * Footage (the `footage` piece's generated shots) rides the same gate as the
+ * sound: the dry run prices every missing shot in dollars, and `--go` renders
+ * them AFTER the mix is measured and the picture re-timed, so each shot is asked
+ * for at its final length.
  *
  * The gates it keeps, and they are the point:
  *   · `--go` is the ONLY path that spends money.
@@ -27,6 +34,8 @@ import { spawnSync } from 'node:child_process'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { arg, config, ffmpegPath, has, mixSpecPath, ROOT, takesDir, timelinePath } from './lib.mjs'
+import { fmtUsd, footageRenders } from './footage/plan.mjs'
+import { PRICES_AS_OF } from './footage/models.mjs'
 
 const name = process.argv[2]
 if (!name || name.startsWith('--')) {
@@ -71,16 +80,28 @@ if (spec) {
     if (s.render && s.src && !existsSync(s.src)) renders.push({ kind: 'sfx', file: s.src, seconds: s.render.seconds ?? 2, text: s.render.prompt })
 }
 
+// The picture's render parts: footage shots not yet on disk, priced per second.
+const footage = has('skip-footage') ? [] : footageRenders(tl, cfg).filter((r) => r.missing.length)
+const footageUsd = footage.reduce((n, r) => (n == null || r.usd == null ? null : n + r.usd), 0)
+const footageSec = footage.reduce((n, r) => n + r.seconds * r.missing.length, 0)
+
 console.log(`\n  trailer ${name} — ${spec ? (tl.mix ? 'voiced' : 'mix spec present, timeline silent') : 'picture only'}${GO ? ' · GO' : ' · dry run'}`)
-if (renders.length) {
+if (renders.length || footage.length) {
   const chars = renders.filter((r) => r.kind === 'voice').reduce((n, r) => n + r.chars, 0)
   const music = renders.filter((r) => r.kind === 'music').reduce((n, r) => n + r.seconds, 0)
   const sfx = renders.filter((r) => r.kind === 'sfx').length
-  console.log(
-    `\n  THIS WOULD SPEND: ${renders.filter((r) => r.kind === 'voice').length} narration render(s) = ${chars} characters${music ? ` · ${music}s of music` : ''}${sfx ? ` · ${sfx} effect(s)` : ''}`,
-  )
+  const audioLine = renders.length
+    ? `${renders.filter((r) => r.kind === 'voice').length} narration render(s) = ${chars} characters${music ? ` · ${music}s of music` : ''}${sfx ? ` · ${sfx} effect(s)` : ''}`
+    : ''
+  const footageLine = footage.length ? `${footage.reduce((n, r) => n + r.missing.length, 0)} footage render(s) = ${footageSec}s ≈ ${fmtUsd(footageUsd)} (prices as of ${cfg.footage?.pricesAsOf || PRICES_AS_OF})` : ''
+  console.log(`\n  THIS WOULD SPEND: ${[audioLine, footageLine].filter(Boolean).join(' · ')}`)
   for (const r of renders)
-    console.log(`    ${r.kind.padEnd(5)} ${r.file}\n          ← "${String(r.text).replace(/\s+/g, ' ').slice(0, 110)}${String(r.text).length > 110 ? '…' : ''}"`)
+    console.log(`    ${r.kind.padEnd(7)} ${r.file}\n            ← "${String(r.text).replace(/\s+/g, ' ').slice(0, 110)}${String(r.text).length > 110 ? '…' : ''}"`)
+  for (const r of footage)
+    for (const f of r.missing)
+      console.log(
+        `    footage ${f.replace(`${ROOT}/`, '')}\n            ${r.model} · ${r.resolution} · ${r.seconds}s ≈ ${fmtUsd(r.perSec == null ? null : r.perSec * r.seconds)}\n            ← "${String(r.render.prompt ?? '').replace(/\s+/g, ' ').slice(0, 110)}${String(r.render.prompt ?? '').length > 110 ? '…' : ''}"`,
+      )
   if (!GO) {
     console.log('\n  dry run: nothing rendered, nothing spent. Re-run with --go to spend and record.\n')
     process.exit(0)
@@ -101,6 +122,23 @@ if (spec && tl.mix) {
   if (rs === 2) console.log('  (some anchors could not be resolved — see above; the rest moved)')
 } else {
   console.log('\n── audio: none (silent draft) — anchored beats keep their estimated times')
+}
+
+// ── footage: the shots the picture still owes, AFTER re-timing ──────────────
+// Each shot is asked for at its final span (plus a margin), which only exists
+// once the measured cue map has moved the clips. Missing shots record as
+// placeholder plates, so a partial render never blocks a take.
+if (!has('skip-footage') && (footage.length || has('footage-only'))) {
+  const fs = run('render footage', 'build-footage.mjs', [name, ...(GO ? ['--go'] : [])])
+  if (fs === 2) console.log('  (some shots did not render — they record as placeholder plates; re-run to retry them)')
+  else if (fs !== 0 && GO) {
+    console.error('\n  the footage step failed; stopping before anything is recorded.')
+    process.exit(fs)
+  }
+  if (has('footage-only')) process.exit(fs === 2 ? 2 : 0)
+} else if (has('footage-only')) {
+  console.log('\n  footage: nothing owed — every shot is on disk\n')
+  process.exit(0)
 }
 
 // ── the live server ─────────────────────────────────────────────────────────

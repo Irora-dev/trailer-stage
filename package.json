@@ -19,6 +19,7 @@
     "critic": "node scripts/critic.mjs",
     "compare": "node scripts/compare.mjs",
     "export": "node scripts/export.mjs",
+    "footage": "node scripts/build-footage.mjs",
     "sweep": "node scripts/sweep.mjs",
     "verify": "tsc --noEmit && eslint src && next build"
   },

@@ -10,6 +10,9 @@ dist/
 # had on screen when it was filmed — keep them out of a public history.
 .takes/
 .audio/
+# Generated footage (the `footage` piece's rendered shots): large, regenerable
+# from each shot's provenance sidecar, and possibly filmed off a real screen.
+.footage/
 
 # Local machine configuration (a target URL, an output path, a voice id).
 studio.config.local.json

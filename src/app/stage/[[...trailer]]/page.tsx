@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { FromTimeline } from '@/components/stage/from-timeline'
 import { loadConfig } from '@/lib/config'
-import { listTrailers, readTimeline } from '@/lib/trailers'
+import { listFootage, listTrailers, readTimeline } from '@/lib/trailers'
 
 /**
  * THE SET. The recorder points a headless browser at /stage/<name> and captures
@@ -26,6 +26,7 @@ export default async function StagePage({ params }: { params: Promise<{ trailer?
       logo={cfg.theme.logo || undefined}
       wordmark={cfg.theme.wordmark}
       plate={cfg.theme.plate}
+      footageFiles={listFootage(name)}
     />
   )
 }

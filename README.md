@@ -26,6 +26,10 @@ part that matters — **what to ask you before it starts**.
   shooting a silent draft — is free.
 - **Proves its own edits.** Each take extracts a labelled still per cue and scores
   them against your approved take, worst frame first. You see what changed.
+- **Generates the shots it cannot film.** A `footage` clip names a model, a prompt
+  and its references; the dry run prices every missing shot in dollars, `--go`
+  renders it (fal.ai or the Gemini API), and the stage plays it against its own
+  clock. Until then the shot is a labelled plate, so a silent draft costs nothing.
 
 ## Requirements
 
@@ -35,6 +39,9 @@ part that matters — **what to ask you before it starts**.
 - An [ElevenLabs](https://elevenlabs.io) key for narration, and an
   [Anthropic](https://platform.claude.com) key for the brief compiler. Both
   optional: everything else works without them.
+- For generated footage, a [fal.ai](https://fal.ai) key and/or a paid-tier
+  [Gemini API](https://ai.google.dev) key. Optional too: shots without a file
+  record as placeholder plates.
 
 ## Quick start
 
@@ -97,6 +104,28 @@ Every clip is a cue. Every piece is documented at the top of
 `src/lib/pieces.ts`. The craft — how to film an app, direct a voice, move a
 camera, and the traps already paid for — is in [docs/MANUAL.md](./docs/MANUAL.md).
 
+## Generated footage
+
+A shot the stage cannot film — a person at a desk, a city at dusk, a metaphor —
+is a `footage` clip whose `render` block is the spend spec, exactly as a
+narration line's `render` block is:
+
+```jsonc
+{ "id": "trader", "at": 2.1, "until": 7.9, "anchor": "line:hook.start-0.4", "anchorUntil": "line:hook.end+0.3",
+  "params": { "piece": "footage", "fit": "cover", "hold": "freeze", "label": "AI-generated",
+    "render": { "provider": "fal", "model": "bytedance/seedance-2.0/text-to-video",
+      "prompt": "Handheld 35mm, night. A trader leans toward a monitor; green candles reflect in their glasses; slow push-in. No text, no logos, no recognisable faces.",
+      "negative": "text, logos, real people", "seconds": "auto", "resolution": "720p", "aspect": "16:9", "audio": false } } }
+```
+
+`npm run footage -- <name>` prints every shot the timeline still owes and what it
+costs (per-second prices, dated); `--go` renders them, normalises them for the
+stage, and writes a provenance sidecar beside each file. `npm run trailer -- <name>`
+folds the same figure into its dry run and renders footage after the mix has
+been measured, so each shot is asked for at its final length. A file that exists
+is never re-rendered. The rules of the craft — what a shot may depict, the
+disclosure every cut with footage owes — are in the manual's footage chapter.
+
 ## Commands
 
 | command | does |
@@ -108,6 +137,7 @@ camera, and the traps already paid for — is in [docs/MANUAL.md](./docs/MANUAL.
 | `npm run critic -- <n>` | a ranked defect list read off the take's own frames |
 | `npm run cast -- --line … --describe …` | audition and cast a narrator |
 | `npm run export -- <n>` | the approved cut plus re-recorded social ratios |
+| `npm run footage -- <n> [--go\|--check]` | the shots the picture owes, priced; `--go` renders them; `--check` validates the render blocks offline |
 | `npm run sweep` | what this repo would publish: paths, keys, addresses, internal notes |
 
 ## Publishing your own trailers repo

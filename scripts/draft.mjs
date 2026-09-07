@@ -56,6 +56,7 @@ const DRY = has('dry-run')
 const PIECE_KINDS = [
   'browserFrame', 'card', 'marketTape', 'lineChart', 'bento', 'groupFold', 'logoReveal',
   'endCard', 'text', 'chipRow', 'image', 'videoActor', 'sprite', 'pin', 'channelFlip', 'caption',
+  'footage',
 ]
 
 // ── the output contract ─────────────────────────────────────────────────────
@@ -260,6 +261,20 @@ export function validateDraft(d) {
   if (!kinds.has('endCard') && !kinds.has('logoReveal') && !kinds.has('text'))
     problems.push('nothing closes the cut: end on a logoReveal, an endCard, or text')
   if (!(d.tracks ?? []).some((t) => t.id === 'captions')) problems.push('no captions track')
+  // Generated footage owes the viewer a disclosure (EU AI Act, Art. 50): an
+  // endCard chip that says so. The compiler adds it; a hand-written cut must too.
+  if (kinds.has('footage')) {
+    const chips = clips.flatMap(({ c }) => {
+      try {
+        const p = JSON.parse(c.paramsJson ?? 'null')
+        return p?.piece === 'endCard' && Array.isArray(p.chips) ? p.chips.map(String) : []
+      } catch {
+        return []
+      }
+    })
+    if (!chips.some((ch) => /ai[- ]generated/i.test(ch)))
+      problems.push('footage present but nothing discloses it: give the endCard a chip like "Contains AI-generated footage"')
+  }
   return problems
 }
 
@@ -352,6 +367,17 @@ LINE RULES — these are trailer lines, and the model that speaks them takes dir
 - Effects sparse or none, -8 to -16 dB.
 - Anything invented on screen must be labelled as an example. Never present made-up numbers or
   names as real.
+- FOOTAGE (a generated shot) is for the world AROUND the product, never the product itself: the
+  app comes from browserFrame or from real stills. Use it only when the brief wants a scene,
+  a person, a place or a metaphor that cannot be filmed. A footage clip's paramsJson carries a
+  "render" block: provider ("fal" or "gemini"), model (an id from the catalogue in the manual's
+  footage chapter), prompt (ONE shot: subject · action · camera and lens · light · texture; no
+  on-screen text, no logos, no real or recognisable people), negative ("text, logos, real
+  people"), seconds "auto", resolution "720p", aspect "16:9", audio false. fit "cover" for a
+  full-bleed shot, "contain" or "card" for a shot in a box. Six shots or fewer, each 3 to 8 s
+  of the cut. Nothing renders until a person runs the pipeline with --go and pays for it.
+- When ANY footage clip exists the endCard MUST carry a chip that says "Contains AI-generated
+  footage" — the disclosure the law asks for.
 - blackoutAnchor is ~0.5s after the final word; endAnchor ~2s after that.`
 
   return [

@@ -12,7 +12,7 @@
 
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, sep } from 'node:path'
 import { loadConfig } from './config'
 import type { TrailerTimeline } from './timeline'
 
@@ -76,4 +76,41 @@ export function mixFileOf(name: string, root = process.cwd()): string | null {
   } catch {
     return null
   }
+}
+
+// ── generated footage ───────────────────────────────────────────────────────
+// A trailer's footage (the `footage` piece's rendered shots) lives under
+// `paths.footage/<name>/`, gitignored like takes and audio: large, regenerable
+// from each shot's provenance sidecar, and possibly filmed off a real screen.
+
+const FOOTAGE_FILE_RE = /^[\w.-]+\.(mp4|webm|mov)$/i
+
+export function footageDir(name: string, root = process.cwd()): string | null {
+  if (!NAME_RE.test(name)) return null
+  return join(root, loadConfig(root).paths.footage || '.footage', name)
+}
+
+/** The footage files on disk for a trailer (names only). The stage reads this
+ *  server-side so a piece knows whether its shot is rendered or still pending —
+ *  a missing shot draws a placeholder plate instead of stalling the readiness
+ *  check on a 404. */
+export function listFootage(name: string, root = process.cwd()): string[] {
+  const dir = footageDir(name, root)
+  if (!dir || !existsSync(dir)) return []
+  try {
+    return readdirSync(dir)
+      .filter((f) => FOOTAGE_FILE_RE.test(f))
+      .sort()
+  } catch {
+    return []
+  }
+}
+
+/** The absolute path of one footage file, or null unless the trailer name and
+ *  the file name are both whitelisted and the result stays inside the dir. */
+export function footageFilePath(name: string, file: string, root = process.cwd()): string | null {
+  const dir = footageDir(name, root)
+  if (!dir || !FOOTAGE_FILE_RE.test(file) || file.includes('..')) return null
+  const p = join(dir, file)
+  return p.startsWith(dir + sep) ? p : null
 }

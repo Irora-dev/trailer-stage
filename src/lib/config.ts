@@ -45,7 +45,12 @@ export interface StudioConfig {
   voice: { id: string; name: string; model: string; stability: number; brief: string }
   mix: { prerollSec: number; tailSec: number; bedGainDb: number; duckDb: number }
   record: { width: number; height: number; fps: number; lufs: number }
-  paths: { trailers: string; takes: string; audio: string }
+  paths: { trailers: string; takes: string; audio: string; footage: string }
+  /** Generated footage (the `footage` piece): the hard spend cap per builder run,
+   *  and per-second price overrides keyed by model id then resolution. Prices
+   *  move monthly; `pricesAsOf` is printed with every dry run so a stale table
+   *  is visible. */
+  footage: { budgetUsd: number; pricesAsOf: string; prices: Record<string, Record<string, number>> }
 }
 
 const DEFAULTS: StudioConfig = {
@@ -74,7 +79,8 @@ const DEFAULTS: StudioConfig = {
   voice: { id: '', name: 'narrator', model: 'eleven_v3', stability: 0.4, brief: '' },
   mix: { prerollSec: 4, tailSec: 3, bedGainDb: 1.5, duckDb: 4 },
   record: { width: 1280, height: 720, fps: 30, lufs: -23 },
-  paths: { trailers: 'trailers', takes: '.takes', audio: '.audio' },
+  paths: { trailers: 'trailers', takes: '.takes', audio: '.audio', footage: '.footage' },
+  footage: { budgetUsd: 100, pricesAsOf: '', prices: {} },
 }
 
 function readJson(path: string): Record<string, unknown> | null {

@@ -1,0 +1,133 @@
+{
+ "name": "footage-demo",
+ "end": 21,
+ "blackoutAt": 19.6,
+ "mix": null,
+ "scene": { "kind": "theme", "overlay": "grain" },
+ "tracks": [
+  {
+   "id": "open",
+   "name": "Title",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "title",
+     "at": 0.8,
+     "until": 3.6,
+     "params": { "piece": "text", "style": "display", "text": "FOOTAGE", "topVh": 44, "sizePx": 72, "letterSpacing": "0.12em" }
+    },
+    {
+     "id": "titlePlate",
+     "at": 1.4,
+     "until": 3.6,
+     "params": { "piece": "text", "style": "eyebrow", "text": "a shot played against the stage clock", "topVh": 55 }
+    }
+   ]
+  },
+  {
+   "id": "shots",
+   "name": "Footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "lunge",
+     "at": 3.6,
+     "until": 11.6,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "grain",
+      "label": "AI-generated · demo stand-in",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/text-to-video",
+       "prompt": "Handheld 35mm, dusk. A lone runner in a painted storybook world lunges through wind-bent grass toward a lantern-lit shore; slow push-in; warm sepia light; no text, no logos, no recognisable faces.",
+       "negative": "text, logos, real people",
+       "seconds": "auto",
+       "resolution": "720p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "crowd",
+     "at": 11.6,
+     "until": 17.4,
+     "params": {
+      "piece": "footage",
+      "fit": "contain",
+      "hold": "loop",
+      "widthVw": 56,
+      "leftVw": 33,
+      "topVh": 50,
+      "rounded": 18,
+      "render": {
+       "provider": "fal",
+       "model": "minimax/h3-max/text-to-video",
+       "prompt": "A festival crowd in a painted harbour town raises lanterns as dusk falls; wide shot, gentle handheld drift; no text, no logos, no recognisable faces.",
+       "negative": "text, logos, real people",
+       "seconds": "auto",
+       "resolution": "768p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "pending",
+     "at": 11.6,
+     "until": 17.4,
+     "params": {
+      "piece": "footage",
+      "fit": "card",
+      "widthVw": 30,
+      "leftVw": 78,
+      "topVh": 50,
+      "label": "pending",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/text-to-video",
+       "prompt": "Night. A trader in a dim apartment leans toward a monitor; green candles reflect in their glasses; slow push-in; no text, no logos, no recognisable faces.",
+       "negative": "text, logos, real people",
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "beats",
+   "name": "Beats",
+   "kind": "marker",
+   "clips": [
+    { "id": "frozen", "at": 10.4 }
+   ]
+  },
+  {
+   "id": "close",
+   "name": "The close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "end",
+     "at": 17.6,
+     "params": { "piece": "endCard", "chips": ["Contains AI-generated footage", "silent draft"], "note": "the footage piece · trailer-stage" }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "name": "Captions",
+   "kind": "visual",
+   "clips": [
+    { "id": "cap01", "at": 3.6, "until": 11.6, "params": { "piece": "caption", "text": "A shot the timeline owns: it starts on its cue, freezes when the file runs out." } },
+    { "id": "cap02", "at": 11.6, "until": 17.4, "params": { "piece": "caption", "text": "Left, a looping shot in a box. Right, a shot not rendered yet: the plate says what it will cost." } }
+   ]
+  }
+ ]
+}

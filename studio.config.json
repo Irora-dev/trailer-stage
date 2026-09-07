@@ -53,6 +53,12 @@
   "paths": {
     "trailers": "trailers",
     "takes": ".takes",
-    "audio": ".audio"
+    "audio": ".audio",
+    "footage": ".footage"
+  },
+  "footage": {
+    "budgetUsd": 100,
+    "pricesAsOf": "2026-09-07",
+    "prices": {}
   }
 }
