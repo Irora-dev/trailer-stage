@@ -34,12 +34,13 @@
 
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs'
-import { dirname } from 'node:path'
-import { arg, config, ffmpeg, ffmpegPath, has, probeDuration, r2, readTimeline } from './lib.mjs'
+import { dirname, join } from 'node:path'
+import { arg, config, ffmpeg, ffmpegPath, footageDir, has, probeDuration, r2, readTimeline, ROOT, takesDir } from './lib.mjs'
 import { createBudget } from './footage/budget.mjs'
 import { PRICES_AS_OF } from './footage/models.mjs'
 import { abs, fmtUsd, footageRenders, isRemote, validatePlan } from './footage/plan.mjs'
-import { download, falGenerate, falInput, falKey, imageDataUri } from './footage/providers/fal.mjs'
+import { isStageRef, resolveStageRef, stageRefProblem } from './footage/refs.mjs'
+import { download, falGenerate, falInput, falKey, imageDataUri, uploadToFal } from './footage/providers/fal.mjs'
 import { geminiKey, omniGenerate, veoGenerate } from './footage/providers/gemini.mjs'
 
 const name = process.argv[2]
@@ -62,6 +63,27 @@ let plan = footageRenders(tl, cfg)
 if (ONLY) plan = plan.filter((r) => r.clipId === ONLY)
 const asOf = cfg.footage?.pricesAsOf || PRICES_AS_OF
 
+// Stage-derived references (@still: / @take:) are cut from recorded takes with
+// ffmpeg — free, so the check and the dry run resolve them too and say what
+// would be sent. Without ffmpeg they are reported, never guessed.
+const FF_REFS = await ffmpegPath({ required: false })
+const refCtx = { tl, takesDir: takesDir(name), refsDir: join(footageDir(name), 'refs'), FF: FF_REFS, width: cfg.record?.width ?? 1280 }
+const stageRefCheck = (ref) => stageRefProblem(ref, refCtx)
+const rel = (p) => String(p).replace(`${ROOT}/`, '')
+
+/** Cut every stage reference a render names; returns notes for the printout. */
+function cutStageRefs(r) {
+  const lines = []
+  const refs = r.render.refs ?? {}
+  for (const k of ['images', 'videos', 'audio'])
+    for (const ref of Array.isArray(refs[k]) ? refs[k] : [])
+      if (isStageRef(ref) && !stageRefProblem(ref, refCtx)) {
+        const s = resolveStageRef(ref, refCtx)
+        lines.push(`${ref} → ${rel(s.path)}${s.kind === 'video' ? ` (${s.seconds}s)` : ''} from ${s.source}${s.note ? ` · ${s.note}` : ''}`)
+      }
+  return lines
+}
+
 // ── --check: the plan, read back, with every problem a person should fix ────
 if (CHECK) {
   console.log(`\n  ${name}: ${plan.length} footage render block(s)`)
@@ -70,8 +92,9 @@ if (CHECK) {
     console.log(
       `    ${r.clipId.padEnd(14)} ${state.padEnd(12)} ${r.model || '(no model)'} · ${r.resolution} · span ${r.span.toFixed(1)}s → ask ${r.seconds}s · ${r.perSec != null ? `$${r.perSec}/s` : 'unpriced'}${r.takes > 1 ? ` · ${r.takes} takes, use ${r.use}` : ''}`,
     )
+    for (const l of cutStageRefs(r)) console.log(`${' '.repeat(19)}ref ${l}`)
   }
-  const problems = validatePlan(plan)
+  const problems = validatePlan(plan, { stageRef: stageRefCheck })
   if (problems.length) {
     console.log(`\n  ${problems.length} problem(s):`)
     for (const p of problems) console.log(`    - ${p}`)
@@ -95,8 +118,9 @@ console.log(`\n  THIS WOULD SPEND: ${owed.reduce((n, r) => n + r.missing.length,
 for (const r of owed) {
   for (const f of r.missing)
     console.log(
-      `    footage ${r.clipId.padEnd(12)} ${f.replace(`${process.cwd()}/`, '')}\n            ${r.model} · ${r.resolution} · ${r.seconds}s${r.render.audio === true ? ' + audio' : ''} ≈ ${fmtUsd(r.perSec == null ? null : r.perSec * r.seconds)}\n            ← "${String(r.render.prompt ?? '').replace(/\s+/g, ' ').slice(0, 110)}${String(r.render.prompt ?? '').length > 110 ? '…' : ''}"`,
+      `    footage ${r.clipId.padEnd(12)} ${rel(f)}\n            ${r.model} · ${r.resolution} · ${r.seconds}s${r.render.audio === true ? ' + audio' : ''} ≈ ${fmtUsd(r.perSec == null ? null : r.perSec * r.seconds)}\n            ← "${String(r.render.prompt ?? '').replace(/\s+/g, ' ').slice(0, 110)}${String(r.render.prompt ?? '').length > 110 ? '…' : ''}"`,
     )
+  for (const l of cutStageRefs(r)) console.log(`            ref ${l}`)
 }
 if (!GO) {
   console.log('\n  dry run: nothing rendered, nothing spent. Re-run with --go to spend.\n')
@@ -104,7 +128,7 @@ if (!GO) {
 }
 
 // ── --go: refuse a plan with problems, then spend under the cap ─────────────
-const problems = validatePlan(owed)
+const problems = validatePlan(owed, { stageRef: stageRefCheck })
 if (problems.length) {
   console.error(`\n  not spending — ${problems.length} problem(s) in the plan:`)
   for (const p of problems) console.error(`    - ${p}`)
@@ -132,21 +156,46 @@ const sha1 = (buf) => createHash('sha1').update(buf).digest('hex')
 const masterOf = (file) => file.replace(/(\.[a-z0-9]+)$/i, '.master$1')
 const sidecarOf = (file) => file.replace(/(\.[a-z0-9]+)$/i, '.footage.json')
 
-/** Local image references become inline data (fal: data URIs; gemini: paths the adapter inlines); remote URLs pass through. */
-function resolveRefs(r) {
+/**
+ * References become what the provider can read. A stage reference (@still: /
+ * @take:) is first cut from a recorded take. Then, for fal: a small image is a
+ * data URI, anything else is uploaded to fal storage and passed by URL; for
+ * Gemini: images travel inline, and video/audio are refused (the adapter does
+ * not edit uploads, and the EEA is not offered that anyway). Remote URLs pass
+ * through. Every reference is hashed for the sidecar.
+ */
+const DATA_URI_MAX = 3 * 1024 * 1024
+async function resolveRefs(r) {
   const refs = r.render.refs ?? {}
   const out = { images: [], videos: [], audio: [], hashes: [] }
   for (const k of ['images', 'videos', 'audio']) {
     for (const ref of Array.isArray(refs[k]) ? refs[k] : []) {
       if (isRemote(ref)) {
         out[k].push(ref)
-        out.hashes.push({ kind: k, ref, sha1: null })
+        out.hashes.push({ kind: k, ref, sha1: null, url: ref })
         continue
       }
-      const path = abs(ref)
-      out.hashes.push({ kind: k, ref, sha1: sha1(readFileSync(path)) })
-      if (k === 'images') out[k].push(r.provider === 'fal' ? imageDataUri(path) : path)
-      else throw new Error(`${r.clipId}: a local ${k} reference needs an upload, which is phase 1 — host it and pass a URL for now (${ref})`)
+      let path = abs(ref)
+      let note = null
+      if (isStageRef(ref)) {
+        const s = resolveStageRef(ref, refCtx)
+        path = s.path
+        note = `${s.kind} from ${s.source}${s.note ? ` · ${s.note}` : ''}`
+      }
+      const bytes = readFileSync(path)
+      const entry = { kind: k, ref, file: rel(path), sha1: sha1(bytes), url: null, note }
+      if (r.provider === 'fal') {
+        if (k === 'images' && bytes.length <= DATA_URI_MAX) out[k].push(imageDataUri(path))
+        else {
+          process.stdout.write(`\n      uploading ${k.slice(0, -1)} ${rel(path)} (${(bytes.length / 1048576).toFixed(1)} MB) … `)
+          entry.url = await uploadToFal(path, keys.fal)
+          out[k].push(entry.url)
+        }
+      } else if (r.provider === 'gemini') {
+        if (k === 'images') out[k].push(path)
+        else throw new Error(`${r.clipId}: Gemini takes image references only here — put a shot that needs ${ref} on a Seedance reference-to-video endpoint (fal)`)
+      }
+      out.hashes.push(entry)
     }
   }
   return out
@@ -173,7 +222,7 @@ for (const r of owed) {
     const t0 = Date.now()
     try {
       budget.check(label)
-      const refs = resolveRefs(r)
+      const refs = await resolveRefs(r)
       const req = {
         family: r.info?.family ?? null,
         endpoint: r.model,

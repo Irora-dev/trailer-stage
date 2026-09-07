@@ -84,6 +84,30 @@ export async function falGenerate({ endpoint, input, key, onLog, timeoutSec = 12
   return { url, seed: out.seed ?? null, requestId, raw: out }
 }
 
+/**
+ * Upload a local file to fal's storage so a model can read it by URL (video and
+ * audio references, and images too large for a data URI). Two steps, as the JS
+ * client does it: initiate (signed upload URL + the final file URL), then PUT
+ * the bytes. Files over 90 MB would need the multipart flow; a reference that
+ * big is a mistake, so this refuses instead.
+ */
+const REST = 'https://rest.alpha.fal.ai'
+const MIME_ALL = { ...MIME, '.mp4': 'video/mp4', '.webm': 'video/webm', '.mov': 'video/quicktime', '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.m4a': 'audio/mp4' }
+export async function uploadToFal(path, key) {
+  const bytes = readFileSync(path)
+  if (bytes.length > 90 * 1024 * 1024) throw new Error(`${path}: ${(bytes.length / 1048576).toFixed(0)} MB is too large for a reference upload (90 MB cap)`)
+  const type = MIME_ALL[extname(path).toLowerCase()] ?? 'application/octet-stream'
+  const init = await json(
+    `${REST}/storage/upload/initiate?storage_type=fal-cdn-v3`,
+    { method: 'POST', headers: { Authorization: `Key ${key}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ file_name: path.split('/').pop(), content_type: type }) },
+    'fal storage initiate',
+  )
+  if (!init.upload_url || !init.file_url) throw new Error(`fal storage initiate returned no urls: ${JSON.stringify(init).slice(0, 300)}`)
+  const put = await fetch(init.upload_url, { method: 'PUT', headers: { 'Content-Type': type }, body: bytes })
+  if (!put.ok) throw new Error(`fal storage upload: ${put.status} ${(await put.text().catch(() => '')).slice(0, 200)}`)
+  return init.file_url
+}
+
 /** Fetch a result URL into memory. Fal's media URLs expire; do this at once. */
 export async function download(url) {
   const res = await fetch(url)

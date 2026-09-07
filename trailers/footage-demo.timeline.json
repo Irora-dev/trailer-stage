@@ -84,15 +84,39 @@
       "fit": "card",
       "widthVw": 30,
       "leftVw": 78,
-      "topVh": 50,
-      "label": "pending",
+      "topVh": 31,
+      "label": "pending · text-to-video",
       "render": {
        "provider": "fal",
-       "model": "fal-ai/kling-video/v3/pro/text-to-video",
+       "model": "minimax/h3-max/text-to-video",
        "prompt": "Night. A trader in a dim apartment leans toward a monitor; green candles reflect in their glasses; slow push-in; no text, no logos, no recognisable faces.",
        "negative": "text, logos, real people",
        "seconds": "auto",
-       "resolution": "1080p",
+       "resolution": "768p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "monitor",
+     "at": 11.6,
+     "until": 17.4,
+     "params": {
+      "piece": "footage",
+      "fit": "card",
+      "widthVw": 30,
+      "leftVw": 78,
+      "topVh": 69,
+      "label": "pending · reference-to-video",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "A trader's desk at night. The monitor shows @Image1 and then @Video1 plays on it; the screen's glow lights the room; a hand reaches for a coffee cup; slow push-in. No text beyond what the monitor already shows, no logos, no recognisable faces.",
+       "negative": "text, logos, real people",
+       "refs": { "images": ["@still:lunge+2"], "videos": ["@take:newest:crowd..crowd+2"] },
+       "seconds": "auto",
+       "resolution": "720p",
        "aspect": "16:9",
        "audio": false
       }
@@ -126,7 +150,7 @@
    "kind": "visual",
    "clips": [
     { "id": "cap01", "at": 3.6, "until": 11.6, "params": { "piece": "caption", "text": "A shot the timeline owns: it starts on its cue, freezes when the file runs out." } },
-    { "id": "cap02", "at": 11.6, "until": 17.4, "params": { "piece": "caption", "text": "Left, a looping shot in a box. Right, a shot not rendered yet: the plate says what it will cost." } }
+    { "id": "cap02", "at": 11.6, "until": 17.4, "params": { "piece": "caption", "text": "Left, a looping shot in a box. Right, two shots not rendered yet: the plates say what they will cost; the lower one puts the stage's own frames inside the scene." } }
    ]
   }
  ]

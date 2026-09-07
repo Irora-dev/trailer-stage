@@ -239,10 +239,22 @@ Keys: `FAL_KEY` or `~/.config/fal/api-key`; `GEMINI_API_KEY` or
 provider adapters were written from the vendors' documentation before any key
 existed; the first `--go` on each is the proof, so make it one short shot.
 
-Not yet: `@still:<cue>` and `@take:<from>..<until>` references (the stage's own
-stills and take slices handed to a reference-to-video model, so the real product
-appears inside a generated scene), local video/audio references (they need an
-upload), and per-shot take picking on the review board.
+**The real product inside a generated scene.** A reference may be a file, a URL,
+or the stage's own recording: `@still:<cue>[±s]` is one frame of the approved take
+(or the newest, and the check says so) at that cue's time, `@take:<approved|newest|
+take-NNN>:<from>..<until>` is a slice of it (clamped to 15 s, scaled to the record
+width, silent). Cues are clip ids, `<id>.end`, `end`, or seconds. They are cut with
+ffmpeg into `.footage/<name>/refs/` — free, so `--check` and the dry run show
+exactly what would be sent — and the prompt names them as `@Image1` / `@Video1`
+("the monitor shows @Image1"). Record a silent draft first; that is what the
+references come from. A frame is what the viewer saw — captions, labels and the
+stage mark included — so cut product frames from a beat that shows only the
+product (a `browserFrame` alone, captions off). Small images travel to fal as
+data URIs; anything else is uploaded to fal storage at `--go` and passed by URL.
+Gemini takes image references only here.
+
+Not yet: per-shot take picking on the review board, and the adapters' first live
+call.
 
 ---
 

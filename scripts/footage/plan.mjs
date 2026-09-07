@@ -88,8 +88,10 @@ export function footageRenders(tl, cfg = {}) {
 
 export const fmtUsd = (n) => (n == null ? '$?' : `$${n.toFixed(2)}`)
 
-/** Problems a person should fix before spending. Empty when the plan is sound. */
-export function validatePlan(plan) {
+/** Problems a person should fix before spending. Empty when the plan is sound.
+ *  `opts.stageRef(ref, render)` judges `@still:` / `@take:` references (see refs.mjs);
+ *  without it they are reported as unresolvable. */
+export function validatePlan(plan, opts = {}) {
   const problems = []
   for (const r of plan) {
     const where = `${r.trackId}/${r.clipId}`
@@ -107,9 +109,14 @@ export function validatePlan(plan) {
       if (r.info && list.length > r.info.refs[k]) problems.push(`${where}: ${list.length} ${k} references but ${r.model} takes ${r.info.refs[k]}`)
       for (const ref of list) {
         if (typeof ref !== 'string') problems.push(`${where}: a ${k} reference is not a string`)
-        else if (ref.startsWith('@still:') || ref.startsWith('@take:'))
-          problems.push(`${where}: "${ref}" — stage-derived references are phase 2; not resolved yet`)
-        else if (!isRemote(ref) && !existsSync(abs(ref))) problems.push(`${where}: reference file not found: ${ref}`)
+        else if (ref.startsWith('@still:') || ref.startsWith('@take:')) {
+          if (ref.startsWith('@still:') && k !== 'images') problems.push(`${where}: "${ref}" is a frame — list it under images`)
+          else if (ref.startsWith('@take:') && k !== 'videos') problems.push(`${where}: "${ref}" is a slice — list it under videos`)
+          else {
+            const p = opts.stageRef ? opts.stageRef(ref, r) : 'stage references cannot be judged here'
+            if (p) problems.push(`${where}: ${p}`)
+          }
+        } else if (!isRemote(ref) && !existsSync(abs(ref))) problems.push(`${where}: reference file not found: ${ref}`)
       }
     }
     if (r.render.seconds !== undefined && r.render.seconds !== 'auto' && !(Number(r.render.seconds) > 0))

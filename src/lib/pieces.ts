@@ -76,7 +76,10 @@
  *                grade? ('none'|'crt'|'grain'), label? (a small pill, e.g. "AI-generated"),
  *                canvasId?, and render? — THE SPEND SPEC the footage builder reads and the
  *                stage never touches: { provider: 'fal'|'gemini', model, prompt, negative?,
- *                refs? {images[], videos[], audio[]}, seconds? ('auto' = the span + 1.5 s,
+ *                refs? {images[], videos[], audio[]} — each a file, a URL, `@still:<cue>±s`
+ *                (one frame of a recorded take) or `@take:<approved|newest>:<from>..<until>`
+ *                (a slice of one), so the REAL app can sit inside a generated scene as
+ *                @Image1 / @Video1 —, seconds? ('auto' = the span + 1.5 s,
  *                or a number), resolution?, aspect?, audio? (false: the mix is the sound),
  *                takes? (N readings in one spend), use? (which one plays), seed?,
  *                pricePerSec? (a model the catalogue does not price), input? (raw provider

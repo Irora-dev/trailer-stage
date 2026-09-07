@@ -211,7 +211,9 @@ export function validateDraft(d) {
   }
   const walkRefs = (where, v) => {
     if (typeof v === 'string') {
-      if (v.startsWith('@') && !timeRefOk(v)) problems.push(`${where}: TimeRef "${v}" names no clip`)
+      // `@still:` / `@take:` are stage references (a frame or a slice of a recorded
+      // take, see scripts/footage/refs.mjs), not TimeRefs; the footage builder judges them.
+      if (v.startsWith('@') && !/^@(still|take):/.test(v) && !timeRefOk(v)) problems.push(`${where}: TimeRef "${v}" names no clip`)
       const am = ANCHOR_RE.exec(v)
       if (am && am[2] && !lineIds.has(am[2])) problems.push(`${where}: anchor "${v}" names no line`)
     } else if (Array.isArray(v)) v.forEach((x, i) => walkRefs(`${where}[${i}]`, x))
@@ -376,6 +378,11 @@ LINE RULES — these are trailer lines, and the model that speaks them takes dir
   people"), seconds "auto", resolution "720p", aspect "16:9", audio false. fit "cover" for a
   full-bleed shot, "contain" or "card" for a shot in a box. Six shots or fewer, each 3 to 8 s
   of the cut. Nothing renders until a person runs the pipeline with --go and pays for it.
+  To put the REAL product inside a generated scene, give a reference-to-video model the stage's
+  own recording as a reference: refs.images may hold "@still:<clipId>+<s>" (one frame of the
+  recorded take at that clip's time) and refs.videos "@take:newest:<clipId>..<clipId>+<s>" (a
+  slice of it), then name them in the prompt as @Image1 / @Video1 ("the monitor shows @Image1").
+  Those need a recorded take first, so use them only when the brief says one exists.
 - When ANY footage clip exists the endCard MUST carry a chip that says "Contains AI-generated
   footage" — the disclosure the law asks for.
 - blackoutAnchor is ~0.5s after the final word; endAnchor ~2s after that.`
