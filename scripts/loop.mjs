@@ -7,6 +7,9 @@
  *   flags: --out <file>          also copy the loop and its preview there (a site's public folder, a Downloads folder)
  *          --size WxH            output size, cover-fitted (default: the record size in studio.config; 1920x1080 when unset)
  *          --fps N               output frame rate (default: the source's)
+ *          --pingpong            play the clip forward then backward (frames [0,cut) then (cut-2 .. 1)): a loop with NO seam by
+ *                                construction, for motion that oscillates anyway (breathing, swaying grass, a flickering flame);
+ *                                wrong for motion with a direction (walking, drifting clouds), which would visibly reverse
  *          --blend auto|off|N    cross-fade the head over the tail for N frames; auto (default) blends only when the seam is not clean
  *          --even auto|off|on    re-pick frames at an even pace so a model that braked into its end frame does not make the loop
  *                                breathe; auto (default) does it when either end runs under 60% of the clip's pace
@@ -161,10 +164,14 @@ if (evenArg === 'on' || (evenArg === 'auto' && braked)) {
   console.log(even ? `  even: ${even.kept} of ${cut.cut} frames re-picked at one median step each (${even.dropped} dropped where the model braked)` : '  even: the pace is already even, nothing re-picked')
 } else if (braked) console.log('  ⚠ the loop will breathe once per cycle — --even on re-picks frames at an even pace')
 
+// ── ping-pong: forward then backward, no seam to hide ───────────────────────
+const PINGPONG = has('pingpong')
+if (PINGPONG) console.log(`  ping-pong: frames [0,${cut.cut}) forward then ${cut.cut - 2} backward → ${cut.cut + cut.cut - 2} frames, the motion reverses at both ends`)
+
 // ── blend or not ────────────────────────────────────────────────────────────
 const blendArg = String(arg('blend', 'auto'))
 let blend = null
-if (blendArg !== 'off' && !even) {
+if (blendArg !== 'off' && !even && !PINGPONG) {
   const n = /^\d+$/.test(blendArg) ? Number(blendArg) : !seam.seamless ? blendFrames(src.fps) : 0
   if (n > 0) {
     try {
@@ -179,7 +186,12 @@ if (blendArg !== 'off' && !even) {
 // ── build ───────────────────────────────────────────────────────────────────
 const enc = ['-r', String(fps), '-c:v', 'libx264', '-preset', 'slow', '-crf', String(Number(arg('crf', '18'))), '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', OUT]
 const pts = `setpts=N/(${src.fps}*TB)`
-if (blend) {
+if (PINGPONG) {
+  const keepSel = even ? even.frames.map((i) => `eq(n,${i})`).join('+') : `lt(n,${cut.cut})`
+  const backSel = even ? even.frames.slice(1, -1).map((i) => `eq(n,${i})`).join('+') : `between(n,1,${cut.cut - 2})`
+  const fc = [`[0:v]select='${keepSel}',${pts},${fit}[f]`, `[0:v]select='${backSel}',reverse,${pts},${fit}[r]`, `[f][r]concat=n=2:v=1:a=0,${pts},format=yuv420p[v]`].join(';')
+  ffmpeg(FF, ['-hide_banner', '-y', '-i', input, '-filter_complex', fc, '-map', '[v]', ...enc], 'encode ping-pong loop')
+} else if (blend) {
   const fc = [
     `[0:v]select='between(n,${blend.bodyFrom},${blend.bodyTo - 1})',${pts},${fit}[body]`,
     `[0:v]select='lt(n,${blend.headTo})',${pts},${fit}[head]`,
@@ -223,6 +235,7 @@ const report = {
   cut,
   seam: { step: seamStep, medianStep: r2(motion.median), ratio: seam.ratio == null ? null : r2(seam.ratio), seamless: seam.seamless },
   even: even ? { kept: even.kept, dropped: even.dropped, targetStep: even.targetStep } : null,
+  pingpong: PINGPONG,
   blend,
   output: { file: rel(OUT), ...out, size: `${out.width}x${out.height}`, bytes: bytes.length, sha1: createHash('sha1').update(bytes).digest('hex') },
   outputMotion: { medianStep: r2(outMotion.median), easeIn: r2(outMotion.easeIn), easeOut: r2(outMotion.easeOut) },
