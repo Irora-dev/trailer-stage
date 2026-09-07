@@ -268,6 +268,18 @@ try {
       sc && sc.provider === 'mock' && sc.mock === true && sc.request && sc.request.duration === '4' && sc.request.seed === undefined && Math.abs((sc.secondsReturned ?? 0) - 4) < 0.1 && sc.size === '1280x720' && !!sc.fileSha1,
       `the sidecar carries provenance: mock, the conformed request, the probe, the hash (${JSON.stringify(sc && { provider: sc.provider, mock: sc.mock, duration: sc.request?.duration, seed: sc.request?.seed, secondsReturned: sc.secondsReturned, size: sc.size, sha: !!sc.fileSha1 })})`,
     )
+    // --parallel: two owed shots submitted together (mock), each landing with its own sidecar.
+    const pname = '__test-footage-par'
+    const tlP = { ...tlB, name: pname, tracks: tlB.tracks.map((t) => (t.id === 'shots' ? { ...t, clips: [{ ...t.clips[0], id: 'a' }, { ...t.clips[0], id: 'b', at: 2, until: 5 }] } : t)) }
+    const tlPPath = join(TMP, `${pname}.timeline.json`)
+    writeFileSync(tlPPath, JSON.stringify(tlP, null, 1))
+    const outP = join(paths().footage, pname)
+    cleanup.push(() => rmSync(outP, { recursive: true, force: true }))
+    const par = run(['scripts/build-footage.mjs', tlPPath, '--mock', '--go', '--parallel', '2'])
+    ok(
+      par.status === 0 && existsSync(join(outP, 'a.mp4')) && existsSync(join(outP, 'b.mp4')) && existsSync(join(outP, 'a.footage.json')) && existsSync(join(outP, 'b.footage.json')) && /2 at a time/.test(par.stdout),
+      `--parallel 2 renders two owed shots together, each with its sidecar (status ${par.status}: ${par.stdout.trim().split('\n').slice(-2).join(' | ')})`,
+    )
     ok(!existsSync(join(outDir, '.lock')) && !existsSync(join(outDir, 'shot.pending.json')), 'lock released and no pending marker after success')
     ok(Math.abs(monthToDate(ledgerPathOf(paths().footage)) - before) < 1e-9, 'a mock render writes nothing to the real ledger')
     const again = run(['scripts/build-footage.mjs', tlPath, '--mock', '--go'])

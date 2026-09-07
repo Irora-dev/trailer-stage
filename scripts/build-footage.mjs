@@ -9,6 +9,7 @@
  *   flags: --only <clipId> · --seconds N · --resolution R (overrides for this run, e.g. a first-light shot)
  *          --mock [--mock-file f.mp4] (no provider, no key, no spend: a generated test clip runs the whole path)
  *          --allow-expensive · --accept-stale-prices · --resubmit (ignore a pending marker and pay again)
+ *          --parallel N (submit N shots at once; default 1, one at a time in order)
  *          --no-schema (skip the network for schemas) · --refresh-schemas · --no-normalise · --no-master
  *
  * THE LAWS (the sound's, applied to picture):
@@ -362,15 +363,19 @@ async function resumePending(r, pending, onLog) {
 
 let failed = 0
 let spentUsd = 0
-for (const r of owed) {
-  for (const file of r.missing) {
+// --parallel N submits N shots at once (the provider queues them; the ledger row, the
+// pending marker, the sidecar and the cap check are per shot, so nothing shared changes).
+// Default 1: one shot at a time, in order, as before.
+const PARALLEL = Math.max(1, Math.min(8, Math.round(Number(arg('parallel', '1')) || 1)))
+async function renderOne(r, file) {
+  {
     const take = r.takes > 1 ? Number(/-t(\d+)\.[a-z0-9]+$/i.exec(file)?.[1] ?? 1) : 1
     const label = `${r.clipId}${r.takes > 1 ? ` take ${take}` : ''}`
     const est = MOCK ? 0 : r.perSec != null ? r2(r.perSec * r.seconds) : 0
     const pending = MOCK ? null : readPending(file)
     process.stdout.write(`  ${pending && !has('resubmit') ? 'fetching' : 'rendering'} ${label} on ${r.model} (${r.seconds}s, ≈ ${fmtUsd(est)}${pending && !has('resubmit') ? ', already paid' : ''}) … `)
     const t0 = Date.now()
-    const onLog = (m) => process.stdout.write(`\n      ${String(m).slice(0, 120)}`)
+    const onLog = (m) => process.stdout.write(`\n      ${PARALLEL > 1 ? `[${label}] ` : ''}${String(m).slice(0, 120)}`)
     const warnings = []
     try {
       let buffer
@@ -482,6 +487,15 @@ for (const r of owed) {
     }
   }
 }
+
+const jobs = owed.flatMap((r) => r.missing.map((file) => () => renderOne(r, file)))
+if (PARALLEL > 1 && jobs.length > 1) console.log(`  ${jobs.length} shot(s), ${Math.min(PARALLEL, jobs.length)} at a time (the lines below interleave; each carries its shot's name)`)
+let nextJob = 0
+await Promise.all(
+  Array.from({ length: Math.min(PARALLEL, jobs.length) }, async () => {
+    while (nextJob < jobs.length) await jobs[nextJob++]()
+  }),
+)
 
 release()
 console.log(`\n  spent ≈ ${fmtUsd(spentUsd)} of $${cap} on ${budget.calls()} call(s)${MOCK ? ' (mock: nothing spent)' : ''}${failed ? ` · ${failed} FAILED (those shots record as placeholder plates)` : ''}\n`)

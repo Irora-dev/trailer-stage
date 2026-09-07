@@ -150,7 +150,7 @@ blends it only when it steps, and writes a report and a 3-cycle preview.
 | `npm run critic -- <n>` | a ranked defect list read off the take's own frames |
 | `npm run cast -- --line … --describe …` | audition and cast a narrator |
 | `npm run export -- <n>` | the approved cut plus re-recorded social ratios |
-| `npm run footage -- <n> [--go\|--check\|--mock --go]` | the shots the picture owes, priced; `--go` renders them; `--check` validates the render blocks against the providers' schemas; `--mock` runs the path for free |
+| `npm run footage -- <n> [--go\|--check\|--mock --go] [--parallel N]` | the shots the picture owes, priced; `--go` renders them (`--parallel N` submits N at once); `--check` validates the render blocks against the providers' schemas; `--mock` runs the path for free |
 | `npm run footage:test` | the footage lane's offline tests: no key, no network, no spend |
 | `npm run loop -- <n> <shot>` | close a shot generated first-frame = last-frame into a seamless loop: duplicate trimmed, seam measured, blended only if it steps, a 3-cycle preview; free |
 | `npm run sweep` | what this repo would publish: paths, keys, addresses, internal notes |

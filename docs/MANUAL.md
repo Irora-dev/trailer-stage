@@ -282,7 +282,11 @@ Gemini takes image references only here.
   and removed at success. A re-run finds it and FETCHES that render instead of
   paying again; `--resubmit` throws the marker away on purpose.
 - **One builder per trailer.** `.footage/<name>/.lock` holds the live process id;
-  a second builder refuses, a dead one's lock is taken over.
+  a second builder refuses, a dead one's lock is taken over. Inside that one
+  builder, `--parallel N` submits N shots at once (a 1080p Seedance shot takes
+  eight to nine minutes whatever its length, so four shots in parallel land in
+  ten minutes instead of thirty-five); every ledger row, marker and sidecar is
+  still per shot. Default 1, one at a time, in order.
 - **The disclosure law, on the finished cut.** The compiler's check enforces the
   chip on drafts; the builder's `--check` and the pipeline enforce it on any
   timeline: `npm run trailer -- <n> --go` refuses to record a footage cut with no
