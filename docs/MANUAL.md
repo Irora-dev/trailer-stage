@@ -323,6 +323,20 @@ cat .footage/<n>/<shot>.footage.json                   # read the sidecar: reque
 
 Then the real shots. Everything in the first three lines runs without a key.
 
+**Style boards — try the look for cents before a shot costs dollars.** Every style
+decision made in video is made at $3 to $7 a look; an image model makes it at
+three cents. A board (`boards/<name>.board.json`) is one subject, the references
+every shot will use, and N style phrases; `npm run styles -- <name>` prices it,
+`--go` renders one still per style in parallel (Seedream 4 edit through fal by
+default, $0.03 each and the same family as Seedance, so the look carries over;
+Meshy's image endpoints for prepaid credits), tiles them into a labelled contact
+sheet (`.footage/<name>/<name>.board.jpg`) and writes `BOARD.md`. A person points
+at a cell; `--pick <id> --into <trailer>` copies that still into the trailer's
+`refs/style/`, where the video model reads it as the look. Then a 480p motion
+probe of one shot (`npm run footage -- <n> --go --only <shot> --resolution 480p
+--seconds 4`, about 27 cents) before any 1080p render. Same laws as footage: dry
+run first, a still that exists is never re-rendered, schema, ledger, lock.
+
 **Loops — a shot that comes back to its start.** A hero background or an ambient
 plate wants a seamless loop, and a generator will hand you one: put the SAME still
 in `refs.images` twice on an image-to-video endpoint (Kling 3.0 Pro takes

@@ -114,8 +114,9 @@ export async function falAwait({ statusUrl, responseUrl, key, onLog, timeoutSec 
     await new Promise((r) => setTimeout(r, pollMs))
   }
   const out = await json(responseUrl, { headers }, 'fal result')
-  const url = out.video?.url ?? out.videos?.[0]?.url ?? out.output?.url ?? out.url
-  if (!url) throw new Error(`fal: completed but no video url in ${JSON.stringify(out).slice(0, 400)}`)
+  // A video endpoint answers { video: { url } }; an image endpoint { images: [{ url }] } (the style board).
+  const url = out.video?.url ?? out.videos?.[0]?.url ?? out.images?.[0]?.url ?? out.image?.url ?? out.output?.url ?? out.url
+  if (!url) throw new Error(`fal: completed but no video or image url in ${JSON.stringify(out).slice(0, 400)}`)
   return { url, seed: out.seed ?? null, raw: out }
 }
 

@@ -28,6 +28,8 @@ import { elideDataUris, falInput } from './providers/fal.mjs'
 import { omniRequest, veoRequest } from './providers/gemini.mjs'
 import { conformInput, inputSchemaOf, loadSchema, validateInput } from './schema.mjs'
 import { blendFrames, blendPlan, evenFrames, median, motionProfile, pickCut, seamVerdict } from './loop-math.mjs'
+import { boardPrompt, imageModelInfo, layoutFor, priceBoard, safeLabel } from './board.mjs'
+import { meshyInput } from './providers/meshy.mjs'
 import { acquireLock, appendSpend, capProblems, clearPending, ledgerPathOf, monthToDate, readPending, writePending } from './spend.mjs'
 
 let pass = 0
@@ -311,6 +313,19 @@ try {
   const el = elideDataUris({ prompt: 'p', start_image_url: big, nested: [big, 'https://x/y.png', 8] })
   ok(el.prompt === 'p' && /^data:image\/png;base64,<elided 3000 bytes · sha1 [0-9a-f]{40}>$/.test(el.start_image_url) && el.nested[0] === el.start_image_url && el.nested[1] === 'https://x/y.png' && el.nested[2] === 8, 'data URIs become a mime + byte count + sha1 note; everything else is untouched')
   ok(elideDataUris('data:image/png;base64,AAAA') === 'data:image/png;base64,AAAA', 'a short data URI is left alone')
+
+  // ── the style board: prices, prompts, the grid ────────────────────────────
+  section('style board (footage/board.mjs + providers/meshy.mjs)')
+  ok(JSON.stringify(layoutFor(12)) === JSON.stringify({ cols: 4, rows: 3, cells: 12 }) && JSON.stringify(layoutFor(5)) === JSON.stringify({ cols: 3, rows: 2, cells: 6 }) && layoutFor(1).cols === 1 && layoutFor(0).cells === 1, 'the grid is as square as possible, wider than tall')
+  ok(boardPrompt('a man', 'flat cel', 'text') === 'a man STYLE: flat cel Avoid: text.' && boardPrompt('a man', '', '') === 'a man', 'the cell prompt is subject, style, avoid')
+  const seedream = imageModelInfo('fal-ai/bytedance/seedream/v4/edit')
+  ok(seedream?.usd === 0.03 && seedream.provider === 'fal' && imageModelInfo('meshy/nano-banana-2')?.credits === 6 && imageModelInfo('nope') === null, 'the image catalogue prices Seedream in dollars and Meshy in credits')
+  const pb = priceBoard([{ id: 'a' }, { id: 'b' }, { id: 'c' }], { usd: 0.03, credits: null }, { missing: (s) => s.id !== 'b' })
+  ok(pb.owed === 2 && Math.abs(pb.usd - 0.06) < 1e-9 && pb.credits === null, 'a board prices only the stills it still owes')
+  ok(safeLabel("3. cel: 'Flat' 100% \\ x") === '3. cel Flat 100 x', 'labels lose the characters drawtext would read as syntax')
+  const mi = meshyInput({ model: 'meshy/nano-banana-2', prompt: 'p', aspect: '16:9', refs: { images: ['data:image/png;base64,AA'] } })
+  ok(mi.kind === 'image-to-image' && mi.input.ai_model === 'nano-banana-2' && mi.input.reference_image_urls.length === 1 && mi.input.aspect_ratio === '16:9', 'a Meshy request with references is image-to-image with the bare ai_model')
+  ok(meshyInput({ model: 'meshy/nano-banana', prompt: 'p', refs: { images: [] } }).kind === 'text-to-image', 'a Meshy request without references is text-to-image')
 
   // ── loops: a shot generated first-frame = last-frame, closed for free ─────
   section('loops (footage/loop-math.mjs + scripts/loop.mjs)')

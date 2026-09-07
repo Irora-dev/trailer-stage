@@ -153,6 +153,7 @@ blends it only when it steps, and writes a report and a 3-cycle preview.
 | `npm run footage -- <n> [--go\|--check\|--mock --go] [--parallel N]` | the shots the picture owes, priced; `--go` renders them (`--parallel N` submits N at once); `--check` validates the render blocks against the providers' schemas; `--mock` runs the path for free |
 | `npm run footage:test` | the footage lane's offline tests: no key, no network, no spend |
 | `npm run loop -- <n> <shot>` | close a shot generated first-frame = last-frame into a seamless loop: duplicate trimmed, seam measured, blended only if it steps, a 3-cycle preview; free |
+| `npm run styles -- <board> [--go] [--pick <id> --into <n>]` | a style board: one subject in N looks as stills (cents each) tiled into a labelled sheet; `--pick` copies the winner into a trailer's style references |
 | `npm run sweep` | what this repo would publish: paths, keys, addresses, internal notes |
 
 ## Publishing your own trailers repo
