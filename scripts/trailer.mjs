@@ -127,6 +127,12 @@ if (spec && tl.mix) {
   }
   const rs = run('re-time from the measured cue map', 'resolve-cues.mjs', [name, '--write', '--sync-vo'])
   if (rs === 2) console.log('  (some anchors could not be resolved — see above; the rest moved)')
+  // Law 5: effects anchored to measured events (@clip.event) moved in the spec above; mix once more
+  // so they land where the render put them. Free: every file already exists.
+  if ((spec.sfx ?? []).some((x) => typeof x.anchor === 'string' && x.anchor.startsWith('@'))) {
+    const again = run('mix again with the effects on their measured events', 'build-mix.mjs', [name, '--out', outBase, ...(GO ? ['--go'] : [])])
+    if (again !== 0) console.log('  (the second mix did not build; the first stands)')
+  }
 } else {
   console.log('\n── audio: none (silent draft) — anchored beats keep their estimated times')
 }

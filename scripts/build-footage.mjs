@@ -47,6 +47,7 @@ import { abs, disclosureProblem, fmtUsd, footageRenders, isRemote, validatePlan 
 import { isStageRef, resolveStageRef, stageRefProblem } from './footage/refs.mjs'
 import { conformInput, inputSchemaOf, loadSchema, validateInput } from './footage/schema.mjs'
 import { acquireLock, appendSpend, capProblems, clearPending, ledgerPathOf, monthToDate, readPending, writePending } from './footage/spend.mjs'
+import { chainPrevOf, completeNegative } from './footage/laws.mjs'
 import { download, elideDataUris, falAwait, falGenerate, falInput, falKey, imageDataUri, uploadToFal } from './footage/providers/fal.mjs'
 import { geminiKey, omniAwait, omniGenerate, veoAwait, veoGenerate } from './footage/providers/gemini.mjs'
 
@@ -61,6 +62,10 @@ const GO = has('go')
 const CHECK = has('check')
 const MOCK = has('mock')
 const ONLY = arg('only')
+// --probe: render the owed shots at 480p, 4 s, into probes/ (law 6: a probe before any 1080p render).
+// --sheet <clipId>: (re)write a shot's one-frame-per-second contact sheet and exit (law 4 needs it).
+const PROBE = has('probe')
+const SHEET = arg('sheet')
 
 const cfg = config()
 const fcfg = cfg.footage ?? {}
@@ -88,10 +93,53 @@ if (OV_SEC || OV_RES)
     r.overridden = true
   }
 
+// Law 2: the standard negatives ride on every shot, appended here so nobody retypes or forgets them.
+const negativeNotes = []
+for (const r of plan) {
+  const { negative, added } = completeNegative(r.render.negative)
+  if (added.length) {
+    r.render.negative = negative
+    negativeNotes.push(`${r.clipId}: negative completed with ${added.join(', ')}`)
+  }
+}
+// Law 6: a probe renders at 480p for 4 s into probes/ and is recorded in PROBES.json; a 1080p
+// render of a shot that was never probed is refused unless --allow-unprobed says so.
+const probesFile = join(footageDir(name), 'PROBES.json')
+const readProbes = () => (existsSync(probesFile) ? JSON.parse(readFileSync(probesFile, 'utf8')) : {})
+if (PROBE)
+  for (const r of plan) {
+    r.resolution = '480p'
+    r.seconds = pickSeconds(r.info, 4, 0)
+    r.perSec = typeof r.render.pricePerSec === 'number' ? r.render.pricePerSec : priceOf(r.info, r.resolution, r.render.audio === true)
+    const probeOf = (f) => f.replace(/([^/]+)\.mp4$/, (m, base) => `probes/${base}.mp4`)
+    r.files = (r.files ?? r.missing).map(probeOf)
+    r.playing = probeOf(r.playing)
+    r.missing = r.files.filter((f) => !existsSync(f))
+    r.usd = r.perSec != null ? r.perSec * r.seconds * r.missing.length : null
+    r.overridden = true
+    r.probe = true
+  }
+
 // ffmpeg serves three jobs here: cutting stage references, normalising renders, and the mock clip.
 const FF = has('no-normalise') ? await ffmpegPath({ required: false }) : await ffmpegPath({ required: false })
 const refCtx = { tl, takesDir: takesDir(name), refsDir: join(footageDir(name), 'refs'), FF, width: cfg.record?.width ?? 1280 }
 const stageRefCheck = (ref) => stageRefProblem(ref, refCtx)
+
+if (SHEET) {
+  const master = join(footageDir(name), `${SHEET}.master.mp4`)
+  if (!existsSync(master)) {
+    console.error(`\n  no rendered shot ${SHEET} in ${rel(footageDir(name))}\n`)
+    process.exit(1)
+  }
+  const outSheet = join(footageDir(name), `${SHEET}.sheet.jpg`)
+  const probe = probeVideo(master)
+  const secs = Math.max(1, Math.ceil(probe.seconds ?? 1))
+  const cols = Math.min(8, secs)
+  ffmpeg(FF, ['-y', '-v', 'error', '-i', master, '-vf', `fps=1,scale=480:270,tile=${cols}x${Math.ceil(secs / cols)}:padding=4:margin=6:color=0x0f0d14`, '-frames:v', '1', '-q:v', '3', outSheet], 'contact sheet')
+  console.log(`\n  sheet: ${rel(outSheet)} (${secs} frames, one per second) — read it before chaining the next shot\n`)
+  process.exit(0)
+}
+
 
 /** Cut every stage reference a render names; returns printable lines. Free. */
 function cutStageRefs(r) {
@@ -202,6 +250,8 @@ const monthSpent = monthToDate(ledger)
 console.log(`\n  footage ${name} — ${MOCK ? 'MOCK (no provider, no spend)' : GO ? 'GO' : 'dry run'} · prices as of ${asOf}${OV_SEC || OV_RES ? ' · overrides applied for this run' : ''}`)
 console.log(`\n  THIS WOULD SPEND: ${owed.reduce((n, r) => n + r.missing.length, 0)} footage render(s) = ${seconds}s ≈ ${fmtUsd(total)}`)
 console.log(`  spent this month so far: ${fmtUsd(monthSpent)} of $${fcfg.monthlyUsd ?? 200}`)
+for (const n of negativeNotes) console.log(`  law 2 · ${n}`)
+if (PROBE) console.log('  law 6 · PROBE: 480p, 4 s, into probes/ — the 1080p render is allowed once this exists')
 for (const r of owed) {
   for (const f of r.missing)
     console.log(
@@ -218,6 +268,21 @@ if (!GO) {
 
 // ── --go: refuse a plan with problems, then spend under the caps ────────────
 const problems = validatePlan(owed, { stageRef: stageRefCheck, verified: verifiedBySchema })
+// Law 4: a chained shot waits for the previous shot's contact sheet (written after every render; read it).
+for (const r of owed)
+  for (const ref of Array.isArray(r.render.refs?.images) ? r.render.refs.images : []) {
+    const prev = chainPrevOf(ref)
+    if (!prev) continue
+    const prevMaster = join(footageDir(name), `${prev}.master.mp4`)
+    const prevSheet = join(footageDir(name), `${prev}.sheet.jpg`)
+    if (!existsSync(prevMaster)) problems.push(`${r.trackId}/${r.clipId}: chained from ${prev}, which has not rendered yet`)
+    else if (!existsSync(prevSheet)) problems.push(`${r.trackId}/${r.clipId}: chained from ${prev}, but ${prev}'s contact sheet does not exist — make it (npm run footage -- ${name} --sheet ${prev}), read it, then chain`)
+  }
+// Law 6: probe before 1080p.
+if (!PROBE && !MOCK && !has('allow-unprobed')) {
+  const probes = readProbes()
+  for (const r of owed) if (r.resolution !== '480p' && !probes[r.clipId]) problems.push(`${r.trackId}/${r.clipId}: no 480p probe of this shot yet — run with --probe first (about 27 cents), or --allow-unprobed to skip the law`)
+}
 for (const r of owed)
   if (r.provider === 'fal' && r.model) for (const e of schemaPass(r, previewRequest(r)).errors) problems.push(`${r.trackId}/${r.clipId}: request rejected by ${r.model}'s schema — ${e}`)
 if (!MOCK) {
@@ -264,6 +329,16 @@ process.on('SIGINT', () => {
 const masterOf = (file) => file.replace(/(\.[a-z0-9]+)$/i, '.master$1')
 const sidecarOf = (file) => file.replace(/(\.[a-z0-9]+)$/i, '.footage.json')
 const audioOf = (file) => file.replace(/(\.[a-z0-9]+)$/i, '.audio.m4a')
+const sheetOf = (file) => file.replace(/(\.[a-z0-9]+)$/i, '.sheet.jpg')
+/** Law 4's evidence: one frame per second of a rendered shot, tiled, written beside it after every render. */
+function writeSheet(master, out) {
+  const probe = probeVideo(master)
+  const secs = Math.max(1, Math.ceil(probe.seconds ?? 1))
+  const cols = Math.min(8, secs)
+  const rows = Math.ceil(secs / cols)
+  ffmpeg(FF, ['-y', '-v', 'error', '-i', master, '-vf', `fps=1,scale=480:270,tile=${cols}x${rows}:padding=4:margin=6:color=0x0f0d14`, '-frames:v', '1', '-q:v', '3', out], 'contact sheet')
+  return out
+}
 
 /** A generated test clip for --mock: the whole download → normalise → sidecar path runs on it. */
 function mockBuffer(seconds) {
@@ -434,6 +509,18 @@ async function renderOne(r, file) {
         } catch {
           warnings.push('the provider returned no audio track')
         }
+      }
+      if (FF) {
+        try {
+          writeSheet(master, sheetOf(file))
+        } catch (e) {
+          warnings.push(`no contact sheet: ${e.message.split('\n')[0]}`)
+        }
+      }
+      if (PROBE) {
+        const probes = readProbes()
+        probes[r.clipId] = { at: new Date().toISOString(), model: r.model, resolution: r.resolution, seconds: r.seconds, file: rel(file) }
+        writeFileSync(probesFile, JSON.stringify(probes, null, 2) + '\n')
       }
       if (has('no-master') && existsSync(master)) rmSync(master)
       budget.add(est, label)

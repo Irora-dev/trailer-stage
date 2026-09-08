@@ -209,7 +209,19 @@ path; nothing grows, fades or slides into place; negatives name "scaling, morphi
 (4) Body type is in the bible and in every prompt (build, height, weight). (5) Anything that is
 "in the world" on the stage (a portfolio haunting the trees) is chrome-less, blended and blurred
 into the scene's depth, never a UI panel; UI chrome only for actual UI. (6) The script is approved
-by the person before compile, like the character. The sheet is for the
+by the person before compile, like the character. **Ten more, enforced (Colby, 2026-09-08, "enforce all
+of these"), in `scripts/footage/laws.mjs`:** the compiler refuses a draft that uses two generators
+or lacks a shared `footage.look` paragraph copied verbatim into every shot; the builder appends the
+standard negative list to every shot (text, logos, real people, celebrity likeness, duplicate props,
+floating objects, extra limbs, warped hands, morphing, scaling, appearing, jump cuts); the compiler
+warns past one beat every two seconds of a shot; a chained shot (refs/chain/<prev>-last.png) renders
+only after the previous shot and its contact sheet exist (the builder writes <clip>.sheet.jpg after
+every render; `--sheet <clip>` remakes one); effects and beats anchor to measured events
+(`events: { pop: 2.2 }` on the footage clip → the cue `@<clip>.pop`); a 1080p render needs a 480p
+probe of the shot first (`--probe`, about 27 cents; `--allow-unprobed` is the explicit override);
+every shot but the last carries the `footage.handoff` sentence and every shot the `footage.physics`
+paragraph, verbatim; the camera sentence comes first and names one behaviour; and no prompt has
+anyone say, shout or mouth a word. The sheet is for the
 person's approval and for the WORDS; the generator itself is handed only the face-free angles
 (the back view) plus the set plate, because fal's checker refused even a designed character's
 front, three-quarter and seated views (hat and glasses on) on 2026-09-08. Identity across the few

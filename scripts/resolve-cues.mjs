@@ -28,7 +28,7 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { arg, audioDir, has, timelinePath } from './lib.mjs'
+import { arg, audioDir, has, mixSpecPath, timelinePath } from './lib.mjs'
 
 const target = process.argv[2]
 if (!target || target.startsWith('--')) {
@@ -118,6 +118,36 @@ for (const tr of tl.tracks) {
       }
     }
   }
+}
+
+// Law 5 (2026-09-08): an effect anchored "@<clip>.<event>[±s]" (or "@<clip>[.end][±s]") follows the
+// measured event inside a footage clip (params.events, seconds into the file, scaled by rate), so the
+// pop lands on the burst the render actually made. The rewritten spec is mixed again by the pipeline.
+const specFile = mixSpecPath(tl.name)
+if (existsSync(specFile)) {
+  const spec = JSON.parse(readFileSync(specFile, 'utf8'))
+  const clipsById = new Map()
+  for (const tr of tl.tracks) for (const c of tr.clips ?? []) clipsById.set(c.id, c)
+  let moved = 0
+  for (const s of spec.sfx ?? []) {
+    const m = /^@([A-Za-z0-9_-]+)(?:\.([A-Za-z0-9_-]+))?\s*(?:([+-])\s*(\d+(?:\.\d+)?))?$/.exec(String(s.anchor ?? '').trim())
+    if (!m) continue
+    const [, clipId, evt, sign, delta] = m
+    const c = clipsById.get(clipId)
+    if (!c) { unresolved.push(`sfx ${s.src?.split('/').pop() ?? '?'}: anchor ${s.anchor} names no clip`); continue }
+    let base
+    if (!evt) base = c.at
+    else if (evt === 'end') base = c.until
+    else {
+      const ev = c.params?.events?.[evt]
+      const rate = Number(c.params?.rate) > 0 ? Number(c.params.rate) : 1
+      base = ev === undefined ? undefined : c.at + Number(ev) / rate
+    }
+    if (typeof base !== 'number') { unresolved.push(`sfx ${s.src?.split('/').pop() ?? '?'}: anchor ${s.anchor} names no measured event on ${clipId}`); continue }
+    const t = Math.round((base + (sign ? (sign === '-' ? -1 : 1) * Number(delta) : 0)) * 100) / 100
+    if (s.at === undefined || Math.abs(t - s.at) > 0.004) { changes.push(`sfx ${s.src?.split('/').pop() ?? '?'}`.padEnd(28) + `at     ${String(s.at ?? '—').padStart(7)} → ${String(t).padStart(7)}   (${s.anchor})`); s.at = t; moved++ }
+  }
+  if (moved && WRITE) writeFileSync(specFile, JSON.stringify(spec, null, 1) + '\n')
 }
 
 // The cut's own edges are fields, not clips, so they carry their anchors beside

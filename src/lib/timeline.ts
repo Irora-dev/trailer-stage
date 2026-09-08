@@ -132,6 +132,18 @@ export function cuesOf(tl: TrailerTimeline): Record<string, number> {
     for (const c of tr.clips) {
       cues[c.id] = c.at
       if (c.until !== undefined) cues[endCue(c.id)] = c.until
+      // Measured events inside a footage shot (params.events: { pop: 2.2 }, seconds into the file)
+      // are cues named "<clipId>.<event>", so effects and beats anchor to what the render actually
+      // does, never to a guess (the law of 2026-09-08). `rate` scales file time onto the stage.
+      const P = (c.params ?? {}) as Record<string, unknown>
+      const ev = P.events
+      if (P.piece === 'footage' && ev && typeof ev === 'object') {
+        const rate = Number(P.rate) > 0 ? Number(P.rate) : 1
+        for (const [k, v] of Object.entries(ev as Record<string, unknown>)) {
+          const sec = Number(v)
+          if (Number.isFinite(sec)) cues[`${c.id}.${k}`] = c.at + sec / rate
+        }
+      }
     }
   }
   cues.__blackout = tl.blackoutAt ?? tl.end - 1.4

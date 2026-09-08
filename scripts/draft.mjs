@@ -47,6 +47,7 @@ import {
   timelinePath,
 } from './lib.mjs'
 import { digestText, readProject } from './project.mjs'
+import { footageLawProblems } from './footage/laws.mjs'
 
 const cfg = config()
 const MODEL = arg('model', 'claude-opus-5')
@@ -83,6 +84,8 @@ export const SCHEMA = obj({
     }),
   ),
   camera: arrOf(obj({ anchor: str, untilAnchor: str, from: num, to: num, cx: num, cy: num })),
+  /** The shared paragraphs every footage prompt carries verbatim (null when the cut has no footage). */
+  footage: nullable(obj({ look: str, physics: str, handoff: str })),
   scene: nullable(obj({ kind: { type: 'string', enum: ['theme', 'color', 'image', 'video'] }, color: nullable(str), src: nullable(str), overlay: nullable({ type: 'string', enum: ['crt', 'grain', 'none'] }) })),
   blackoutColor: nullable(str),
   blackoutAnchor: str,
@@ -202,10 +205,22 @@ export function validateDraft(d) {
     }
   }
 
+  // Measured events on a footage clip (params.events: { pop: 2.2 }) are cues too: "@shot3.pop".
+  const eventNames = new Set()
+  for (const { c } of clips) {
+    if (!c.paramsJson) continue
+    try {
+      const p = JSON.parse(c.paramsJson)
+      if (p && p.piece === 'footage' && p.events && typeof p.events === 'object') for (const k of Object.keys(p.events)) eventNames.add(`${c.id}.${k}`)
+    } catch {
+      /* reported below */
+    }
+  }
   const timeRefOk = (ref) => {
     if (typeof ref !== 'string' || !ref.startsWith('@')) return true
     const m = /^@([A-Za-z0-9_.~-]+?)(?:\s*[+-]\s*\d+(?:\.\d+)?)?$/.exec(ref.trim())
     if (!m) return false
+    if (eventNames.has(m[1])) return true
     const nm = m[1] === 'end' || m[1] === 'blackout' ? null : m[1].endsWith('.end') ? m[1].slice(0, -4) : m[1]
     return nm === null || clipIds.has(nm)
   }
@@ -243,7 +258,21 @@ export function validateDraft(d) {
     if (p.piece === 'chipRow' && p.track && !(d.tracks ?? []).some((t) => t.id === p.track))
       problems.push(`${where}: chipRow.track "${p.track}" names no track`)
   }
-  for (const s of d.sfx ?? []) checkAnchor(`sfx/${s.id}`, s.anchor)
+  for (const s of d.sfx ?? []) if (!(typeof s.anchor === 'string' && s.anchor.startsWith('@') && timeRefOk(s.anchor))) checkAnchor(`sfx/${s.id}`, s.anchor)
+  // The laws of generated video (scripts/footage/laws.mjs), over the footage shots in film order.
+  const shots = []
+  for (const { tr, c } of clips) {
+    if (!c.paramsJson) continue
+    try {
+      const p = JSON.parse(c.paramsJson)
+      if (p && p.piece === 'footage' && p.render) shots.push({ where: `${tr.id}/${c.id}`, model: p.render.model, prompt: p.render.prompt, negative: p.render.negative, seconds: p.render.seconds })
+    } catch {
+      /* reported above */
+    }
+  }
+  const laws = footageLawProblems(shots, d.footage ?? null)
+  problems.push(...laws.problems)
+  validateDraft.warnings = laws.warnings
   for (const [i, cm] of (d.camera ?? []).entries()) {
     checkAnchor(`camera[${i}]`, cm.anchor)
     checkAnchor(`camera[${i}]`, cm.untilAnchor)
@@ -306,12 +335,14 @@ if (has('check')) {
           paramsJson: c.params ? JSON.stringify(c.params) : null,
         })),
       })),
-    sfx: [],
+    sfx: (existsSync(specPath) ? (JSON.parse(readFileSync(specPath, 'utf8')).sfx ?? []) : []).map((x, i) => ({ id: `sfx${i + 1}`, anchor: x.anchor ?? 'mix.end' })),
     camera: [],
+    footage: tl.footage ?? null,
     blackoutAnchor: 'mix.end',
     endAnchor: 'mix.end',
   }
   const problems = validateDraft(d).filter((p) => !p.startsWith('no captions') || !tl.tracks.some((t) => t.id === 'captions'))
+  for (const w of validateDraft.warnings ?? []) console.log(`  ⚠ ${w}`)
   if (problems.length) {
     console.log(`\n  ${name}: ${problems.length} problem(s)`)
     for (const p of problems) console.log(`    - ${p}`)
@@ -391,6 +422,31 @@ LINE RULES — these are trailer lines, and the model that speaks them takes dir
   recorded take at that clip's time) and refs.videos "@take:newest:<clipId>..<clipId>+<s>" (a
   slice of it), then name them in the prompt as @Image1 / @Video1 ("the monitor shows @Image1").
   Those need a recorded take first, so use them only when the brief says one exists.
+- THE LAWS OF GENERATED VIDEO (Colby, 2026-09-08; the check refuses a draft that breaks them):
+  (1) ONE generator for the whole film, and ONE look paragraph: put it in the top-level "footage"
+  object as "look" and copy it VERBATIM into every footage prompt. (2) The standard negative list is
+  appended automatically (text, logos, real people, celebrity likeness, duplicate props, floating
+  objects, extra limbs, warped hands, morphing, scaling, appearing, jump cuts); you may add more.
+  (3) At most ONE beat every two seconds of a shot: a 15 s shot carries seven actions at most.
+  (4) Chained shots: when a shot must continue the previous one without a cut, its render uses
+  image-to-video with refs.images = [".footage/<name>/refs/chain/<prevClipId>-last.png"] (the
+  pipeline extracts that frame; it renders only after the previous shot exists) and its prompt
+  begins "Start exactly from the first frame and continue the same continuous take without any
+  cut". (5) Effects and beats that land on something INSIDE a shot anchor to a measured event:
+  give the footage clip "events": { "pop": 2.2 } (seconds into the file, measured after the render)
+  and anchor with "@<clipId>.pop"; never guess. (6) The pipeline probes a shot at 480p before
+  1080p; nothing for you to write. (7) THE HANDOFF FRAME: "footage.handoff" is one sentence
+  ("...ends with him fully in frame, holding still for a beat, the action keeping its pace to the
+  last frame") copied into every shot but the last. (8) THE PHYSICS PARAGRAPH: "footage.physics" is
+  one paragraph (feet on the ground, a hand closes on a prop before the prop moves, nothing passes
+  through anything, nothing floats, nothing changes size, one of each prop, entrances walk in from
+  off-frame or from behind cover) copied into every shot prompt. (9) THE CAMERA SENTENCE FIRST,
+  one behaviour: locked off, a slow push, a lateral track or a handheld follow; never two. (10) NO
+  SPEECH: characters never say, shout or mouth words; the narrator carries every word. Also: a
+  character comes from an APPROVED character sheet (the brief links it); the sheet is for the
+  person's approval and for the words, the generator gets only face-free angles; body type goes
+  in every prompt; and anything "in the world" (a portfolio haunting the trees) is a ghostChart
+  piece, never a UI card.
 - When ANY footage clip exists the endCard MUST carry a chip that says "Contains AI-generated
   footage" — the disclosure the law asks for.
 - blackoutAnchor is ~0.5s after the final word; endAnchor ~2s after that.`
@@ -441,6 +497,7 @@ function materialize(d, { name, mixDir, bedFile, briefPath, briefText, voice }) 
   const outBase = join(mixDir, name)
   const lineIds = d.lines.map((l) => l.id)
 
+  const footageBlock = d.footage ?? undefined
   const tracks = d.tracks.map((tr) => ({
     id: tr.id,
     name: tr.name,
@@ -496,6 +553,7 @@ function materialize(d, { name, mixDir, bedFile, briefPath, briefText, voice }) 
     name,
     end,
     blackoutAt,
+    ...(footageBlock ? { footage: footageBlock } : {}),
     endAnchor: d.endAnchor,
     blackoutAnchor: d.blackoutAnchor,
     mix: hasBed ? `${outBase}.wav` : `${outBase}.vo.wav`,

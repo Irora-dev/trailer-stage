@@ -31,6 +31,7 @@ import { blendFrames, blendPlan, evenFrames, median, motionProfile, pickCut, sea
 import { boardPrompt, imageModelInfo, layoutFor, priceBoard, safeLabel } from './board.mjs'
 import { meshyInput } from './providers/meshy.mjs'
 import { acquireLock, appendSpend, capProblems, clearPending, ledgerPathOf, monthToDate, readPending, writePending } from './spend.mjs'
+import { STANDARD_NEGATIVES, beatsWarning, cameraProblem, chainPrevOf, completeNegative, footageLawProblems, speechProblem } from './laws.mjs'
 
 let pass = 0
 let fail = 0
@@ -249,8 +250,9 @@ try {
       name: tname,
       end: 8,
       mix: null,
+      footage: { look: 'Look paragraph.', physics: 'Physics paragraph.', handoff: 'Handoff sentence.' },
       tracks: [
-        { id: 'shots', kind: 'visual', clips: [{ id: 'shot', at: 1, until: 5, params: { piece: 'footage', render: { provider: 'fal', model: 'bytedance/seedance-2.0/text-to-video', prompt: 'a test shot', seconds: 4, resolution: '720p', audio: false, seed: 3 } } }] },
+        { id: 'shots', kind: 'visual', clips: [{ id: 'shot', at: 1, until: 5, params: { piece: 'footage', render: { provider: 'fal', model: 'bytedance/seedance-2.0/text-to-video', prompt: 'Locked-off 35 mm wide. A test shot. Look paragraph. Physics paragraph.', seconds: 4, resolution: '720p', audio: false, seed: 3 } } }] },
         { id: 'close', kind: 'visual', clips: [{ id: 'end', at: 5, params: { piece: 'endCard', chips: ['Contains AI-generated footage'] } }] },
         { id: 'captions', kind: 'visual', clips: [{ id: 'cap', at: 1, until: 5, params: { piece: 'caption', text: 'x' } }] },
       ],
@@ -375,6 +377,40 @@ try {
     const rep3 = existsSync(repPath) ? JSON.parse(readFileSync(repPath, 'utf8')) : null
     ok(l3.status === 0 && rep3 && rep3.blend === null && rep3.output.frames >= 22 && rep3.output.frames <= 24, `--even on an even clip keeps (nearly) every frame and skips the blend (status ${l3.status}, ${rep3?.output?.frames} frames, even ${JSON.stringify(rep3?.even)})`)
   }
+  // ── the laws of generated video (2026-09-08) ──────────────────────────────
+  section('laws: negatives, speech, camera, beats, chain refs, the film check')
+  {
+    const c1 = completeNegative('text, logos')
+    ok(c1.added.length === STANDARD_NEGATIVES.length - 2 && c1.negative.startsWith('text, logos, ') && c1.negative.includes('jump cuts'), 'completeNegative appends only the missing standard terms')
+    ok(completeNegative(completeNegative('').negative).added.length === 0, 'a completed negative is stable')
+    ok(speechProblem('He turns and shouts at the bear.') !== null && speechProblem('He turns, mouth open, and runs.') === null, 'speech is caught, an open mouth is not')
+    ok(cameraProblem('Locked-off 35 mm wide, no camera move. He sits on the log.') === null, 'a locked camera sentence first passes')
+    ok(/two camera/.test(cameraProblem('Handheld, following him down the path; then a slow push in on his face.') ?? ''), 'two behaviours are refused')
+    ok(/no camera sentence/.test(cameraProblem('He sits on the log and scrolls.') ?? ''), 'a prompt without a camera sentence is refused')
+    ok(/must come first/.test(cameraProblem('He sits. He scrolls. He sips. The camera is locked off.') ?? ''), 'a camera sentence buried late is refused')
+    ok(beatsWarning('He sits and scrolls the phone. He sips the can. The bear rises behind him. He turns. He drops the can and bolts.', 4) !== null, 'five beats in four seconds warns')
+    ok(beatsWarning('He sits and scrolls the phone. He sips the can.', 8) === null, 'two beats in eight seconds is fine')
+    ok(beatsWarning('LOOK PARAGRAPH HERE. He sits and scrolls the phone.', 4, ['LOOK PARAGRAPH HERE.']) === null, 'shared paragraphs are not counted as beats')
+    ok(chainPrevOf('.footage/x/refs/chain/shot1-last.png') === 'shot1' && chainPrevOf('.footage/x/refs/other.png') === null, 'a chain reference names the previous clip')
+    const look = 'Live-action documentary realism, fine film grain.'
+    const physics = 'Feet on the ground, nothing floats, nothing changes size.'
+    const handoff = 'He ends fully in frame, holding still for a beat.'
+    const shot = (where, model, extra = '') => ({ where, model, prompt: `Locked-off 35 mm wide. ${extra}He sits on the log. ${look} ${physics} ${handoff}`, negative: 'text', seconds: 8 })
+    const good = footageLawProblems([shot('a', 'm1'), { ...shot('b', 'm1'), prompt: `Locked-off 35 mm wide. He stands. ${look} ${physics}` }], { look, physics, handoff })
+    ok(good.problems.length === 0, `a lawful film passes (${good.problems.join(' | ')})`)
+    ok(good.warnings.some((w) => /negative/.test(w)), 'the check warns that the builder will complete the negative')
+    const two = footageLawProblems([shot('a', 'm1'), shot('b', 'm2')], { look, physics, handoff })
+    ok(two.problems.some((p) => /one generator/.test(p)), 'two generators are refused')
+    const nolook = footageLawProblems([shot('a', 'm1')], { physics, handoff })
+    ok(nolook.problems.some((p) => /footage.look is missing/.test(p)), 'a missing look paragraph is refused')
+    const drift = footageLawProblems([{ ...shot('a', 'm1'), prompt: `Locked-off 35 mm wide. He sits. ${physics} ${handoff}` }, shot('b', 'm1')], { look, physics, handoff })
+    ok(drift.problems.some((p) => /look paragraph is not in the prompt/.test(p)), 'a shot without the look paragraph is refused')
+    const talky = footageLawProblems([{ ...shot('a', 'm1'), prompt: `Locked-off 35 mm wide. He shouts at the bear. ${look} ${physics}` }], { look, physics, handoff })
+    ok(talky.problems.some((p) => /speech/.test(p)), 'speech is refused')
+    const nohand = footageLawProblems([{ ...shot('a', 'm1'), prompt: `Locked-off 35 mm wide. He sits. ${look} ${physics}` }, shot('b', 'm1')], { look, physics, handoff })
+    ok(nohand.problems.some((p) => /handoff sentence is not in the prompt/.test(p)), 'a non-final shot without the handoff sentence is refused')
+  }
+
 } finally {
   for (const c of cleanup)
     try {
