@@ -197,7 +197,23 @@ rest referencing it), get the sheet APPROVED by the person, run one probe shot, 
 then the film: as few and as long shots as the story allows (Seedance 2.0 takes 4 to
 15 s; a shot never drifts inside itself, every cut is where drift happens), each shot
 starting from the previous shot's last frame so the joins are shared frames. A brief that
-names a character without a link to its approved sheet is not ready to compile.
+names a character without a link to its approved sheet is not ready to compile. **Continuity laws
+that ride with the gate (Colby, the same evening, after round three):** (1) A chained join carries
+the character: the last frame of a shot must show him fully, body and costume, or the next shot has
+nothing to hold and he changes build; direct every shot so he is still in frame at its end. (2) One
+of each prop, and its state named at the start and the end of every shot; a prop is in hand or set
+down in its own clear beat; the set plate must not contain a prop the character holds (the model
+spawns a second one); negatives name "a second can, duplicate props, floating objects". (3)
+Entrances obey physics: anything that enters walks in from off-frame or from behind cover along a
+path; nothing grows, fades or slides into place; negatives name "scaling, morphing, appearing".
+(4) Body type is in the bible and in every prompt (build, height, weight). (5) Anything that is
+"in the world" on the stage (a portfolio haunting the trees) is chrome-less, blended and blurred
+into the scene's depth, never a UI panel; UI chrome only for actual UI. (6) The script is approved
+by the person before compile, like the character. The sheet is for the
+person's approval and for the WORDS; the generator itself is handed only the face-free angles
+(the back view) plus the set plate, because fal's checker refused even a designed character's
+front, three-quarter and seated views (hat and glasses on) on 2026-09-08. Identity across the few
+shots then rides the costume, so design costume features the model cannot miss.
 
 **Determinism.** No `Date.now()`, no `Math.random()` anywhere in a timeline.
 Seeded generators only. If a retake is not the same take, the frame comparison

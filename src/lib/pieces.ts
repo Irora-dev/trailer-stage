@@ -56,6 +56,11 @@
  *                wordmark?, plateText?, poweredText?, extraText?, query?,
  *                typing? {at, secPerChar?}, placeholder?
  *  endCard       url?, chips?, note?, wordmark?, plate?, canvasId?
+ *  ghostChart    a chart IN the scene, chrome-less, blended and blurred into the footage behind it: a
+ *                falling jittered line drawing across the clip's span and a number counting from `from`
+ *                to `to` (prefix?, decimals?, pct? counts a percentage too), color?, opacity? (0.32),
+ *                blur? (px), blend? ('screen'), leftVw?/topVh? (centre), widthVw?, heightVh?, label?
+ *                (small, e.g. "an example, invented for this trailer"). Never a UI panel.
  *  text          text, style?: 'display'|'headline'|'plate'|'pill'|'eyebrow'|'mono',
  *                leftVw?, topVh?, bottomVh?, maxWidthCh?, sizePx?, color?, bg?,
  *                font?, weight?, letterSpacing?, typing? {at, secPerChar?}, canvasId?
@@ -105,6 +110,7 @@ export const PIECE_KINDS = [
   'logoReveal',
   'endCard',
   'text',
+  'ghostChart',
   'chipRow',
   'image',
   'videoActor',

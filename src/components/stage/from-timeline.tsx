@@ -39,6 +39,7 @@ import { StageBento, StageGroupFold, type BentoItem, type FoldGroup, type FoldSt
 import { StageLogoReveal, StageEndCard } from './reveal'
 import { StageText, StageCaptions, StageChipRow, type ChipItem, type TextStyle } from './text'
 import { StageImage, StageVideoActor, StageSprite, StageChannelFlip, StageFootage } from './media'
+import { StageGhostChart } from './ghost'
 import { StageBrowserFrame, type FrameDrive } from './browser-frame'
 import type { DitherColor } from '@/lib/dither'
 import { captionsOf, endCue, type ParamValue, type TimelineClip, type TrailerTimeline } from '@/lib/timeline'
@@ -272,6 +273,8 @@ function Piece(props: PieceProps) {
       return <EndCardPiece {...props} />
     case 'text':
       return <TextPiece {...props} />
+    case 'ghostChart':
+      return <GhostChartPiece {...props} />
     case 'chipRow':
       return <ChipRowPiece {...props} />
     case 'image':
@@ -591,6 +594,33 @@ function TextPiece({ clip, d, on }: PieceProps) {
       weight={optNum(P.weight, 700)}
       letterSpacing={optStr(P.letterSpacing)}
       canvasId={optStr(P.canvasId)}
+    />
+  )
+}
+
+function GhostChartPiece({ clip, on }: PieceProps) {
+  const P = P_OF(clip)
+  const at = Number(clip.at ?? 0)
+  const until = clip.until === undefined ? at + 6 : Number(clip.until)
+  return (
+    <StageGhostChart
+      visible={on}
+      at={at}
+      until={until}
+      from={num(P.from, 100)}
+      to={num(P.to, 0)}
+      prefix={str(P.prefix, '$')}
+      decimals={num(P.decimals, 0)}
+      pct={optNum(P.pct, 0)}
+      color={str(P.color, '#ff6b6b')}
+      opacity={num(P.opacity, 0.32)}
+      blur={num(P.blur, 1.2)}
+      blend={str(P.blend, 'screen')}
+      leftVw={num(P.leftVw, 74)}
+      topVh={num(P.topVh, 32)}
+      widthVw={num(P.widthVw, 36)}
+      heightVh={num(P.heightVh, 34)}
+      label={optStr(P.label)}
     />
   )
 }

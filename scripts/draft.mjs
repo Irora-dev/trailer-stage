@@ -55,7 +55,7 @@ const DRY = has('dry-run')
 
 const PIECE_KINDS = [
   'browserFrame', 'card', 'marketTape', 'lineChart', 'bento', 'groupFold', 'logoReveal',
-  'endCard', 'text', 'chipRow', 'image', 'videoActor', 'sprite', 'pin', 'channelFlip', 'caption',
+  'endCard', 'text', 'ghostChart', 'chipRow', 'image', 'videoActor', 'sprite', 'pin', 'channelFlip', 'caption',
   'footage',
 ]
 
