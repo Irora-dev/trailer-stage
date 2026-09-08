@@ -317,7 +317,7 @@ function CardPiece({ clip, on, p }: PieceProps) {
   })
   const readout: Readout | undefined = chartId ? { value: snap.value, pct: snap.pct, total: snap.total } : undefined
   return (
-    <StageCard visible={on} width={str(P.width, '86vw')} height={str(P.height, '76vh')} leftVw={num(P.leftVw, 50)} topVh={num(P.topVh, 50)}>
+    <StageCard visible={on} width={str(P.width, '86vw')} height={str(P.height, '76vh')} leftVw={num(P.leftVw, 50)} topVh={num(P.topVh, 50)} opacity={num(P.opacity, 1)}>
       {Object.keys(header).length > 0 && (
         <StageCardHeader
           identity={{

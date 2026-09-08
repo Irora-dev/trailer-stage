@@ -186,6 +186,19 @@ the world around the product, never the product and never a real or recognisable
 person; a cut that contains any of it carries the endCard chip "Contains
 AI-generated footage" (the compiler's check insists).
 
+**Characters (Colby, 2026-09-08, a strict rule).** No video generation with a character
+before its character bible is approved. A "normal-looking" person is re-invented by the
+model every shot and is refused by fal's likeness checker as a reference image, as a
+first frame and inside a reference video; a DESIGNED character with unmistakable costume
+features (the explorer's helmet, moustache and monocle) holds and passes. So: design the
+character with three or four unmistakable features, draw a turnaround with an image model
+(front, three-quarter, profile, back, the seated pose, the action pose; front first, the
+rest referencing it), get the sheet APPROVED by the person, run one probe shot, and only
+then the film: as few and as long shots as the story allows (Seedance 2.0 takes 4 to
+15 s; a shot never drifts inside itself, every cut is where drift happens), each shot
+starting from the previous shot's last frame so the joins are shared frames. A brief that
+names a character without a link to its approved sheet is not ready to compile.
+
 **Determinism.** No `Date.now()`, no `Math.random()` anywhere in a timeline.
 Seeded generators only. If a retake is not the same take, the frame comparison
 that proves an edit changed one thing is worthless — and that comparison is the

@@ -28,7 +28,7 @@
  *                cps?, enter?, y?, frac?, waitFor? }] — actions run IN ORDER,
  *                each after the previous settled, and a click POLLS for an
  *                enabled target: the app answers on the network's clock.
- *  card          a themed panel: width?, height?, leftVw?, topVh? (its CENTRE in
+ *  card          a themed panel: width?, height?, opacity? (0..1, a ghosted panel), leftVw?, topVh? (its CENTRE in
  *                viewport units, 50/50 = the middle; a chart drawn inside it takes the
  *                same pair), header? { identity {name, sub,
  *                iconSrc?, emoji?, at?}, right? {at?, statsAt?}, headline?

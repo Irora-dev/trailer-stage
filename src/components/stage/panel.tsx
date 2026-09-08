@@ -23,11 +23,14 @@ export function StageCard({
   height = '76vh',
   leftVw = 50,
   topVh = 50,
+  opacity = 1,
   children,
 }: {
   visible: boolean
   width?: string
   height?: string
+  /** 0..1: a ghosted panel (a translucent portfolio haunting the trees). Multiplies the visible fade. */
+  opacity?: number
   /** The card's CENTRE, in viewport units (50/50 = the middle of the stage). A chart
    *  drawn inside it passes the same pair to `plotFor`, so both move together. */
   leftVw?: number
@@ -42,7 +45,7 @@ export function StageCard({
         top: `${topVh}vh`,
         width,
         height,
-        opacity: visible ? 1 : 0,
+        opacity: visible ? opacity : 0,
         transform: `translate(-50%,-50%) scale(${visible ? 1 : 0.965})`,
         background: 'var(--panel)',
         border: '1px solid var(--line)',
