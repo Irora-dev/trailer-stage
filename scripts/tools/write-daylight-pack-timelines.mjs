@@ -29,6 +29,8 @@ const SUBS = [
   [/\bdialogue\b/g, 'conversation'],
   [/Nobody speaks on camera\./g, 'No one utters a sound on camera.'],
   [/@Image1 establishes the pot, bear, woodland and our man\./g, '@Image1 establishes the pot on its stump, the bear and the woodland.'],
+  // film 06's probe brought the reference's rug in under the ride: say it plainly (2026-09-09 17:5x)
+  [/Remove the rug and rope; there is no bear, tea cup or phone in this scene\./g, 'Remove the rug and rope completely: the ground under and around the ride is bare grass and earth, with no rug or carpet anywhere in the frame; there is no bear, tea cup or phone in this scene.'],
 ]
 const PREAMBLE = 'Static camera, locked off. '
 const NARRATOR = { voice_id: 'eWJunko7SS6O4LhXC3dC', name: 'The Clipped Newsreel' }
