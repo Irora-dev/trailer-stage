@@ -1,0 +1,73 @@
+{
+ "name": "highnoon-cast-portraits",
+ "kind": "scenes",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "portrait_3_4",
+ "seed": 12,
+ "comment": "High Noon Rating Agency, the character bible v1: the six 85 mm head-and-shoulders portraits, each referencing that character's FRONT. Replaces the turns board's portrait cells, which came out full body.",
+ "subject": "Live-action documentary realism, a character PORTRAIT for a feature film: shot on a full-frame cinema camera with an 85 mm lens at f/2, HEAD AND SHOULDERS ONLY, tight framing from just above the hat to the middle of the chest, the face large in the frame, standing in the open shade of a frontier saloon porch with hard noon light on the dusty street soft and out of focus behind, shallow depth of field, natural skin texture, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. No text, no logos, no real or recognisable person: a designed character.",
+ "negative": "text, letters, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, extra fingers, celebrity likeness, real person, gun, pistol, revolver, rifle, cropped feet, cropped head, modern clothing, sneakers, sunglasses, full body, boots, legs, wide shot, distant figure",
+ "styles": [
+  {
+   "id": "keeperA",
+   "label": "The Keeper, candidate A: the Assayer: portrait, 85 mm",
+   "style": "EXACTLY the same character as the reference image (same face, same hair, same clothes, same colours, same props). THE KEEPER, CANDIDATE A, THE ASSAYER: a lean man in his late forties, about 1.85 m, a sun-lined handsome face, clean-shaven, strong jaw, silver at the temples in short dark hair, dark brows, calm grey eyes; a fitted charcoal wool frock coat, an ink-black waistcoat, a crisp ivory shirt with a black silk cravat, a small brass five-point-star seal pin on the left lapel, a gold pocket-watch chain across the waistcoat, a brass jeweller's loupe on a black cord around his neck, a black flat-crowned wide-brimmed hat, polished black boots; in his right hand a heavy brass hand-stamp with a turned wooden handle (a seal stamp), his left hand resting on the watch. No gun, no holster. Unhurried, very still, a faint knowing half-smile. HEAD AND SHOULDERS ONLY, looking into the lens, the hat brim and the collar in frame, nothing below the chest.",
+   "refs": {
+    "images": [
+     ".footage/highnoon-cast-fronts/styles/keeperA.png"
+    ]
+   }
+  },
+  {
+   "id": "keeperB",
+   "label": "The Keeper, candidate B: the Marshal: portrait, 85 mm",
+   "style": "EXACTLY the same character as the reference image (same face, same hair, same clothes, same colours, same props). THE KEEPER, CANDIDATE B, THE MARSHAL: a tall weathered man in his early fifties, about 1.9 m, salt-and-pepper two-day stubble, a thin old scar through the left eyebrow, hooded dark eyes, deep crow's feet; a long dust-grey canvas duster hanging open over a black waistcoat and a collarless white shirt, a bolo tie whose slide is a brass five-point-star seal, a battered black cattleman hat with a brass jeweller's loupe hooked onto the hatband, a worn brown leather ledger book tucked under his left arm, dark trousers, scuffed brown boots with spurs; on his right hip, in a leather holster where a pistol would sit, a heavy brass hand-stamp with a turned wooden handle. No gun anywhere. Laconic, a lazy half-smile, his weight on one hip. HEAD AND SHOULDERS ONLY, looking into the lens, the hat brim and the collar in frame, nothing below the chest.",
+   "refs": {
+    "images": [
+     ".footage/highnoon-cast-fronts/styles/keeperB.png"
+    ]
+   }
+  },
+  {
+   "id": "scammer",
+   "label": "Doc Pullman, the Scammer (the rug puller): portrait, 85 mm",
+   "style": "EXACTLY the same character as the reference image (same face, same hair, same clothes, same colours, same props). THE SCAMMER, DOC PULLMAN: a small quick man in his forties, about 1.7 m, a waxed black moustache curled up at the tips, pomaded centre-parted black hair, one gold front tooth in a far-too-wide salesman's grin, darting pale eyes, a sheen of sweat; a loud mustard-yellow and plum checked three-piece suit, a paisley plum waistcoat with a watch chain, a plum bowler hat, a red silk pocket square, white spats over brown shoes; a rolled Persian rug in red and gold tucked under his left arm, a bulging brown carpet-bag in his right hand with the necks of amber glass bottles poking out of it, one unlabelled amber bottle in his breast pocket. Always mid-pitch, one hand gesturing, his weight already turned toward the edge of frame. HEAD AND SHOULDERS ONLY, looking into the lens, the hat brim and the collar in frame, nothing below the chest.",
+   "refs": {
+    "images": [
+     ".footage/highnoon-cast-fronts/styles/scammer.png"
+    ]
+   }
+  },
+  {
+   "id": "honeypotter",
+   "label": "Miss Honey Lockett, the Honeypotter: portrait, 85 mm",
+   "style": "EXACTLY the same character as the reference image (same face, same hair, same clothes, same colours, same props). THE HONEYPOTTER, MISS HONEY LOCKETT: a woman in her thirties, about 1.65 m, a sweet round freckled face, rosy cheeks, a fixed gentle smile that does not reach her wide unblinking blue eyes, honey-blonde hair pinned up under a straw beekeeper's hat with its white veil lifted back; a high-collared amber-gold prairie dress with a white lace collar and cuffs, a white apron sticky and stained amber at the hem, fingerless brown leather work gloves glossy with honey; she carries a wooden tray of six unlabelled amber glass honey jars in both hands, honey dripping off the rim of the tray with a few flies stuck in it, one bee on her veil; behind her back, hooked in the crook of her right elbow and half hidden, a rusted iron bear trap with its jaws open. Welcoming, motherly, perfectly still. HEAD AND SHOULDERS ONLY, looking into the lens, the hat brim and the collar in frame, nothing below the chest.",
+   "refs": {
+    "images": [
+     ".footage/highnoon-cast-fronts/styles/honeypotter.png"
+    ]
+   }
+  },
+  {
+   "id": "bundler",
+   "label": "\"Forty Hands\" Buell, the Bundler: portrait, 85 mm",
+   "style": "EXACTLY the same character as the reference image (same face, same hair, same clothes, same colours, same props). THE BUNDLER, FORTY HANDS BUELL: a huge barrel-chested man in his fifties, about 1.95 m, a heavy iron-grey beard, small hard eyes under a low heavy brow, bald beneath his hat, a bull neck; an oxblood leather waistcoat over a collarless grey shirt with the sleeves rolled over forearms like hams, a leather bandolier across his chest that holds forty identical small brown leather coin pouches where cartridges would go, coils of rope on his belt, canvas trousers, heavy boots, a black flat-brimmed hat, a branding iron hanging from his belt; in each fist a wooden marionette crossbar, with taut strings running down out of his hands to a row of small identical wooden puppet figures in identical little black hats standing in the dust at his boots. Silent, patient, immovable. HEAD AND SHOULDERS ONLY, looking into the lens, the hat brim and the collar in frame, nothing below the chest.",
+   "refs": {
+    "images": [
+     ".footage/highnoon-cast-fronts/styles/bundler.png"
+    ]
+   }
+  },
+  {
+   "id": "degen",
+   "label": "Jesse \"Moonshot\" Kaine, the Degen: portrait, 85 mm",
+   "style": "EXACTLY the same character as the reference image (same face, same hair, same clothes, same colours, same props). THE DEGEN, JESSE MOONSHOT KAINE: a wiry sunburnt young man of twenty-four, about 1.75 m, sleepless red-rimmed eyes, a patchy two-day beard, a grin far too wide, hair plastered to his forehead; a sweat-stained collarless off-white shirt, bright red suspenders, a sun-faded blue striped serape thrown over his left shoulder, a crumpled brown hat with a bullet hole through the crown, dusty brown trousers, one boot with a spur and one without, his left hand wrapped in a grubby bandage; a fan of five playing cards in his right hand, a fistful of chipped clay poker chips in his bandaged left, a lucky rabbit's foot on a string at his belt, a half-empty bottle in his trouser pocket. Vibrating with energy, leaning in, mid-laugh. HEAD AND SHOULDERS ONLY, looking into the lens, the hat brim and the collar in frame, nothing below the chest.",
+   "refs": {
+    "images": [
+     ".footage/highnoon-cast-fronts/styles/degen.png"
+    ]
+   }
+  }
+ ]
+}

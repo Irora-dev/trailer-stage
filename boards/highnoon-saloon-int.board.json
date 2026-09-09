@@ -1,0 +1,54 @@
+{
+ "name": "highnoon-saloon-int",
+ "kind": "scenes",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "comment": "High Noon Rating Agency: the INTERIOR, six views dense with crypto gags (VideoProdEngine 2026-09-09). References: the rendered noon exterior (materials) and the paper saloon (canon). Run after highnoon-saloon-ext has its noon cell.",
+ "refs": {
+  "images": [
+   ".footage/highnoon-saloon-ext/styles/noon.png",
+   ".footage/highnoon/refs/paper-saloon-v5.png"
+  ]
+ },
+ "subject": "The INTERIOR of the frontier saloon shown in the reference images, a REAL full-scale set photographed for a feature film: the same weathered dark pine, old brick, brass and black iron as the building's exterior, a long polished dark-wood bar with a brass foot rail, a worn plank floor, a pressed-tin ceiling with exposed beams, tall arched windows throwing hard shafts of noon light through hanging dust, brass oil lamps, 1880s frontier furnishings only; every sign is short, hand-painted or chalked, spelled exactly as written. Shot on a full-frame cinema camera, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. Not an illustration, not paper, not a model, not a miniature.",
+ "negative": "papercraft, paper cut-out, illustration, cartoon, painting, CGI look, miniature, diorama, scale model, magenta, watermark, people, faces, modern objects, screens, computers, neon, plastic, misspelled signs",
+ "styles": [
+  {
+   "id": "wide",
+   "label": "wide from the doors: bar, board, candles, mempool",
+   "style": "WIDE from just inside the batwing doors, 24 mm lens, the whole room in one frame: the long bar ahead with a row of brass beer taps, one tap dribbling into a wooden bucket chalked SLIPPAGE, a small chalk sign above that tap reading THIN LIQUIDITY; behind the bar a huge slate chalkboard ratings board covered in token marks drawn like cattle brands, brass five-point star seals screwed beside some of them, red paper tags reading WITHDRAWN nailed over others, blank rows chalked INSUFFICIENT EVIDENCE; a mounted bull's head on the left of the board and a mounted bear's head on the right; a row of fat red and green candles of different heights burning along the bar top like a price chart; a wooden crate hanging from the ceiling beams under a small canvas parachute; a green-felt pool table in the right foreground with its balls waiting in the triangle rack and the word PENDING chalked on its rail."
+  },
+  {
+   "id": "board",
+   "label": "the ratings board close: brands, seals, WITHDRAWN, whale",
+   "style": "CLOSE on the ratings board behind the bar, 35 mm lens, straight on: the huge slate chalkboard with token marks drawn in chalk like cattle brands, brass five-point star seals screwed beside the rated ones, red paper tags reading WITHDRAWN nailed over two of them, three blank rows chalked INSUFFICIENT EVIDENCE, a bull's head mounted on the left and a bear's head mounted on the right, a row of red and green candles of different heights burning along the bar top below, a bleached whale's jawbone mounted above the board with a small brass plaque reading WHALE, hard noon light raking across the slate."
+  },
+  {
+   "id": "board2",
+   "label": "the ratings board close, take two: seal states only, no invented grades",
+   "style": "CLOSE on the ratings board behind the bar, 35 mm lens, straight on: a huge slate chalkboard in a dark wood frame; its header reads exactly HIGH NOON RATINGS BOARD and nothing else; below it twelve ruled rows, and each row holds ONLY a single chalk mark drawn like a cattle brand at the left and, at the right, one of three things: a brass five-point star seal screwed into the slate, or a red paper tag reading WITHDRAWN nailed over the row, or the chalked words INSUFFICIENT EVIDENCE. No names, no other words, no numbers, no columns of text, no grades. A longhorn bull's head mounted on the left of the board and a brown bear's head mounted on the right, a row of red and green candles of different heights burning along the bar top below, a bleached whale's jawbone mounted above the board with a small brass plaque reading WHALE, hard noon light raking across the slate."
+  },
+  {
+   "id": "desk",
+   "label": "the assay desk: scales, seals, NOT YOURS, NEVER SHARE, GAS",
+   "style": "The ASSAY DESK at the end of the bar, 35 mm lens, a shaft of hard noon light falling across it: a set of brass balance scales, a jeweller's loupe, an inkwell and quill, a heavy brass hand-stamp lying beside a stick of red sealing wax and a spread of blank paper report cards each pressed with a red wax five-point-star seal, stacks of worn leather ledger books; on the wall behind, a single iron key hanging on a hook under a small painted sign reading NOT YOURS, a shelf of twelve small numbered burlap sacks under a painted sign reading NEVER SHARE, and a brass oil lamp with a round pressure gauge mounted beside it, the needle pinned to the top, a small plate under it reading GAS."
+  },
+  {
+   "id": "vault",
+   "label": "the vault corner: COLD STORAGE, HOT WALLET, DUST",
+   "style": "The VAULT CORNER of the saloon, 35 mm lens: a massive black iron safe covered in white frost with icicles hanging off its brass handle, a heavy padlock on its door, stencilled COLD STORAGE; right beside it a pot-bellied iron stove glowing cherry red with gold coins spilling out of its open ash drawer onto the plank floor, a small painted sign above it reading HOT WALLET, a singed pair of leather gloves lying on the floor between the safe and the stove; against the wall a broom and a dustpan full of tiny coins under the chalked word DUST, hard noon light from a window, the frost steaming faintly in the heat."
+  },
+  {
+   "id": "wanted",
+   "label": "the wanted wall, TIE UP YOUR BAGS, diamond and paper hands, ORACLE",
+   "style": "The WANTED WALL beside the batwing doors, 35 mm lens: a wall of weathered paper wanted posters with rough charcoal sketches of hats and coats, headlined WANTED: RUG PULLERS, WANTED: HONEYPOTS, WANTED: BUNDLERS; beside them a wooden hat rack hung with canvas money bags tied with cord under a carved wooden sign reading TIE UP YOUR BAGS; a glass display case on a stand holding a pair of steel gauntlets set with glass diamonds, and pinned to the wall next to the case a pair of empty paper gloves; in the corner an old fortune-teller cabinet with a turbaned wooden dummy behind glass and a brass plate reading ORACLE, hard noon light through the doors."
+  },
+  {
+   "id": "mezzanine",
+   "label": "looking up: MIND THE GAP, TO THE MOON, airdrop, BURN, HARD FORK",
+   "style": "Looking UP from the bar room, 24 mm lens, wide: a rickety single wooden plank bridging from the mezzanine railing across to the top of the tall bar shelves with a hand-painted sign on it reading MIND THE GAP, a full moon painted on the pressed-tin ceiling with a tiny painted rocket beside it, a tall wooden ladder leaning up toward the moon with its top three rungs missing and a small sign on it reading TO THE MOON, a wooden crate hanging from a beam under a small canvas parachute, a stone fireplace below with gold coins glinting in the embers under the chalked word BURN, and a giant two-tined iron pitchfork mounted above the mantel with a small sign reading HARD FORK, shafts of noon light through the tall windows."
+  }
+ ]
+}

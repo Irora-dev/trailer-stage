@@ -1,0 +1,33 @@
+{
+ "name": "highnoon-saloon-ext",
+ "kind": "scenes",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "comment": "High Noon Rating Agency: the paper saloon made REAL (VideoProdEngine 2026-09-09). Three exterior views from Colby's papercut v5 as the layout reference. The noon cell becomes the material reference for the interior board.",
+ "refs": {
+  "images": [
+   ".footage/highnoon/refs/paper-saloon-v5.png"
+  ]
+ },
+ "subject": "A REAL, full-scale frontier building photographed for a feature film, built exactly to the layout and proportions of the reference illustration: a two-storey false-front saloon of weathered dark pine planking and old brick, an arched central pediment holding a round window, eight tall arched windows across the upper floor, a full-width porch roof carried on turned wooden columns, a raised plank boardwalk with two short flights of steps, batwing saloon doors dead centre, a round hanging wooden sign at the left end of the porch carved with a five-point star inside a ring and the words HIGH NOON RATING AGENCY, a paper poster nailed beside the left window reading WANTED: RUG PULLERS, two small wooden boards beside the right window reading TRUST VERIFIED and RISK RATED, an iron-banded padlocked wooden crate stencilled COLD STORAGE on the boardwalk, wooden barrels, brass oil lanterns hanging from the porch, a hitching post out front with a small wooden sign reading TIE UP YOUR BAGS. Real materials, real weathering, real glass, physically plausible construction, every sign spelled exactly as written; shot on a full-frame cinema camera, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. Not an illustration, not paper, not a model, not a miniature.",
+ "negative": "papercraft, paper cut-out, layered paper, illustration, cartoon, painting, CGI look, miniature, diorama, scale model, toy, magenta background, flat pink background, watermark, extra floors, misspelled signs, people, faces",
+ "styles": [
+  {
+   "id": "noon",
+   "label": "straight on at high noon",
+   "style": "STRAIGHT ON from across the street at HIGH NOON, 24 mm lens, level camera: the sun directly overhead, a bleached white-blue sky, hard short shadows under the porch roof and the boardwalk, heat shimmer over a dusty ochre street in the foreground, the whole facade centred and fully in frame with a little sky above the pediment and a strip of street below the steps."
+  },
+  {
+   "id": "street",
+   "label": "three-quarter from the street, horse, red sun",
+   "style": "A THREE-QUARTER view from down the dusty street at high noon, 35 mm lens: a saddled bay horse tied at the hitching post with three bulging canvas money bags roped to its saddle, red rock mountains and a tall saguaro cactus behind the edge of town, an enormous pale-red sun high in a hazy sky, the sign catching the light, no people."
+  },
+  {
+   "id": "dusk",
+   "label": "straight on at blue-hour dusk, windows lit",
+   "style": "STRAIGHT ON at blue-hour DUSK, 24 mm lens, level camera: a deep blue sky going to night, every window glowing warm amber from inside, the brass lanterns lit along the porch, the round sign lit from below by the nearest lantern, long shadows gone to dark, the street empty and cooling, the whole facade fully in frame."
+  }
+ ]
+}
