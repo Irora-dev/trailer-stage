@@ -9,7 +9,7 @@
 set -e
 export FFMPEG_PATH=${FFMPEG_PATH:-$HOME/Irora-dev/prismies/node_modules/ffmpeg-static/ffmpeg}
 FF=$FFMPEG_PATH
-TR=$1; CLIP=$2; OUT=$3; PAGE=${4:-0x120E0A}; SIM=${5:-0.45}; ERODE=${6:-3}
+TR=$1; CLIP=$2; OUT=$3; PAGE=${4:-0x120E0A}; SIM=${5:-0.45}; ERODE=${6:-3}; BLEND=${BLEND:-auto}   # env BLEND=24 forces a 24-frame cross-fade at the join
 D=.footage/$TR
 M="$D/$CLIP.master.mp4"; [ -f "$M" ] || { echo "no master at $M"; exit 1; }
 mkdir -p "$OUT"
@@ -17,6 +17,16 @@ W=$("$FF" -i "$M" 2>&1 | grep -oE '[0-9]{3,4}x[0-9]{3,4}' | head -1)
 echo "== closing the loop at $W"
 node scripts/loop.mjs "$TR" "$CLIP" --size "$W" | grep -E "frame .* is frame 0|done ·|loop point|seam|blend|even" | head -8
 LOOP="$D/$CLIP.loop.mp4"; [ -f "$LOOP" ] || { echo "no loop written"; exit 1; }
+# The tool skips its blend whenever it re-picked frames for pace (one median step "needs no blend"), yet a loop point can
+# still read as a step. A numeric BLEND runs a SECOND pass on the paced file: no re-pick, a BLEND-frame cross-fade of the
+# head over the tail, so the join is both evenly paced and soft (2026-09-09, the High Noon saloon).
+if [[ "$BLEND" =~ ^[0-9]+$ ]]; then
+  echo "== second pass: ${BLEND}-frame blend on the paced loop"
+  node scripts/loop.mjs --file "$LOOP" --even off --blend "$BLEND" --cycles 0 | grep -E "blend|done ·|loop point" | head -4
+  [ -f "$D/$CLIP.loop.loop.mp4" ] && mv "$D/$CLIP.loop.loop.mp4" "$D/$CLIP.loop.blend.mp4" && LOOP="$D/$CLIP.loop.blend.mp4"
+  [ -f "$D/$CLIP.loop.loop.json" ] && mv "$D/$CLIP.loop.loop.json" "$D/$CLIP.loop.blend.json"
+  [ -f "$D/$CLIP.loop.loop.seam.jpg" ] && mv "$D/$CLIP.loop.loop.seam.jpg" "$D/$CLIP.loop.blend.seam.jpg"
+fi
 echo "== keying (motion keyer, similarity $SIM, erode $ERODE)"
 zsh scripts/tools/key-sprite-motion.sh "$LOOP" "$OUT" "$CLIP-loop-alpha" FF00FF "$SIM" "$ERODE" > /dev/null
 cp "$LOOP" "$OUT/$CLIP-loop-magenta.mp4"
