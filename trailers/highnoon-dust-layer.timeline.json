@@ -1,0 +1,25 @@
+{
+ "name": "highnoon-dust-layer",
+ "end": 10,
+ "blackoutAt": 10,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "footage": {
+  "look": "Photoreal desert dust: fine pale ochre grains lit by hard overhead sun, translucent, with soft edges that thin to nothing; no other object, no ground plane, no sky, no texture: the background stays pure flat black for the whole clip.",
+  "physics": "Physics: the dust devils are spinning columns of dust that stay in the lower third of the frame, travel at a walking pace, never rise above the middle of the frame, and dissolve to nothing before the clip ends; nothing else exists; the frame is completely black at the start and completely black at the end.",
+  "handoff": "(layer: first and last frame black)"
+ },
+ "notes": "The dust-devil LAYER for the High Noon saloon redo (Colby, 2026-09-09 17:5x: the dust must pass in front of everything). Generated over pure black with a black first and last frame so it loops on an empty frame and composites in front of the still with a screen blend; 720p is enough for soft dust.",
+ "tracks": [
+  { "id": "layers", "kind": "visual", "clips": [
+   { "id": "dust", "at": 0, "until": 10, "params": { "piece": "footage", "fit": "cover", "hold": "loop", "grade": "none", "render": {
+    "provider": "fal",
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Static camera, locked off, no push, no zoom, no pan, one continuous take. On a completely black, featureless background, a small dust devil, a spinning translucent column of pale ochre desert dust about a quarter of the frame tall, enters at the right edge in the lower third of the frame in the first second, travels steadily leftward across the whole width at a walking pace, spinning, shedding wisps that fade, and leaves at the left edge by the sixth second; a second, smaller dust devil follows the same path from the right edge starting at the fourth second and leaves at the left edge by the ninth second; after it, only a few fading wisps, and the frame is completely black again for the last second. The background never changes: no ground, no horizon, no shadow, no texture, only black. Photoreal desert dust: fine pale ochre grains lit by hard overhead sun, translucent, with soft edges that thin to nothing; no other object, no ground plane, no sky, no texture: the background stays pure flat black for the whole clip. Physics: the dust devils are spinning columns of dust that stay in the lower third of the frame, travel at a walking pace, never rise above the middle of the frame, and dissolve to nothing before the clip ends; nothing else exists; the frame is completely black at the start and completely black at the end. No text, no logos.",
+    "negative": "ground, floor, horizon, sky, landscape, shadow on the background, texture, gradient, grey background, objects, people, animals, text, logos, camera movement, zoom, pan, cut",
+    "refs": { "images": [ ".footage/highnoon/refs/black-1080.png", ".footage/highnoon/refs/black-1080.png" ] },
+    "seconds": 10, "resolution": "720p", "aspect": "16:9", "audio": false } } }
+  ] },
+  { "id": "captions", "kind": "visual", "clips": [] }
+ ]
+}
