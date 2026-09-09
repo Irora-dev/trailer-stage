@@ -1,0 +1,73 @@
+{
+ "name": "highnoon-mini-rugpull",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts.",
+  "physics": "Physics: boots stay on the boardwalk and the steps, the rolled rug is one rug and slides out from under the customer only when pulled, the carpet-bag stays standing on the boards until he picks it up, the bottle stays in his raised hand, the enormous waxed moustache and the round green-tinted spectacles stay on his face the whole time, the customer falls back down the steps onto the dirt and sits up, nobody floats, nothing changes size, there is exactly one rug, one bag and one bottle. Pullman is small and quick in his mustard-and-plum check suit and plum bowler; the customer is a heavy-set man in dusty grey trousers and brown boots whose face is never in frame.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "High Noon mini trailer 'rugpull' (Colby, 2026-09-09 15:34: \"these are amaizng start making some trailers\"; 15:4x: \"cant we use seedance for all?\"). Doc Pullman, the rug pull: he sells the tonic, the rug leaves, the customer sits in the dirt. Character-ised first frame (moustache and green spectacles hide the face) after fal's checker refused the photoreal action cell. One Seedance 2.0 image-to-video shot whose first frame is the approved action cell of the character bible (board highnoon-cast-turns, cell scammer-action); 480p probe first (it also answers whether fal's likeness checker accepts this face), then 1080p; cut from the master with a draft narration in the High Noon voice.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "rugpull",
+     "at": 0,
+     "until": 12,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 35 mm, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle; there is no cutaway, no insert, no second angle, no close-up. The small salesman in the loud mustard-and-plum checked suit and plum bowler, his face hidden behind an enormous waxed black moustache and small round green-tinted spectacles, stands on the saloon boardwalk holding the amber bottle up to the sun, his other hand gripping the end of the rolled rug that runs under the boots of a heavy-set customer who is already tipping over on the steps at the right. In the first three seconds he gives the rug one hard yank: it slides clean out from under the customer, who tumbles backward down the two steps and lands sitting in the dust, hat rolling away. The salesman tucks the rolled rug under his left arm, tips his bowler to the seated man with a flash of gold tooth under the moustache, bends to pick up the bulging carpet-bag with the bottle necks poking out, and walks briskly off toward the left edge of frame, glancing back once, while the customer sits in the dirt dusting off his sleeves. Sound: boots on dry boards, the rug hissing across wood, a heavy thump on the steps and a grunt, glass bottles clinking in the bag, quick footsteps going away, the wind. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: boots stay on the boardwalk and the steps, the rolled rug is one rug and slides out from under the customer only when pulled, the carpet-bag stays standing on the boards until he picks it up, the bottle stays in his raised hand, the enormous waxed moustache and the round green-tinted spectacles stay on his face the whole time, the customer falls back down the steps onto the dirt and sits up, nobody floats, nothing changes size, there is exactly one rug, one bag and one bottle. Pullman is small and quick in his mustard-and-plum check suit and plum bowler; the customer is a heavy-set man in dusty grey trousers and brown boots whose face is never in frame. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, extra limbs, extra fingers, text, letters, logos, watermark, gun, pistol, rifle, blood, gore, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-minis-keys-characters/styles/rugpull.png"
+        ]
+       },
+       "seconds": 12,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 12.6,
+     "until": 14,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "HIGH NOON RATING AGENCY",
+      "plate": "Rated in the light of day.",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

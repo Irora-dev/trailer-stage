@@ -1,0 +1,73 @@
+{
+ "name": "highnoon-mini-bundler",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts.",
+  "physics": "Physics: his boots stay planted in the dust and he does not step, both wooden crossbars stay in his fists, every string stays taut, the little wooden puppets stay standing on the ground and move only as the strings move them, all of them together in perfect unison, nothing floats, nothing changes size, there are exactly two crossbars and one crowd of identical little puppets in identical black hats. He is a huge barrel-chested bearded man in an oxblood leather waistcoat with a bandolier of small leather pouches; the puppets are knee-high carved wooden figures.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "High Noon mini trailer 'bundler' (Colby, 2026-09-09 15:34: \"these are amaizng start making some trailers\"; 15:4x: \"cant we use seedance for all?\"). Forty Hands Buell, the bundler: forty buyers in one block, one pair of hands. One Seedance 2.0 image-to-video shot whose first frame is the approved action cell of the character bible (board highnoon-cast-turns, cell bundler-action); 480p probe first (it also answers whether fal's likeness checker accepts this face), then 1080p; cut from the master with a draft narration in the High Noon voice.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "bundler",
+     "at": 0,
+     "until": 12,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 35 mm, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle; there is no cutaway, no insert, no second angle, no close-up. The huge bearded man in the oxblood waistcoat and black flat hat stands in the middle of the dusty street holding a wooden marionette crossbar in each fist, forty identical little wooden puppets in little black hats standing in two crowds at his boots with their arms raised on taut strings. He tilts the left crossbar and every puppet on both sides turns its head to the left at the same instant; he tilts the right crossbar and they all lower their arms and march three small steps forward in perfect unison, wooden feet stamping little puffs of dust; he lifts both crossbars and every puppet doffs its little hat at once and freezes, hats held out, while he stands unmoved, expression unchanged, staring straight down the lens. In the last two seconds the man on the porch at the right edge takes one step back into the shade. Sound: forty small wooden feet stamping in step, strings creaking, the wind across the street, one crow, a wooden clatter as the hats come off. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: his boots stay planted in the dust and he does not step, both wooden crossbars stay in his fists, every string stays taut, the little wooden puppets stay standing on the ground and move only as the strings move them, all of them together in perfect unison, nothing floats, nothing changes size, there are exactly two crossbars and one crowd of identical little puppets in identical black hats. He is a huge barrel-chested bearded man in an oxblood leather waistcoat with a bandolier of small leather pouches; the puppets are knee-high carved wooden figures. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, extra limbs, extra fingers, text, letters, logos, watermark, gun, pistol, rifle, blood, gore, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-cast-turns/styles/bundler-action.png"
+        ]
+       },
+       "seconds": 12,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 12.6,
+     "until": 14,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "HIGH NOON RATING AGENCY",
+      "plate": "Rated in the light of day.",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

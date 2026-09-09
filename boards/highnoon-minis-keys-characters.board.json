@@ -1,0 +1,25 @@
+{
+ "name": "highnoon-minis-keys-characters",
+ "kind": "scenes",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 12,
+ "comment": "First frames for the two High Noon minis whose photoreal action cells fal's Seedance refused (rug pull, honeypot): the SAME composition as the approved action cell (second reference) with the CHARACTER-ISED design (first reference), the face hidden by the costume so the checker has nothing to refuse (VideoProdEngine 2026-09-09 15:5x).",
+ "subject": "Live-action documentary realism, a frame from a feature film: shot on a full-frame cinema camera with a 35 mm lens, at high noon in a dusty 1880s frontier town, the sun directly overhead, hard short shadows, a bleached pale sky, weathered dark pine storefronts, natural skin and real fabric, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. No text, no logos, no real or recognisable person: designed characters whose faces are hidden by their own costume.",
+ "negative": "text, letters, logos, watermark, cartoon, illustration, CGI look, plastic skin, warped hands, extra limbs, celebrity likeness, real person, visible bare face, gun, pistol, rifle",
+ "styles": [
+  {
+   "id": "rugpull",
+   "label": "Doc Pullman (moustache + green spectacles) on the boardwalk steps, rug under the customer",
+   "style": "Recreate EXACTLY the composition, framing, light and staging of the SECOND reference image (the salesman on the saloon boardwalk holding an amber bottle up to the sun, a heavy-set customer already tipping over on the steps at the right with the rolled rug under his boots, the carpet-bag standing on the boards), but the salesman is EXACTLY the character in the FIRST reference image: the same loud mustard-and-plum checked suit, plum bowler, paisley waistcoat, red pocket square and white spats, and his face hidden by an enormous waxed black moustache and small round green-tinted spectacles under the low bowler, one gold tooth glinting under the moustache. The customer is seen only as boots, trouser legs and a tan sleeve, never his face.",
+   "refs": { "images": [ ".footage/highnoon-cast-characters/styles/scammer.png", ".footage/highnoon-cast-turns/styles/scammer-action.png" ] }
+  },
+  {
+   "id": "honeypot",
+   "label": "Miss Lockett (veil down) on the porch, a hand stuck to a jar",
+   "style": "Recreate EXACTLY the composition, framing, light and staging of the SECOND reference image (the woman on the saloon porch offering a wooden tray of six dripping honey jars toward the camera, a customer's arm in a tan sleeve reaching in from the left edge with the hand already stuck to a jar, the rusted bear trap visible behind her hip, the dusty street beyond the porch columns), but the woman is EXACTLY the character in the FIRST reference image: the same amber-gold prairie dress with white lace collar and cuffs, the honey-stained apron, the honey-glossy gloves, the straw beekeeper hat, and her face hidden behind the white beekeeper veil pulled DOWN over her whole face and tucked into her collar, her features only a soft blur behind the netting, one bee on the outside of the veil. The customer is only an arm and a shoulder, never a face.",
+   "refs": { "images": [ ".footage/highnoon-cast-characters/styles/honeypotter.png", ".footage/highnoon-cast-turns/styles/honeypotter-action.png" ] }
+  }
+ ]
+}

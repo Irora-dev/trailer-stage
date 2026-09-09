@@ -1,0 +1,184 @@
+{
+ "name": "highnoon-checker-test",
+ "end": 24,
+ "blackoutAt": 23.5,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts.",
+  "physics": "Physics: boots stay planted in the dust, every prop stays in the hand or on the belt it started in, nothing floats, nothing changes size, nothing is added, one figure only.",
+  "handoff": "(probes only: no handoff)"
+ },
+ "notes": "Does fal Seedance likeness checker accept the CHARACTER-ISED High Noon fronts (faces hidden by costume) as first frames? Six 4 s 480p probes, one per character (Colby 2026-09-09 15:4x: make them more characters so we can use seedance). Nothing here is a deliverable.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "keeperA",
+     "at": 0,
+     "until": 4,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 50 mm, static camera, no push, no zoom, no pan, one single unbroken take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The figure stands still in the street facing the camera, breathing, shifting weight once from one boot to the other, the wind moving the loose cloth, dust drifting past. Sound: wind, a creak of leather, distant town. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: boots stay planted in the dust, every prop stays in the hand or on the belt it started in, nothing floats, nothing changes size, nothing is added, one figure only. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, cut, extra limbs, text, letters, logos, watermark, gun, pistol, rifle, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-cast-characters/styles/keeperA.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "keeperB",
+     "at": 4,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 50 mm, static camera, no push, no zoom, no pan, one single unbroken take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The figure stands still in the street facing the camera, breathing, shifting weight once from one boot to the other, the wind moving the loose cloth, dust drifting past. Sound: wind, a creak of leather, distant town. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: boots stay planted in the dust, every prop stays in the hand or on the belt it started in, nothing floats, nothing changes size, nothing is added, one figure only. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, cut, extra limbs, text, letters, logos, watermark, gun, pistol, rifle, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-cast-characters/styles/keeperB.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "scammer",
+     "at": 8,
+     "until": 12,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 50 mm, static camera, no push, no zoom, no pan, one single unbroken take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The figure stands still in the street facing the camera, breathing, shifting weight once from one boot to the other, the wind moving the loose cloth, dust drifting past. Sound: wind, a creak of leather, distant town. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: boots stay planted in the dust, every prop stays in the hand or on the belt it started in, nothing floats, nothing changes size, nothing is added, one figure only. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, cut, extra limbs, text, letters, logos, watermark, gun, pistol, rifle, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-cast-characters/styles/scammer.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "honeypotter",
+     "at": 12,
+     "until": 16,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 50 mm, static camera, no push, no zoom, no pan, one single unbroken take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The figure stands still in the street facing the camera, breathing, shifting weight once from one boot to the other, the wind moving the loose cloth, dust drifting past. Sound: wind, a creak of leather, distant town. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: boots stay planted in the dust, every prop stays in the hand or on the belt it started in, nothing floats, nothing changes size, nothing is added, one figure only. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, cut, extra limbs, text, letters, logos, watermark, gun, pistol, rifle, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-cast-characters/styles/honeypotter.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "bundler",
+     "at": 16,
+     "until": 20,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 50 mm, static camera, no push, no zoom, no pan, one single unbroken take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The figure stands still in the street facing the camera, breathing, shifting weight once from one boot to the other, the wind moving the loose cloth, dust drifting past. Sound: wind, a creak of leather, distant town. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: boots stay planted in the dust, every prop stays in the hand or on the belt it started in, nothing floats, nothing changes size, nothing is added, one figure only. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, cut, extra limbs, text, letters, logos, watermark, gun, pistol, rifle, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-cast-characters/styles/bundler.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "degen",
+     "at": 20,
+     "until": 24,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 50 mm, static camera, no push, no zoom, no pan, one single unbroken take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The figure stands still in the street facing the camera, breathing, shifting weight once from one boot to the other, the wind moving the loose cloth, dust drifting past. Sound: wind, a creak of leather, distant town. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and real fabric, real dust hanging in the air, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. High noon in a dusty 1880s frontier town: the sun directly overhead, a bleached pale sky, hard short shadows at the boots, heat shimmer over the ochre street, weathered dark pine storefronts. Physics: boots stay planted in the dust, every prop stays in the hand or on the belt it started in, nothing floats, nothing changes size, nothing is added, one figure only. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, cut, extra limbs, text, letters, logos, watermark, gun, pistol, rifle, speech, talking, lip movement",
+       "refs": {
+        "images": [
+         ".footage/highnoon-cast-characters/styles/degen.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "name": "highnoon-cast-characters",
+ "kind": "scenes",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "portrait_3_4",
+ "seed": 12,
+ "comment": "High Noon cast, the CHARACTER-ISED pass (Colby 2026-09-09 15:4x: 'make them more characters so we can use seedance'): the same six designs, same costume, colours, props and body, but the face hidden by the costume itself so fal's Seedance likeness checker has no photoreal face to refuse and the identity lives in the silhouette. Each cell references the approved front.",
+ "subject": "Live-action documentary realism, a full-body character study for a feature film: shot on a full-frame cinema camera with a 50 mm lens, at high noon in the dusty main street of an 1880s frontier town, the sun directly overhead so the only shadow is a hard short pool at the boots, a bleached pale sky, weathered timber storefronts soft behind, the figure centred and fully in frame head to toe, natural skin and real fabric, fine film grain, true-to-life colour, stunning, gallery-grade cinematography. No text, no logos, no real or recognisable person: a designed character whose face is hidden by his own costume.",
+ "negative": "text, letters, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, extra fingers, celebrity likeness, real person, gun, pistol, revolver, rifle, cropped feet, cropped head, modern clothing, visible bare face, eyes visible",
+ "styles": [
+  {
+   "id": "keeperA",
+   "label": "Keeper A the Assayer: brim low, tinted assayer's spectacles, moustache",
+   "style": "EXACTLY the same character as the reference image (same charcoal frock coat, black waistcoat, ivory shirt and black cravat, brass star pin, gold watch chain, brass loupe on its cord, black flat-crowned hat, polished boots, the brass seal stamp in his right hand, same lean build), seen from the FRONT standing square to the camera, full body head to toe, with ONE change: his face is hidden by his costume. The flat-crowned hat is pulled low so the brim throws his eyes into deep black shadow, he wears small round dark-green-tinted assayer's spectacles, and a neat dark moustache covers his upper lip; no bare face is readable, only the shadow, the tinted lenses, the moustache and a calm closed mouth.",
+   "refs": { "images": [ ".footage/highnoon-cast-fronts/styles/keeperA.png" ] }
+  },
+  {
+   "id": "keeperB",
+   "label": "Keeper B the Marshal: hat down, bandana at the chin, beard, brim shadow",
+   "style": "EXACTLY the same character as the reference image (same dust-grey duster, black waistcoat, collarless white shirt, bolo tie with the brass star seal, battered black cattleman hat with the brass loupe on the band, leather ledger under the left arm, the brass seal stamp in the hip holster, spurs, same tall weathered build), seen from the FRONT standing square to the camera, full body head to toe, with ONE change: his face is hidden by his costume. The cattleman hat is pulled right down so the brim hides his eyes in hard black shadow, a full salt-and-pepper beard covers the lower half of his face, and a dusty black bandana is knotted loose at his throat; no bare face is readable, only brim shadow and beard.",
+   "refs": { "images": [ ".footage/highnoon-cast-fronts/styles/keeperB.png" ] }
+  },
+  {
+   "id": "scammer",
+   "label": "Doc Pullman: enormous waxed moustache, green-tinted spectacles, bowler low",
+   "style": "EXACTLY the same character as the reference image (same loud mustard-and-plum checked three-piece suit, paisley plum waistcoat and watch chain, plum bowler, red pocket square, white spats, the rolled red-and-gold rug under his left arm, the brown carpet-bag with bottle necks poking out in his right hand, the amber bottle in his breast pocket, same small quick build), seen from the FRONT standing square to the camera, full body head to toe, with ONE change: his face is hidden by his costume. An enormous waxed black moustache curled up at both ends covers his mouth and cheeks, small round green-tinted spectacles hide his eyes, and the bowler sits low; nothing of his face is readable but the moustache, the tinted lenses and one gold tooth glinting under the moustache.",
+   "refs": { "images": [ ".footage/highnoon-cast-fronts/styles/scammer.png" ] }
+  },
+  {
+   "id": "honeypotter",
+   "label": "Miss Honey Lockett: the beekeeper's veil DOWN over her face",
+   "style": "EXACTLY the same character as the reference image (same amber-gold prairie dress with the white lace collar and cuffs, the honey-stained white apron, fingerless leather gloves glossy with honey, the straw beekeeper's hat, the wooden tray of dripping honey jars in both hands, the rusted bear trap hooked behind her hip, same small round build), seen from the FRONT standing square to the camera, full body head to toe, with ONE change: her face is hidden by her costume. The white beekeeper's veil is DOWN over her whole face and tucked into her collar, so her features are only a soft pale blur behind the fine netting, the smile no more than a suggestion; one bee sits on the outside of the veil.",
+   "refs": { "images": [ ".footage/highnoon-cast-fronts/styles/honeypotter.png" ] }
+  },
+  {
+   "id": "bundler",
+   "label": "Forty Hands Buell: beard to the cheekbones, hat to the brows",
+   "style": "EXACTLY the same character as the reference image (same oxblood leather waistcoat over the grey collarless shirt with rolled sleeves, the bandolier of forty small leather coin pouches, rope coils and the branding iron on his belt, the black flat-brimmed hat, a wooden marionette crossbar in each fist with strings running down to the crowd of identical little wooden puppets in little black hats at his boots, same huge barrel-chested build), seen from the FRONT standing square to the camera, full body head to toe, with ONE change: his face is hidden by his costume. An enormous iron-grey beard climbs to his cheekbones and the black hat is pulled down to his brows so his eyes are lost in hard shadow; nothing of his face is readable but beard and shadow.",
+   "refs": { "images": [ ".footage/highnoon-cast-fronts/styles/bundler.png" ] }
+  },
+  {
+   "id": "degen",
+   "label": "Jesse Moonshot Kaine: red bandana up over nose and mouth, hat low",
+   "style": "EXACTLY the same character as the reference image (same sweat-stained collarless shirt, bright red suspenders, faded blue striped serape over the left shoulder, crumpled brown hat with the bullet hole, one spur, the bandaged left hand, the fan of playing cards in his right hand, the fistful of clay chips in his left, the rabbit's foot on his belt, the bottle in his pocket, same wiry sunburnt build), seen from the FRONT standing square to the camera, full body head to toe, with ONE change: his face is hidden by his costume. A faded red bandana is pulled up over his nose and mouth like a dust mask and the crumpled hat sits low, so all that shows between them is a strip of shadow where his eyes are and a shock of wild dark hair; nothing of his face is readable.",
+   "refs": { "images": [ ".footage/highnoon-cast-fronts/styles/degen.png" ] }
+  }
+ ]
+}
