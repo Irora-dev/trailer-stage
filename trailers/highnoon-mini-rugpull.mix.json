@@ -8,17 +8,6 @@
  },
  "parts": [
   {
-   "id": "setup",
-   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/highnoon-mini-rugpull/setup.vo.mp3",
-   "render": {
-    "text": "[dry] Doc Pullman sells a tonic that only goes up.",
-    "voice": "narrator"
-   }
-  },
-  {
-   "gap": 2
-  },
-  {
    "id": "punch",
    "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/highnoon-mini-rugpull/punch.vo.mp3",
    "render": {
@@ -27,7 +16,18 @@
    }
   },
   {
-   "gap": 2
+   "gap": 1.2
+  },
+  {
+   "id": "setup",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/highnoon-mini-rugpull/setup.vo.mp3",
+   "render": {
+    "text": "[dry] Doc Pullman sells a tonic that only goes up.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 1.5
   },
   {
    "id": "close",

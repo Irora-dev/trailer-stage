@@ -16,16 +16,28 @@ const seeds = {
 for (const [n, [setup, punch]] of Object.entries(seeds)) {
   const t = `highnoon-mini-${n}`
   const dir = `${ROOT}/.audio/${t}`
+  // The rug pull's gag lands at one second, so its punch comes FIRST and the dry setup plays over his stroll away
+  // (tuned from the 1080p frames, 16:0x); the other three keep setup → punch → close.
+  const parts =
+    n === 'rugpull'
+      ? [
+          { id: 'punch', src: `${dir}/punch.vo.mp3`, render: { text: punch, voice: 'narrator' } },
+          { gap: 1.2 },
+          { id: 'setup', src: `${dir}/setup.vo.mp3`, render: { text: setup, voice: 'narrator' } },
+          { gap: 1.5 },
+          { id: 'close', src: `${dir}/close.vo.mp3`, render: { text: CLOSE, voice: 'narrator' } },
+        ]
+      : [
+          { id: 'setup', src: `${dir}/setup.vo.mp3`, render: { text: setup, voice: 'narrator' } },
+          { gap: 2.0 },
+          { id: 'punch', src: `${dir}/punch.vo.mp3`, render: { text: punch, voice: 'narrator' } },
+          { gap: 2.0 },
+          { id: 'close', src: `${dir}/close.vo.mp3`, render: { text: CLOSE, voice: 'narrator' } },
+        ]
   const spec = {
     comment: `${t}: DRAFT narration on the seed lines (Colby, 2026-09-09 15:34: start making some trailers), for him to rewrite. The bed is the shot's own native sound, padded with silence to 20 s so the builder does not loop it under the card. Gaps are tuned from the 1080p frames so the punch line lands on the gag. Rebuild: node scripts/build-mix.mjs ${t} --go`,
     voices,
-    parts: [
-      { id: 'setup', src: `${dir}/setup.vo.mp3`, render: { text: setup, voice: 'narrator' } },
-      { gap: 2.0 },
-      { id: 'punch', src: `${dir}/punch.vo.mp3`, render: { text: punch, voice: 'narrator' } },
-      { gap: 2.0 },
-      { id: 'close', src: `${dir}/close.vo.mp3`, render: { text: CLOSE, voice: 'narrator' } },
-    ],
+    parts,
     bed: `${dir}/native-padded.wav`,
     bedGainDb: 0,
     duckDb: 4,
