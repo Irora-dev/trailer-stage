@@ -1,0 +1,113 @@
+{
+ "name": "meadow-layers",
+ "end": 11,
+ "blackoutAt": 11,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Colby's four Meshy layers of the sleeping-explorer meadow (2026-09-07 23:35): a static background plate plus three keyable layers on magenta. Each animated layer is a Seedance first-equals-last-frame shot, looped by npm run loop, keyed to alpha, and composited in the browser over the plate on its own period.",
+ "tracks": [
+  {
+   "id": "layers",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "explorer",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art layer on its flat magenta plate. The sleeping explorer breathes slowly: his chest and belly rise and fall gently, his big white moustache lifts a little on each snore and settles, his closed eyes stay closed; his hands behind his head, his boots, the cane and the satchel do not move at all. The ENTIRE background stays one flat, uniform, solid pure magenta (hex FF00FF) for the whole clip: no shadow, no ground, no gradient, no texture, nothing enters the frame. Continuous, even, unhurried motion from the first frame to the last, with no pause and no change of speed, arriving back exactly where it began. Static camera, no zoom, no pan. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the frame. No text, no logos.",
+       "negative": "shadow, floor, ground, gradient, background change, scenery, blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, camera movement, zoom, pan, new objects",
+       "refs": {
+        "images": [
+         ".footage/meadow-layers/refs/explorer-magenta.png",
+         ".footage/meadow-layers/refs/explorer-magenta.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "flowers",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art layer on its flat magenta plate. The tall grass and the purple, white and yellow flowers sway very gently in a light breeze, one soft ripple crossing from left to right and back, stems bending a few degrees and returning; the base of the meadow stays rooted. The ENTIRE background stays one flat, uniform, solid pure magenta (hex FF00FF) for the whole clip: no shadow, no ground, no gradient, no texture, nothing enters the frame. Continuous, even, unhurried motion from the first frame to the last, with no pause and no change of speed, arriving back exactly where it began. Static camera, no zoom, no pan. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the frame. No text, no logos.",
+       "negative": "shadow, floor, ground, gradient, background change, scenery, blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, camera movement, zoom, pan, new objects",
+       "refs": {
+        "images": [
+         ".footage/meadow-layers/refs/flowers-magenta.png",
+         ".footage/meadow-layers/refs/flowers-magenta.png"
+        ]
+       },
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "clouds",
+     "at": 0,
+     "until": 10,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art layer on its flat magenta plate. The cumulus clouds billow very slowly, their edges softly swelling and settling, and the whole sky of clouds drifts a little to the right and eases back; nothing else changes. The ENTIRE background stays one flat, uniform, solid pure magenta (hex FF00FF) for the whole clip: no shadow, no ground, no gradient, no texture, nothing enters the frame. Continuous, even, unhurried motion from the first frame to the last, with no pause and no change of speed, arriving back exactly where it began. Static camera, no zoom, no pan. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the frame. No text, no logos.",
+       "negative": "shadow, floor, ground, gradient, background change, scenery, blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, camera movement, zoom, pan, new objects",
+       "refs": {
+        "images": [
+         ".footage/meadow-layers/refs/clouds-magenta.png",
+         ".footage/meadow-layers/refs/clouds-magenta.png"
+        ]
+       },
+       "seconds": 10,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 10,
+     "until": 11,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

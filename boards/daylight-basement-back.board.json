@@ -1,0 +1,19 @@
+{
+ "name": "daylight-basement-back",
+ "kind": "scenes",
+ "comment": "The basement-bull character seen from BEHIND, no face visible: an identity reference (hoodie, hair, headphones, joggers, sneakers, can) that fal's likeness checker has nothing to flag.",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "Live-action documentary realism, a frame from a film shot on a full-frame cinema camera with a 50 mm lens: a dense pine forest at late golden hour, the low sun flaring between the trunks ahead, a faint glimpse of snow-capped mountains, dust and pollen in the light, fine film grain, true-to-life colour. No text, no logos.",
+ "negative": "face, eyes, profile, turned head, text, letters, logos, brand names, cartoon, illustration, CGI look",
+ "styles": [
+  {
+   "id": "back",
+   "label": "the same young man from behind, face not visible",
+   "style": "The same young man as in the reference image, seen entirely FROM BEHIND, his back to the camera, his face not visible at all: the same greasy dark hair, the oversized black hoodie with the hood down, big black headphones round his neck, baggy grey joggers, scuffed white sneakers; he stands on the forest path holding a matte black energy drink can with a plain green stripe in one hand and a phone in the other, looking away into the trees.",
+   "refs": { "images": [".footage/daylight-basement/refs/char/kid.png"] }
+  }
+ ]
+}

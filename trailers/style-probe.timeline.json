@@ -1,0 +1,84 @@
+{
+ "name": "style-probe",
+ "end": 5,
+ "blackoutAt": 5,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "480p motion probes (about 27 cents each): does Seedance image-to-video hold a Meshy style-board cell as its first frame? Colby, 2026-09-07 21:55: the Meshy cells are far better; can the video gen be based on them?",
+ "tracks": [
+  {
+   "id": "probes",
+   "name": "Meshy cells as first frames",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "painterly",
+     "at": 0,
+     "until": 4,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame without changing its style, palette, character or composition: the explorer takes two slow steps along the ridge path, his cane tapping, the cabin smoke drifts, the sun's glow breathes gently, a few birds cross the sky. The look stays exactly as the first frame: same rendering, same line weight, same textures. Locked-off camera, no zoom.",
+       "negative": "text, logos, real people, style change, morphing, warping",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer-styles-meshy/styles/painterly.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "480p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "clay",
+     "at": 0,
+     "until": 4,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame without changing its style, palette, character or composition: the clay explorer takes two slow stop-motion steps along the ridge, his cane tapping, the felt trees sway slightly, the cabin smoke drifts, the light shimmers on the plasticine. The look stays exactly as the first frame: same rendering, same line weight, same textures. Locked-off camera, no zoom.",
+       "negative": "text, logos, real people, style change, morphing, warping",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer-styles-meshy/styles/clay.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "480p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 4,
+     "until": 5,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

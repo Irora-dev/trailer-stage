@@ -1,0 +1,73 @@
+{
+ "name": "daylight-bear-run",
+ "end": 10,
+ "blackoutAt": 8.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the sun setting behind the mountain, the sky amber and rose, warm rim light on the branches.",
+  "physics": "Physics: feet stay on the ground, a hand opens before a prop falls and the prop stays where it lands, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, and anything that enters runs in from off-frame along the path.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Colby, typed 2026-09-08 ~23:35: a single clip. Side profile of the sunset forest, footsteps approaching from the right, character B legging it left and dropping his can, the bear a second behind, both out of frame left, fade to dark, the word Daylight. Cut straight from the master with native audio (like the live-action piece), not through the stage.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "run",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Locked-off 35 mm side view of a pine forest, no camera move, one continuous eight-second take. The set: bushes and young pines in the foreground, tall trunks behind them, a gap in the trees showing a snow-capped mountain far in the background with the sun setting behind it, a dirt path running from the right edge of the frame to the left edge. THE CHARACTER is the approved character B, seen from behind in @Image1 and described here: a soft, round-shouldered, heavy-set twenty-two-year-old in a lime-green bucket hat pulled low over thick black-rimmed glasses, a thin doomed moustache, a washed-out plain grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides, carrying one matte black energy drink can with a plain green stripe. For the first two seconds the frame is empty and we hear running footsteps and panicked breathing approaching from the right; then he sprints into frame from the right edge in full side profile, legging it along the path toward the left, and as he passes the middle of the frame his hand opens, the can drops, hits the ground and stays where it lands, and he runs out of frame at the left edge. One second behind him a huge brown grizzly bear charges into frame from the right edge in side profile, all four paws pounding the path, and runs out of frame at the left edge after him; the frame is empty again for the last second, dust settling on the path. Sound: footsteps and breathing approaching from the right, the can hitting the ground, the bear's heavy paws and one roar, all moving off to the left. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the sun setting behind the mountain, the sky amber and rose, warm rim light on the branches. Physics: feet stay on the ground, a hand opens before a prop falls and the prop stays where it lands, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, and anything that enters runs in from off-frame along the path. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, explorer hat, blood, gore, a second can",
+       "refs": {
+        "images": [
+         ".footage/basement-char-b/styles/back.png"
+        ]
+       },
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 8.6,
+     "until": 10,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

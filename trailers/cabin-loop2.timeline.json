@@ -1,0 +1,87 @@
+{
+ "name": "cabin-loop2",
+ "end": 8,
+ "blackoutAt": 8,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Round two of the cabin loop: continuous smoke (round one’s single puff left the chimney bare for three seconds), a visible firelight flicker, the silhouette placed mid-clip; Seedance 8 s and Kling for an A/B, both first-equals-last-frame on the magenta plate.",
+ "tracks": [
+  {
+   "id": "layers",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cabin-sd",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact paper-craft cabin on its flat magenta plate as a gentle, continuous living loop. Chimney smoke: a soft ribbon of smoke keeps rising from the chimney for the ENTIRE clip, new smoke continuously emerging from the chimney top while the older smoke above drifts slowly upward, thins and fades; the chimney is never without smoke. Window light: the warm glow in all the windows flickers gently and unevenly like firelight, visibly pulsing brighter and dimmer. Once, around the middle of the clip, a subtle dark silhouette of a person passes slowly behind the large front window and is gone. The cabin, its roof, door, steps and rocks stay perfectly still. The ENTIRE background stays one flat, uniform, solid pure magenta (hex FF00FF) for the whole clip: no shadow, no ground, no gradient, no texture, nothing else enters the frame. The clip ends exactly as it began so it loops naturally. Static camera, no zoom, no pan. Keep the layered paper cut-out look exactly: cut-paper edges, flat paper shading, the same colours; no realism, no blur, no smoothing. No text, no logos.",
+       "negative": "shadow, floor, ground, gradient, background change, scenery, blur, smoothing, style change, morphing, warping, text, logos, camera movement, zoom, pan, new objects, people outside the cabin, realistic render, smoke disappearing, chimney without smoke",
+       "refs": {
+        "images": [
+         ".footage/cabin-loop/refs/cabin-magenta.png",
+         ".footage/cabin-loop/refs/cabin-magenta.png"
+        ]
+       },
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "cabin-kl",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Animate this exact paper-craft cabin on its flat magenta plate as a gentle, continuous living loop. Chimney smoke: a soft ribbon of smoke keeps rising from the chimney for the ENTIRE clip, new smoke continuously emerging from the chimney top while the older smoke above drifts slowly upward, thins and fades; the chimney is never without smoke. Window light: the warm glow in all the windows flickers gently and unevenly like firelight, visibly pulsing brighter and dimmer. Once, around the middle of the clip, a subtle dark silhouette of a person passes slowly behind the large front window and is gone. The cabin, its roof, door, steps and rocks stay perfectly still. The ENTIRE background stays one flat, uniform, solid pure magenta (hex FF00FF) for the whole clip: no shadow, no ground, no gradient, no texture, nothing else enters the frame. The clip ends exactly as it began so it loops naturally. Static camera, no zoom, no pan. Keep the layered paper cut-out look exactly: cut-paper edges, flat paper shading, the same colours; no realism, no blur, no smoothing. No text, no logos.",
+       "negative": "shadow, floor, ground, gradient, background change, scenery, blur, smoothing, style change, morphing, warping, text, logos, camera movement, zoom, pan, new objects, people outside the cabin, realistic render, smoke disappearing, chimney without smoke",
+       "refs": {
+        "images": [
+         ".footage/cabin-loop/refs/cabin-magenta.png",
+         ".footage/cabin-loop/refs/cabin-magenta.png"
+        ]
+       },
+       "seconds": 10,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 10,
+     "until": 11,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

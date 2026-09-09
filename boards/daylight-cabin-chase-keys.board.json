@@ -1,0 +1,30 @@
+{
+ "name": "daylight-cabin-chase-keys",
+ "kind": "scenes",
+ "comment": "Keyframe for Colby's trial clip (typed 2026-09-08 22:19): the forest cabin seen from above, the explorer lounging on the roof ridge while character B (the approved bucket hat) runs laps round the cabin with the bear behind him. Two candidate camera heights, one still each; the pick becomes the Seedance image-to-video first frame. References: the live-action explorer still (the cabin, the world and the explorer's costume, face-free), B from behind and B in three-quarter (identity).",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 11,
+ "subject": "Live-action documentary realism, a frame from a film shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare, fine film grain, true-to-life colour. Late golden hour, the low sun raking across the clearing from the west, long warm shadows of the cabin and the trees across the golden grass, warm rim light on the treetops. No text, no logos, no real or recognisable person, a generic energy drink can with no logo.",
+ "negative": "text, letters, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, celebrity likeness, blood, gore, a second can, a second bear, a second runner, a second explorer, a visible face on the young man",
+ "refs": {
+  "images": [
+   ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+   ".footage/basement-char-b/styles/back.png",
+   ".footage/basement-char-b/styles/threeq.png"
+  ]
+ },
+ "styles": [
+  {
+   "id": "topdown",
+   "label": "top-down, straight down from 25 m",
+   "style": "A single film frame, the first frame of this shot: a locked-off top-down drone view looking straight down from about 25 metres, static camera, the whole frame is ground seen from directly above. In the centre of the frame stands the larger log cabin from the first reference image (the same dark timber walls, steep dark shingle roof with a stone chimney, warm lit windows), its roof ridge running left to right, in a clearing of dry golden grass, the tops of tall pines filling the edges of the frame, and a worn dirt path running all the way round the cabin close to its walls. Lying at ease on the roof ridge, the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel, white walrus moustache, worn boots) reclines propped on one elbow with his legs crossed at the ankle and a tin mug in his hand, looking down over the eave at the path. On the path at the cabin's front-left corner, the young man from the second and third reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat hiding his face from above, thick black-rimmed glasses, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) is mid-sprint, arms pumping, one matte black energy drink can with a plain green stripe in his hand. Three metres behind him on the same path a huge brown grizzly bear charges on all fours, rounding the corner after him. The long warm shadows of the cabin, the runner and the bear stretch across the grass. Exactly one man on the roof, one runner, one bear, one can."
+  },
+  {
+   "id": "highangle",
+   "label": "steep high angle, 65 degrees from 20 m",
+   "style": "A single film frame, the first frame of this shot: a locked-off steep high-angle bird's-eye view from about 20 metres up, looking down at about 65 degrees so that the roof, the walls and the path all read, static camera. In the centre of the frame stands the larger log cabin from the first reference image (the same dark timber walls, steep dark shingle roof with a stone chimney, warm lit windows), its roof ridge running left to right, in a clearing of dry golden grass, tall pines around the clearing and a sliver of the sunset forest beyond at the top of the frame, and a worn dirt path running all the way round the cabin close to its walls. Lying at ease on the roof ridge, the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel, white walrus moustache, worn boots) reclines propped on one elbow with his legs crossed at the ankle and a tin mug in his hand, looking down over the eave at the path. On the path at the cabin's front-left corner, the young man from the second and third reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat pulled low so his face is hidden, thick black-rimmed glasses, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) is mid-sprint, arms pumping, one matte black energy drink can with a plain green stripe in his hand. Three metres behind him on the same path a huge brown grizzly bear charges on all fours, rounding the corner after him. The long warm shadows of the cabin, the runner and the bear stretch across the grass. Exactly one man on the roof, one runner, one bear, one can."
+  }
+ ]
+}

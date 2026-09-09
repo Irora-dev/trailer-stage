@@ -1,0 +1,73 @@
+{
+ "name": "explorer-paper-hop",
+ "end": 6,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Layered paper cut-out craft animation: every part of the figure is a piece of textured card with visible fibre and clean cut edges, lit by soft studio light from the upper left with gentle paper shadows on the figure only, the figure centred on a flat, pure, even magenta background that never changes.",
+  "physics": "Physics: the figure stays centred and the same size, the magenta background stays perfectly flat, even and empty with no shadow cast on it, every part stays attached and moves like hinged card, nothing appears except what he takes from his pouch and puts back, and the last frame returns exactly to the pose of the first frame.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Paper explorer loop 'hop' (Colby, 2026-09-09 ~00:20: six animations, the still as start and end frame). Seedance image-to-video with the still as first AND last frame; then npm run loop -- explorer-paper-hop hop; then .cache/key-sprite.sh for alpha.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "hop",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "contain",
+      "hold": "loop",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Static camera, no push, no zoom, no pan, one single unbroken five-second take from this one camera only. Start exactly from the first frame and end exactly on the same frame, one continuous take without any cut; the camera never changes position, height or angle. The round paper-craft explorer figure (pith helmet, big round goggles, a smiling face, a khaki card body with a belt and a pouch, a rolled green bedroll on his back, stubby arms and boots) stands centred on the flat magenta plate exactly as in the first frame. He bends his knees, does one happy little hop straight up with both arms raised, lands with a soft paper wobble, and settles back into exactly the first frame's pose. Layered paper cut-out craft animation: every part of the figure is a piece of textured card with visible fibre and clean cut edges, lit by soft studio light from the upper left with gentle paper shadows on the figure only, the figure centred on a flat, pure, even magenta background that never changes. Physics: the figure stays centred and the same size, the magenta background stays perfectly flat, even and empty with no shadow cast on it, every part stays attached and moves like hinged card, nothing appears except what he takes from his pouch and puts back, and the last frame returns exactly to the pose of the first frame. No text, no logos.",
+       "negative": "cartoon outline, cel shading, 3D render, glossy plastic, photorealistic, camera movement, zoom, pan, cutaway, second figure, background change, gradient background, shadow on the background, drop shadow, ground shadow, contact shadow, shadow under the feet, reflection, the figure drifting or changing size",
+       "refs": {
+        "images": [
+         ".footage/explorer-paper/refs/companion-magenta.png",
+         ".footage/explorer-paper/refs/companion-magenta.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "auto",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 5.2,
+     "until": 6,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

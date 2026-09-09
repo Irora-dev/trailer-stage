@@ -1,0 +1,151 @@
+{
+ "name": "daylight-site-pixel",
+ "kind": "scenes",
+ "comment": "Daylight website elements in the decided 16-bit pixel style (Colby 22:40: \"create a task for meshy to render various useful things for the site\"). One entry per site slot, sized for its slot; references are the pixel style cell and the pixel chase keyframe so the explorer and the world match the trailers.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "16-bit pixel art, a detailed SNES-era scene with hard pixel edges, dithered skies, crisp sprite characters, no anti-aliasing. Exactly the same art style, palette, line and rendering as the two reference images, which show the same character and world in this style. No text, no letters, no numbers, no logos anywhere.",
+ "negative": "text, letters, numbers, logos, watermark, real people, blur, anti-aliasing, extra limbs, a second lens",
+ "refs": {
+  "images": [
+   ".footage/daylight-explorer-styles-meshy/styles/pixel.png",
+   ".footage/explorer-chase-keyframes/styles/pixel.png"
+  ]
+ },
+ "styles": [
+  {
+   "id": "hero-home",
+   "size": "landscape_16_9",
+   "label": "HOME HERO 16:9 (field-case page background)",
+   "style": "Wide establishing view of the Daylight valley: pine forest, a log cabin with lit windows and chimney smoke, snow-capped mountains at golden hour from a ridge path, the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) small at the lower left looking out over the valley; the CENTRE of the frame is open sky and distant haze with no detail, so a user-interface panel can sit over it; soft dithered sky bands."
+  },
+  {
+   "id": "hero-mobile",
+   "size": "portrait_9_16",
+   "label": "HOME HERO 9:16 (phone)",
+   "style": "Tall phone-screen view of the Daylight valley: pine forest, a log cabin with lit windows and chimney smoke, snow-capped mountains at golden hour, the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) small at the bottom of the path looking up at the peaks; the upper two thirds of the frame are open sky and haze with no detail for text and panels."
+  },
+  {
+   "id": "field-case-closed",
+   "size": "landscape_4_3",
+   "label": "FIELD CASE closed (the briefcase hero object)",
+   "style": "A closed brown leather field case with brass corners, latches and a worn handle, centred on a rough wooden camp table, a lantern glow from the side, dark background; the product's briefcase, as a pixel object."
+  },
+  {
+   "id": "field-case-open",
+   "size": "landscape_4_3",
+   "label": "FIELD CASE open, empty (the UI fills it)",
+   "style": "The same brown leather field case open and lying flat, its dark suede interior EMPTY and flat with no objects, seen straight from above on the wooden camp table, a lantern glow from the side; a user interface will be drawn inside it."
+  },
+  {
+   "id": "og-share",
+   "size": "landscape_16_9",
+   "label": "OG SHARE IMAGE background (token read)",
+   "style": "the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) at the left third holding up a blank glowing rectangular card and peering at it through the monocle, the forest and peaks behind at dusk; the right two thirds of the frame are calm dark sky and haze with no detail for a title."
+  },
+  {
+   "id": "empty-positions",
+   "size": "landscape_16_9",
+   "label": "EMPTY STATE: no positions yet",
+   "style": "the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) standing at a trailhead beside a weathered wooden notice board that is completely blank, scratching his head, his satchel open and empty, the valley path leading away into morning mist."
+  },
+  {
+   "id": "empty-wallet",
+   "size": "landscape_16_9",
+   "label": "EMPTY STATE: no wallet connected",
+   "style": "the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) on the cabin porch patting his empty jacket pockets with a sheepish look, a lantern hanging by the door, the valley at dusk behind."
+  },
+  {
+   "id": "limited-data",
+   "size": "landscape_16_9",
+   "label": "LIMITED DATA: intelligence pending",
+   "style": "the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) leaning forward on the ridge peering through his monocle into a thick wall of fog that hides the whole valley; only the tops of a few pines poke through; calm, patient."
+  },
+  {
+   "id": "not-found",
+   "size": "landscape_16_9",
+   "label": "404: lost",
+   "style": "the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) at a fork in the forest path holding a map upside down, beside a wooden signpost whose direction boards are all blank, one boot on a rock, the cabin smoke visible far off in the wrong direction."
+  },
+  {
+   "id": "loading",
+   "size": "landscape_16_9",
+   "label": "LOADING: reading the chain",
+   "style": "the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) walking along the forest path at dusk carrying a glowing lantern that lights the path ahead, fireflies, the cabin windows far below; calm, unhurried, a loop-able scene."
+  },
+  {
+   "id": "section-checks",
+   "size": "square_hd",
+   "label": "TOOLS TILE: Before you buy",
+   "style": "A square tile: a large brass magnifying glass lying on a tree stump, magnifying a single round stone token with a question-mark-shaped crack (no letters), pine needles around, warm side light, dark forest floor."
+  },
+  {
+   "id": "section-respite",
+   "size": "square_hd",
+   "label": "TOOLS TILE: After it went wrong",
+   "style": "A square tile: the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) lying flat on his back in tall meadow grass with his pith helmet over his face, cane dropped beside him, one boot crossed over the other, a few clouds in a golden sky."
+  },
+  {
+   "id": "tool-touch-grass",
+   "size": "landscape_16_9",
+   "label": "TOOL: Touch grass",
+   "style": "A sunlit alpine meadow of tall swaying grass and small wildflowers filling the frame, the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) kneeling at the right with one bare hand pressed flat into the grass, eyes closed, content; peaks far behind."
+  },
+  {
+   "id": "tool-rage",
+   "size": "landscape_16_9",
+   "label": "TOOL: Rage machine",
+   "style": "the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) on the ridge at sunset roaring at the sky with both fists raised, his helmet lifting off his head, a flock of birds scattering from the pines, his cane flung to the ground; comic."
+  },
+  {
+   "id": "tool-leaderboard",
+   "size": "landscape_16_9",
+   "label": "TOOL: Loss leaderboard",
+   "style": "A tall wooden trophy board nailed to a pine by the cabin, with six blank brass plaques and a small tarnished cup on top, the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) standing beside it with his hat in his hand, solemn and amused; dusk."
+  },
+  {
+   "id": "pricing-hero",
+   "size": "landscape_16_9",
+   "label": "PRICING HERO: three camps",
+   "style": "Three camps side by side on a valley ridge at golden hour, left to right: a simple bedroll by a tiny fire, a sturdy canvas tent with a lantern, and the full log cabin with lit windows and chimney smoke; the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) small in front, pointing at the cabin; no text."
+  },
+  {
+   "id": "footer-night",
+   "size": "landscape_16_9",
+   "label": "FOOTER STRIP: the valley at night",
+   "style": "A very wide night view of the Daylight valley: pine forest, a log cabin with lit windows and chimney smoke, snow-capped mountains under a star field, the cabin windows the only warm light, the explorer's lantern a tiny dot on the ridge path; the lower half of the frame is dark forest silhouette with no detail for a footer."
+  },
+  {
+   "id": "icon-portfolio",
+   "size": "square_hd",
+   "label": "MENU ICON: Portfolio (satchel)",
+   "style": "A single pixel-art icon on a plain very dark background: a worn brown leather satchel with a brass buckle, centred, glowing rim light, nothing else in the frame."
+  },
+  {
+   "id": "icon-ask",
+   "size": "square_hd",
+   "label": "MENU ICON: Ask (lantern)",
+   "style": "A single pixel-art icon on a plain very dark background: a brass camping lantern lit with a warm flame, centred, glowing rim light, nothing else in the frame."
+  },
+  {
+   "id": "icon-activity",
+   "size": "square_hd",
+   "label": "MENU ICON: Activity (telescope)",
+   "style": "A single pixel-art icon on a plain very dark background: a brass field telescope on a small tripod, centred, glowing rim light, nothing else in the frame."
+  },
+  {
+   "id": "icon-tools",
+   "size": "square_hd",
+   "label": "MENU ICON: Tools (pocket knife)",
+   "style": "A single pixel-art icon on a plain very dark background: an open multi-tool pocket knife with wooden grips, centred, glowing rim light, nothing else in the frame."
+  },
+  {
+   "id": "icon-upgrade",
+   "size": "square_hd",
+   "label": "MENU ICON: Upgrade (compass)",
+   "style": "A single pixel-art icon on a plain very dark background: a brass compass with a glowing needle, centred, glowing rim light, nothing else in the frame."
+  }
+ ]
+}

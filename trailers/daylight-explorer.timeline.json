@@ -1,0 +1,577 @@
+{
+ "name": "daylight-explorer",
+ "end": 40.88,
+ "blackoutAt": 39.38,
+ "endAnchor": "line:close.end+2",
+ "blackoutAnchor": "line:close.end+0.5",
+ "mix": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-explorer/daylight-explorer.wav",
+ "camera": [
+  {
+   "at": 14.59,
+   "until": 17.09,
+   "from": 1,
+   "to": 1.28,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "at": 17.09,
+   "until": 29.17,
+   "from": 1.28,
+   "to": 1,
+   "cx": 0.5,
+   "cy": 0.5
+  }
+ ],
+ "scene": {
+  "kind": "theme",
+  "overlay": "grain"
+ },
+ "tracks": [
+  {
+   "id": "world",
+   "name": "Generated world",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "shotWalk",
+     "at": 0.4,
+     "anchor": "line:open.start-2.2",
+     "until": 9.68,
+     "anchorUntil": "line:open.end-2.5",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "grade": "grain",
+      "hold": "freeze",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Painted storybook realism, matte-painting brushwork: an old-timey gentleman explorer in a pith helmet, white moustache, monocle and many-pocketed khaki safari jacket, wooden cane in hand and sturdy boots, walks away from camera along a pine-needle forest path toward a ridge. Gentle handheld 35mm, slow follow, shallow depth. Low golden-hour sun behind snow-capped peaks, a log cabin with lit windows among the pines, volumetric haze between pine ridges, warm rim light, fine film grain. The explorer's face, helmet, moustache, monocle and jacket match @Image1; the forest, ridge and light match @Image2.",
+       "negative": "text, logos, real people",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer/refs/brand/explorer-hero.png",
+         ".footage/daylight-explorer/refs/brand/landscape-golden.png"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotSunset",
+     "at": 9.68,
+     "anchor": "line:open.end-2.5",
+     "until": 14.18,
+     "anchorUntil": "line:read.start+0.4",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "grade": "grain",
+      "hold": "freeze",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "The sun drops behind the snow-capped peaks over a painted pine valley; the sky moves from molten gold to violet dusk while the cabin windows warm up among the pines and the last light slides off the ridges. The small silhouette of a gentleman explorer with a cane walks the ridge line at frame left. Very slow push-in, 35mm, volumetric haze between ridges, matte-painting brushwork, fine film grain, painted storybook realism.",
+       "negative": "text, logos, real people",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer/refs/brand/landscape-sunset.png",
+         ".footage/daylight-explorer/refs/brand/landscape-dusk.png"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotRead",
+     "at": 14.18,
+     "anchor": "line:read.start+0.4",
+     "until": 21.5,
+     "anchorUntil": "line:gasp.start+0.4",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "grade": "grain",
+      "hold": "freeze",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Painted storybook realism exactly as in @Video1, @Image1 and @Image2: soft painterly shading with matte-painting brushwork, subtle line work, cinematic shallow depth of field, warm rim light, volumetric haze between pine ridges, fine film grain. Not a flat cartoon: no thick black outlines, no cel-shading, no vector look. The same gentleman explorer as in @Video1 (khaki pith helmet, many-pocketed khaki safari jacket, leather satchel on a shoulder strap, green trousers, sturdy laced boots, wooden cane), now seen from the front: an elderly British gentleman with a round weathered kindly face, a big white walrus moustache and a gold-rimmed monocle on a fine chain over one eye. Handheld 50mm at chest height with a slow drift onto his shoulder: he halts on the dusk ridge in three-quarter profile, lifts a blank dark glassy card with a warm gold edge (as in @Image4) in one gloved hand and peers at it through his monocle, brows rising. Violet dusk sky and the lit log cabin among the pines as in @Image3. The card face stays blank and unlettered; no text anywhere. His face, helmet, moustache and monocle match @Image5 exactly.",
+       "negative": "text, logos, real people, flat cartoon, thick black outlines, cel shading",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer/refs/style/walk-4s.png",
+         ".footage/daylight-explorer/refs/style/walk-10s.png",
+         ".footage/daylight-explorer/refs/brand/landscape-dusk.png",
+         ".footage/daylight-explorer/refs/brand/card-mountain-glass.png",
+         ".footage/daylight-explorer/refs/style/react-face.png"
+        ],
+        "videos": [
+         ".footage/daylight-explorer/shotWalk.master.mp4"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotReact",
+     "at": 21.5,
+     "anchor": "line:gasp.start+0.4",
+     "until": 29.31,
+     "anchorUntil": "line:gasp.end+0.3",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "grade": "grain",
+      "hold": "freeze",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Painted storybook realism exactly as in @Video1, @Image1 and @Image2: soft painterly shading with matte-painting brushwork, subtle line work, cinematic shallow depth of field, warm rim light, volumetric haze between pine ridges, fine film grain. Not a flat cartoon: no thick black outlines, no cel-shading, no vector look. The same gentleman explorer as in @Video1 (khaki pith helmet, many-pocketed khaki safari jacket, leather satchel strap, wooden cane), now seen from the front. His FACE follows @Image4 for identity only, never for style: an elderly British gentleman with a round weathered kindly face, a big white walrus moustache, and ONE round gold-rimmed MONOCLE on a fine chain over the same eye as in @Image4. He wears no spectacles, no glasses, no second lens; the other eye is bare. Close-up at face height, handheld 85mm with a tiny nervous drift: he stares at the blank dark glassy card in his gloved hand; his eyes go wide, the monocle pops from his eye and swings on its chain, the white moustache bristles, his cane arm stiffens. Violet dusk sky, snow-capped peaks and a single lit log cabin far behind him among the pines as in @Image3. The card face stays blank and unlettered; no text anywhere.",
+       "negative": "text, logos, real people, flat cartoon, thick black outlines, cel shading",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer/refs/style/walk-4s.png",
+         ".footage/daylight-explorer/refs/style/walk-10s.png",
+         ".footage/daylight-explorer/refs/brand/landscape-dusk.png",
+         ".footage/daylight-explorer/refs/style/mascot-face-crop.png"
+        ],
+        "videos": [
+         ".footage/daylight-explorer/shotWalk.master.mp4"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotRun",
+     "at": 29.31,
+     "anchor": "line:gasp.end+0.3",
+     "until": 33.57,
+     "anchorUntil": "line:run.end+0.8",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "grade": "grain",
+      "hold": "freeze",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Painted storybook realism exactly as in @Video1, @Image1 and @Image2: soft painterly shading with matte-painting brushwork, subtle line work, cinematic shallow depth of field, warm rim light, volumetric haze between pine ridges, fine film grain. Not a flat cartoon: no thick black outlines, no cel-shading, no vector look. The same gentleman explorer as in @Video1 (khaki pith helmet, many-pocketed khaki safari jacket, leather satchel on a shoulder strap, green trousers, sturdy laced boots, wooden cane), now seen from the front: an elderly British gentleman with a round weathered kindly face, a big white walrus moustache and a gold-rimmed monocle on a fine chain over one eye. Handheld 35mm: with a yelp he flings the small dark card high into the violet sunset, the card spinning end over end against the last gold light, then he turns and bolts AWAY from camera back down the pine path the way he came, clutching his pith helmet, cane flailing, a comic full-tilt run, dust and pine needles kicking up, the camera following from behind as in @Video1. Dusk palette, snow-capped peaks and the lit cabin as in @Image3. No text anywhere. His face, helmet, moustache and monocle match @Image4 exactly.",
+       "negative": "text, logos, real people, flat cartoon, thick black outlines, cel shading",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer/refs/style/walk-4s.png",
+         ".footage/daylight-explorer/refs/style/walk-10s.png",
+         ".footage/daylight-explorer/refs/brand/landscape-dusk.png",
+         ".footage/daylight-explorer/refs/style/react-face.png"
+        ],
+        "videos": [
+         ".footage/daylight-explorer/shotWalk.master.mp4"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "set",
+   "name": "The report card",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "reportCard",
+     "at": 14.68,
+     "anchor": "line:read.start+0.9",
+     "until": 23.3,
+     "anchorUntil": "line:gasp.start+2.2",
+     "params": {
+      "piece": "card",
+      "width": "40vw",
+      "height": "18vh",
+      "header": {
+       "identity": {
+        "name": "Moonbag",
+        "sub": "$MBAG · an example token, invented for this trailer",
+        "emoji": "◆"
+       },
+       "right": {
+        "at": "@reportCard+0.5",
+        "statsAt": "@reportCard+0.8"
+       },
+       "altAt": "@bundleHit",
+       "headline": {
+        "text": "reading holders…",
+        "altText": "Bundled 91%",
+        "color": "#d8c79a",
+        "altColor": "#f06565"
+       },
+       "stats": [
+        {
+         "label": "top ten holders",
+         "value": "--",
+         "altValue": "74%"
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "name": "Reveal & close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "flip",
+     "at": 32.57,
+     "anchor": "line:close.start-0.8",
+     "params": {
+      "piece": "channelFlip",
+      "durationMs": 380
+     }
+    },
+    {
+     "id": "mark",
+     "at": 32.77,
+     "anchor": "line:close.start-0.6",
+     "until": 37.48,
+     "anchorUntil": "line:close.end-1.4",
+     "params": {
+      "piece": "logoReveal",
+      "wordmark": "DAYLIGHT",
+      "plateText": "the on-chain survival kit",
+      "poweredText": "it reads the holders before you buy"
+     }
+    },
+    {
+     "id": "markUp",
+     "at": 33.37,
+     "anchor": "line:close.start"
+    },
+    {
+     "id": "wordmark",
+     "at": 33.87,
+     "anchor": "line:close.start+0.5"
+    },
+    {
+     "id": "plate",
+     "at": 34.47,
+     "anchor": "line:close.start+1.1"
+    },
+    {
+     "id": "powered",
+     "at": 35.27,
+     "anchor": "line:close.start+1.9"
+    },
+    {
+     "id": "morph",
+     "at": 37.28,
+     "anchor": "line:close.end-1.6"
+    },
+    {
+     "id": "endcard",
+     "at": 37.48,
+     "anchor": "line:close.end-1.4",
+     "until": 40.88,
+     "anchorUntil": "line:close.end+2",
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "note": "Daylight reads a token's holders before you buy.",
+      "chips": [
+       "Contains AI-generated footage",
+       "Example token · not investment advice"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "beats",
+   "name": "Beats",
+   "kind": "marker",
+   "clips": [
+    {
+     "id": "bundleHit",
+     "at": 21.5,
+     "anchor": "line:gasp.start+0.4",
+     "params": {
+      "label": "the bundle figure lands"
+     }
+    },
+    {
+     "id": "cardFling",
+     "at": 29.41,
+     "anchor": "line:gasp.end+0.4",
+     "params": {
+      "label": "the card goes up, he goes down the path"
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "name": "Captions",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cap-open",
+     "at": 2.6,
+     "anchor": "line:open.start",
+     "until": 12.18,
+     "anchorUntil": "line:open.end",
+     "params": {
+      "piece": "caption",
+      "text": "Ah... magnificent. Golden hour on the chain, and our explorer is out walking the high ridge, quite pleased with himself."
+     }
+    },
+    {
+     "id": "cap-read",
+     "at": 13.78,
+     "anchor": "line:read.start",
+     "until": 20.8,
+     "anchorUntil": "line:read.end",
+     "params": {
+      "piece": "caption",
+      "text": "He stops. Out comes the report card, up goes the monocle... and he checks who else is holding this thing."
+     }
+    },
+    {
+     "id": "cap-gasp",
+     "at": 21.1,
+     "anchor": "line:gasp.start",
+     "until": 29.01,
+     "anchorUntil": "line:gasp.end",
+     "params": {
+      "piece": "caption",
+      "text": "Oh. Oh dear. Ninety one percent of the supply, sitting in bundled wallets."
+     }
+    },
+    {
+     "id": "cap-run",
+     "at": 29.51,
+     "anchor": "line:run.start",
+     "until": 32.77,
+     "anchorUntil": "line:run.end",
+     "params": {
+      "piece": "caption",
+      "text": "Yes. That... is the correct reaction."
+     }
+    },
+    {
+     "id": "cap-close",
+     "at": 33.37,
+     "anchor": "line:close.start",
+     "until": 38.88,
+     "anchorUntil": "line:close.end",
+     "params": {
+      "piece": "caption",
+      "text": "Daylight. It reads the holders before you buy. Do try to look... before you leap."
+     }
+    }
+   ]
+  },
+  {
+   "id": "lines",
+   "name": "Narration lines",
+   "kind": "marker",
+   "locked": true,
+   "clips": [
+    {
+     "id": "__line-open",
+     "at": 2.6,
+     "until": 12.18,
+     "anchor": "line:open.start",
+     "anchorUntil": "line:open.end",
+     "params": {
+      "label": "open"
+     }
+    },
+    {
+     "id": "__line-read",
+     "at": 13.78,
+     "until": 20.8,
+     "anchor": "line:read.start",
+     "anchorUntil": "line:read.end",
+     "params": {
+      "label": "read"
+     }
+    },
+    {
+     "id": "__line-gasp",
+     "at": 21.1,
+     "until": 29.01,
+     "anchor": "line:gasp.start",
+     "anchorUntil": "line:gasp.end",
+     "params": {
+      "label": "gasp"
+     }
+    },
+    {
+     "id": "__line-run",
+     "at": 29.51,
+     "until": 32.77,
+     "anchor": "line:run.start",
+     "anchorUntil": "line:run.end",
+     "params": {
+      "label": "run"
+     }
+    },
+    {
+     "id": "__line-close",
+     "at": 33.37,
+     "until": 38.88,
+     "anchor": "line:close.start",
+     "anchorUntil": "line:close.end",
+     "params": {
+      "label": "close"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vo",
+   "name": "Narration (estimated until the mix is built)",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "vo01",
+     "at": 2.6,
+     "until": 4.23,
+     "params": {
+      "label": "open · seg 1"
+     }
+    },
+    {
+     "id": "vo02",
+     "at": 4.75,
+     "until": 9.86,
+     "params": {
+      "label": "open · seg 2"
+     }
+    },
+    {
+     "id": "vo03",
+     "at": 13.8,
+     "until": 14.56,
+     "params": {
+      "label": "read · seg 3"
+     }
+    },
+    {
+     "id": "vo04",
+     "at": 15.18,
+     "until": 17.64,
+     "params": {
+      "label": "read · seg 4"
+     }
+    },
+    {
+     "id": "vo05",
+     "at": 17.99,
+     "until": 20.38,
+     "params": {
+      "label": "read · seg 5"
+     }
+    },
+    {
+     "id": "vo06",
+     "at": 21.27,
+     "until": 21.88,
+     "params": {
+      "label": "gasp · seg 6"
+     }
+    },
+    {
+     "id": "vo07",
+     "at": 22.36,
+     "until": 23,
+     "params": {
+      "label": "gasp · seg 7"
+     }
+    },
+    {
+     "id": "vo08",
+     "at": 23.71,
+     "until": 24.43,
+     "params": {
+      "label": "gasp · seg 8"
+     }
+    },
+    {
+     "id": "vo09",
+     "at": 24.96,
+     "until": 29.06,
+     "params": {
+      "label": "gasp · seg 9"
+     }
+    },
+    {
+     "id": "vo10",
+     "at": 29.65,
+     "until": 31.03,
+     "params": {
+      "label": "run · seg 10"
+     }
+    },
+    {
+     "id": "vo11",
+     "at": 31.46,
+     "until": 32.77,
+     "params": {
+      "label": "run · seg 11"
+     }
+    },
+    {
+     "id": "vo12",
+     "at": 33.44,
+     "until": 36.2,
+     "params": {
+      "label": "close · seg 12"
+     }
+    },
+    {
+     "id": "vo13",
+     "at": 36.66,
+     "until": 37.73,
+     "params": {
+      "label": "close · seg 13"
+     }
+    },
+    {
+     "id": "vo14",
+     "at": 38.04,
+     "until": 38.93,
+     "params": {
+      "label": "close · seg 14"
+     }
+    }
+   ]
+  }
+ ]
+}

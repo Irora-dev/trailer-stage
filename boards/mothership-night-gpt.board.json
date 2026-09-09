@@ -1,0 +1,50 @@
+{
+ "name": "mothership-night-gpt",
+ "kind": "scenes",
+ "comment": "Mothership nautical concept, THIRD direction (Colby, typed 2026-09-08 ~11:30): head-on at night. The rainbow arches over the water and lights it; the ship emerges through the arch, dead centre, its own lights on the water; the rainbow fades, mist rolls over, the ship arrives front and centre. POSITION LOCK: a bow-on approach on a locked camera has one degree of freedom (scale), so every frame keeps the ship on the vertical centre line. Render order = array order (--parallel 1): K1 empty → K4 ship front and centre (the anchor) → K2 far and K3 mid drawn from BOTH bookends (scene from K1/K2, ship from K4).",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 11,
+ "subject": "Photoreal live-action cinematography at night on the open sea: a full-frame digital cinema camera with a 50 mm anamorphic lens, locked off, placed dead centre on the ship's course just above the water, the composition perfectly symmetrical about the vertical centre line, the horizon a little below the middle of the frame. A cool moonlit night, the moon behind the camera, the sky deep indigo with thin high cloud, a low sea mist drifting over long slow black swells. A cinematic night grade: deep clean blacks that still hold detail, cool blue-indigo shadows, the only warm light from the ship's lanterns, soft halation around every light source, fine 35 mm film grain. Stunning, gallery-grade cinematography, the frame a film is remembered for. No people, no text, no logos, no flags with symbols.",
+ "negative": "text, letters, logos, watermark, people, crew, pirate flag, skull, black sails, cartoon, illustration, painting, CGI look, blur, daylight, sunset, orange sky, oversaturated HDR, murky, underexposed, ship off centre, ship seen from the side",
+ "styles": [
+  {
+   "id": "k1-empty",
+   "label": "K1 the empty night sea, the luminous rainbow lighting the water",
+   "style": "MOMENT ONE, the establishing frame: the empty night sea, no ship anywhere. A luminous double rainbow, impossibly vivid for night, arches over the water with its apex exactly on the vertical centre line near the top of the frame and its two feet standing in the sea at equal distances left and right of centre; its colours reflect on the black swells so the water beneath the arch is lit in soft bands of colour; thin mist drifts over the surface and catches the glow. Deep indigo sky, moonlit mist, deep blacks with detail."
+  },
+  {
+   "id": "k4-front",
+   "label": "K4 the ship front and centre, bow-on, lanterns lit, rainbow gone",
+   "style": "MOMENT FOUR, the same sea and the same locked camera as the reference image, minutes later: the rainbow is gone and thick mist has rolled over the water; out of the mist, front and centre and very close, comes a tall three-masted 1800s naval ship of the line, an admiral's flagship, seen exactly bow-on: its bowsprit and figurehead on the vertical centre line, its masts rising up the centre of the frame and out of the top, pale sails set, a black hull with an ochre-and-cream gun stripe and gilded bow carvings. Stern lanterns, deck lanterns and two rows of gun-deck windows glow warm amber, light the mist around the ship and lay long warm reflections on the black water; a white bow wave curls at the stem. No people on deck.",
+   "refs": {
+    "images": [
+     ".footage/mothership-night-gpt/styles/k1-empty.png"
+    ]
+   }
+  },
+  {
+   "id": "k2-far",
+   "label": "K2 the ship far away, a pinprick of lights dead centre under the apex",
+   "style": "MOMENT TWO, exactly the scene of the first reference image (the same rainbow, the same sea, the same locked camera), a few seconds later: the ship of the line from the second reference image has appeared far away on the horizon as a tiny bow-on shape, exactly under the apex of the rainbow on the vertical centre line, framed inside the arch, its lanterns a small cluster of warm pinpricks reflected on the water; the rainbow is still strong and still lights the water; the mist over the surface has thickened slightly.",
+   "refs": {
+    "images": [
+     ".footage/mothership-night-gpt/styles/k1-empty.png",
+     ".footage/mothership-night-gpt/styles/k4-front.png"
+    ]
+   }
+  },
+  {
+   "id": "k3-mid",
+   "label": "K3 the ship at mid distance, coming through the arch, rainbow fading",
+   "style": "MOMENT THREE, exactly the scene of the first reference image (the same sea and the same locked camera), seconds later: the same ship of the line (the second reference image) has sailed to mid distance, still exactly bow-on and on the vertical centre line, coming through the arch of the rainbow toward the camera; the rainbow has faded to a soft trace; mist rolls over the water, lit cool by the fading rainbow and warm by the ship's lanterns and gun-deck windows, whose reflections stretch across the swells toward the camera; a white bow wave curls at the stem.",
+   "refs": {
+    "images": [
+     ".footage/mothership-night-gpt/styles/k2-far.png",
+     ".footage/mothership-night-gpt/styles/k4-front.png"
+    ]
+   }
+  }
+ ]
+}

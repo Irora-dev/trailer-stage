@@ -1,0 +1,107 @@
+{
+ "comment": "daylight-basement: compiled by scripts/draft.mjs from briefs/daylight-basement.md. Rebuild: npm run mix -- daylight-basement",
+ "voices": {
+  "narrator": {
+   "voice_id": "eWJunko7SS6O4LhXC3dC",
+   "name": "The Clipped Newsreel"
+  }
+ },
+ "parts": [
+  {
+   "id": "open",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement-open.vo.mp3",
+   "render": {
+    "text": "[warmly] Behold... a young man in his natural habitat. A forest, a log, an energy drink, and a portfolio he has checked eleven times since breakfast. All of it, he assures us, is going UP.",
+    "voice": "narrator",
+    "settings": {
+     "stability": 0.4
+    }
+   }
+  },
+  {
+   "gap": 0.5
+  },
+  {
+   "id": "roar",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement-roar.vo.mp3",
+   "render": {
+    "text": "[mildly interested] Ah. That... would be the MARKET.",
+    "voice": "narrator",
+    "settings": {
+     "stability": 0.4
+    }
+   }
+  },
+  {
+   "gap": 0.6
+  },
+  {
+   "id": "chase",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement-chase.vo.mp3",
+   "render": {
+    "text": "[dry] Observe the portfolio keeping him company as he runs. Down four percent. Down twelve. Down FORTY. He has not looked at it once, which is, in fairness, the first sensible thing he has done all day.",
+    "voice": "narrator",
+    "settings": {
+     "stability": 0.4
+    }
+   }
+  },
+  {
+   "gap": 0.5
+  },
+  {
+   "id": "daylight",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement-daylight.vo.mp3",
+   "render": {
+    "text": "[brightening] And then... an idea. He opens Daylight. Who holds this token. Who is quietly leaving. What they paid for it. Everything he might have read BEFORE the forest.",
+    "voice": "narrator",
+    "settings": {
+     "stability": 0.4
+    }
+   }
+  },
+  {
+   "gap": 0.5
+  },
+  {
+   "id": "close",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement-close.vo.mp3",
+   "render": {
+    "text": "[confident] Daylight. Understand the market you are walking into... BEFORE it introduces itself.",
+    "voice": "narrator",
+    "settings": {
+     "stability": 0.4
+    }
+   }
+  }
+ ],
+ "bed": {
+  "src": "/Users/colbymort/Irora-dev/irora-os/ledger/2026/W31/2026-07-27/1843-daylight-explorer-narrator-sound-effects/outputs/wave4-cheeky/mixes/bed-b-radio.mp3"
+ },
+ "bedGainDb": 1.5,
+ "duckDb": 5,
+ "prerollSec": 2.5,
+ "tailSec": 3,
+ "sfx": [
+  {
+   "at": 16.09,
+   "anchor": "line:roar.start-0.3",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement-roarSfx.sfx.mp3",
+   "gainDb": -10,
+   "render": {
+    "prompt": "a deep grizzly bear roar in a forest, close, natural reverb",
+    "seconds": 2
+   }
+  },
+  {
+   "at": 46.71,
+   "anchor": "line:daylight.end-0.9",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement-popSfx.sfx.mp3",
+   "gainDb": -6,
+   "render": {
+    "prompt": "a single loud balloon pop followed by fluttering falling paper confetti",
+    "seconds": 2
+   }
+  }
+ ]
+}

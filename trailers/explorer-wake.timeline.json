@@ -1,0 +1,60 @@
+{
+ "name": "explorer-wake",
+ "end": 7,
+ "blackoutAt": 7,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Hover-to-wake for the meadow explorer (Colby 00:10): the sleeping plate as first AND last frame; he stirs, sits half up, looks at the viewer, lies back and sleeps again, so the clip hands back to the breathing loop on its own idle frame.",
+ "tracks": [
+  {
+   "id": "sprite",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "wake",
+     "at": 0,
+     "until": 6,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art character on his flat magenta plate: the sleeping explorer stirs, blinks his eyes open, props himself half up on one elbow, looks straight at the viewer with a puzzled frown and tips his pith helmet with one hand, then yawns, lies back down exactly as he was, hands behind his head, and closes his eyes again, settling back into exactly the starting pose. The cane and the satchel do not move. The ENTIRE background stays one flat, uniform, solid pure magenta (hex FF00FF) for the whole clip: no shadow, no ground, no gradient, no texture, nothing enters the frame. Static camera, no zoom. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette exactly as the frame. No text, no logos.",
+       "negative": "shadow, floor, ground, gradient, background change, scenery, blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, camera movement, new objects",
+       "refs": {
+        "images": [
+         ".footage/meadow-layers/refs/explorer-magenta.png",
+         ".footage/meadow-layers/refs/explorer-magenta.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 6,
+     "until": 7,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

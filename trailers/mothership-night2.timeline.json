@@ -1,0 +1,110 @@
+{
+ "name": "mothership-night2",
+ "end": 16,
+ "blackoutAt": 16,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Mothership night concept, ROUND TWO (Colby’s notes on the first night film, 2026-09-08 ~12:10): more fog; the ship sails forward like a real boat and never rises out of the water (K1 already carries it as a lantern glow in the fog); the rainbow shimmers like light; prettier moonlight; the rainbow’s reflection soft and broken. Three Seedance shots chained through the position-locked round-two keyframes as first and last frames, one continuous locked-off take, then black. Native sea ambience.",
+ "tracks": [
+  {
+   "id": "sea",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "s1",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The moonlit, fog-covered night sea under a shimmering rainbow of light. Far away on the horizon, exactly under the apex, the faint warm glow of a ship’s lanterns deep in the fog slowly brightens and resolves into a tall three-masted 1800s ship of the line, tiny and bow-on, already on the water and sailing toward the camera through the fog; the fog rolls and thickens. Photoreal live-action night cinematography under a bright full moon, one continuous locked-off shot from just above the water, dead centre on the ship’s course; the camera does not move. The ship is a real ship on the water at all times: its hull sits in the sea and it simply sails forward toward the camera on a steady heading, never rising, never surfacing, never appearing from nothing, growing only by coming closer, always bow-on and exactly on the vertical centre line. Dense fog rolls continuously over the water; the rainbow shimmers softly like light; moonlight glitters on the swells and silvers the fog; the only warm light is the ship’s lanterns; soft halation, fine film grain; no people, no text, no logos. Ambient sound only: the sea at night, a low wind, the creak of rigging and a faint ship’s bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, ship rising out of the water, ship surfacing, ship appearing from nothing, ship drifting off centre, ship turning sideways, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping, daylight",
+       "refs": {
+        "images": [
+         ".footage/mothership-night2-gpt/styles/k1-glow.png",
+         ".footage/mothership-night2-gpt/styles/k2-far.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "s2",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The ship of the line sails steadily forward toward the camera from the horizon to mid distance, bow-on and dead centre, its hull in the water, coming through the arch of the shimmering rainbow; its lanterns and gun-deck windows brighten and their broken reflections stretch over the swells; the rainbow softens to a faint shimmer; the fog rolls thick over the water, silver in the moonlight and warm near the ship. Photoreal live-action night cinematography under a bright full moon, one continuous locked-off shot from just above the water, dead centre on the ship’s course; the camera does not move. The ship is a real ship on the water at all times: its hull sits in the sea and it simply sails forward toward the camera on a steady heading, never rising, never surfacing, never appearing from nothing, growing only by coming closer, always bow-on and exactly on the vertical centre line. Dense fog rolls continuously over the water; the rainbow shimmers softly like light; moonlight glitters on the swells and silvers the fog; the only warm light is the ship’s lanterns; soft halation, fine film grain; no people, no text, no logos. Ambient sound only: the sea at night, a low wind, the creak of rigging and a faint ship’s bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, ship rising out of the water, ship surfacing, ship appearing from nothing, ship drifting off centre, ship turning sideways, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping, daylight",
+       "refs": {
+        "images": [
+         ".footage/mothership-night2-gpt/styles/k2-far.png",
+         ".footage/mothership-night2-gpt/styles/k3-mid.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "s3",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The ship of the line sails on until it looms front and centre, very close, bow-on, its bowsprit toward the lens and its masts rising out of the top of the frame, its bow wave white; the last shimmer of the rainbow is gone; thick fog rolls over the water, lit warm by the lanterns and gun-deck windows and silver by the moon. Photoreal live-action night cinematography under a bright full moon, one continuous locked-off shot from just above the water, dead centre on the ship’s course; the camera does not move. The ship is a real ship on the water at all times: its hull sits in the sea and it simply sails forward toward the camera on a steady heading, never rising, never surfacing, never appearing from nothing, growing only by coming closer, always bow-on and exactly on the vertical centre line. Dense fog rolls continuously over the water; the rainbow shimmers softly like light; moonlight glitters on the swells and silvers the fog; the only warm light is the ship’s lanterns; soft halation, fine film grain; no people, no text, no logos. Ambient sound only: the sea at night, a low wind, the creak of rigging and a faint ship’s bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, ship rising out of the water, ship surfacing, ship appearing from nothing, ship drifting off centre, ship turning sideways, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping, daylight",
+       "refs": {
+        "images": [
+         ".footage/mothership-night2-gpt/styles/k3-mid.png",
+         ".footage/mothership-night2-gpt/styles/k4-front.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 15,
+     "until": 16,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

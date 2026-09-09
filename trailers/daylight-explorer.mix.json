@@ -1,0 +1,68 @@
+{
+  "comment": "daylight-explorer: compiled by scripts/draft.mjs from briefs/daylight-explorer.md. Rebuild: npm run mix -- daylight-explorer",
+  "voices": {
+    "narrator": {
+      "voice_id": "eWJunko7SS6O4LhXC3dC",
+      "name": "The Clipped Newsreel (Daylight's pinned narrator: cut-glass 1940s RP, the Stanley Parable x crypto register)"
+    }
+  },
+  "parts": [
+    {
+      "id": "open",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-explorer/daylight-explorer-open.vo.mp3",
+      "render": {
+        "text": "[warmly, hushed] Ah... MAGNIFICENT. Golden hour on the chain, and our explorer is out walking the high ridge, quite pleased with himself.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 1.6
+    },
+    {
+      "id": "read",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-explorer/daylight-explorer-read.vo.mp3",
+      "render": {
+        "text": "[curious] He stops. Out comes the report card, up goes the monocle... and he checks who ELSE is holding this thing.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 0.3
+    },
+    {
+      "id": "gasp",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-explorer/daylight-explorer-gasp.vo.mp3",
+      "render": {
+        "text": "[gasping, delighted] Oh. Oh dear. Ninety one percent of the supply, sitting in BUNDLED wallets.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 0.5
+    },
+    {
+      "id": "run",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-explorer/daylight-explorer-run.vo.mp3",
+      "render": {
+        "text": "[dryly amused] Yes. That... is the correct reaction.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 0.6
+    },
+    {
+      "id": "close",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-explorer/daylight-explorer-close.vo.mp3",
+      "render": {
+        "text": "[confident, warm] Daylight. It reads the holders before you buy. [amused] Do try to look... before you leap.",
+        "voice": "narrator"
+      }
+    }
+  ],
+  "bed": "/Users/colbymort/Irora-dev/irora-os/ledger/2026/W31/2026-07-27/1843-daylight-explorer-narrator-sound-effects/outputs/wave4-cheeky/mixes/bed-b-radio.mp3",
+  "bedGainDb": 0,
+  "duckDb": 6,
+  "prerollSec": 2.6,
+  "tailSec": 2.6
+}

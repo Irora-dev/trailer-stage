@@ -1,0 +1,122 @@
+{
+ "name": "daylight-bear-live",
+ "end": 17,
+ "blackoutAt": 17,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "A live-action clip, not a stage trailer: three photoreal shots on Seedance 2.0 reference-to-video with native audio, cut together by ffmpeg with their own sound (the stage plays footage muted). Colby's brief, typed 2026-09-07 ~20:20: the explorer runs through a dense forest, sunset peeking through the trees, faint mountains behind; a bear attacks; he pulls out his phone showing the real Daylight app (filmed from the running app at phone size and handed as a reference), hits SELL right before the bear reaches him, and the bear turns into confetti in a poof. Model per his pick from the bake-off (A, Seedance 2.0). Identity and look: the bake-off's Seedance shot as @Video1 and two of its frames.",
+ "tracks": [
+  {
+   "id": "shots",
+   "name": "Three shots, one man, one forest",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "run",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Live-action documentary realism exactly as in @Video1, @Image1 and @Image2: the same man (khaki many-pocketed safari jacket, pith helmet, leather satchel, white walrus moustache, worn boots), shot on a full-frame cinema camera, 35mm, handheld and running alongside him. He sprints through a DENSE pine forest, branches whipping past the lens, the low sunset flaring between the trunks, a faint glimpse of snow-capped mountains behind the trees. A huge brown grizzly bear crashes through the undergrowth behind him, gaining ground. Real dust and pine needles kicked up, natural motion blur, natural skin and fabric, fine film grain, true-to-life colour. Sound: pounding boots, ragged breath, cracking branches, a bear's roar behind. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, text, logos",
+       "refs": {
+        "images": [
+         ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+         ".footage/daylight-bear-live/refs/style/explorer-live-2s.png"
+        ],
+        "videos": [
+         ".footage/daylight-bear-live/refs/style/explorer-live.mp4"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "phone",
+     "at": 5,
+     "until": 10,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Live-action documentary realism exactly as in @Video1 and @Image1: the same man, the same dense sunset forest, the same light. Close on his hands and chest, handheld, shallow depth of field, still running: he yanks a smartphone from his jacket pocket; the screen lights up and shows EXACTLY the app in @Image3, a dark interface with gold accents, the same layout and the same words; his thumb stabs the bright gold button on that screen once, hard, as if his life depended on it. The bear's roar and the thud of its paws come closer behind him. A real glass screen with fingerprints and the sunset reflected in it, real fingers, natural skin, fine film grain. Sound: gasping breath, the tap on glass, a roar closing in. Nothing on the screen that is not in @Image3.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra fingers, invented text, logos",
+       "refs": {
+        "images": [
+         ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+         ".footage/daylight-bear-live/refs/style/explorer-live-2s.png",
+         ".footage/daylight-bear-live/refs/app/phone-app.png"
+        ],
+        "videos": [
+         ".footage/daylight-bear-live/refs/style/explorer-live.mp4"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "poof",
+     "at": 10,
+     "until": 16,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Live-action documentary realism exactly as in @Video1 and @Image1: the same man, the same dense sunset forest, the same light. He turns, phone raised in one hand, as a huge brown grizzly bear lunges at him from two metres away with a roar; at the instant of the lunge the bear bursts into a dense cloud of multicoloured paper confetti with a comic POOF, the confetti hangs in the sunbeams and rains down over him; he stands blinking, lowers the phone, exhales, and brushes confetti off his moustache. Real physics, natural skin and fabric, fine film grain. Sound: the roar cut off by a soft poof, the flutter of falling paper, birdsong returning, one exhausted laugh. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, blood, gore, text, logos",
+       "refs": {
+        "images": [
+         ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+         ".footage/daylight-bear-live/refs/style/explorer-live-2s.png"
+        ],
+        "videos": [
+         ".footage/daylight-bear-live/refs/style/explorer-live.mp4"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "name": "Disclosure (the lane's law; the delivered clip carries it as a final card)",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 16,
+     "until": 17,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

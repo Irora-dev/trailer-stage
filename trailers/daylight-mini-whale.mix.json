@@ -1,0 +1,46 @@
+{
+ "comment": "daylight-mini-whale: DRAFT narration on the seed line (Colby, 2026-09-09 00:0x: make these videos and narrate), for him to rewrite as he did on the cabin chase. The bed is the shot's own native sound, padded with silence to 20 s so the builder does not loop it under the card. Gaps are tuned from the 1080p frames so the punch line lands on the gag. Rebuild: node scripts/build-mix.mjs daylight-mini-whale --go",
+ "voices": {
+  "narrator": {
+   "voice_id": "eWJunko7SS6O4LhXC3dC",
+   "name": "The Clipped Newsreel"
+  }
+ },
+ "parts": [
+  {
+   "id": "setup",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-whale/setup.vo.mp3",
+   "render": {
+    "text": "[dry] One holder had forty percent.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 1.5
+  },
+  {
+   "id": "punch",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-whale/punch.vo.mp3",
+   "render": {
+    "text": "[amused] He moved.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 3.6
+  },
+  {
+   "id": "daylight",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-whale/daylight.vo.mp3",
+   "render": {
+    "text": "[confident] If only he used Daylight... the on-chain survival kit.",
+    "voice": "narrator"
+   }
+  }
+ ],
+ "bed": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-whale/native-padded.wav",
+ "bedGainDb": 0,
+ "duckDb": 4,
+ "prerollSec": 1,
+ "tailSec": 3
+}

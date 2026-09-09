@@ -1,0 +1,28 @@
+{
+ "name": "daylight-mini-bagholder",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the sun low behind the hilltop at the left, long warm shadows down the slope, warm rim light on the coats.",
+  "physics": "Physics: feet stay on the ground, each sack passes from one pair of hands to his and stays with him, nobody appears from nowhere, everyone who leaves walks out along the path, nothing floats, nothing changes size, there are exactly six sacks in the end and no more.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Mini trailer 'the bag holder' (Colby, 2026-09-09 00:0x): the holders were very generous, with their bags. Five coats coming downhill each hand B their sack and walk on; he sits down under six of them. One Seedance shot from the gpt-image-2 keyframe (board daylight-minis-keys-3, cell bagholder), 480p probe first, then 1080p; cut from the master with a draft narration.",
+ "tracks": [
+  { "id": "footage", "kind": "visual", "clips": [
+   { "id": "bagholder", "at": 0, "until": 12, "params": { "piece": "footage", "fit": "cover", "hold": "freeze", "grade": "none", "render": {
+    "provider": "fal",
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Locked-off 35 mm wide, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The meadow path rising from the right foreground to the bare hilltop at the left against the sunset, the young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) climbing it with one burlap sack over his shoulder, and coming down toward him in single file five identical figures in long grey hooded raincoats, hoods up, faces in shadow, each carrying an identical burlap sack, the nearest already holding its sack out to him. As each coat reaches him it pushes its sack into his arms and walks on down the path past the camera and out of the frame at the right, none of them looking back. He takes every one, his arms filling, staggering under the weight, until the fifth sack is dropped on top of the pile and he sits down heavily on the path under six sacks. The last coat is gone by the eleventh second and he sits alone on the path with the sacks on his lap, looking at them. Sound: boots on dry grass, the thump of burlap into arms, grunts of effort, wind on the hilltop, one quiet exhale. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the sun low behind the hilltop at the left, long warm shadows down the slope, warm rim light on the coats. Physics: feet stay on the ground, each sack passes from one pair of hands to his and stays with him, nobody appears from nowhere, everyone who leaves walks out along the path, nothing floats, nothing changes size, there are exactly six sacks in the end and no more. No text, no logos.",
+    "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, extra sacks, a seventh sack, visible faces under the hoods, blood, gore",
+    "refs": { "images": [ ".footage/daylight-minis-keys-3/styles/bagholder.png" ] },
+    "seconds": 12, "resolution": "1080p", "aspect": "16:9", "audio": true } } }
+  ] },
+  { "id": "close", "kind": "visual", "clips": [
+   { "id": "endcard", "at": 12.6, "until": 14, "params": { "piece": "endCard", "wordmark": "DAYLIGHT", "plate": "the on-chain survival kit", "chips": [ "Contains AI-generated footage" ] } }
+  ] },
+  { "id": "captions", "kind": "visual", "clips": [] }
+ ]
+}

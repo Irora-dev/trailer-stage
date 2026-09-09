@@ -1,0 +1,101 @@
+{
+ "name": "photoreal-forest",
+ "end": 8,
+ "blackoutAt": 8,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "notes": "A bake-off, not a trailer: ONE photoreal shot (the explorer's forest walk as live action) on four generators, same prompt, same length, so Colby can judge by eye which reads as real footage. Nothing here is recorded by the stage; the masters in .footage/photoreal-forest/ are the deliverable. Asked 2026-09-07 evening: 'as real life of an example as possible, just a single clip, legitimately the most real looking video system via the api'.",
+ "tracks": [
+  {
+   "id": "candidates",
+   "name": "The same shot on four generators",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "seedance",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/text-to-video",
+       "prompt": "Live-action documentary realism, shot on a full-frame digital cinema camera with a 35mm lens, handheld with a gentle walking sway. An elderly British gentleman in a many-pocketed khaki safari jacket, a pith helmet, a leather satchel and worn leather boots, a white walrus moustache, walks away from the camera along a pine-needle forest path toward a ridge, a wooden cane tapping the ground. Low golden-hour sun rakes through tall pines, volumetric haze between the trunks, warm rim light on his shoulders, a log cabin with lit windows below among the trees, snow-capped mountains beyond. Natural skin and fabric, real dust in the light, subtle lens flare, shallow depth of field, fine film grain, true-to-life colour. No text, no logos.",
+       "negative": "text, logos, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs",
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "veo31",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/veo3.1",
+       "prompt": "Live-action documentary realism, shot on a full-frame digital cinema camera with a 35mm lens, handheld with a gentle walking sway. An elderly British gentleman in a many-pocketed khaki safari jacket, a pith helmet, a leather satchel and worn leather boots, a white walrus moustache, walks away from the camera along a pine-needle forest path toward a ridge, a wooden cane tapping the ground. Low golden-hour sun rakes through tall pines, volumetric haze between the trunks, warm rim light on his shoulders, a log cabin with lit windows below among the trees, snow-capped mountains beyond. Natural skin and fabric, real dust in the light, subtle lens flare, shallow depth of field, fine film grain, true-to-life colour. Ambient sound only: boots on pine needles, birdsong, a light wind in the pines. No text, no logos, no speech.",
+       "negative": "text, logos, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs",
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "kling",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/text-to-video",
+       "prompt": "Live-action documentary realism, shot on a full-frame digital cinema camera with a 35mm lens, handheld with a gentle walking sway. An elderly British gentleman in a many-pocketed khaki safari jacket, a pith helmet, a leather satchel and worn leather boots, a white walrus moustache, walks away from the camera along a pine-needle forest path toward a ridge, a wooden cane tapping the ground. Low golden-hour sun rakes through tall pines, volumetric haze between the trunks, warm rim light on his shoulders, a log cabin with lit windows below among the trees, snow-capped mountains beyond. Natural skin and fabric, real dust in the light, subtle lens flare, shallow depth of field, fine film grain, true-to-life colour. No text, no logos.",
+       "negative": "text, logos, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs",
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "minimax",
+     "at": 0,
+     "until": 8,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "minimax/h3/text-to-video",
+       "prompt": "Live-action documentary realism, shot on a full-frame digital cinema camera with a 35mm lens, handheld with a gentle walking sway. An elderly British gentleman in a many-pocketed khaki safari jacket, a pith helmet, a leather satchel and worn leather boots, a white walrus moustache, walks away from the camera along a pine-needle forest path toward a ridge, a wooden cane tapping the ground. Low golden-hour sun rakes through tall pines, volumetric haze between the trunks, warm rim light on his shoulders, a log cabin with lit windows below among the trees, snow-capped mountains beyond. Natural skin and fabric, real dust in the light, subtle lens flare, shallow depth of field, fine film grain, true-to-life colour. No text, no logos.",
+       "negative": "text, logos, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs",
+       "seconds": 8,
+       "resolution": "2k",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "name": "Disclosure (the lane's law; not recorded)",
+   "kind": "visual",
+   "clips": [
+    { "id": "endcard", "at": 7, "until": 8, "params": { "piece": "endCard", "chips": ["Contains AI-generated footage"] } }
+   ]
+  }
+ ]
+}

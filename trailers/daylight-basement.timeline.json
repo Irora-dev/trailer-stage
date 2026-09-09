@@ -1,0 +1,871 @@
+{
+ "name": "daylight-basement",
+ "end": 52.61,
+ "blackoutAt": 50.61,
+ "endAnchor": "line:close.end+2.5",
+ "blackoutAnchor": "line:close.end+0.5",
+ "mix": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement/daylight-basement.wav",
+ "scene": {
+  "kind": "theme",
+  "overlay": "none"
+ },
+ "blackoutColor": "#000000",
+ "tracks": [
+  {
+   "id": "footage",
+   "name": "Generated shots",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "s1Wide",
+     "at": 1.5,
+     "anchor": "line:open.start-1",
+     "until": 6.5,
+     "anchorUntil": "line:open.start+4",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: Locked-off 35 mm wide, no camera move. The young man in the first frame sits hunched on a fallen log in a dense pine forest, thumb scrolling his phone, completely absorbed; a plain matte black energy drink can with a single green stripe stands on the log beside him. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s1Wide.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s2Sip",
+     "at": 6.5,
+     "anchor": "line:open.start+4",
+     "until": 11.3,
+     "anchorUntil": "line:open.start+8.8",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 50 mm medium, front three-quarter, one slow push in. The young man in the first frame lifts the plain matte black energy drink can with a single green stripe, sips without looking up from his phone, and keeps scrolling with a small satisfied smirk; the can stays in his hand. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s2Sip.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s3Screen",
+     "at": 11.3,
+     "anchor": "line:open.start+8.8",
+     "until": 14.92,
+     "anchorUntil": "line:open.end+0.2",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 85 mm insert over his shoulder, static, shallow focus. The young man in the first frame holds his phone and his thumb scrolls once; the phone screen keeps showing exactly what it shows in the first frame. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s3Screen.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s4Freeze",
+     "at": 14.42,
+     "anchor": "line:roar.start-0.8",
+     "until": 16.82,
+     "anchorUntil": "line:roar.start+1.6",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 85 mm close, three-quarter on his face, static. The young man in the first frame freezes mid-sip at a deep roar from off screen, his eyes darting sideways, the plain matte black can lowering slowly. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s4Freeze.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s5Bear",
+     "at": 16.82,
+     "anchor": "line:roar.start+1.6",
+     "until": 19.72,
+     "anchorUntil": "line:chase.start+0.4",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: Locked-off 35 mm wide, no camera move. Behind him, between the dark trunks, a huge brown grizzly bear with real fur and mass steps into the shafts of sunset light and rises to full height; in the foreground the same young man as the first frame, the same hoodie, hair and face, is only half turned. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s5Bear.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s6Bolt",
+     "at": 19.72,
+     "anchor": "line:chase.start+0.4",
+     "until": 22.52,
+     "anchorUntil": "line:chase.start+3.2",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 50 mm medium, handheld. The young man in the first frame sees the bear, the plain matte black energy drink can drops from his hand onto the pine needles, and he scrambles off the log and bolts away from camera with the phone in his other hand. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s6Bolt.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s7Run",
+     "at": 22.52,
+     "anchor": "line:chase.start+3.2",
+     "until": 26.32,
+     "anchorUntil": "line:chase.start+7",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 35 mm wide, lateral tracking alongside. The young man in the first frame sprints down a forest path, hoodie flapping, phone clutched in one hand, while the huge brown grizzly crashes after him through the undergrowth. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s7Run.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s8Paws",
+     "at": 26.32,
+     "anchor": "line:chase.start+7",
+     "until": 28.72,
+     "anchorUntil": "line:chase.start+9.4",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: Low 50 mm insert, tracking. The grizzly's front paws pound down the forest path, pine needles and dust flying up around them, the low sun flaring behind. Live-action documentary realism, full-frame cinema camera, real fur and mass, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s8Paws.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s9AtCam",
+     "at": 28.72,
+     "anchor": "line:chase.start+9.4",
+     "until": 32.39,
+     "anchorUntil": "line:chase.end+0.3",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 50 mm medium, handheld running backwards ahead of him. The young man in the first frame runs straight at camera, arms pumping, mouth open, glancing back over his shoulder; the huge brown grizzly is a vast shape behind him. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s9AtCam.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s10Open",
+     "at": 32.29,
+     "anchor": "line:daylight.start-0.3",
+     "until": 35.19,
+     "anchorUntil": "line:daylight.start+2.6",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 50 mm medium, handheld, shallow focus. The young man in the first frame skids to a stop gasping and yanks the phone up in front of him; over his shoulder the small screen keeps showing exactly what it shows in the first frame, and his thumb hits the bright gold button once, hard. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s10Open.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "s12Pop",
+     "at": 41.78,
+     "anchor": "line:daylight.end-2.4",
+     "until": 45.08,
+     "anchorUntil": "line:close.start+0.4",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: Locked-off 35 mm wide, no camera move. The young man in the first frame turns with the phone raised as the huge brown grizzly lunges from two metres away; at the instant of the lunge the bear bursts into a dense cloud of multicoloured paper confetti that hangs in the sunbeams and rains down over him. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s12Pop.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      },
+      "playAt": "@popIn"
+     }
+    },
+    {
+     "id": "s13Laugh",
+     "at": 45.08,
+     "anchor": "line:close.start+0.4",
+     "until": 47.28,
+     "anchorUntil": "line:close.start+2.6",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "Start exactly from the first frame and animate it: 85 mm close, static. The young man in the first frame stands blinking under falling paper confetti, lowers the phone, exhales, gives one disbelieving laugh and picks a piece of confetti off his hoodie. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The person, clothes, light and set stay exactly as in the first frame; natural continuous motion, no cuts.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-keys/styles/s13Laugh.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "data",
+   "name": "Ghost portfolio",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "ghost",
+     "at": 22.72,
+     "anchor": "line:chase.start+3.4",
+     "until": 32.49,
+     "anchorUntil": "line:chase.end+0.4",
+     "params": {
+      "piece": "card",
+      "width": "32vw",
+      "height": "30vh",
+      "opacity": 0.35,
+      "leftVw": 74,
+      "topVh": 36,
+      "header": {
+       "identity": {
+        "name": "Portfolio",
+        "sub": "an example, invented for this trailer",
+        "emoji": "◆"
+       },
+       "headline": {
+        "text": "$4,812.40",
+        "color": "#2fbf6b",
+        "altText": "$2,839.10",
+        "altColor": "#e0405a"
+       },
+       "stats": [
+        {
+         "label": "Today",
+         "value": "+4.6%",
+         "altValue": "−41.0%",
+         "tone": "accent"
+        }
+       ],
+       "altAt": "@ghostFall"
+      }
+     }
+    },
+    {
+     "id": "s11Read",
+     "at": 35.19,
+     "anchor": "line:daylight.start+2.6",
+     "until": 41.78,
+     "anchorUntil": "line:daylight.end-2.4",
+     "params": {
+      "piece": "card",
+      "width": "66vw",
+      "height": "26vh",
+      "leftVw": 50,
+      "topVh": 50,
+      "header": {
+       "identity": {
+        "name": "$ACORN read",
+        "sub": "an example token, invented for this trailer",
+        "emoji": "🔦"
+       },
+       "headline": {
+        "text": "Should you touch it? No.",
+        "color": "#e0405a"
+       },
+       "stats": [
+        {
+         "label": "Holders in profit",
+         "value": "91%",
+         "tone": "accent"
+        },
+        {
+         "label": "Bundled supply",
+         "value": "38%"
+        },
+        {
+         "label": "Top wallets leaving",
+         "value": "6 in the last hour"
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "name": "Reveal & close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "flip",
+     "at": 47.18,
+     "anchor": "line:close.start+2.5",
+     "until": 47.58,
+     "anchorUntil": "line:close.start+2.9",
+     "params": {
+      "piece": "channelFlip",
+      "durationMs": 380
+     }
+    },
+    {
+     "id": "mark",
+     "at": 47.38,
+     "anchor": "line:close.start+2.7",
+     "until": 48.61,
+     "anchorUntil": "line:close.end-1.5",
+     "params": {
+      "piece": "logoReveal",
+      "wordmark": "DAYLIGHT",
+      "plateText": "the on-chain survival kit",
+      "poweredText": "powered by Blocktronics"
+     }
+    },
+    {
+     "id": "markUp",
+     "at": 47.78,
+     "anchor": "line:close.start+3.1"
+    },
+    {
+     "id": "wordmark",
+     "at": 48.18,
+     "anchor": "line:close.start+3.5"
+    },
+    {
+     "id": "plate",
+     "at": 48.58,
+     "anchor": "line:close.start+3.9"
+    },
+    {
+     "id": "powered",
+     "at": 48.98,
+     "anchor": "line:close.start+4.3"
+    },
+    {
+     "id": "morph",
+     "at": 48.51,
+     "anchor": "line:close.end-1.6",
+     "params": {
+      "label": "the logo reveal morphs out before the end card"
+     }
+    },
+    {
+     "id": "endcard",
+     "at": 48.81,
+     "anchor": "line:close.end-1.3",
+     "until": 50.61,
+     "anchorUntil": "line:close.end+0.5",
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "note": "Understand the market you are walking into.",
+      "chips": [
+       "Contains AI-generated footage",
+       "Example portfolio and tokens, not investment advice"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "name": "Captions",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cap1",
+     "at": 2.5,
+     "anchor": "line:open.start",
+     "until": 14.72,
+     "anchorUntil": "line:open.end",
+     "params": {
+      "piece": "caption",
+      "text": "Behold, a young man in his natural habitat. A forest, a log, an energy drink, and a portfolio he has checked eleven times since breakfast. All of it, he assures us, is going up."
+     }
+    },
+    {
+     "id": "cap2",
+     "at": 15.22,
+     "anchor": "line:roar.start",
+     "until": 18.72,
+     "anchorUntil": "line:roar.end",
+     "params": {
+      "piece": "caption",
+      "text": "Ah. That would be the market."
+     }
+    },
+    {
+     "id": "cap3",
+     "at": 19.32,
+     "anchor": "line:chase.start",
+     "until": 32.09,
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "piece": "caption",
+      "text": "Observe the portfolio keeping him company as he runs. Down four percent. Down twelve. Down forty. He has not looked at it once, which is, in fairness, the first sensible thing he has done all day."
+     }
+    },
+    {
+     "id": "cap4",
+     "at": 32.59,
+     "anchor": "line:daylight.start",
+     "until": 44.18,
+     "anchorUntil": "line:daylight.end",
+     "params": {
+      "piece": "caption",
+      "text": "And then, an idea. He opens Daylight. Who holds this token. Who is quietly leaving. What they paid for it. Everything he might have read before the forest."
+     }
+    },
+    {
+     "id": "cap5",
+     "at": 44.68,
+     "anchor": "line:close.start",
+     "until": 50.11,
+     "anchorUntil": "line:close.end",
+     "params": {
+      "piece": "caption",
+      "text": "Daylight. Understand the market you are walking into, before it introduces itself."
+     }
+    }
+   ]
+  },
+  {
+   "id": "beats",
+   "name": "Beats",
+   "kind": "marker",
+   "clips": [
+    {
+     "id": "canDrop",
+     "at": 20.52,
+     "anchor": "line:chase.start+1.2",
+     "params": {
+      "label": "the can hits the needles"
+     }
+    },
+    {
+     "id": "ghostFall",
+     "at": 23.52,
+     "anchor": "line:chase.start+4.2",
+     "params": {
+      "label": "the ghost portfolio falls"
+     }
+    },
+    {
+     "id": "confettiPop",
+     "at": 43.28,
+     "anchor": "line:daylight.end-0.9",
+     "params": {
+      "label": "the bear pops"
+     }
+    },
+    {
+     "id": "popIn",
+     "at": 39.78,
+     "anchor": "line:daylight.end-4.4",
+     "params": {
+      "label": "shot 12 plays from two seconds in so the burst lands on the pop"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lines",
+   "name": "Narration lines",
+   "kind": "marker",
+   "locked": true,
+   "clips": [
+    {
+     "id": "__line-open",
+     "at": 2.5,
+     "until": 14.72,
+     "anchor": "line:open.start",
+     "anchorUntil": "line:open.end",
+     "params": {
+      "label": "open"
+     }
+    },
+    {
+     "id": "__line-roar",
+     "at": 15.22,
+     "until": 18.72,
+     "anchor": "line:roar.start",
+     "anchorUntil": "line:roar.end",
+     "params": {
+      "label": "roar"
+     }
+    },
+    {
+     "id": "__line-chase",
+     "at": 19.32,
+     "until": 32.09,
+     "anchor": "line:chase.start",
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "label": "chase"
+     }
+    },
+    {
+     "id": "__line-daylight",
+     "at": 32.59,
+     "until": 44.18,
+     "anchor": "line:daylight.start",
+     "anchorUntil": "line:daylight.end",
+     "params": {
+      "label": "daylight"
+     }
+    },
+    {
+     "id": "__line-close",
+     "at": 44.68,
+     "until": 50.11,
+     "anchor": "line:close.start",
+     "anchorUntil": "line:close.end",
+     "params": {
+      "label": "close"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vo",
+   "name": "Narration (estimated until the mix is built)",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "vo01",
+     "at": 2.5,
+     "until": 5.45,
+     "params": {
+      "label": "open · seg 1"
+     }
+    },
+    {
+     "id": "vo02",
+     "at": 5.93,
+     "until": 6.62,
+     "params": {
+      "label": "open · seg 2"
+     }
+    },
+    {
+     "id": "vo03",
+     "at": 6.99,
+     "until": 7.52,
+     "params": {
+      "label": "open · seg 3"
+     }
+    },
+    {
+     "id": "vo04",
+     "at": 7.93,
+     "until": 11.97,
+     "params": {
+      "label": "open · seg 4"
+     }
+    },
+    {
+     "id": "vo05",
+     "at": 12.39,
+     "until": 14.69,
+     "params": {
+      "label": "open · seg 5"
+     }
+    },
+    {
+     "id": "vo06",
+     "at": 15.36,
+     "until": 16.08,
+     "params": {
+      "label": "roar · seg 6"
+     }
+    },
+    {
+     "id": "vo07",
+     "at": 16.44,
+     "until": 17,
+     "params": {
+      "label": "roar · seg 7"
+     }
+    },
+    {
+     "id": "vo08",
+     "at": 17.63,
+     "until": 18.74,
+     "params": {
+      "label": "roar · seg 8"
+     }
+    },
+    {
+     "id": "vo09",
+     "at": 19.43,
+     "until": 22.37,
+     "params": {
+      "label": "chase · seg 9"
+     }
+    },
+    {
+     "id": "vo10",
+     "at": 22.74,
+     "until": 23.85,
+     "params": {
+      "label": "chase · seg 10"
+     }
+    },
+    {
+     "id": "vo11",
+     "at": 24.18,
+     "until": 25.19,
+     "params": {
+      "label": "chase · seg 11"
+     }
+    },
+    {
+     "id": "vo12",
+     "at": 25.54,
+     "until": 26.63,
+     "params": {
+      "label": "chase · seg 12"
+     }
+    },
+    {
+     "id": "vo13",
+     "at": 27.22,
+     "until": 32.16,
+     "params": {
+      "label": "chase · seg 13"
+     }
+    },
+    {
+     "id": "vo14",
+     "at": 32.66,
+     "until": 33.47,
+     "params": {
+      "label": "daylight · seg 14"
+     }
+    },
+    {
+     "id": "vo15",
+     "at": 34.27,
+     "until": 34.97,
+     "params": {
+      "label": "daylight · seg 15"
+     }
+    },
+    {
+     "id": "vo16",
+     "at": 35.36,
+     "until": 36.62,
+     "params": {
+      "label": "daylight · seg 16"
+     }
+    },
+    {
+     "id": "vo17",
+     "at": 36.95,
+     "until": 39.36,
+     "params": {
+      "label": "daylight · seg 17"
+     }
+    },
+    {
+     "id": "vo18",
+     "at": 39.67,
+     "until": 40.86,
+     "params": {
+      "label": "daylight · seg 18"
+     }
+    },
+    {
+     "id": "vo19",
+     "at": 41.33,
+     "until": 44.15,
+     "params": {
+      "label": "daylight · seg 19"
+     }
+    },
+    {
+     "id": "vo20",
+     "at": 44.76,
+     "until": 45.36,
+     "params": {
+      "label": "close · seg 20"
+     }
+    },
+    {
+     "id": "vo21",
+     "at": 45.92,
+     "until": 50.19,
+     "params": {
+      "label": "close · seg 21"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bed",
+   "name": "Music bed",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "bed",
+     "at": 0,
+     "until": 57.21,
+     "params": {
+      "label": "Cheeky vintage newsreel underscore, warm radio-band characte"
+     }
+    }
+   ]
+  }
+ ]
+}

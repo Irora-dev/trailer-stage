@@ -1,0 +1,108 @@
+{
+ "name": "style-hero",
+ "end": 6,
+ "blackoutAt": 6,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Colby, 2026-09-07 21:58: one trailer-ready clip for each of three Meshy style-board cells (painterly, CRT vault-boy, pixel art), the cell as the first frame on Seedance 2.0 image-to-video at 1080p.",
+ "tracks": [
+  {
+   "id": "heroes",
+   "name": "Three Meshy cells brought to life at 1080p",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "painterly",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as the opening shot of a trailer, without changing its style, palette, character design or composition. The explorer takes two unhurried steps along the ridge path, his cane tapping the ground, his head turning slightly toward the peaks; the chimney smoke drifts, mist moves slowly in the valley, the low sun breathes, a few birds cross the sky. The soft painted rendering, the warm palette and the line weight stay exactly as the first frame. Very slow, almost imperceptible push-in; otherwise a locked camera. No new elements, no text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, flicker, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer-styles-meshy/styles/painterly.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "crt-vaultboy",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as the opening shot of a trailer, without changing its style, palette, character design or composition. Inside the old television screen the cartoon explorer walks two steps along the ridge, cane swinging, coat tails moving; the chimney smoke drifts and the sunset glow pulses gently; the scanlines, the curved screen edge and the phosphor glow stay perfectly fixed, as if we are watching a CRT. The thick clean cartoon lines, the sepia palette and the CRT frame stay exactly as the first frame. Very slow, almost imperceptible push-in; otherwise a locked camera. No new elements, no text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, flicker, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer-styles-meshy/styles/crt-vaultboy.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "pixel",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as the opening shot of a trailer, without changing its style, palette, character design or composition. The pixel-art explorer takes two steps along the ridge in crisp stepped sprite motion, his cane tapping; the chimney smoke drifts pixel by pixel, the dithered sunset sky shifts a shade, two birds cross as tiny sprites. Every edge stays hard pixel art, no blur, no anti-aliasing, the palette and the dithering exactly as the first frame. Very slow, almost imperceptible push-in; otherwise a locked camera. No new elements, no text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, flicker, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-explorer-styles-meshy/styles/pixel.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 5,
+     "until": 6,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

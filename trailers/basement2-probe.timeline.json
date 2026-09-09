@@ -1,0 +1,60 @@
+{
+ "name": "basement2-probe",
+ "end": 6,
+ "blackoutAt": 6,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Probe: Seedance reference-to-video with NO person in the references (the empty log plate + the portfolio screen), the character described in words. Does the checker pass, and does the shot hold the look?",
+ "tracks": [
+  {
+   "id": "layers",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "probe",
+     "at": 0,
+     "until": 6,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Live-action documentary realism, full-frame cinema camera, 35 mm wide, locked off, no camera move. The exact log, can and forest of @Image1: a fallen log across the frame in a dense pine forest at late golden hour, the low sun flaring between the trunks behind and to the left, a matte black energy drink can with a plain green stripe standing on the log. A twenty-two-year-old man sits hunched on the log beside the can: pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers. He scrolls his phone with his thumb, utterly absorbed, then without looking up reaches for the can, takes a long sip, puts it back on the log and keeps scrolling with a small satisfied smirk. Natural skin and fabric, dust and pollen in the light, subtle lens flare, fine film grain, true-to-life colour. No text, no logos.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, explorer hat, moustache, camera movement",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 10,
+     "until": 11,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

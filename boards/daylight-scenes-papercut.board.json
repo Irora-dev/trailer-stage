@@ -1,0 +1,39 @@
+{
+ "name": "daylight-scenes-papercut",
+ "kind": "scenes",
+ "comment": "Colby 2026-09-08 09:55: \"we are going for the papercut style, redo some of the scenes like the bridge and rug fishing etc\". The four good Daylight scenes redrawn as layered paper cut-out from the papercut style cell and its chase keyframe, to be animated as Seedance first frames.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "A layered paper cut-out diorama: every element a cut sheet of textured card with real drop shadows, tiny paper pines, a paper sun with concentric rings, mountains as stacked card silhouettes, the characters as layered card figures with visible paper edges, photographed with a macro lens in warm soft light, a 16:9 frame. Exactly the same materials, palette and rendering as the two reference images, which show the same character and world in this style. No text, no letters, no numbers, no logos anywhere.",
+ "negative": "text, letters, numbers, logos, watermark, real people, blood, gore, extra limbs, a second lens, photoreal, pixel art, blur",
+ "refs": {
+  "images": [
+   ".footage/daylight-explorer-styles-meshy/styles/papercut.png",
+   ".footage/explorer-chase-keyframes-2/styles/papercut.png"
+  ]
+ },
+ "styles": [
+  {
+   "id": "bridge",
+   "label": "ACTION: the rotten rope bridge",
+   "style": "ACTION, wide shot: the Daylight explorer (khaki pith helmet, big white walrus moustache, single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) tiptoes across a rotten rope bridge high over a misty gorge, the planks behind him snapping and tumbling into the abyss one by one, his cane held out for balance, satchel swinging, eyes wide; pine forest and snow peaks beyond, low golden light. Comic, not gory."
+  },
+  {
+   "id": "campfire",
+   "label": "MOOD: the report card by campfire light",
+   "style": "MOOD, medium-wide, night: the Daylight explorer (pith helmet, white walrus moustache, monocle, khaki safari jacket, satchel, cane beside him) sits at a small campfire in the pine forest, calmly reading a glowing rectangular card through his monocle, pleased with himself; all around him in the dark between the trees, dozens of pairs of glowing eyes watch him; the cabin's lit windows far below, a sky full of stars, embers rising."
+  },
+  {
+   "id": "sled",
+   "label": "ACTION: the coin avalanche",
+   "style": "ACTION, wide shot: the Daylight explorer (pith helmet, white walrus moustache, monocle, khaki safari jacket) sleds down a steep snow slope sitting on his leather satchel, cane raised like a lance, while an avalanche of enormous gold coins thunders down the mountain after him; pines whip past, spray of snow, the low sun and peaks behind. Comic."
+  },
+  {
+   "id": "rugpull",
+   "label": "COMEDY: the rug pull on the lake",
+   "style": "COMEDY, wide shot: a still mountain lake at dawn. The Daylight explorer (pith helmet, white walrus moustache, monocle, khaki safari jacket, satchel) stands in a tiny wooden rowing boat, his fishing rod bent double; rising out of the water on his line is a huge soggy patterned living-room rug, water pouring off it, his mouth open in surprise; mist on the water, pines and snow peaks, the cabin on the far shore."
+  }
+ ]
+}

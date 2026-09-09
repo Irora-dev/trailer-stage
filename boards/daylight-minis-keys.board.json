@@ -1,0 +1,48 @@
+{
+ "name": "daylight-minis-keys",
+ "kind": "scenes",
+ "comment": "Keyframes for three mini-trailer trials Colby picked on 2026-09-08 after the cabin chase: (coats) nine identical hooded coats cheering at a market stall while B buys a coin, bundled wallets made literal; (top) B sleds off the summit past the explorer's chairlift, he bought the top; (rug) the explorer steps off the rug and yanks it, B goes flying. Photoreal, the Daylight world of the basement-bull pieces. References: the live-action explorer still (costume, face-free, the cabin world), B from behind and in three-quarter (identity). One still each; each becomes a Seedance image-to-video first frame after a 480p probe.",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 23,
+ "subject": "Live-action documentary realism, a frame from a film shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare, fine film grain, true-to-life colour. Late golden hour, the low sun raking in from the side, long warm shadows, warm rim light. No text, no signs, no lettering, no logos, no real or recognisable person, a generic energy drink can with no logo.",
+ "negative": "text, letters, signs, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, celebrity likeness, blood, gore, a visible face on the young man, visible faces under hoods",
+ "styles": [
+  {
+   "id": "coats",
+   "label": "nine holders, one coat: the market stall in the meadow",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide, static camera, eye level, a golden meadow at the edge of a pine forest. At the left of the frame a small rustic wooden market stall with a plain canvas awning and a bare counter; behind the counter stands a figure in a long grey hooded raincoat, hood up, face lost in shadow. In front of the stall the young man from the reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat pulled low, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), seen from behind and slightly to the side so his face is hidden, holds up one shiny gold coin he has just bought. Beside and behind him eight more figures in exactly the same long grey hooded raincoats, hoods up, faces in shadow, identical in height and build, stand in a loose queue with their arms raised, cheering him, an identical plain burlap sack at each one's feet. Long warm shadows across the grass, the pines dark behind, the low sun flaring at the right.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "top",
+   "label": "he bought the top: the summit, the sled, the chairlift",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide, static camera, a snowy mountain summit at late golden hour. The snow slope runs from a rounded summit at the right of the frame down to the left, where it ends in a sharp cornice with nothing beyond it but hazy valley air and distant peaks. A chairlift cable crosses the frame from the lower left up to the summit at the upper right; on a single chair hanging from it, halfway up, sits the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel, white walrus moustache), turned three-quarters away from the camera, reading a clipboard, entirely at ease. At the summit at the right the young man from the other reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat pulled low, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) sits on a wooden sled gripping its rope with both hands, one leg out ready to push off, seen from the side so the hat hides his face. Pink and amber light on the snow, long blue shadows, spindrift blowing off the ridge.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "rug",
+   "label": "the rug: both on it, the explorer about to step off",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide, static camera, eye level, a grassy clearing in a pine forest, the log cabin from the first reference image small in the background. In the centre of the frame a large red and gold patterned rug lies flat on the grass. Standing on it side by side: on its left half the young man from the second and third reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), head bowed over the phone in one hand so the brim hides his face, a matte black energy drink can with a plain green stripe in the other hand; on its right half the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel, white walrus moustache, worn boots), seen from behind at a three-quarter angle, hands clasped behind his back, head turned toward the young man. Long warm shadows across the grass, dust and pollen in the light.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  }
+ ]
+}

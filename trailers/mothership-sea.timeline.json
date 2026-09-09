@@ -1,0 +1,110 @@
+{
+ "name": "mothership-sea",
+ "end": 16,
+ "blackoutAt": 16,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Mothership nautical concept (Colby, recording 2026-09-08 10:53). Three Seedance shots chained through the keyframes as first and last frames (K1→K2, K2→K3, K3→K4), so the join between shots is the shared frame and the film is one continuous take; then a cut to black. Native sea ambience.",
+ "tracks": [
+  {
+   "id": "sea",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "s1",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The empty misty evening sea under a strong double rainbow; slowly the rainbow softens and a bank of fog begins to roll in from the left while, on the horizon, a tall three-masted 1800s ship of the line emerges as a small silhouette under full sail and begins to approach. Photoreal live-action cinematography, one continuous locked-off shot from a low vantage just above the water; long slow swells, drifting mist, fine film grain, true-to-life colour; the camera does not move; no people, no text, no logos. Ambient sound only: the sea, a low wind, the distant creak of rigging and a faint ship's bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping",
+       "refs": {
+        "images": [
+         ".footage/mothership-sea/styles/k1-rainbow.png",
+         ".footage/mothership-sea/styles/k2-horizon.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "s2",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The ship of the line sails steadily closer from the horizon to mid distance, sails full, a bow wave forming, its hull and rigging resolving out of the haze; the fog thickens across half the frame; the rainbow fades to a faint trace. Photoreal live-action cinematography, one continuous locked-off shot from a low vantage just above the water; long slow swells, drifting mist, fine film grain, true-to-life colour; the camera does not move; no people, no text, no logos. Ambient sound only: the sea, a low wind, the distant creak of rigging and a faint ship's bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping",
+       "refs": {
+        "images": [
+         ".footage/mothership-sea/styles/k2-horizon.png",
+         ".footage/mothership-sea/styles/k3-closer.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "s3",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The ship of the line comes on until it looms large and close, bow cutting the water toward the camera, sails and rigging filling most of the frame, stern lanterns glowing faintly; the fog sweeps in and swallows everything but the ship; the last of the rainbow is gone; dusk deepens. Photoreal live-action cinematography, one continuous locked-off shot from a low vantage just above the water; long slow swells, drifting mist, fine film grain, true-to-life colour; the camera does not move; no people, no text, no logos. Ambient sound only: the sea, a low wind, the distant creak of rigging and a faint ship's bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping",
+       "refs": {
+        "images": [
+         ".footage/mothership-sea/styles/k3-closer.png",
+         ".footage/mothership-sea/styles/k4-looming.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 15,
+     "until": 16,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

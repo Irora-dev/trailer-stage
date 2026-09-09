@@ -1,0 +1,44 @@
+{
+ "name": "daylight-scenes-pixel",
+ "kind": "scenes",
+ "comment": "Five widely differing Daylight marketing scenes in ONE style (Colby 22:20: \"5 other very widely differing scenes for the pixel and crt vaultboy styles using meshy; some action shots, some funny ideas for daylight marketing\"). References: the style cell and its chase keyframe.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "16-bit pixel art, a detailed SNES-era scene with hard pixel edges, dithered skies, crisp sprite characters, no anti-aliasing, a 16:9 film frame. Exactly the same art style, palette, line and rendering as the two reference images, which show the same character in this style. No text, no letters, no logos anywhere.",
+ "negative": "text, letters, logos, watermark, real people, blood, gore, extra limbs, a second lens",
+ "refs": {
+  "images": [
+   ".footage/daylight-explorer-styles-meshy/styles/pixel.png",
+   ".footage/explorer-chase-keyframes/styles/pixel.png"
+  ]
+ },
+ "styles": [
+  {
+   "id": "bridge",
+   "label": "ACTION: the rotten rope bridge",
+   "style": "ACTION, wide shot: the Daylight explorer (khaki pith helmet, big white walrus moustache, single monocle on a chain, khaki safari jacket, leather satchel, wooden cane) tiptoes across a rotten rope bridge high over a misty gorge, the planks behind him snapping and tumbling into the abyss one by one, his cane held out for balance, satchel swinging, eyes wide; pine forest and snow peaks beyond, low golden light. Comic, not gory."
+  },
+  {
+   "id": "party",
+   "label": "COMEDY: the bill at the mountaintop party",
+   "style": "COMEDY, wide shot: a mountaintop party at sunset. A crowd of identical cheerful little holders in paper party hats raise glasses around the Daylight explorer (pith helmet, white walrus moustache, monocle, khaki safari jacket, satchel, cane) while a waiter presents him an enormous bill on a silver tray; behind them, down the mountain path, the very same partygoers sneak away carrying bulging sacks of gold coins and glancing back. Pines, snow peaks, the lit cabin below."
+  },
+  {
+   "id": "campfire",
+   "label": "MOOD: the report card by campfire light",
+   "style": "MOOD, medium-wide, night: the Daylight explorer (pith helmet, white walrus moustache, monocle, khaki safari jacket, satchel, cane beside him) sits at a small campfire in the pine forest, calmly reading a glowing rectangular card through his monocle, pleased with himself; all around him in the dark between the trees, dozens of pairs of glowing eyes watch him; the cabin's lit windows far below, a sky full of stars, embers rising."
+  },
+  {
+   "id": "sled",
+   "label": "ACTION: the coin avalanche",
+   "style": "ACTION, wide shot: the Daylight explorer (pith helmet, white walrus moustache, monocle, khaki safari jacket) sleds down a steep snow slope sitting on his leather satchel, cane raised like a lance, while an avalanche of enormous gold coins thunders down the mountain after him; pines whip past, spray of snow, the low sun and peaks behind. Comic."
+  },
+  {
+   "id": "rugpull",
+   "label": "COMEDY: the rug pull on the lake",
+   "style": "COMEDY, wide shot: a still mountain lake at dawn. The Daylight explorer (pith helmet, white walrus moustache, monocle, khaki safari jacket, satchel) stands in a tiny wooden rowing boat, his fishing rod bent double; rising out of the water on his line is a huge soggy patterned living-room rug, water pouring off it, his mouth open in surprise; mist on the water, pines and snow peaks, the cabin on the far shore."
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "name": "explorer-chase-keyframes",
+ "comment": "Action keyframes (Colby 22:05: \"need more action based style of shot to determine best style\"): the same chase beat drawn in each candidate style, each cell taking its own style-board still as the reference, then animated as a Seedance first frame.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "A 16:9 film frame, wide, side-on: the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane held up in one hand) SPRINTS along the forest ridge path from right to left, mid-stride, coat tails flying, one hand clamping his helmet on, a huge brown bear bursting out of the pines two body-lengths behind him, dust and pine needles kicking up, the low sun flaring between the trunks, snow peaks and the lit cabin beyond. Comic, not gory. Exactly the same art style, palette, line and rendering as the reference image.",
+ "negative": "text, letters, logos, watermark, real people, blood, gore, extra limbs, a second lens",
+ "styles": [
+  {
+   "id": "painterly",
+   "label": "Soft painterly 3D",
+   "style": "Soft painterly 3D animation look exactly as the reference: soft shading, no hard outlines, matte-painting world, shallow depth of field, warm rim light.",
+   "refs": {
+    "images": [
+     ".footage/daylight-explorer-styles-meshy/styles/painterly.png"
+    ]
+   }
+  },
+  {
+   "id": "crt-vaultboy",
+   "label": "CRT vault-boy",
+   "style": "The retro CRT cartoon exactly as the reference: thick clean cartoon lines, sepia palette, the whole scene seen through a curved old television screen with scanlines and phosphor glow.",
+   "refs": {
+    "images": [
+     ".footage/daylight-explorer-styles-meshy/styles/crt-vaultboy.png"
+    ]
+   }
+  },
+  {
+   "id": "pixel",
+   "label": "16-bit pixel art",
+   "style": "16-bit pixel art exactly as the reference: hard pixel edges, dithered sky, sprite characters, no anti-aliasing.",
+   "refs": {
+    "images": [
+     ".footage/daylight-explorer-styles-meshy/styles/pixel.png"
+    ]
+   }
+  }
+ ]
+}

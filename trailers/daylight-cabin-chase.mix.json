@@ -1,0 +1,47 @@
+{
+ "comment": "daylight-cabin-chase, take 1 (Colby's pick, 2026-09-08 22:48: 'prefer take 1 it looks good, now we need a funny little narration over it'). Three lines for The Clipped Newsreel over the top-down chase; the bed is the shot's own native sound (footsteps, the bear, birds), padded with silence to 20 s so the builder does not loop it under the card. Gaps are tuned from the measured cue map so 'Below' lands on the ground-level cutaway (5.29 to 7.38 s). Rebuild: node scripts/build-mix.mjs daylight-cabin-chase --go",
+ "voices": {
+  "narrator": {
+   "voice_id": "eWJunko7SS6O4LhXC3dC",
+   "name": "The Clipped Newsreel"
+  }
+ },
+ "script": "Colby's own words, typed 2026-09-08 22:53, replacing the worker's draft (retired/): 'Our man below finds himself in a bit of a pickle. Or rather he's about to become the pickle, a tasty bear sized pickle. If only he used daylight, the onchain survival kit.'",
+ "parts": [
+  {
+   "id": "pickle",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-cabin-chase/pickle.vo.mp3",
+   "render": {
+    "text": "[dry] Our man below finds himself in a bit of a pickle.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 0.5
+  },
+  {
+   "id": "become",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-cabin-chase/become.vo.mp3",
+   "render": {
+    "text": "[amused] Or rather... he's about to become the pickle. A tasty, bear-sized pickle.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 0.6
+  },
+  {
+   "id": "daylight",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-cabin-chase/daylight.vo.mp3",
+   "render": {
+    "text": "[confident] If only he used Daylight... the on-chain survival kit.",
+    "voice": "narrator"
+   }
+  }
+ ],
+ "bed": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-cabin-chase/native-take1-padded.wav",
+ "bedGainDb": 0,
+ "duckDb": 4,
+ "prerollSec": 0.4,
+ "tailSec": 2.5
+}

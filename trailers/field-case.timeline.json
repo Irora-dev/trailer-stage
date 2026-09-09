@@ -1,0 +1,60 @@
+{
+ "name": "field-case",
+ "end": 5,
+ "blackoutAt": 5,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Interactive transition prototype (Colby 22:45): the closed field case (site board cell) as the FIRST frame and the open, empty case (field-case board cell) as the LAST frame of one Seedance image-to-video shot, so a page can show the still, play the video on click and land exactly on the still that carries the UI.",
+ "tracks": [
+  {
+   "id": "case",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "open",
+     "at": 0,
+     "until": 4,
+     "params": {
+      "piece": "footage",
+      "fit": "contain",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art frame: the lid of the brown leather field case swings smoothly open on its hinges, from fully closed to fully open with its empty dark suede interior facing the viewer, the brass latches flipping up first; the lantern flame flickers gently; nothing else in the scene moves; static camera, no zoom. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the frames. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, camera movement, objects appearing inside the case",
+       "refs": {
+        "images": [
+         ".footage/daylight-site-pixel/styles/field-case-closed.png",
+         ".footage/daylight-field-case/styles/open-empty.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "4:3",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 4,
+     "until": 5,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "name": "console-frame-cogs",
+ "end": 6,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "footage": {
+  "look": "Layered paper cut-out craft: a brass and leather steampunk console frame, every part a piece of textured card with clean cut edges and soft studio light from the upper left, centred on a flat, pure, even magenta background that never changes and carries no shadow.",
+  "physics": "Physics: the frame stays exactly where it is and the same size, the two cogs rotate about their own centres and nothing else moves, no glow or reflection appears, the screen stays dark, the magenta stays flat with no shadow anywhere, and the last frame equals the first.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Colby, 2026-09-09 ~09:35, one image (the paper steampunk console frame on magenta, ~/Downloads/Mothership/4/Meshy_AI_daylight-console-frame-desktop-v3 (1).png): animate the cogs on the side, first and last frame always the frame itself. Seedance image-to-video with the still as first AND last frame; then npm run loop (a cog closes on one tooth-period) and the matte-locked keyer.",
+ "tracks": [
+  { "id": "footage", "kind": "visual", "clips": [
+   { "id": "cogs", "at": 0, "until": 5, "params": { "piece": "footage", "fit": "contain", "hold": "loop", "grade": "none", "render": {
+    "provider": "fal",
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Static camera, no push, no zoom, no pan, one single unbroken five-second take from this one camera only. Start exactly from the first frame and end exactly on the same frame, one continuous take without any cut; the camera never changes position, height or angle. The paper-craft steampunk console frame sits centred on the flat magenta plate exactly as in the first frame: a dark unlit screen inside a brass and leather frame, riveted corner plates, a brass pipe at the top left, a rail of cogs and knobs down the left side, a rail of vents and a round dial down the right side. Nothing in the frame moves except the two brass cogs on the left rail: the large spoked cog turns slowly and steadily clockwise and the small cog below it turns anticlockwise at the matching speed, their teeth meshing, at one even pace from the first frame to the last. The pipe, the knobs, the dial, the vents, the rivets, the leather, the dark screen and the magenta plate stay perfectly still; the screen stays dark and unlit; the cogs finish exactly at the first frame's tooth position. Layered paper cut-out craft: a brass and leather steampunk console frame, every part a piece of textured card with clean cut edges and soft studio light from the upper left, centred on a flat, pure, even magenta background that never changes and carries no shadow. Physics: the frame stays exactly where it is and the same size, the two cogs rotate about their own centres and nothing else moves, no glow or reflection appears, the screen stays dark, the magenta stays flat with no shadow anywhere, and the last frame equals the first. No text, no logos.",
+    "negative": "camera movement, zoom, pan, cutaway, screen glow, screen flicker, lit screen, text on the screen, the pipe moving, steam, smoke, sparks, the dial turning, the knobs moving, shadow on the background, drop shadow, reflection, gradient background, the frame drifting or changing size, 3D render, photorealistic",
+    "refs": { "images": [ ".footage/console-frame/refs/console-frame-magenta.png", ".footage/console-frame/refs/console-frame-magenta.png" ] },
+    "seconds": 5, "resolution": "1080p", "aspect": "auto", "audio": false } } }
+  ] },
+  { "id": "close", "kind": "visual", "clips": [
+   { "id": "endcard", "at": 5.2, "until": 6, "params": { "piece": "endCard", "wordmark": "DAYLIGHT", "plate": "the on-chain survival kit", "chips": [ "Contains AI-generated footage" ] } }
+  ] },
+  { "id": "captions", "kind": "visual", "clips": [] }
+ ]
+}

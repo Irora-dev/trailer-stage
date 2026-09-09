@@ -1,0 +1,32 @@
+{
+ "name": "explorer-chase-keyframes-2",
+ "comment": "Action keyframes in the two remaining candidate styles (Colby 2026-09-08 09:45: \"a proper scene using these two styles, something action based\"): the same bear-chase beat as the pixel/painterly/CRT test, each cell taking its own style-board still as the reference, then animated as a Seedance first frame.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "A 16:9 film frame, wide, side-on: the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel, wooden cane held up in one hand) SPRINTS along the forest ridge path from left to right, mid-stride, coat tails flying, one hand clamping his helmet on, a huge brown bear bursting out of the pines two body-lengths behind him, dust and pine needles kicking up, the low sun flaring between the trunks, snow peaks and the lit cabin beyond. Comic, not gory. Exactly the same art style, materials, palette and rendering as the reference image.",
+ "negative": "text, letters, logos, watermark, real people, blood, gore, extra limbs, a second lens",
+ "styles": [
+  {
+   "id": "clay",
+   "label": "Stop-motion claymation",
+   "style": "Stop-motion claymation exactly as the reference: sculpted plasticine figures with visible fingerprints and seams, a miniature set of felt trees, felt moss and a painted backdrop, tilt-shift focus, warm studio lighting; the bear a big sculpted clay bear.",
+   "refs": {
+    "images": [
+     ".footage/daylight-explorer-styles-meshy/styles/clay.png"
+    ]
+   }
+  },
+  {
+   "id": "papercut",
+   "label": "Paper cut-out diorama",
+   "style": "Layered paper cut-out diorama exactly as the reference: every element a cut sheet of textured card with real drop shadows, tiny paper pines, a paper sun, the explorer and the bear as layered card figures, photographed with a macro lens, warm soft light.",
+   "refs": {
+    "images": [
+     ".footage/daylight-explorer-styles-meshy/styles/papercut.png"
+    ]
+   }
+  }
+ ]
+}

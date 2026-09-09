@@ -1,0 +1,28 @@
+{
+ "name": "daylight-mini-dip",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking through the trunks from the left, long warm shadows across the path, warm rim light on the branches.",
+  "physics": "Physics: feet stay on the ground, the hole is one hole in the path and its edges do not move, the young man falls into it and stays in it, the hat comes off only after he lands and stays where it lands, the can stays on the path, the coin stays in his hand, nothing floats, nothing changes size, there is exactly one hole, one hat, one coin and one can.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Mini trailer 'buy the dip' (Colby, 2026-09-09 00:0x): he bought the dip, it was a hole. B jumps in with his coin; the explorer walks round; the hat flies out, then a hand waves the coin. One Seedance shot from the gpt-image-2 keyframe (board daylight-minis-keys-3, cell dip), 480p probe first, then 1080p; cut from the master with a draft narration.",
+ "tracks": [
+  { "id": "footage", "kind": "visual", "clips": [
+   { "id": "dip", "at": 0, "until": 12, "params": { "piece": "footage", "fit": "cover", "hold": "freeze", "grade": "none", "render": {
+    "provider": "fal",
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Locked-off 35 mm wide side view, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The dirt path through the sunset forest with the wide deep hole in the middle of it, the young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) at the top of a gleeful jump toward the hole with one gold coin held high, his can standing on the path at the right, and the explorer in the khaki safari jacket and pith helmet at the left walking calmly around the hole along its far edge. The young man drops into the hole and vanishes below its rim with a puff of dust. The explorer walks on along the path and out of the frame at the left without looking down. After a beat the lime-green bucket hat comes flying up out of the hole, turns over in the air and lands on the path beside the can, and a moment later one hand comes up over the rim, still holding the gold coin, and waves it once. Sound: birds, boots on dirt going away, a whoop cut short, a thud and a scatter of dirt, a groan from the hole, the hat landing. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking through the trunks from the left, long warm shadows across the path, warm rim light on the branches. Physics: feet stay on the ground, the hole is one hole in the path and its edges do not move, the young man falls into it and stays in it, the hat comes off only after he lands and stays where it lands, the can stays on the path, the coin stays in his hand, nothing floats, nothing changes size, there is exactly one hole, one hat, one coin and one can. No text, no logos.",
+    "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, a second hole, a second hat, blood, gore",
+    "refs": { "images": [ ".footage/daylight-minis-keys-3/styles/dip.png" ] },
+    "seconds": 12, "resolution": "1080p", "aspect": "16:9", "audio": true } } }
+  ] },
+  { "id": "close", "kind": "visual", "clips": [
+   { "id": "endcard", "at": 12.6, "until": 14, "params": { "piece": "endCard", "wordmark": "DAYLIGHT", "plate": "the on-chain survival kit", "chips": [ "Contains AI-generated footage" ] } }
+  ] },
+  { "id": "captions", "kind": "visual", "clips": [] }
+ ]
+}

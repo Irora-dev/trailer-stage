@@ -1,0 +1,19 @@
+{
+ "name": "daylight-basement-world",
+ "kind": "scenes",
+ "comment": "A world-only plate for the basement-bull trailer: the exact log scene of the picked character frame with nobody in it, so the light and the set can be a reference without a face (fal's checker rejected the character still as a possible real-person likeness).",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "Live-action documentary realism, a frame from a film shot on a full-frame cinema camera with a 35 mm lens: a dense pine forest at late golden hour, the low sun flaring between the trunks from behind and to the left, a faint glimpse of snow-capped mountains between the trees, dust and pollen in the light, fine film grain, true-to-life colour. No people, no text, no logos.",
+ "negative": "people, person, man, figure, text, letters, logos, cartoon, illustration, CGI look",
+ "styles": [
+  {
+   "id": "empty-log",
+   "label": "the same log scene, nobody there",
+   "style": "EXACTLY the scene of the reference image with the person removed: the same fallen log across the frame, the same trees and light, the matte black energy drink can with a plain green stripe standing alone on the log where he sat, pine needles on the ground; nobody in the frame.",
+   "refs": { "images": [".footage/daylight-basement/refs/char/kid.png"] }
+  }
+ ]
+}

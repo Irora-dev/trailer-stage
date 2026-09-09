@@ -1,0 +1,73 @@
+{
+ "name": "daylight-mini-coats",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking across the meadow from the right, long warm shadows across the golden grass, warm rim light on the pines.",
+  "physics": "Physics: feet stay on the ground, hands hold their props until they set them down and the sacks stay in the hands that carry them, nothing passes through anything, nothing floats, nothing changes size, nobody appears from nowhere, and everyone who leaves walks out along the ground.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Mini trailer 'nine holders, one coat' (Colby's pick, 2026-09-08 evening, after the cabin chase): bundled wallets made literal. Eight identical hooded coats plus the stallholder cheer B as he buys a coin, then all leave in lockstep on one beat and he is alone at an empty stall. One Seedance shot from a gpt-image-2 keyframe (board daylight-minis-keys, cell coats), 480p probe first, then 1080p; cut from the master with a draft narration.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "coats",
+     "at": 0,
+     "until": 12,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 35 mm wide, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The golden meadow at the forest edge, the small wooden market stall at the left with the hooded figure behind its counter, the young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) holding up the one gold coin he has just bought, and behind him eight identical figures in long grey hooded raincoats, hoods up, faces in shadow, cheering with their arms raised, an identical burlap sack at each one's feet. For the first four seconds they keep cheering while he admires his coin. Then, on the same beat, all eight coats and the stallholder stop, pick up their sacks, turn their backs in unison and walk away in lockstep across the meadow into the dark pines, the stallholder leaving his counter empty, none of them looking back. The young man does not notice: he keeps turning the coin in the light, alone in front of the empty stall as the last coat disappears between the trunks. Sound: cheering that ends dead on one beat, nine pairs of boots in step through grass, wind, a lone bird. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking across the meadow from the right, long warm shadows across the golden grass, warm rim light on the pines. Physics: feet stay on the ground, hands hold their props until they set them down and the sacks stay in the hands that carry them, nothing passes through anything, nothing floats, nothing changes size, nobody appears from nowhere, and everyone who leaves walks out along the ground. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, visible faces under the hoods, signs, lettering, blood, gore",
+       "refs": {
+        "images": [
+         ".footage/daylight-minis-keys/styles/coats.png"
+        ]
+       },
+       "seconds": 12,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 12.6,
+     "until": 14,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

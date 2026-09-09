@@ -1,0 +1,46 @@
+{
+ "comment": "daylight-mini-rug: DRAFT narration on the seed line Colby quoted ('A rug. Note who is not standing on it.') plus his own close from the cabin chase, for him to rewrite. The bed is the shot's own native sound, padded with silence to 20 s so the builder does not loop it under the card. Gaps are tuned from the contact sheet so 'Note who is not standing on it' lands as the explorer steps off. Rebuild: node scripts/build-mix.mjs daylight-mini-rug --go",
+ "voices": {
+  "narrator": {
+   "voice_id": "eWJunko7SS6O4LhXC3dC",
+   "name": "The Clipped Newsreel"
+  }
+ },
+ "parts": [
+  {
+   "id": "rug",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-rug/rug.vo.mp3",
+   "render": {
+    "text": "[dry] A rug.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 1.8
+  },
+  {
+   "id": "note",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-rug/note.vo.mp3",
+   "render": {
+    "text": "[amused] Note who is not standing on it.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 4.2
+  },
+  {
+   "id": "daylight",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-rug/daylight.vo.mp3",
+   "render": {
+    "text": "[confident] If only he used Daylight... the on-chain survival kit.",
+    "voice": "narrator"
+   }
+  }
+ ],
+ "bed": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-rug/native-padded.wav",
+ "bedGainDb": 0,
+ "duckDb": 4,
+ "prerollSec": 1,
+ "tailSec": 3
+}

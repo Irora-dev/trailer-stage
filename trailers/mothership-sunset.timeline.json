@@ -1,0 +1,110 @@
+{
+ "name": "mothership-sunset",
+ "end": 16,
+ "blackoutAt": 16,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Mothership nautical concept, SUNSET version (Colby, typed 2026-09-08 ~11:10: the four stills redone way prettier, at sunset, stunning cinematography and grading). Same construction as mothership-sea: three Seedance shots chained through the keyframes as first and last frames (K1→K2, K2→K3, K3→K4), one continuous take, then black. Native sea ambience. Keyframes from the sunset chain Colby picks (boards mothership-sunset-gpt / -nbp).",
+ "tracks": [
+  {
+   "id": "sea",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "s1",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The empty sea in the last golden light of sunset under a vivid double rainbow, thin mist glowing amber over gilded swells; slowly the rainbow softens and a low bank of fog begins to roll in from the left while, on the horizon beneath the rainbow, a tall three-masted 1800s ship of the line appears as a tiny sunlit speck under full sail and begins to approach. Photoreal live-action cinematography, one continuous locked-off shot from a low vantage just above the water; long slow swells, drifting mist, warm amber highlights against cool teal shadows, deep clean blacks, fine film grain, a cinematic grade; the camera does not move; the light stays consistent with the first frame; no people, no text, no logos. Ambient sound only: the sea, a low wind, the distant creak of rigging and a faint ship’s bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping",
+       "refs": {
+        "images": [
+         ".footage/mothership-sunset-gpt/styles/k1-rainbow.png",
+         ".footage/mothership-sunset-gpt/styles/k2-horizon.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "s2",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The ship of the line sails steadily closer from the horizon to mid distance, its cream sails glowing gold in the low sun, a white bow wave forming, its black hull with an ochre gun stripe and its rigging resolving out of the haze; the amber-lit fog thickens across the left half of the frame; the rainbow fades to a faint trace; the sky begins to deepen toward dusk while the horizon still glows. Photoreal live-action cinematography, one continuous locked-off shot from a low vantage just above the water; long slow swells, drifting mist, warm amber highlights against cool teal shadows, deep clean blacks, fine film grain, a cinematic grade; the camera does not move; the light stays consistent with the first frame; no people, no text, no logos. Ambient sound only: the sea, a low wind, the distant creak of rigging and a faint ship’s bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping",
+       "refs": {
+        "images": [
+         ".footage/mothership-sunset-gpt/styles/k2-horizon.png",
+         ".footage/mothership-sunset-gpt/styles/k3-closer.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    },
+    {
+     "id": "s3",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "The ship of the line comes on until it looms large and close, bow cutting the water toward the camera, sails and rigging filling most of the frame; the sun has set, the sky deepens to violet and indigo with a last ember of amber along the horizon, the stern lanterns and gun-deck windows glow warm, and the fog sweeps in, lit from within by the lanterns, and swallows everything but the ship; the last of the rainbow is gone. Photoreal live-action cinematography, one continuous locked-off shot from a low vantage just above the water; long slow swells, drifting mist, warm amber highlights against cool teal shadows, deep clean blacks, fine film grain, a cinematic grade; the camera does not move; the light stays consistent with the first frame; no people, no text, no logos. Ambient sound only: the sea, a low wind, the distant creak of rigging and a faint ship’s bell.",
+       "negative": "camera movement, zoom, pan, cut, jump, cartoon, illustration, CGI look, text, logos, people, pirate flag, black sails, blur, warping",
+       "refs": {
+        "images": [
+         ".footage/mothership-sunset-gpt/styles/k3-closer.png",
+         ".footage/mothership-sunset-gpt/styles/k4-looming.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 15,
+     "until": 16,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "name": "daylight-mini-honeypot",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking through the trunks from the right, long warm shadows across the pine needles, warm rim light on the branches.",
+  "physics": "Physics: feet and paws stay on the ground, the pot stays stuck on his arm and never comes off, the stump stays where it is, the explorer's jar stays in his hand with its lid on, whoever enters walks in along the ground, nothing floats, nothing changes size, there is exactly one pot on the stump, one jar and one bear.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Mini trailer 'the honeypot' (Colby, 2026-09-09 00:0x, 'love the stills make these videos and narrate'): in easy, out hard. B's arm is stuck in the pot; the explorer walks past with his lid on; the bear comes for its pot. One Seedance shot from the gpt-image-2 keyframe (board daylight-minis-keys-3, cell honeypot), 480p probe first, then 1080p; cut from the master with a draft narration.",
+ "tracks": [
+  { "id": "footage", "kind": "visual", "clips": [
+   { "id": "honeypot", "at": 0, "until": 12, "params": { "piece": "footage", "fit": "cover", "hold": "freeze", "grade": "none", "render": {
+    "provider": "fal",
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Locked-off 35 mm wide, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The forest clearing with the tree stump and the fat clay honey pot in the centre, the young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) with his forearm plunged into the pot to the elbow, leaning back and pulling, and in the near foreground at the right the explorer in the khaki safari jacket and pith helmet walking past toward the left carrying his own small honey jar with the lid on. The explorer walks on out of the frame at the left in the first four seconds without a glance. The young man heaves, braces both feet against the stump, twists, hops, and the pot will not let go of his arm; it stays stuck fast on him and he ends up sitting on the ground with the pot on his arm, tugging. In the last three seconds a huge brown grizzly bear with real fur and mass walks in from the trees at the right along the ground, stops behind him, and looks down at its pot on his arm. Sound: bees, boots on pine needles going away, grunting effort, the clay pot knocking against the stump, a heavy tread arriving, one low huff. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking through the trunks from the right, long warm shadows across the pine needles, warm rim light on the branches. Physics: feet and paws stay on the ground, the pot stays stuck on his arm and never comes off, the stump stays where it is, the explorer's jar stays in his hand with its lid on, whoever enters walks in along the ground, nothing floats, nothing changes size, there is exactly one pot on the stump, one jar and one bear. No text, no logos.",
+    "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, a second pot, a second bear, the pot coming off, blood, gore",
+    "refs": { "images": [ ".footage/daylight-minis-keys-3/styles/honeypot.png" ] },
+    "seconds": 12, "resolution": "1080p", "aspect": "16:9", "audio": true } } }
+  ] },
+  { "id": "close", "kind": "visual", "clips": [
+   { "id": "endcard", "at": 12.6, "until": 14, "params": { "piece": "endCard", "wordmark": "DAYLIGHT", "plate": "the on-chain survival kit", "chips": [ "Contains AI-generated footage" ] } }
+  ] },
+  { "id": "captions", "kind": "visual", "clips": [] }
+ ]
+}

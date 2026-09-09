@@ -1,0 +1,50 @@
+{
+ "name": "mothership-night2-gpt",
+ "kind": "scenes",
+ "comment": "Mothership night concept, ROUND TWO (Colby's notes on the first night film, 2026-09-08 ~12:10): more fog everywhere; the ship must sail forward like a real boat, never rise out of the water (so K1 already carries the ship as a faint lantern glow in the fog on the horizon and shot one resolves it instead of materialising it); the rainbow must shimmer and feel like light, not painted bands; prettier moonlight (a bright full moon behind the camera silvering fog and crests, lifted shadows, deep blue not black); the rainbow's reflection on the water soft and broken, never solid colour bands. Same position lock: K1 → K4 anchor → K2/K3 from both bookends, --parallel 1.",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 11,
+ "subject": "Photoreal live-action cinematography on the open sea under a bright full moon: a full-frame digital cinema camera with a 50 mm anamorphic lens, locked off, placed dead centre on the ship's course just above the water, the composition symmetrical about the vertical centre line, the horizon a little below the middle of the frame. The moon is high behind the camera: its light silvers everything it touches, glitters on the wave crests and gives the whole frame a gentle silver-blue key so every detail reads; the sky is deep blue, never black, with thin moonlit clouds and a few stars. Dense sea fog everywhere: layered banks rolling low over the water, veiling the horizon, glowing softly where moonlight or lantern light catches them. A cinematic night grade: lifted shadows that hold detail, silver highlights, cool blue mid-tones, warm lantern light as the only warm note, soft halation around every light source, fine 35 mm film grain. Stunning, gallery-grade cinematography, the frame a film is remembered for. No people, no text, no logos, no flags with symbols.",
+ "negative": "text, letters, logos, watermark, people, crew, pirate flag, skull, black sails, cartoon, illustration, painting, CGI look, blur, daylight, sunset, orange sky, oversaturated HDR, crushed blacks, murky, underexposed, solid painted rainbow bands, hard-edged rainbow, rainbow colour bands on the water, ship off centre, ship seen from the side, ship rising out of the water",
+ "styles": [
+  {
+   "id": "k1-glow",
+   "label": "K1 the moonlit fog-covered sea, a rainbow of light, a faint lantern glow on the horizon",
+   "style": "MOMENT ONE, the establishing frame: the moonlit, fog-covered night sea. A luminous double rainbow made of light rather than paint: soft-edged, translucent, glowing and shimmering as if lit from within, its colours airy and pastel, arches over the water with its apex exactly on the vertical centre line and its feet lost in the fog at equal distances left and right. Its reflection on the water is a soft, broken, iridescent shimmer dispersed by the swell and the fog, never solid bands; the water is otherwise silvered and glittering under the moon. Far away on the horizon, exactly under the apex and deep inside the fog, a faint warm glow of a ship's lanterns is just visible, no ship shape yet. Dense fog rolls low over the water everywhere, silver where the moon catches it."
+  },
+  {
+   "id": "k4-front",
+   "label": "K4 the ship front and centre, bow-on, sitting in the water, lanterns lit, fog everywhere",
+   "style": "MOMENT FOUR, the same sea, the same dense fog, the same moonlight and the same locked camera as the reference image, minutes later: the rainbow is gone. Out of the fog, front and centre and very close, comes a tall three-masted 1800s naval ship of the line, an admiral's flagship, seen exactly bow-on, its hull sitting properly in the water and cutting a white bow wave, its bowsprit and figurehead on the vertical centre line, its masts rising up the centre of the frame and out of the top. Moonlight silvers its pale sails and rigging; stern lanterns, deck lanterns and two rows of gun-deck windows glow warm amber, light the fog around the ship and lay warm broken reflections on the water. A black hull with an ochre-and-cream gun stripe and gilded bow carvings. No people on deck.",
+   "refs": {
+    "images": [
+     ".footage/mothership-night2-gpt/styles/k1-glow.png"
+    ]
+   }
+  },
+  {
+   "id": "k2-far",
+   "label": "K2 the glow has become the ship, tiny, dead centre under the apex",
+   "style": "MOMENT TWO, exactly the scene of the first reference image (the same rainbow of light, the same fog, the same moonlight, the same locked camera), a little later: the faint glow on the horizon has become the ship of the line from the second reference image, still far away and tiny, bow-on, exactly under the apex on the vertical centre line, framed inside the arch, its hull sitting in the water, its lanterns a small warm cluster reflected softly and brokenly on the water. The rainbow still shimmers like light; the fog still rolls low over the water, silver in the moonlight.",
+   "refs": {
+    "images": [
+     ".footage/mothership-night2-gpt/styles/k1-glow.png",
+     ".footage/mothership-night2-gpt/styles/k4-front.png"
+    ]
+   }
+  },
+  {
+   "id": "k3-mid",
+   "label": "K3 the ship at mid distance through the arch, the rainbow a faint shimmer, fog thick",
+   "style": "MOMENT THREE, exactly the scene of the first reference image (the same sea, fog, moonlight and locked camera), later: the same ship of the line (the second reference image) has sailed forward to mid distance, still exactly bow-on and on the vertical centre line, coming through the arch of the rainbow toward the camera, its hull sitting in the water with a white bow wave. The rainbow has softened to a faint shimmer of light; the fog rolls thick over the water, silver where the moon catches it and warm near the ship, whose lanterns and gun-deck windows lay broken reflections that reach toward the camera; moonlight silvers the sails.",
+   "refs": {
+    "images": [
+     ".footage/mothership-night2-gpt/styles/k2-far.png",
+     ".footage/mothership-night2-gpt/styles/k4-front.png"
+    ]
+   }
+  }
+ ]
+}

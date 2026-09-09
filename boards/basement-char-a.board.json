@@ -1,0 +1,68 @@
+{
+ "name": "basement-char-a",
+ "kind": "scenes",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "comment": "Candidate A, THE HOOD: the basement bull as an iconic character (Colby, 2026-09-08 ~20:30: a designed character, approved before any video). Front first, five more angles from it.",
+ "subject": "Live-action documentary realism, a full-body character study for a film: shot on a full-frame cinema camera with a 50 mm lens, soft even golden-hour light in a dense pine forest with the low sun flaring between the trunks behind, the figure centred and fully in frame head to toe, natural skin and fabric, fine film grain, true-to-life colour. No text, no logos, no real or recognisable person: a designed character. THE CHARACTER, CANDIDATE A: a lanky twenty-two-year-old in an oversized matte-black hoodie with the HOOD UP and cinched tight around his face, huge white over-ear headphones worn OVER the hood, oversized mirrored wraparound sunglasses hiding his eyes, a pale chin and a wispy chin-strap beard, baggy light-grey joggers, chunky white sneakers, a huge matte-black energy drink can with a plain green stripe (no logo, no words) and a phone with a cracked black case.",
+ "negative": "text, letters, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, celebrity likeness, explorer hat, moustache, cropped feet, cropped head",
+ "styles": [
+  {
+   "id": "front",
+   "label": "front, standing, full body",
+   "style": "THE DESIGN, seen from the FRONT, standing square to the camera, full body head to toe, neutral slouch, phone in one hand, the can in the other."
+  },
+  {
+   "id": "threeq",
+   "label": "three-quarter view",
+   "style": "EXACTLY the same character as the reference image (same face, clothes, colours, props), seen from a THREE-QUARTER front angle, standing, full body, phone in one hand, the can in the other.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-a/styles/front.png"
+    ]
+   }
+  },
+  {
+   "id": "profile",
+   "label": "profile",
+   "style": "EXACTLY the same character as the reference image (same face, clothes, colours, props), seen in full PROFILE from his left, standing, full body, phone in one hand, the can in the other.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-a/styles/front.png"
+    ]
+   }
+  },
+  {
+   "id": "back",
+   "label": "from behind",
+   "style": "EXACTLY the same character as the reference image (same clothes, colours, props, hair), seen from BEHIND, his back to the camera, full body, phone in one hand, the can in the other.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-a/styles/front.png"
+    ]
+   }
+  },
+  {
+   "id": "seated",
+   "label": "seated on a log, scrolling",
+   "style": "EXACTLY the same character as the reference image (same face, clothes, colours, props), sitting hunched on a fallen log, scrolling his phone with his thumb, the can standing on the log beside him, three-quarter angle.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-a/styles/front.png"
+    ]
+   }
+  },
+  {
+   "id": "panic",
+   "label": "running, panic face",
+   "style": "EXACTLY the same character as the reference image (same face, clothes, colours, props), sprinting toward the camera down a forest path in panic, mouth open, phone clutched in one hand, three-quarter front angle, motion in the clothes.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-a/styles/front.png"
+    ]
+   }
+  }
+ ]
+}

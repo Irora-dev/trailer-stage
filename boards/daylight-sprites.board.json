@@ -1,0 +1,31 @@
+{
+ "name": "daylight-sprites",
+ "kind": "scenes",
+ "comment": "Keyable character layers for interactive hover animation (Colby 23:05: alpha/WebM, not sprite sheets). The explorer alone on flat solid magenta, to be the first AND last frame of a Seedance wave, then colour-keyed to alpha; plus the home hero drawn without any person so the keyed explorer can stand on it as a separate layer.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "portrait_3_4",
+ "seed": 7,
+ "subject": "16-bit pixel art, hard pixel edges, dithering on the character only, no anti-aliasing, exactly the same character design, palette and rendering as the two reference images. No text, no letters, no logos.",
+ "negative": "text, letters, logos, watermark, blur, anti-aliasing, shadow on the ground, ground, floor, scenery, gradient background, vignette, extra limbs, a second lens",
+ "refs": {
+  "images": [
+   ".footage/daylight-explorer-styles-meshy/styles/pixel.png",
+   ".footage/explorer-chase-keyframes/styles/pixel.png"
+  ]
+ },
+ "styles": [
+  {
+   "id": "explorer-idle-magenta",
+   "size": "portrait_3_4",
+   "label": "EXPLORER idle on flat magenta (key plate)",
+   "style": "Full-body portrait of the Daylight explorer (khaki pith helmet, big white walrus moustache, a single monocle on a chain, khaki safari jacket, leather satchel on a shoulder strap, olive green trousers, brown laced boots, wooden cane) standing at ease facing the viewer at a slight three-quarter angle, cane planted, weight on one leg, a small pleased smile, the whole figure inside the frame with margin on every side. The ENTIRE background is one flat, uniform, perfectly solid pure magenta colour (hex FF00FF) with no gradient, no floor, no shadow, no horizon, no texture: a chroma-key plate. No magenta anywhere on the character."
+  },
+  {
+   "id": "hero-home-empty",
+   "size": "landscape_16_9",
+   "label": "HOME HERO 16:9 without any person",
+   "style": "Wide establishing view of the Daylight valley at golden hour from a ridge path: pine forest, a log cabin with lit windows and chimney smoke, snow-capped mountains, the ridge path in the lower left foreground where a figure could stand; NO people, no animals, no figure anywhere; the centre of the frame open sky and distant haze with no detail."
+  }
+ ]
+}

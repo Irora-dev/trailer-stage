@@ -1,0 +1,73 @@
+{
+ "name": "daylight-mini-top",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real spindrift and ice crystals in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour on the mountain, pink and amber light on the snow, long blue shadows, the distant peaks hazy below.",
+  "physics": "Physics: the sled stays on the snow until the edge and leaves the frame in one piece with its rider, the chair hangs from its cable and moves only along it, feet and runners stay on the snow until the cornice, nothing floats, nothing changes size, there is exactly one sled, one chair and one clipboard.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Mini trailer 'he bought the top' (Colby's pick, 2026-09-08 evening, after the cabin chase): B sleds gleefully off the summit and over the cornice while the explorer rides the chairlift up past him reading his card. One Seedance shot from a gpt-image-2 keyframe (board daylight-minis-keys, cell top), 480p probe first, then 1080p; cut from the master with a draft narration.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "top",
+     "at": 0,
+     "until": 12,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off 35 mm wide, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The snowy summit at the right, the slope running down to the sharp cornice at the left with hazy valley air beyond it, the chairlift cable crossing the frame with the explorer in the khaki safari jacket and pith helmet on a single chair reading his clipboard. The young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) on the wooden sled at the summit raises one fist in triumph, pushes off and sleds down the slope toward the left, gathering speed, snow spraying from the runners, one hand clamping his hat on. He shoots straight off the cornice and sails out of the frame at the left, sled and all, into the empty air. The chair keeps rising slowly toward the summit the whole time and the explorer never looks up from his clipboard, turning a page as the sled goes over. Sound: a whoop of triumph, runners hissing on snow, a whistling silence as he leaves the edge, the creak of the cable, wind. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real spindrift and ice crystals in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour on the mountain, pink and amber light on the snow, long blue shadows, the distant peaks hazy below. Physics: the sled stays on the snow until the edge and leaves the frame in one piece with its rider, the chair hangs from its cable and moves only along it, feet and runners stay on the snow until the cornice, nothing floats, nothing changes size, there is exactly one sled, one chair and one clipboard. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, a second sled, a second chair, blood, gore",
+       "refs": {
+        "images": [
+         ".footage/daylight-minis-keys/styles/top.png"
+        ]
+       },
+       "seconds": 12,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 12.6,
+     "until": 14,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

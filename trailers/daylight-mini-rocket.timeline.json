@@ -1,0 +1,28 @@
+{
+ "name": "daylight-mini-rocket",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dew and drifting sparks in the light, fine film grain, true-to-life colour. Blue-hour dusk, a last band of orange over the mountains, the first stars, the meadow cool and blue, the match and the fuse the only warm light.",
+  "physics": "Physics: feet stay on the ground, the rocket leaves its stand straight up and comes straight back down into the grass and stays there, the stand stays where it is, the can stays in his hand and the mug in the explorer's, nothing else floats, nothing changes size, there is exactly one rocket, one stand, one can and one mug.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Mini trailer 'the rocket' (Colby, 2026-09-09 00:0x): it went up, briefly. B lights the fuse, the rocket shrieks up, he raises his arms, it comes straight back down and buries itself beside him; the explorer sips from his mug in his deckchair. One Seedance shot from the gpt-image-2 keyframe (board daylight-minis-keys-3, cell rocket), 480p probe first, then 1080p; cut from the master with a draft narration.",
+ "tracks": [
+  { "id": "footage", "kind": "visual", "clips": [
+   { "id": "rocket", "at": 0, "until": 12, "params": { "piece": "footage", "fit": "cover", "hold": "freeze", "grade": "none", "render": {
+    "provider": "fal",
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Locked-off 35 mm wide, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The dusk meadow with the first stars, the tall firework rocket on its wooden stand in the centre, the young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) crouched at its base with a lit match to the fuse and his can in his other hand, and the explorer in the khaki safari jacket and pith helmet in the folding deckchair at the right with a blanket over his knees and a tin mug. The fuse catches and fizzes, the young man scrambles back and straightens up with his arms raised in triumph, and the rocket shrieks straight up out of the top of the frame on a tail of sparks. He stands with his arms up and his face to the sky for three long seconds while the sparks fade. Then the rocket comes straight back down, spent and smoking, and buries itself nose-first in the grass a metre from his feet with a soft thump, its stick quivering; he lowers his arms; the explorer sips from his mug. Sound: crickets, the hiss of the fuse, the shriek of the rocket going up, a whistling silence, the thump, a wet sip. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dew and drifting sparks in the light, fine film grain, true-to-life colour. Blue-hour dusk, a last band of orange over the mountains, the first stars, the meadow cool and blue, the match and the fuse the only warm light. Physics: feet stay on the ground, the rocket leaves its stand straight up and comes straight back down into the grass and stays there, the stand stays where it is, the can stays in his hand and the mug in the explorer's, nothing else floats, nothing changes size, there is exactly one rocket, one stand, one can and one mug. No text, no logos.",
+    "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, an explosion, fireworks bursting, a second rocket, blood, gore",
+    "refs": { "images": [ ".footage/daylight-minis-keys-3/styles/rocket.png" ] },
+    "seconds": 12, "resolution": "1080p", "aspect": "16:9", "audio": true } } }
+  ] },
+  { "id": "close", "kind": "visual", "clips": [
+   { "id": "endcard", "at": 12.6, "until": 14, "params": { "piece": "endCard", "wordmark": "DAYLIGHT", "plate": "the on-chain survival kit", "chips": [ "Contains AI-generated footage" ] } }
+  ] },
+  { "id": "captions", "kind": "visual", "clips": [] }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "name": "daylight-mini-copytrader",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real spray and mist in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun across the lake from the left, the water like glass, the snow-capped mountains warm, long gold light.",
+  "physics": "Physics: feet stay on the planks until the end of the jetty, the boat floats and moves only when rowed, the young man steps off the end of the jetty and falls straight down into the water and surfaces, the phone and the can stay in his hands, nothing changes size, there is exactly one boat, one jetty, one phone and one can.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Mini trailer 'the copy trader' (Colby, 2026-09-09 00:0x): he does what the smart money does, a step late. The explorer steps into his boat and rows off; B, two steps behind and watching his phone, copies the step into empty water. One Seedance shot from the gpt-image-2 keyframe (board daylight-minis-keys-3, cell copytrader), 480p probe first, then 1080p; cut from the master with a draft narration.",
+ "tracks": [
+  { "id": "footage", "kind": "visual", "clips": [
+   { "id": "copytrader", "at": 0, "until": 12, "params": { "piece": "footage", "fit": "cover", "hold": "freeze", "grade": "none", "render": {
+    "provider": "fal",
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Locked-off 35 mm wide side view, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut; the camera never changes position, height or angle. The wooden jetty running from the shore at the right out over the lake to the left, the small rowing boat moored at its end, the explorer in the khaki safari jacket and pith helmet walking along it toward the boat with his back to the camera, and exactly two steps behind him the young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) copying his every step with his phone held up in one hand and his can in the other. The explorer reaches the end of the jetty, steps down into the boat, sits, takes the oars and pushes off toward the left. Two steps behind him and looking at his phone, the young man copies the same step down off the end of the jetty, where there is now only water, and drops straight into the lake with a splash, hat and phone and can and all. The explorer rows away toward the left without looking back, and the young man surfaces beside the jetty in his hat, holding the phone up out of the water. Sound: boots and slides on planks, the boat knocking the jetty, oars dipping, one big splash, spluttering, a loon far off. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real spray and mist in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun across the lake from the left, the water like glass, the snow-capped mountains warm, long gold light. Physics: feet stay on the planks until the end of the jetty, the boat floats and moves only when rowed, the young man steps off the end of the jetty and falls straight down into the water and surfaces, the phone and the can stay in his hands, nothing changes size, there is exactly one boat, one jetty, one phone and one can. No text, no logos.",
+    "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, close-up, shot change, cut, camera change, a second boat, a second jetty, blood, gore",
+    "refs": { "images": [ ".footage/daylight-minis-keys-3/styles/copytrader.png" ] },
+    "seconds": 12, "resolution": "1080p", "aspect": "16:9", "audio": true } } }
+  ] },
+  { "id": "close", "kind": "visual", "clips": [
+   { "id": "endcard", "at": 12.6, "until": 14, "params": { "piece": "endCard", "wordmark": "DAYLIGHT", "plate": "the on-chain survival kit", "chips": [ "Contains AI-generated footage" ] } }
+  ] },
+  { "id": "captions", "kind": "visual", "clips": [] }
+ ]
+}

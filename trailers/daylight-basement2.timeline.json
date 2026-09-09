@@ -1,0 +1,743 @@
+{
+ "name": "daylight-basement2",
+ "end": 52.24,
+ "blackoutAt": 49.74,
+ "endAnchor": "line:close.end+3.0",
+ "blackoutAnchor": "line:close.end+0.5",
+ "mix": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement2/daylight-basement2.wav",
+ "camera": [
+  {
+   "at": 51.83,
+   "until": 54.33,
+   "from": 1,
+   "to": 1.25,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "at": 54.33,
+   "until": 56,
+   "from": 1.25,
+   "to": 1,
+   "cx": 0.5,
+   "cy": 0.5
+  }
+ ],
+ "scene": {
+  "kind": "theme",
+  "overlay": "none"
+ },
+ "blackoutColor": "#000000",
+ "tracks": [
+  {
+   "id": "footage",
+   "name": "Generated shots",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "shotLog",
+     "at": 0.5,
+     "anchor": "line:open.start-1.5",
+     "until": 6.5,
+     "anchorUntil": "line:open.start+4.5",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "The location is exactly @Image1: the same fallen log, the same can, the same forest and light. A twenty-two-year-old man: pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers; a matte black energy drink can with a plain green stripe and no logo stands on the log beside him. He sits hunched on the fallen log scrolling a phone with his thumb, utterly absorbed; without looking up he reaches for the can, takes a long sip, sets it back on the log and keeps scrolling with a small satisfied smirk. Locked-off wide, 35 mm, no camera move. Live-action documentary realism on a full-frame cinema camera, natural skin and fabric, real dust and pollen drifting in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun low behind and to the left, warm rim light, a faint glimpse of snow-capped mountains between the trunks.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png"
+        ]
+       },
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotPhone",
+     "at": 6.5,
+     "anchor": "line:open.start+4.5",
+     "until": 11.5,
+     "anchorUntil": "line:open.start+9.5",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Insert over the shoulder of the same young man as in @Image2, the same hoodie, hair, headphones, can and light; the location is exactly @Image1. A twenty-two-year-old man: pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers. The phone in his hand shows EXACTLY @Image3, a dark portfolio app with a green total and a green chart; nothing on the screen that is not in @Image3; his thumb scrolls once, slowly. Static 85 mm, shallow focus, no camera move. Live-action documentary realism on a full-frame cinema camera, natural skin and fabric, real dust and pollen drifting in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun low behind and to the left, warm rim light, a faint glimpse of snow-capped mountains between the trunks.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png",
+         ".footage/daylight-basement-back/styles/back.png",
+         ".footage/daylight-basement/refs/app/portfolio.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotRoar",
+     "at": 11.5,
+     "anchor": "line:open.start+9.5",
+     "until": 16.52,
+     "anchorUntil": "line:chase.start-0.2",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "the same young man as @Image2 (seen from behind there: the same greasy dark hair, oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers), a twenty-two-year-old with a pale, unremarkable, forgettable face, hair falling over his eyes, faint stubble, on the log of @Image1: a twenty-two-year-old man, pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers, the matte black can with a plain green stripe in his hand. He freezes mid-sip, his eyes darting sideways; behind him, between the trunks, a huge brown grizzly rises to full height and leans over his shoulder to look at the phone too, real fur and mass, calm and curious; he keeps scrolling for a beat, then slowly turns his head and sees it. Locked-off three-quarter medium, 50 mm, no camera move. Live-action documentary realism on a full-frame cinema camera, natural skin and fabric, real dust and pollen drifting in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun low behind and to the left, warm rim light, a faint glimpse of snow-capped mountains between the trunks.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png",
+         ".footage/daylight-basement-back/styles/back.png"
+        ]
+       },
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotBolt",
+     "at": 16.52,
+     "anchor": "line:chase.start-0.2",
+     "until": 23.52,
+     "anchorUntil": "line:chase.start+6.8",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "the same young man as @Image2 (seen from behind there: the same greasy dark hair, oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers), a twenty-two-year-old with a pale, unremarkable, forgettable face, hair falling over his eyes, faint stubble,the same hoodie, hair, headphones and light, in the forest of @Image1: a twenty-two-year-old man, pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers. The matte black can drops from his hand onto the pine needles, he scrambles off the log and sprints down the forest path still staring at the phone in his hand, hoodie flapping, while a huge brown grizzly crashes after him through the undergrowth. Lateral tracking shot alongside him, 35 mm, one continuous move. Live-action documentary realism on a full-frame cinema camera, natural skin and fabric, real dust and pollen drifting in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun low behind and to the left, warm rim light, a faint glimpse of snow-capped mountains between the trunks.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png",
+         ".footage/daylight-basement-back/styles/back.png"
+        ]
+       },
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotRun",
+     "at": 23.52,
+     "anchor": "line:chase.start+6.8",
+     "until": 28.69,
+     "anchorUntil": "line:daylight.start-0.3",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "the same young man as @Image2 (seen from behind there: the same greasy dark hair, oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers), a twenty-two-year-old with a pale, unremarkable, forgettable face, hair falling over his eyes, faint stubble,the same hoodie, hair, headphones and light, in the forest of @Image1: a twenty-two-year-old man, pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers. He runs straight at camera, arms pumping, glances down at the phone in panic, then back over his shoulder, clips a low branch with his shoulder and keeps going; the grizzly is a huge shape behind him. Handheld 50 mm, operator running backwards ahead of him. Live-action documentary realism on a full-frame cinema camera, natural skin and fabric, real dust and pollen drifting in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun low behind and to the left, warm rim light, a faint glimpse of snow-capped mountains between the trunks.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png",
+         ".footage/daylight-basement-back/styles/back.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotBadge",
+     "at": 28.69,
+     "anchor": "line:daylight.start-0.3",
+     "until": 33.69,
+     "anchorUntil": "line:daylight.start+4.7",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "the same young man as @Image2 (seen from behind there: the same greasy dark hair, oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers), a twenty-two-year-old with a pale, unremarkable, forgettable face, hair falling over his eyes, faint stubble,the same hoodie, hair, headphones and light, in the forest of @Image1: a twenty-two-year-old man, pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers, scuffed white sneakers. He skids to a halt on the needles, spins to face the grizzly and holds the phone out at arm's length like a badge, gasping, his thumb stabbing the screen; over his shoulder the small phone screen shows EXACTLY @Image3, and nothing on the screen that is not in @Image3; the bear slows to a walk, puzzled. Handheld 50 mm medium. Live-action documentary realism on a full-frame cinema camera, natural skin and fabric, real dust and pollen drifting in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun low behind and to the left, warm rim light, a faint glimpse of snow-capped mountains between the trunks.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png",
+         ".footage/daylight-basement-back/styles/back.png",
+         ".footage/daylight-basement/refs/app/daylight-home.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "shotPop",
+     "at": 38.93,
+     "anchor": "line:daylight.end-2.2",
+     "until": 45.23,
+     "anchorUntil": "line:close.start+1.5",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Locked-off 35 mm wide on a forest path between the pines, the exact forest and light of @Image1 (the sun low behind and to the left, warm rim light, dust in the air). THE CAMERA IS IN FRONT OF HIM: we see his face the whole time. A twenty-two-year-old man with a pale, unremarkable, forgettable face, greasy dark hair falling over his eyes, faint stubble, an oversized black hoodie, big black headphones round his neck, baggy grey joggers and scuffed white sneakers stands facing the camera, holding his phone out in front of him at arm's length like a badge, gasping. From the right edge of the frame a huge brown grizzly bear lunges at him with a roar; after about two seconds, at the instant of the lunge, the bear BURSTS into a dense cloud of bright multicoloured paper confetti (red, yellow, blue, green, pink squares of paper) with no dust and no smoke; the confetti hangs in the sunbeams and rains down over him. He flinches, blinks, lowers the phone, exhales, picks a piece of confetti off his hoodie and, after a beat, looks back down at his phone and goes straight back to scrolling. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. No text, no logos.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, moustache, camera movement, seen from behind, back of his head, dust cloud, smoke",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement-world/styles/empty-log.png"
+        ]
+       },
+       "seconds": 8,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      },
+      "playAt": "@popIn"
+     }
+    }
+   ]
+  },
+  {
+   "id": "data",
+   "name": "Data over the forest",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "ghost",
+     "at": 17.12,
+     "anchor": "line:chase.start+0.4",
+     "until": 28.59,
+     "anchorUntil": "line:daylight.start-0.4",
+     "params": {
+      "piece": "card",
+      "opacity": 0.45,
+      "width": "34vw",
+      "height": "30vh",
+      "leftVw": 74,
+      "topVh": 34,
+      "header": {
+       "identity": {
+        "name": "Portfolio",
+        "sub": "an example, invented for this trailer",
+        "emoji": "▤"
+       },
+       "right": {
+        "at": "@ghost+0.6",
+        "statsAt": "@ghost+0.9"
+       },
+       "headline": {
+        "text": "$4,812.40",
+        "altText": "$2,839.10",
+        "color": "#12b886",
+        "altColor": "#e03131"
+       },
+       "stats": [
+        {
+         "label": "Today",
+         "value": "+4.6%",
+         "altValue": "−41.0%",
+         "tone": "accent"
+        }
+       ],
+       "altAt": "@ghostDrop"
+      }
+     }
+    },
+    {
+     "id": "read",
+     "at": 33.89,
+     "anchor": "line:daylight.start+4.9",
+     "until": 38.93,
+     "anchorUntil": "line:daylight.end-2.2",
+     "params": {
+      "piece": "card",
+      "width": "66vw",
+      "height": "26vh",
+      "leftVw": 50,
+      "topVh": 50,
+      "header": {
+       "identity": {
+        "name": "$ACORN read",
+        "sub": "an example token, invented for this trailer",
+        "emoji": "◆"
+       },
+       "right": {
+        "at": "@read+0.3",
+        "statsAt": "@read+0.6"
+       },
+       "headline": {
+        "text": "Should you touch it? No.",
+        "color": "#e03131"
+       },
+       "stats": [
+        {
+         "label": "Holders in profit",
+         "value": "91%"
+        },
+        {
+         "label": "Bundled supply",
+         "value": "38%"
+        },
+        {
+         "label": "Top wallets leaving",
+         "value": "6 in the last hour"
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "name": "Reveal and close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "flip",
+     "at": 45.13,
+     "anchor": "line:close.start+1.4",
+     "params": {
+      "piece": "channelFlip",
+      "durationMs": 380
+     }
+    },
+    {
+     "id": "mark",
+     "at": 45.33,
+     "anchor": "line:close.start+1.6",
+     "until": 48.64,
+     "anchorUntil": "line:close.end-0.6",
+     "params": {
+      "piece": "logoReveal",
+      "wordmark": "DAYLIGHT",
+      "plateText": "the on-chain survival kit",
+      "poweredText": "powered by Blocktronics"
+     }
+    },
+    {
+     "id": "markUp",
+     "at": 45.73,
+     "anchor": "line:close.start+2.0"
+    },
+    {
+     "id": "wordmark",
+     "at": 46.13,
+     "anchor": "line:close.start+2.4"
+    },
+    {
+     "id": "plate",
+     "at": 46.63,
+     "anchor": "line:close.start+2.9"
+    },
+    {
+     "id": "powered",
+     "at": 47.13,
+     "anchor": "line:close.start+3.4"
+    },
+    {
+     "id": "morph",
+     "at": 48.04,
+     "anchor": "line:close.end-1.2",
+     "params": {
+      "label": "the logo reveal morphs out before the end card"
+     }
+    },
+    {
+     "id": "endcard",
+     "at": 49.04,
+     "anchor": "line:close.end-0.2",
+     "until": 51.79,
+     "anchorUntil": "voice.end+2.5",
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "note": "Understand the market you are walking into.",
+      "chips": [
+       "Contains AI-generated footage",
+       "Example portfolio and tokens, not investment advice"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "name": "Captions",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cap-open",
+     "at": 2,
+     "anchor": "line:open.start",
+     "until": 10.15,
+     "anchorUntil": "line:open.end",
+     "params": {
+      "piece": "caption",
+      "text": "Behold the retail investor in his natural habitat. He has done his research... by which we mean he has looked at a green line and felt something."
+     }
+    },
+    {
+     "id": "cap-roar",
+     "at": 10.35,
+     "anchor": "line:roar.start",
+     "until": 13.22,
+     "anchorUntil": "line:roar.end",
+     "params": {
+      "piece": "caption",
+      "text": "Ah. The market would like a word."
+     }
+    },
+    {
+     "id": "cap-chase",
+     "at": 16.72,
+     "anchor": "line:chase.start",
+     "until": 28.39,
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "piece": "caption",
+      "text": "Observe the technique. Run first, check the portfolio second. Down four percent. Down twelve. Down forty. Still holding, though. Tremendously brave."
+     }
+    },
+    {
+     "id": "cap-daylight",
+     "at": 28.99,
+     "anchor": "line:daylight.start",
+     "until": 41.13,
+     "anchorUntil": "line:daylight.end",
+     "params": {
+      "piece": "caption",
+      "text": "And then... a thought. Quite possibly his first today. He opens Daylight: who holds this thing, who is quietly leaving, what they paid for it. All of it readable before the forest."
+     }
+    },
+    {
+     "id": "cap-close",
+     "at": 43.73,
+     "anchor": "line:close.start",
+     "until": 49.24,
+     "anchorUntil": "line:close.end",
+     "params": {
+      "piece": "caption",
+      "text": "Daylight. Understand the market you are walking into. The bear was never the problem."
+     }
+    }
+   ]
+  },
+  {
+   "id": "beats",
+   "name": "Beats",
+   "kind": "marker",
+   "clips": [
+    {
+     "id": "ghostDrop",
+     "at": 19.92,
+     "anchor": "line:chase.start+3.2",
+     "params": {
+      "label": "the ghost portfolio falls"
+     }
+    },
+    {
+     "id": "confetti",
+     "at": 41.13,
+     "anchor": "line:daylight.end",
+     "params": {
+      "label": "the bear pops"
+     }
+    },
+    {
+     "id": "popIn",
+     "at": 38.93,
+     "anchor": "line:daylight.end-2.2",
+     "params": {
+      "label": "the pop shot starts here so its burst (2.2 s into the file) lands on the pop effect at the end of the daylight line"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lines",
+   "name": "Narration lines",
+   "kind": "marker",
+   "locked": true,
+   "clips": [
+    {
+     "id": "__line-open",
+     "at": 2,
+     "until": 10.15,
+     "anchor": "line:open.start",
+     "anchorUntil": "line:open.end",
+     "params": {
+      "label": "open"
+     }
+    },
+    {
+     "id": "__line-roar",
+     "at": 10.35,
+     "until": 13.22,
+     "anchor": "line:roar.start",
+     "anchorUntil": "line:roar.end",
+     "params": {
+      "label": "roar"
+     }
+    },
+    {
+     "id": "__line-chase",
+     "at": 16.72,
+     "until": 28.39,
+     "anchor": "line:chase.start",
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "label": "chase"
+     }
+    },
+    {
+     "id": "__line-daylight",
+     "at": 28.99,
+     "until": 41.13,
+     "anchor": "line:daylight.start",
+     "anchorUntil": "line:daylight.end",
+     "params": {
+      "label": "daylight"
+     }
+    },
+    {
+     "id": "__line-close",
+     "at": 43.73,
+     "until": 49.24,
+     "anchor": "line:close.start",
+     "anchorUntil": "line:close.end",
+     "params": {
+      "label": "close"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vo",
+   "name": "Narration (estimated until the mix is built)",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "vo01",
+     "at": 2,
+     "until": 5.02,
+     "params": {
+      "label": "open · seg 1"
+     }
+    },
+    {
+     "id": "vo02",
+     "at": 5.51,
+     "until": 10.16,
+     "params": {
+      "label": "open · seg 2"
+     }
+    },
+    {
+     "id": "vo03",
+     "at": 10.56,
+     "until": 10.93,
+     "params": {
+      "label": "roar · seg 3"
+     }
+    },
+    {
+     "id": "vo04",
+     "at": 11.32,
+     "until": 13.24,
+     "params": {
+      "label": "roar · seg 4"
+     }
+    },
+    {
+     "id": "vo05",
+     "at": 16.74,
+     "until": 17.89,
+     "params": {
+      "label": "chase · seg 5"
+     }
+    },
+    {
+     "id": "vo06",
+     "at": 18.23,
+     "until": 20.71,
+     "params": {
+      "label": "chase · seg 6"
+     }
+    },
+    {
+     "id": "vo07",
+     "at": 21.18,
+     "until": 22.21,
+     "params": {
+      "label": "chase · seg 7"
+     }
+    },
+    {
+     "id": "vo08",
+     "at": 22.84,
+     "until": 23.79,
+     "params": {
+      "label": "chase · seg 8"
+     }
+    },
+    {
+     "id": "vo09",
+     "at": 24.49,
+     "until": 25.54,
+     "params": {
+      "label": "chase · seg 9"
+     }
+    },
+    {
+     "id": "vo10",
+     "at": 26.1,
+     "until": 28.42,
+     "params": {
+      "label": "chase · seg 10"
+     }
+    },
+    {
+     "id": "vo11",
+     "at": 29.13,
+     "until": 29.68,
+     "params": {
+      "label": "daylight · seg 11"
+     }
+    },
+    {
+     "id": "vo12",
+     "at": 30.37,
+     "until": 31.04,
+     "params": {
+      "label": "daylight · seg 12"
+     }
+    },
+    {
+     "id": "vo13",
+     "at": 31.5,
+     "until": 33.06,
+     "params": {
+      "label": "daylight · seg 13"
+     }
+    },
+    {
+     "id": "vo14",
+     "at": 33.78,
+     "until": 34.73,
+     "params": {
+      "label": "daylight · seg 14"
+     }
+    },
+    {
+     "id": "vo15",
+     "at": 35.04,
+     "until": 38.3,
+     "params": {
+      "label": "daylight · seg 15"
+     }
+    },
+    {
+     "id": "vo16",
+     "at": 38.95,
+     "until": 41.09,
+     "params": {
+      "label": "daylight · seg 16"
+     }
+    },
+    {
+     "id": "vo17",
+     "at": 43.83,
+     "until": 44.35,
+     "params": {
+      "label": "close · seg 17"
+     }
+    },
+    {
+     "id": "vo18",
+     "at": 44.7,
+     "until": 46.72,
+     "params": {
+      "label": "close · seg 18"
+     }
+    },
+    {
+     "id": "vo19",
+     "at": 47.23,
+     "until": 49.29,
+     "params": {
+      "label": "close · seg 19"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bed",
+   "name": "Music bed",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "bed",
+     "at": 0,
+     "until": 58,
+     "params": {
+      "label": "Mock-epic cinematic trailer score played completely straight"
+     }
+    }
+   ]
+  }
+ ]
+}

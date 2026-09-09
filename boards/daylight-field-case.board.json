@@ -1,0 +1,31 @@
+{
+ "name": "daylight-field-case",
+ "kind": "scenes",
+ "comment": "The field case as a two-state object for an interactive transition (Colby 22:45): the CLOSED cell from the site board is the reference and the first frame; this board draws the OPEN state at the same camera with an EMPTY interior, to be the last frame and the UI background.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "landscape_4_3",
+ "seed": 7,
+ "subject": "16-bit pixel art, hard pixel edges, dithering, no anti-aliasing, exactly the same art style, palette, camera angle, framing, lighting, table, lantern and mug as the reference image of the closed leather field case. No text, no letters, no logos.",
+ "negative": "text, letters, numbers, logos, watermark, blur, anti-aliasing, screens, charts, diagrams, papers, objects inside the case",
+ "refs": {
+  "images": [
+   ".footage/daylight-site-pixel/styles/field-case-closed.png",
+   ".footage/daylight-explorer-styles-meshy/styles/pixel.png"
+  ]
+ },
+ "styles": [
+  {
+   "id": "open-empty",
+   "size": "landscape_4_3",
+   "label": "FIELD CASE open, interior completely empty",
+   "style": "The very same brown leather field case, in the very same position on the same wooden camp table with the same lantern and mug, but now OPEN: the lid hinged up and back so its inside faces the viewer, and the case interior is COMPLETELY EMPTY: a flat plain dark suede lining with nothing in it at all, no paper, no screen, no tools, no compartments. Same camera, same light."
+  },
+  {
+   "id": "open-half",
+   "size": "landscape_4_3",
+   "label": "FIELD CASE half open (mid-frame guide)",
+   "style": "The very same brown leather field case, same position, table, lantern and mug, but the lid HALF open at forty-five degrees, a sliver of plain dark empty suede interior visible, nothing inside. Same camera, same light."
+  }
+ ]
+}

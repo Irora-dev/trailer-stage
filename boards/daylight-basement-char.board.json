@@ -1,0 +1,28 @@
+{
+ "name": "daylight-basement-char",
+ "kind": "styles",
+ "comment": "The new Daylight live-action character for the basement-bull trailer (Colby, recording 2026-09-08 16:39): a 22-year-old in a hoodie with an energy drink, the kind who lives in his mum's basement, on a log in the sunset pine forest of the live-action piece. Three candidates; the pick becomes @Image1 (identity + light) for the first shot, whose frames then reference the rest.",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "Live-action documentary realism, a frame from a film shot on a full-frame cinema camera with a 50 mm lens, handheld, shallow depth of field: a dense pine forest at late golden hour, the low sun flaring between the trunks from behind, a faint glimpse of snow-capped mountains between the trees, dust and pollen in the light. A twenty-two-year-old man sits hunched on a fallen log, scrolling a smartphone with his thumb, utterly absorbed; a generic energy drink can (matte black with a plain green stripe, NO logo, NO text) stands on the log beside him. Natural skin with a basement pallor, real fabric, fine film grain, true-to-life colour. No text, no logos, no real or recognisable person.",
+ "negative": "text, letters, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, celebrity likeness, explorer hat, moustache",
+ "styles": [
+  {
+   "id": "hood-down",
+   "label": "A: black hoodie, hood down, messy hair, pale, faint stubble, oversized headphones around the neck",
+   "style": "He wears an oversized black hoodie with the hood down, greasy messy dark hair, a pale complexion and faint stubble, oversized headphones slung around his neck, baggy grey joggers and scuffed white sneakers; he half-smirks at the screen."
+  },
+  {
+   "id": "hood-up",
+   "label": "B: grey hoodie, hood up, round glasses, hunched, knees together",
+   "style": "He wears a washed-out grey hoodie with the hood UP, round glasses reflecting the screen, a pale round face, knees together and elbows on knees as he hunches over the phone, black joggers, chunky black sneakers."
+  },
+  {
+   "id": "cap",
+   "label": "C: navy hoodie, backwards cap, patchy beard, slouched, one leg out",
+   "style": "He wears a navy hoodie under a backwards plain black cap, a patchy chin beard, a slack slouched posture with one leg stretched out, cargo shorts and socks with slides; his mouth hangs slightly open at the screen."
+  }
+ ]
+}

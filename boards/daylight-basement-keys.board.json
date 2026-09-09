@@ -1,0 +1,140 @@
+{
+ "name": "daylight-basement-keys",
+ "kind": "scenes",
+ "comment": "Keyframes for the basement-bull trailer: fal rejected the photoreal character as a reference-to-video reference (real-person likeness) but accepts the same face as an image-to-video first frame, so every shot is drawn by gpt-image-2 from the character still (identity) and animated as a first frame.",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "Live-action documentary realism, a frame from a film shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, a faint glimpse of snow-capped mountains between the trees. No text, no logos, no real or recognisable person, a generic energy drink can with no logo.",
+ "negative": "text, letters, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, celebrity likeness, blood, gore, explorer hat, moustache",
+ "styles": [
+  {
+   "id": "s1Wide",
+   "label": "s1Wide",
+   "style": "A single film frame, the first frame of this shot: Locked-off 35 mm wide, no camera move. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), sits hunched on a fallen log in a dense pine forest, thumb scrolling his phone, completely absorbed; a plain matte black energy drink can with a single green stripe stands on the log beside him. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The log, the can and the forest are those of the last reference image.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png",
+     ".footage/daylight-basement-world/styles/empty-log.png"
+    ]
+   }
+  },
+  {
+   "id": "s2Sip",
+   "label": "s2Sip",
+   "style": "A single film frame, the first frame of this shot: 50 mm medium, front three-quarter, one slow push in. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), lifts the plain matte black energy drink can with a single green stripe, sips without looking up from his phone, and keeps scrolling with a small satisfied smirk; the can stays in his hand. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The log, the can and the forest are those of the last reference image.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png",
+     ".footage/daylight-basement-world/styles/empty-log.png"
+    ]
+   }
+  },
+  {
+   "id": "s3Screen",
+   "label": "s3Screen",
+   "style": "A single film frame, the first frame of this shot: 85 mm insert over his shoulder, static, shallow focus. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), holds his phone and his thumb scrolls once; the phone screen shows exactly the screen of the second reference image and nothing that is not on it. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png",
+     ".footage/daylight-basement/refs/app/portfolio.png"
+    ]
+   }
+  },
+  {
+   "id": "s4Freeze",
+   "label": "s4Freeze",
+   "style": "A single film frame, the first frame of this shot: 85 mm close, three-quarter on his face, static. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), freezes mid-sip at a deep roar from off screen, his eyes darting sideways, the plain matte black can lowering slowly. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The log, the can and the forest are those of the last reference image.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png",
+     ".footage/daylight-basement-world/styles/empty-log.png"
+    ]
+   }
+  },
+  {
+   "id": "s5Bear",
+   "label": "s5Bear",
+   "style": "A single film frame, the first frame of this shot: Locked-off 35 mm wide, no camera move. Behind him, between the dark trunks, a huge brown grizzly bear with real fur and mass steps into the shafts of sunset light and rises to full height; in the foreground the same young man as the first reference image, the same hoodie, hair and face, is only half turned. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The log, the can and the forest are those of the last reference image.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png",
+     ".footage/daylight-basement-world/styles/empty-log.png"
+    ]
+   }
+  },
+  {
+   "id": "s6Bolt",
+   "label": "s6Bolt",
+   "style": "A single film frame, the first frame of this shot: 50 mm medium, handheld. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), sees the bear, the plain matte black energy drink can drops from his hand onto the pine needles, and he scrambles off the log and bolts away from camera with the phone in his other hand. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. The log, the can and the forest are those of the last reference image.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png",
+     ".footage/daylight-basement-world/styles/empty-log.png"
+    ]
+   }
+  },
+  {
+   "id": "s7Run",
+   "label": "s7Run",
+   "style": "A single film frame, the first frame of this shot: 35 mm wide, lateral tracking alongside. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), sprints down a forest path, hoodie flapping, phone clutched in one hand, while the huge brown grizzly crashes after him through the undergrowth. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png"
+    ]
+   }
+  },
+  {
+   "id": "s8Paws",
+   "label": "s8Paws",
+   "style": "A single film frame, the first frame of this shot: Low 50 mm insert, tracking. The grizzly's front paws pound down the forest path, pine needles and dust flying up around them, the low sun flaring behind. Live-action documentary realism, full-frame cinema camera, real fur and mass, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png"
+    ]
+   }
+  },
+  {
+   "id": "s9AtCam",
+   "label": "s9AtCam",
+   "style": "A single film frame, the first frame of this shot: 50 mm medium, handheld running backwards ahead of him. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), runs straight at camera, arms pumping, mouth open, glancing back over his shoulder; the huge brown grizzly is a vast shape behind him. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png"
+    ]
+   }
+  },
+  {
+   "id": "s10Open",
+   "label": "s10Open",
+   "style": "A single film frame, the first frame of this shot: 50 mm medium, handheld, shallow focus, on a forest PATH between the pines (no log anywhere, no can): the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers) has just skidded to a stop from a sprint and stands gasping, chest heaving, sweat on his face, holding his phone up in front of him at chest height; over his shoulder the small screen shows exactly the screen of the second reference image and nothing that is not on it, his thumb about to hit its button; far behind him among the trunks a huge brown grizzly bear is a dark running shape in the backlight. Late golden hour, the low sun flaring between the trunks behind and to the left, dust in the light.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png",
+     ".footage/daylight-basement/refs/app/daylight-home.png"
+    ]
+   }
+  },
+  {
+   "id": "s12Pop",
+   "label": "s12Pop",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide on a forest PATH between the pines (no log anywhere, no can): the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers) stands facing a huge brown grizzly bear that is mid-lunge toward him from two metres away, its front paws off the ground, mouth open in a roar; he holds his phone up in one hand like a shield, body twisted away; THIS IS THE INSTANT BEFORE THE BURST: no confetti yet. Late golden hour, the low sun flaring between the trunks behind and to the left, dust in the light.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png"
+    ]
+   }
+  },
+  {
+   "id": "s13Laugh",
+   "label": "s13Laugh",
+   "style": "A single film frame, the first frame of this shot: 85 mm close, static. the young man from the first reference image (the same face, hair, black hoodie, headphones round his neck, grey joggers), stands blinking under falling paper confetti, lowers the phone, exhales, gives one disbelieving laugh and picks a piece of confetti off his hoodie. Live-action documentary realism, full-frame cinema camera, natural skin and fabric, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the low sun behind and to the left flaring between the trunks, warm rim light, dust and pollen in the air, a faint glimpse of snow-capped mountains between the trees. Confetti is falling around him.",
+   "refs": {
+    "images": [
+     ".footage/daylight-basement/refs/char/kid.png"
+    ]
+   }
+  }
+ ]
+}

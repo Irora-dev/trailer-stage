@@ -1,0 +1,747 @@
+{
+ "name": "daylight-bear",
+ "end": 42.53,
+ "blackoutAt": 40.53,
+ "endAnchor": "line:close.end+2.5",
+ "blackoutAnchor": "line:close.end+0.5",
+ "mix": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear.wav",
+ "scene": {
+  "kind": "theme",
+  "overlay": "grain"
+ },
+ "blackoutColor": "#0b0d10",
+ "tracks": [
+  {
+   "id": "footage",
+   "name": "Generated shots",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "fStroll",
+     "at": 1.5,
+     "anchor": "line:stroll.start-1.5",
+     "until": 13.07,
+     "anchorUntil": "line:chart.start+2.5",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "grain",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "A gentleman explorer in a pith helmet, white walrus moustache and a single monocle on a chain, many-pocketed khaki safari jacket, leather satchel and sturdy boots, strolls a pine forest path tapping a wooden cane, pleased with himself; slow tracking dolly alongside him, 35mm; low golden hour sun raking through the pines, a log cabin with lit windows below among the trees, snow-capped peaks behind; painted storybook realism, soft painterly shading, matte-painting brushwork, shallow depth of field, warm rim light, volumetric haze between the ridges, fine film grain. The character matches @Image1 and @Image2 and moves as in @Video1; the world matches @Image4.",
+       "negative": "text, logos, real people, thick black outlines, cel shading, flat vector cartoon",
+       "refs": {
+        "images": [
+         ".footage/daylight-bear/refs/style/walk-4s.png",
+         ".footage/daylight-bear/refs/style/walk-7s.png",
+         ".footage/daylight-bear/refs/style/react-face.png",
+         ".footage/daylight-bear/refs/brand/landscape-golden.png"
+        ],
+        "videos": [
+         ".footage/daylight-bear/refs/style/clip-one.mp4"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "fClearing",
+     "at": 13.07,
+     "anchor": "line:chart.start+2.5",
+     "until": 20.07,
+     "anchorUntil": "line:ninety.start+0.5",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "grain",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Medium shot from the FRONT, three-quarter angle, 40mm at chest height, a slow drift: the same gentleman explorer has stopped in a sunny clearing above a valley and admires the view with one hand on his hip and the wooden cane planted in the other, chest out, pleased with himself, a small satisfied nod. His face is fully visible: pith helmet, white walrus moustache, a single monocle on a fine chain, exactly as @Image3. Late golden hour, warm light on his face, long shadows across the grass, the pine forest, hazy ridges, the lit log cabin and snow peaks BEHIND him; painted storybook realism, soft painterly shading, matte-painting brushwork, shallow depth of field, warm rim light, volumetric haze, fine film grain. His costume matches @Image1 and @Image2, the rendering matches @Video1, the world matches @Image4. A different angle from the walking shot: we see him from the front, not from behind.",
+       "negative": "text, logos, real people, thick black outlines, cel shading, flat vector cartoon",
+       "refs": {
+        "images": [
+         ".footage/daylight-bear/refs/style/walk-4s.png",
+         ".footage/daylight-bear/refs/style/walk-7s.png",
+         ".footage/daylight-bear/refs/style/react-face.png",
+         ".footage/daylight-bear/refs/brand/landscape-golden.png"
+        ],
+        "videos": [
+         ".footage/daylight-bear/refs/style/clip-one.mp4"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "fBear",
+     "at": 20.07,
+     "anchor": "line:ninety.start+0.5",
+     "until": 26.03,
+     "anchorUntil": "line:chase.start-0.2",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "grain",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Behind the gentleman explorer, a great brown bear rises to its full height out of the dark pines; the explorer turns and sees it, eyes wide, moustache lifting, mouth open, the cane slipping from his hand to the grass; locked-off wide that holds both of them, 35mm; golden backlight through the trunks, dust and pollen in the beams; painted storybook realism, soft painterly shading, matte-painting brushwork, shallow depth of field, warm rim light, volumetric haze, fine film grain, comic and never gory. His face matches @Image3, his costume matches @Image1 and @Image2, the world matches @Image4, motion as in @Video1.",
+       "negative": "text, logos, real people, blood, gore, thick black outlines, cel shading, flat vector cartoon",
+       "refs": {
+        "images": [
+         ".footage/daylight-bear/refs/style/walk-4s.png",
+         ".footage/daylight-bear/refs/style/walk-7s.png",
+         ".footage/daylight-bear/refs/style/react-face.png",
+         ".footage/daylight-bear/refs/brand/landscape-golden.png"
+        ],
+        "videos": [
+         ".footage/daylight-bear/refs/style/clip-one.mp4"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "fChase",
+     "at": 26.03,
+     "anchor": "line:chase.start-0.2",
+     "until": 33.1,
+     "anchorUntil": "line:close.start-0.3",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "grain",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "The gentleman explorer, without his cane, bolts away down the forest path, holding his pith helmet on with one hand, the great brown bear lolloping after him; side-on tracking shot running with them, 35mm; golden hour light strobing between the pine trunks, dust kicked up from the path; painted storybook realism, soft painterly shading, matte-painting brushwork, shallow depth of field, warm rim light, volumetric haze, fine film grain, comic chase, never gory. Character matches @Image1, @Image2 and @Image3, world matches @Image4, motion as in @Video1.",
+       "negative": "text, logos, real people, blood, gore, thick black outlines, cel shading, flat vector cartoon",
+       "refs": {
+        "images": [
+         ".footage/daylight-bear/refs/style/walk-4s.png",
+         ".footage/daylight-bear/refs/style/walk-7s.png",
+         ".footage/daylight-bear/refs/style/react-face.png",
+         ".footage/daylight-bear/refs/brand/landscape-golden.png"
+        ],
+        "videos": [
+         ".footage/daylight-bear/refs/style/clip-one.mp4"
+        ]
+       },
+       "seconds": "auto",
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "chart",
+   "name": "Cost basis vs market value (a card in the lower right, the two lines drawn over it)",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cardA",
+     "at": 10.27,
+     "anchor": "line:chart.start-0.3",
+     "until": 25.63,
+     "anchorUntil": "line:ninety.end",
+     "params": {
+      "piece": "card",
+      "width": "40vw",
+      "height": "34vh",
+      "leftVw": 76,
+      "topVh": 60,
+      "header": {
+       "identity": {
+        "name": "Acorn",
+        "sub": "$ACORN · an example token, invented for this trailer"
+       }
+      }
+     }
+    },
+    {
+     "id": "chartA",
+     "at": 10.27,
+     "anchor": "line:chart.start-0.3",
+     "until": 25.63,
+     "anchorUntil": "line:ninety.end",
+     "params": {
+      "piece": "lineChart",
+      "leftVw": 76,
+      "topVh": 60,
+      "plotHeaderPx": 110,
+      "window": {
+       "from": "@chartA",
+       "until": "@chartA.end+0.4"
+      },
+      "series": [
+       {
+        "label": "Value",
+        "color": "#e8b04b",
+        "kind": "area",
+        "format": {
+         "prefix": "$",
+         "decimals": 0
+        },
+        "points": [
+         {
+          "at": "@chartA+0.3",
+          "v": 100
+         },
+         {
+          "at": "@chartA+1.4",
+          "v": 114
+         },
+         {
+          "at": "@chartA+2.5",
+          "v": 131
+         },
+         {
+          "at": "@chartA+3.6",
+          "v": 149
+         },
+         {
+          "at": "@chartA+4.8",
+          "v": 166
+         },
+         {
+          "at": "@chartA+6.0",
+          "v": 178
+         },
+         {
+          "at": "@chartA.end-0.6",
+          "v": 190
+         }
+        ]
+       },
+       {
+        "label": "Total cost",
+        "color": "#8aa0b8",
+        "kind": "dotted",
+        "format": {
+         "prefix": "$",
+         "decimals": 0
+        },
+        "points": [
+         {
+          "at": "@chartA+0.3",
+          "v": 96
+         },
+         {
+          "at": "@chartA+1.4",
+          "v": 97
+         },
+         {
+          "at": "@chartA+2.5",
+          "v": 98
+         },
+         {
+          "at": "@chartA+3.6",
+          "v": 99
+         },
+         {
+          "at": "@chartA+4.8",
+          "v": 99
+         },
+         {
+          "at": "@chartA+6.0",
+          "v": 100
+         },
+         {
+          "at": "@chartA.end-0.6",
+          "v": 100
+         }
+        ]
+       }
+      ],
+      "pin": {
+       "at": "@buyMoment-1.6",
+       "label": "Holders up 90%",
+       "seriesIdx": 0
+      },
+      "cardWidthVw": 40,
+      "cardHeightVh": 34
+     }
+    },
+    {
+     "id": "cardB",
+     "at": 26.03,
+     "anchor": "line:chase.start-0.2",
+     "until": 33.1,
+     "anchorUntil": "line:chase.end+0.4",
+     "params": {
+      "piece": "card",
+      "width": "40vw",
+      "height": "34vh",
+      "leftVw": 76,
+      "topVh": 60,
+      "header": {
+       "identity": {
+        "name": "Acorn",
+        "sub": "$ACORN · an example token, invented for this trailer"
+       }
+      }
+     }
+    },
+    {
+     "id": "chartB",
+     "at": 26.03,
+     "anchor": "line:chase.start-0.2",
+     "until": 33.1,
+     "anchorUntil": "line:chase.end+0.4",
+     "params": {
+      "piece": "lineChart",
+      "leftVw": 76,
+      "topVh": 60,
+      "plotHeaderPx": 110,
+      "window": {
+       "from": "@chartB",
+       "until": "@chartB.end+0.3"
+      },
+      "series": [
+       {
+        "label": "Value",
+        "color": "#e8b04b",
+        "kind": "area",
+        "format": {
+         "prefix": "$",
+         "decimals": 0
+        },
+        "points": [
+         {
+          "at": "@chartB+0.2",
+          "v": 190
+         },
+         {
+          "at": "@chartB+1.0",
+          "v": 171
+         },
+         {
+          "at": "@chartB+1.9",
+          "v": 150
+         },
+         {
+          "at": "@chartB+2.8",
+          "v": 131
+         },
+         {
+          "at": "@chartB+3.7",
+          "v": 115
+         },
+         {
+          "at": "@chartB.end-0.4",
+          "v": 103
+         }
+        ]
+       },
+       {
+        "label": "Total cost",
+        "color": "#8aa0b8",
+        "kind": "dotted",
+        "format": {
+         "prefix": "$",
+         "decimals": 0
+        },
+        "points": [
+         {
+          "at": "@chartB+0.2",
+          "v": 100
+         },
+         {
+          "at": "@chartB+1.9",
+          "v": 101
+         },
+         {
+          "at": "@chartB.end-0.4",
+          "v": 101
+         }
+        ]
+       }
+      ],
+      "pin": {
+       "at": "@chartB+0.4",
+       "label": "You bought here",
+       "seriesIdx": 0
+      },
+      "cardWidthVw": 40,
+      "cardHeightVh": 34
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "name": "Reveal & close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "flip",
+     "at": 33,
+     "anchor": "line:close.start-0.4",
+     "params": {
+      "piece": "channelFlip",
+      "durationMs": 380
+     }
+    },
+    {
+     "id": "mark",
+     "at": 33.4,
+     "anchor": "line:close.start",
+     "until": 39.03,
+     "anchorUntil": "line:close.end-1.0",
+     "params": {
+      "piece": "logoReveal",
+      "wordmark": "DAYLIGHT",
+      "plateText": "the on-chain survival kit",
+      "poweredText": "powered by Blocktronics"
+     }
+    },
+    {
+     "id": "markUp",
+     "at": 33.9,
+     "anchor": "line:close.start+0.5"
+    },
+    {
+     "id": "wordmark",
+     "at": 34.4,
+     "anchor": "line:close.start+1.0"
+    },
+    {
+     "id": "plate",
+     "at": 35,
+     "anchor": "line:close.start+1.6"
+    },
+    {
+     "id": "powered",
+     "at": 35.6,
+     "anchor": "line:close.start+2.2"
+    },
+    {
+     "id": "morph",
+     "at": 38.43,
+     "anchor": "line:close.end-1.6",
+     "params": {
+      "label": "the logo reveal morphs out before the end card"
+     }
+    },
+    {
+     "id": "endcard",
+     "at": 39.03,
+     "anchor": "line:close.end-1.0",
+     "until": 42.23,
+     "anchorUntil": "line:close.end+2.2",
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "note": "Daylight reads what the holders paid before you buy.",
+      "chips": [
+       "Contains AI-generated footage",
+       "Example token, not investment advice",
+       "Powered by Blocktronics"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "name": "Captions",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cap1",
+     "at": 3,
+     "anchor": "line:stroll.start",
+     "until": 9.87,
+     "anchorUntil": "line:stroll.end",
+     "params": {
+      "piece": "caption",
+      "text": "A fine afternoon on the chain. Our man walks the ridge, cane in hand, entirely untroubled by the market."
+     }
+    },
+    {
+     "id": "cap2",
+     "at": 10.57,
+     "anchor": "line:chart.start",
+     "until": 18.87,
+     "anchorUntil": "line:chart.end",
+     "params": {
+      "piece": "caption",
+      "text": "Two lines. What the holder base paid for it, and what it is worth today. The gap is profit, and all of it belongs to somebody else."
+     }
+    },
+    {
+     "id": "cap3",
+     "at": 19.57,
+     "anchor": "line:ninety.start",
+     "until": 25.63,
+     "anchorUntil": "line:ninety.end",
+     "params": {
+      "piece": "caption",
+      "text": "Holders are up ninety percent on what they paid. And a newcomer, bless him, chooses this precise moment to buy."
+     }
+    },
+    {
+     "id": "cap4",
+     "at": 26.23,
+     "anchor": "line:chase.start",
+     "until": 32.7,
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "piece": "caption",
+      "text": "This is what buying from people in profit looks like. The gentleman is fine. Probably."
+     }
+    },
+    {
+     "id": "cap5",
+     "at": 33.4,
+     "anchor": "line:close.start",
+     "until": 40.03,
+     "anchorUntil": "line:close.end",
+     "params": {
+      "piece": "caption",
+      "text": "Daylight. It reads what the holders paid, before you buy. Do try to look behind you."
+     }
+    }
+   ]
+  },
+  {
+   "id": "beats",
+   "name": "Beats",
+   "kind": "marker",
+   "clips": [
+    {
+     "id": "buyMoment",
+     "at": 22.77,
+     "anchor": "line:ninety.start+3.2",
+     "params": {
+      "label": "the newcomer buys at the top of the gap"
+     }
+    },
+    {
+     "id": "bearRises",
+     "at": 25.83,
+     "anchor": "line:ninety.end+0.2",
+     "params": {
+      "label": "the bear rises from the pines"
+     }
+    },
+    {
+     "id": "collapse",
+     "at": 26.63,
+     "anchor": "line:chase.start+0.4",
+     "params": {
+      "label": "value falls back to total cost"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lines",
+   "name": "Narration lines",
+   "kind": "marker",
+   "locked": true,
+   "clips": [
+    {
+     "id": "__line-stroll",
+     "at": 3,
+     "until": 9.87,
+     "anchor": "line:stroll.start",
+     "anchorUntil": "line:stroll.end",
+     "params": {
+      "label": "stroll"
+     }
+    },
+    {
+     "id": "__line-chart",
+     "at": 10.57,
+     "until": 18.87,
+     "anchor": "line:chart.start",
+     "anchorUntil": "line:chart.end",
+     "params": {
+      "label": "chart"
+     }
+    },
+    {
+     "id": "__line-ninety",
+     "at": 19.57,
+     "until": 25.63,
+     "anchor": "line:ninety.start",
+     "anchorUntil": "line:ninety.end",
+     "params": {
+      "label": "ninety"
+     }
+    },
+    {
+     "id": "__line-chase",
+     "at": 26.23,
+     "until": 32.7,
+     "anchor": "line:chase.start",
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "label": "chase"
+     }
+    },
+    {
+     "id": "__line-close",
+     "at": 33.4,
+     "until": 40.03,
+     "anchor": "line:close.start",
+     "anchorUntil": "line:close.end",
+     "params": {
+      "label": "close"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vo",
+   "name": "Narration (estimated until the mix is built)",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "vo01",
+     "at": 3,
+     "until": 4.77,
+     "params": {
+      "label": "stroll · seg 1"
+     }
+    },
+    {
+     "id": "vo02",
+     "at": 5.07,
+     "until": 9.86,
+     "params": {
+      "label": "stroll · seg 2"
+     }
+    },
+    {
+     "id": "vo03",
+     "at": 10.58,
+     "until": 13.2,
+     "params": {
+      "label": "chart · seg 3"
+     }
+    },
+    {
+     "id": "vo04",
+     "at": 13.51,
+     "until": 16.52,
+     "params": {
+      "label": "chart · seg 4"
+     }
+    },
+    {
+     "id": "vo05",
+     "at": 16.9,
+     "until": 18.9,
+     "params": {
+      "label": "chart · seg 5"
+     }
+    },
+    {
+     "id": "vo06",
+     "at": 19.61,
+     "until": 21.87,
+     "params": {
+      "label": "ninety · seg 6"
+     }
+    },
+    {
+     "id": "vo07",
+     "at": 22.21,
+     "until": 25.68,
+     "params": {
+      "label": "ninety · seg 7"
+     }
+    },
+    {
+     "id": "vo08",
+     "at": 26.28,
+     "until": 29.52,
+     "params": {
+      "label": "chase · seg 8"
+     }
+    },
+    {
+     "id": "vo09",
+     "at": 29.89,
+     "until": 30.95,
+     "params": {
+      "label": "chase · seg 9"
+     }
+    },
+    {
+     "id": "vo10",
+     "at": 32.02,
+     "until": 32.76,
+     "params": {
+      "label": "chase · seg 10"
+     }
+    },
+    {
+     "id": "vo11",
+     "at": 33.52,
+     "until": 34.14,
+     "params": {
+      "label": "close · seg 11"
+     }
+    },
+    {
+     "id": "vo12",
+     "at": 34.46,
+     "until": 37.51,
+     "params": {
+      "label": "close · seg 12"
+     }
+    },
+    {
+     "id": "vo13",
+     "at": 38.41,
+     "until": 39.77,
+     "params": {
+      "label": "close · seg 13"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bed",
+   "name": "Music bed",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "bed",
+     "at": 0,
+     "until": 53.41,
+     "params": {
+      "label": "Painted adventure score for a storybook forest film: warm st"
+     }
+    }
+   ]
+  }
+ ]
+}

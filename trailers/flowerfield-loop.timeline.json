@@ -1,0 +1,61 @@
+{
+ "name": "flowerfield-loop",
+ "end": 11,
+ "blackoutAt": 11,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "A perfect loop of Colby's Meshy still (2026-09-07 23:25): the explorer asleep in the flower meadow; clouds drift, he snores, flowers sway. The still is the first AND the last frame so the loop closes by construction; npm run loop then trims the duplicate frame and evens the pace.",
+ "tracks": [
+  {
+   "id": "loop",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "meadow",
+     "at": 0,
+     "until": 10,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art frame very gently, as a seamless ambient loop that arrives back exactly where it began. The clouds drift a little to the right, slowly and evenly, and settle back; the sleeping explorer's chest rises and falls with slow breaths, his moustache lifting slightly on each snore, his boots and hands otherwise still; the tall grass and the purple, white and yellow flowers sway very gently in a light breeze, a soft ripple crossing the meadow; the distant mountains, the satchel and the cane do not move. Continuous, even, unhurried motion from the first frame to the last, with no pause and no change of speed. Static camera, no zoom, no pan. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the frame. No text, no logos.",
+       "negative": "camera movement, zoom, pan, fast motion, jump cut, morphing, warping, blur, smoothing, anti-aliasing, style change, text, logos, people appearing, animals",
+       "refs": {
+        "images": [
+         ".footage/flowerfield-loop/refs/flowerfield-cloudwatch.png",
+         ".footage/flowerfield-loop/refs/flowerfield-cloudwatch.png"
+        ]
+       },
+       "seconds": 10,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 10,
+     "until": 11,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

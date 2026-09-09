@@ -1,0 +1,61 @@
+{
+ "name": "mothership-sunset-gpt",
+ "kind": "scenes",
+ "comment": "Mothership nautical concept, keyframes REDONE at sunset (Colby, typed 2026-09-08 ~11:10: 'way prettier, at sunset, stunning stills with beautiful cinematography and grading'). Chain B: gpt-image-2. Five cells: K1 the empty sea; SHIP a continuity portrait of the flagship in K1's light; then K2, K3, K4 each drawn from the previous keyframe (scene) plus the ship portrait (identity). Run with --parallel 1: each cell references the one before.",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 11,
+ "subject": "Photoreal live-action cinematography: a full-frame digital cinema camera with a 50 mm anamorphic lens, locked off from a low vantage just above the water, the open sea in the last light of a sunset. A cinematic colour grade of warm amber highlights against cool teal shadows, rich but natural saturation, deep clean blacks, soft halation around the brightest highlights, a faint anamorphic streak, fine 35 mm film grain. Composition on the rule of thirds with a low horizon and a big sky. Stunning, gallery-grade, award-winning cinematography, the kind of frame a film is remembered for. No people, no text, no logos, no flags with symbols.",
+ "negative": "text, letters, logos, watermark, people, crew, pirate flag, skull, black sails, cartoon, illustration, painting, CGI look, blur, oversaturated HDR, flat grey light, overcast grey",
+ "styles": [
+  {
+   "id": "k1-rainbow",
+   "label": "K1 the empty sea, sunset, strong double rainbow",
+   "style": "MOMENT ONE, the establishing frame: the open sea in the golden last minutes of sunset, empty to the horizon, no ship anywhere. The low sun sits behind the camera's left shoulder, out of frame, and its warm horizontal light rakes across the swells, gilding every crest copper and gold while the troughs stay a deep teal blue. Ahead, a receding rain squall forms a dark slate-violet cloud bank lit pink and gold along its edges, and against it a vivid double rainbow arcs across the right two-thirds of the sky, its colours saturated, its outer bow deep red in the low sun. Thin sea mist drifts over the water and glows amber where the light catches it; the horizon glows in a soft band of rose and amber beneath the cloud. Long slow swells roll toward the camera."
+  },
+  {
+   "id": "ship",
+   "label": "SHIP the flagship, a continuity portrait in K1's light",
+   "style": "THE SHIP, a reference portrait for continuity, on exactly the same sea, sky and light as the reference image: a tall three-masted 1800s naval ship of the line, an admiral's flagship, seen from the front quarter under full sail at mid distance, filling about half the frame. A black hull with an ochre-and-cream gun stripe and two rows of closed gunports, gilded carvings on the stern and bow, weathered cream canvas sails taut and glowing warm gold in the low sun, translucent at their edges, dark taut rigging picked out by rim light, a white bow wave curling at the stem, stern lanterns unlit. No people on deck, no flags with symbols.",
+   "refs": {
+    "images": [
+     ".footage/mothership-sunset-gpt/styles/k1-rainbow.png"
+    ]
+   }
+  },
+  {
+   "id": "k2-horizon",
+   "label": "K2 the ship appears on the horizon, rainbow softening",
+   "style": "MOMENT TWO, the same sea, the same camera, the same light, exactly as the first reference image, continuing the shot a few seconds later: the ship of the line from the second reference image has appeared as a tiny, distant shape on the horizon beneath the rainbow, right of centre, its sunlit sails a bright speck of gold against the dark squall; the rainbow has softened a little; a low bank of fog has begun to roll in from the left, glowing amber where the light catches it. Everything else is unchanged: the same swells, the same gilded crests, the same rose-and-amber horizon.",
+   "refs": {
+    "images": [
+     ".footage/mothership-sunset-gpt/styles/k1-rainbow.png",
+     ".footage/mothership-sunset-gpt/styles/ship.png"
+    ]
+   }
+  },
+  {
+   "id": "k3-closer",
+   "label": "K3 the ship at mid distance, fog thickening, rainbow almost gone",
+   "style": "MOMENT THREE, the same sea, camera and light, exactly as the first reference image, continuing the shot: the same ship of the line (the second reference image) has sailed much closer and is now at mid distance, a little right of centre, sails full and glowing warm gold in the low light, its black hull with the ochre gun stripe and its rigging clear, a white bow wave curling; the fog has thickened across the left half of the frame, lit amber from behind the camera; the rainbow is a faint trace, almost gone; the sky has begun to deepen toward dusk while the horizon still glows.",
+   "refs": {
+    "images": [
+     ".footage/mothership-sunset-gpt/styles/k2-horizon.png",
+     ".footage/mothership-sunset-gpt/styles/ship.png"
+    ]
+   }
+  },
+  {
+   "id": "k4-looming",
+   "label": "K4 the ship looming, dusk, lanterns lit, fog everywhere",
+   "style": "MOMENT FOUR, the same sea and camera, exactly as the first reference image, continuing the shot into dusk: the same ship of the line (the second reference image) looms large and close, its bow cutting the water toward the camera, sails and rigging filling most of the frame. The sun has set: the sky above has deepened to violet and indigo, the last ember of the sunset glows in a thin amber line along the horizon behind the ship, and the sails hold only a faint warm afterglow. The stern lanterns and a few gun-deck windows glow warm amber, and thick fog swallows everything but the ship, lit from within by the lantern light. No rainbow left.",
+   "refs": {
+    "images": [
+     ".footage/mothership-sunset-gpt/styles/k3-closer.png",
+     ".footage/mothership-sunset-gpt/styles/ship.png"
+    ]
+   }
+  }
+ ]
+}

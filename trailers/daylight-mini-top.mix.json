@@ -1,0 +1,46 @@
+{
+ "comment": "daylight-mini-top: DRAFT narration on the seed line Colby quoted ('He bought the top. Gravity did the rest.') plus his own close from the cabin chase, for him to rewrite. The bed is the shot's own native sound, padded with silence to 20 s so the builder does not loop it under the card. Gaps are tuned from the contact sheet so 'Gravity did the rest' lands as the sled leaves the cornice. Rebuild: node scripts/build-mix.mjs daylight-mini-top --go",
+ "voices": {
+  "narrator": {
+   "voice_id": "eWJunko7SS6O4LhXC3dC",
+   "name": "The Clipped Newsreel"
+  }
+ },
+ "parts": [
+  {
+   "id": "bought",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-top/bought.vo.mp3",
+   "render": {
+    "text": "[dry] He bought the top.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 1.3
+  },
+  {
+   "id": "gravity",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-top/gravity.vo.mp3",
+   "render": {
+    "text": "[amused] Gravity did the rest.",
+    "voice": "narrator"
+   }
+  },
+  {
+   "gap": 2.82
+  },
+  {
+   "id": "daylight",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-top/daylight.vo.mp3",
+   "render": {
+    "text": "[confident] If only he used Daylight... the on-chain survival kit.",
+    "voice": "narrator"
+   }
+  }
+ ],
+ "bed": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-mini-top/native-padded.wav",
+ "bedGainDb": 0,
+ "duckDb": 4,
+ "prerollSec": 1,
+ "tailSec": 3
+}

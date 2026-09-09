@@ -1,0 +1,60 @@
+{
+ "name": "explorer-wave",
+ "end": 5,
+ "blackoutAt": 5,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Keyable hover animation (Colby 23:05): the explorer on a flat magenta plate as first AND last frame; he waves and returns to rest; the plate is colour-keyed to alpha afterwards (WebM VP9 + HEVC alpha), never shown.",
+ "tracks": [
+  {
+   "id": "sprite",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "wave",
+     "at": 0,
+     "until": 4,
+     "params": {
+      "piece": "footage",
+      "fit": "contain",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art character on his flat magenta plate: he lifts his free hand and gives a cheerful two-beat wave to the viewer, tips his pith helmet slightly with a smile, then settles back into exactly the starting pose. His feet stay planted, the cane stays planted. The ENTIRE background stays one flat, uniform, solid pure magenta (hex FF00FF) for the whole clip: no shadow, no ground, no gradient, no texture, nothing enters the frame. Static camera, no zoom. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette exactly as the frame. No text, no logos.",
+       "negative": "shadow, floor, ground, gradient, background change, scenery, blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, camera movement",
+       "refs": {
+        "images": [
+         ".footage/daylight-sprites/styles/explorer-idle-magenta.png",
+         ".footage/daylight-sprites/styles/explorer-idle-magenta.png"
+        ]
+       },
+       "seconds": 4,
+       "resolution": "1080p",
+       "aspect": "3:4",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 4,
+     "until": 5,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

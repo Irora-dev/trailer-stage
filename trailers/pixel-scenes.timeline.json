@@ -1,0 +1,228 @@
+{
+ "name": "pixel-scenes",
+ "end": 7,
+ "blackoutAt": 7,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Colby, 2026-09-07 22:30: DECIDED pixel art. Animate four of the five Meshy pixel scenes (not the party) as first frames on Seedance 2.0 and on Veo 3.1 (the second model most likely to hold hard pixel edges at 1080p), 1080p, for a side-by-side.",
+ "tracks": [
+  {
+   "id": "pixel",
+   "name": "Four pixel scenes × two models",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "bridge-sd",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The explorer tiptoes forward across the rope bridge, arms out, cane held for balance; behind him the planks snap and tumble one by one into the misty gorge, dust puffing, the ropes swaying; his eyes go wider. Static camera. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/bridge.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "bridge-veo",
+     "at": 0,
+     "until": 6,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/veo3.1/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The explorer tiptoes forward across the rope bridge, arms out, cane held for balance; behind him the planks snap and tumble one by one into the misty gorge, dust puffing, the ropes swaying; his eyes go wider. Static camera. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/bridge.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "rugpull-sd",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The fishing rod bends further and the soggy rug rises higher out of the lake, swinging on the line, water pouring off it in pixel streams; the little boat rocks and ripples spread; the explorer leans back hauling, his mouth opening wider in surprise; mist drifts. Static camera. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/rugpull.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "rugpull-veo",
+     "at": 0,
+     "until": 6,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/veo3.1/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The fishing rod bends further and the soggy rug rises higher out of the lake, swinging on the line, water pouring off it in pixel streams; the little boat rocks and ripples spread; the explorer leans back hauling, his mouth opening wider in surprise; mist drifts. Static camera. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/rugpull.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "campfire-sd",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The campfire flickers and embers rise; the glowing card lights the explorer's face as he reads and gives a small satisfied nod; in the dark between the trees the pairs of eyes blink and a few more pairs appear; stars twinkle; the cabin smoke drifts. Static camera. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/campfire.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "campfire-veo",
+     "at": 0,
+     "until": 6,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/veo3.1/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The campfire flickers and embers rise; the glowing card lights the explorer's face as he reads and gives a small satisfied nod; in the dark between the trees the pairs of eyes blink and a few more pairs appear; stars twinkle; the cabin smoke drifts. Static camera. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/campfire.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "sled-sd",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The explorer sleds down the slope on his satchel, cane raised, snow spraying from the runners, while the avalanche of giant gold coins tumbles after him and gains, coins bouncing past and rolling; the pines rush by. The camera tracks down the slope with him. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/sled.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "sled-veo",
+     "at": 0,
+     "until": 6,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/veo3.1/image-to-video",
+       "prompt": "Animate this exact pixel-art frame. The explorer sleds down the slope on his satchel, cane raised, snow spraying from the runners, while a rolling wave of big round yellow discs tumbles down the slope after him and gains, discs bouncing past and rolling; the pines rush by. The camera tracks down the slope with him. Every edge stays hard 16-bit pixel art: no blur, no anti-aliasing, no smoothing; the palette and dithering exactly as the first frame; sprites move in crisp steps. No text, no logos.",
+       "negative": "blur, smoothing, anti-aliasing, style change, morphing, warping, text, logos, real people, extra limbs",
+       "refs": {
+        "images": [
+         ".footage/daylight-scenes-pixel/styles/sled.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 6,
+     "until": 7,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

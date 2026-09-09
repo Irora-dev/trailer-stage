@@ -1,0 +1,107 @@
+{
+ "name": "daylight-minis-keys-3",
+ "kind": "scenes",
+ "comment": "Eight NEW mini-trailer concepts (Colby, 2026-09-08 23:5x: 'different new mini concepts, not the other ones'), drawn as keyframes so he can pick from pictures: the honeypot (in easy, out hard) · the whale (one holder moved) · the rocket (it went up, briefly) · the copy trader (a step late, off the jetty) · the bag holder (everyone was generous with their bags) · the lookout (he had a telescope) · tug of war (holders were on his side, briefly) · buy the dip (it was a hole). Photoreal, the Daylight world of the basement-bull pieces; B from behind, the explorer from behind, hoods faceless, so the first frames pass the likeness checker. Twelve credits each; nothing rendered to video until he picks.",
+ "provider": "meshy",
+ "model": "meshy/gpt-image-2",
+ "size": "landscape_16_9",
+ "seed": 31,
+ "subject": "Live-action documentary realism, a frame from a film shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare, fine film grain, true-to-life colour. Late golden hour, the low sun raking in from the side, long warm shadows, warm rim light. No text, no signs, no lettering, no logos, no real or recognisable person, a generic energy drink can with no logo.",
+ "negative": "text, letters, signs, logos, brand names, watermark, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, celebrity likeness, blood, gore, a visible face on the young man, a visible face on the explorer, visible faces under hoods",
+ "styles": [
+  {
+   "id": "honeypot",
+   "label": "the honeypot: arm in to the elbow, the explorer walks past with his lid on",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide, static camera, eye level, a forest clearing at late golden hour. A broad tree stump stands in the centre with a fat clay honey pot on it, its lid lying beside it; the young man from the reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat pulled low, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), seen from behind and to the side so his face is hidden, has his whole forearm plunged into the pot to the elbow and is leaning back, feet braced, pulling. In the near foreground at the right the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel), seen from behind, walks past carrying his own small honey jar with its lid screwed firmly on, not looking. A few bees drifting in the light, long warm shadows.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "whale",
+   "label": "the whale: a rowing boat on a glass lake, the pier at the right",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide side view, static camera, a calm mountain lake at late golden hour, the water like glass, snow-capped mountains behind. In the middle distance a small wooden rowing boat with the young man from the other reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) seated in it, seen from behind, fishing with a rod, one matte black energy drink can with a plain green stripe on the seat beside him. At the right a short wooden pier where the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel), seen from behind, sits on the end fishing with his legs dangling over the water. Nothing disturbs the surface. Long gold light across the lake.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "rocket",
+   "label": "the rocket: lighting the fuse at dusk, the explorer in a deckchair",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide, static camera, eye level, a meadow at the forest edge at dusk, the first stars out, the sky deep blue above a last band of orange. In the centre a tall firework rocket on a wooden launch stand, its long fuse hanging down; the young man from the other reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), seen from behind, crouches at its base holding a lit match to the fuse, one matte black energy drink can with a plain green stripe in his other hand. At the right the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet), seen from behind, sits in a folding canvas deckchair with a tartan blanket over his knees and a tin mug, watching. Dew on the grass.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "copytrader",
+   "label": "the copy trader: two steps behind on the jetty, the boat at the end",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide side view, static camera, a wooden jetty on a mountain lake at late golden hour, running from the shore at the right of the frame out over the water to the left, where a small wooden rowing boat is moored at its end. Walking along the jetty toward the boat, seen from behind, the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel, worn boots), one hand on his satchel; exactly two steps behind him, copying his stride, the young man from the other reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), seen from behind, a phone held up in one hand and one matte black energy drink can with a plain green stripe in the other. The water glassy and dark under the jetty, long gold light.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "bagholder",
+   "label": "the bag holder: climbing with one sack, the coats coming down with theirs",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide, static camera, eye level, a meadow path rising from the right foreground to a bare hilltop at the left against the sunset sky. Climbing the path, seen from behind, the young man from the reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), one plain burlap sack slung proudly over his shoulder. Coming down the path toward him in single file, five identical figures in long grey hooded raincoats, hoods up, faces lost in shadow, each carrying an identical plain burlap sack, the nearest already holding its sack out to him with both hands. Long warm shadows down the slope.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "lookout",
+   "label": "the lookout: the explorer's telescope on the tower, the picnic below",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm very wide, static camera, a forest clearing at late golden hour. At the left a tall wooden lookout tower on four legs with a ladder and a small railed platform on top, where the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel), seen from behind, stands with a long brass telescope to his eye, aimed at the dark trees at the right of the frame. Below in the golden meadow, nearer the camera, the young man from the other reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), seen from behind, sits on a tartan picnic blanket with a basket, a sandwich in one hand and one matte black energy drink can with a plain green stripe beside him, his back to the dark trees at the right. Nothing else in the frame. Long warm shadows.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "tugofwar",
+   "label": "tug of war: B and the coats on the rope, the bear at the water's edge",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide side view, static camera, eye level, a meadow at late golden hour with a shallow lake at the left edge of the frame. A long thick rope stretches across the frame. At its right end, heaving backwards on it, the young man from the reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat pulled low so his face is hidden, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides) at the very back, and in front of him on the rope five identical figures in long grey hooded raincoats, hoods up, faces lost in shadow, all leaning back and hauling. At the left end of the rope, at the water's edge, a huge brown grizzly bear with real fur and mass stands on all fours with the rope clamped in its jaws, hauling the other way. Dust kicked up, long warm shadows.",
+   "refs": {
+    "images": [
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  },
+  {
+   "id": "dip",
+   "label": "buy the dip: mid-jump into the hole in the path, the explorer walking round it",
+   "style": "A single film frame, the first frame of this shot: locked-off 35 mm wide side view, static camera, eye level, a dirt path through a sunset pine forest crossing the frame from right to left. In the middle of the path a wide, deep hole with steep earth sides, a sudden dip, its bottom in shadow. At the right edge of the hole the young man from the other reference images (the same soft, round-shouldered, heavy-set body, lime-green bucket hat, washed-out grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides), seen from behind, is at the top of a gleeful jump toward the hole, knees tucked, one shiny gold coin held high in one hand. At the left the explorer from the first reference image (the same khaki many-pocketed safari jacket, pith helmet, leather satchel), seen from behind, walks calmly around the hole along its far edge without looking. Long warm shadows, dust in the light.",
+   "refs": {
+    "images": [
+     ".footage/daylight-bear-live/refs/style/explorer-live-6s.png",
+     ".footage/basement-char-b/styles/back.png",
+     ".footage/basement-char-b/styles/threeq.png"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,83 @@
+{
+ "name": "style-action-2",
+ "end": 6,
+ "blackoutAt": 6,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Colby, 2026-09-08 09:45: the bear chase in claymation and paper cut-out, each Meshy keyframe as the first frame on Seedance 2.0 at 1080p.",
+ "tracks": [
+  {
+   "id": "chase",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "clay",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as a comic chase, keeping its art style, materials, palette and character design unchanged. The explorer sprints to the right along the ridge path, legs pumping, coat tails flying, one hand clamping his pith helmet, the cane held high; the bear gallops after him from the left, gaining, dust and pine needles flying, its fur bouncing; the trees sway with the wind. The camera tracks sideways with the runners so they stay in frame. Fast, energetic, comic, never gory. The stop-motion claymation look stays exactly as the frame: sculpted plasticine figures with fingerprints, felt trees, a painted backdrop, tilt-shift focus; the motion may have the slight stepped quality of stop-motion. No text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, blood, gore, extra limbs, flicker",
+       "refs": {
+        "images": [
+         ".footage/explorer-chase-keyframes-2/styles/clay.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "papercut",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as a comic chase, keeping its art style, materials, palette and character design unchanged. The explorer sprints to the right along the ridge path, legs pumping, coat tails flying, one hand clamping his pith helmet, the cane held high; the bear gallops after him from the left, gaining, dust and pine needles flying, its fur bouncing; the trees sway with the wind. The camera tracks sideways with the runners so they stay in frame. Fast, energetic, comic, never gory. The paper cut-out diorama look stays exactly as the frame: every element a flat cut sheet of textured card with real drop shadows; figures move like layered paper puppets, limbs swinging as hinged card pieces, the paper never bends or blurs. No text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, blood, gore, extra limbs, flicker",
+       "refs": {
+        "images": [
+         ".footage/explorer-chase-keyframes-2/styles/papercut.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 5,
+     "until": 6,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

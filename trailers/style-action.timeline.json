@@ -1,0 +1,108 @@
+{
+ "name": "style-action",
+ "end": 6,
+ "blackoutAt": 6,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Colby, 2026-09-07 22:05: action-based shots to judge the styles. The same chase keyframe (Meshy, per style) as the first frame on Seedance 2.0 image-to-video at 1080p.",
+ "tracks": [
+  {
+   "id": "chase",
+   "name": "The chase in three styles",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "painterly",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as a comic chase, keeping its art style, palette, line and character design unchanged. The explorer sprints to the right along the ridge path, legs pumping, coat tails flying, one hand clamping his pith helmet, the cane held high; the bear gallops after him from the left, gaining, dust and pine needles flying, its fur bouncing; the trees and the smoke drift with the wind. The camera tracks sideways with the runners so they stay in frame. Fast, energetic, comic, never gory. The soft painterly 3D rendering stays exactly as the frame. No text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, blood, gore, extra limbs, flicker",
+       "refs": {
+        "images": [
+         ".footage/explorer-chase-keyframes/styles/painterly.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "crt-vaultboy",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as a comic chase, keeping its art style, palette, line and character design unchanged. The explorer sprints to the right along the ridge path, legs pumping, coat tails flying, one hand clamping his pith helmet, the cane held high; the bear gallops after him from the left, gaining, dust and pine needles flying, its fur bouncing; the trees and the smoke drift with the wind. The camera tracks sideways with the runners so they stay in frame. Fast, energetic, comic, never gory. The thick cartoon lines and sepia palette stay as the frame; the curved CRT screen edge, scanlines and glow stay perfectly fixed while the scene inside moves. No text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, blood, gore, extra limbs, flicker",
+       "refs": {
+        "images": [
+         ".footage/explorer-chase-keyframes/styles/crt-vaultboy.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "pixel",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Animate this exact frame as a comic chase, keeping its art style, palette, line and character design unchanged. The explorer sprints to the right along the ridge path, legs pumping, coat tails flying, one hand clamping his pith helmet, the cane held high; the bear gallops after him from the left, gaining, dust and pine needles flying, its fur bouncing; the trees and the smoke drift with the wind. The camera tracks sideways with the runners so they stay in frame. Fast, energetic, comic, never gory. Every edge stays hard pixel art with no blur and no anti-aliasing; the sprites move in crisp steps; the palette and dithering stay as the frame. No text, no logos.",
+       "negative": "text, logos, real people, style change, morphing, warping, blood, gore, extra limbs, flicker",
+       "refs": {
+        "images": [
+         ".footage/explorer-chase-keyframes/styles/pixel.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 5,
+     "until": 6,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

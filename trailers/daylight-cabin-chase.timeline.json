@@ -1,0 +1,75 @@
+{
+ "name": "daylight-cabin-chase",
+ "end": 14,
+ "blackoutAt": 12.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking across the clearing from the west, long warm shadows of the cabin and the trees across the golden grass, warm rim light on the treetops.",
+  "physics": "Physics: feet stay on the ground, the runner keeps the can in his hand, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, exactly one man on the roof, one runner and one bear, and nobody leaves the path or the roof.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Colby, typed 2026-09-08 22:19: a trial clip. The forest cabin from above, the explorer (the old character) chilling on the rooftop, the bucket-hat character running round the cabin chased by the bear, the explorer watching on. One Seedance shot from a gpt-image-2 keyframe (board daylight-cabin-chase-keys), 480p probe first, then 1080p with native audio; the trial is cut straight from the master.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "chase",
+     "at": 0,
+     "until": 12,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Locked-off top-down drone view looking straight down on the cabin, static camera, no push, no zoom, no pan, one single unbroken twelve-second take from this one camera only. Start exactly from the first frame and continue the same continuous take without any cut. The camera never changes position, height or angle for the whole take: there is no cutaway, no insert, no second angle, no ground-level shot, no close-up, and the top-down view of the whole cabin and the whole path holds from the first frame to the last. The log cabin stands in the centre of the frame in its clearing of dry golden grass, the tops of the pines around the edges, a worn dirt path running all the way round the cabin close to its walls; the explorer in the khaki safari jacket and pith helmet sits at ease on the roof ridge with his tin mug, and on the path below at the cabin's bottom-left corner the young man in the lime-green bucket hat (soft, round-shouldered, heavy-set, washed-out grey hoodie, giant black headphones round his neck, baggy black cargo shorts, long white tube socks in black slides, one matte black can with a green stripe in his hand) is mid-sprint with a huge brown grizzly bear one stride behind him. The young man sprints clockwise round and round the cabin along the path, hugging the walls, and the bear stays one stride behind him at the same pace all the way, so the pair round every corner and pass along every wall in turn and complete about two full laps by the end of the take. The explorer never leaves his spot on the roof ridge: he sits at ease, sips from the tin mug, turns his head lazily to watch them go round below him, and raises the mug in a small toast as they pass. Sound: two sets of running footsteps circling the cabin, panicked gasping breath, the bear's grunting and one roar, birds in the pines, a quiet slurp from the mug. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun, fine film grain, true-to-life colour. Late golden hour, the low sun raking across the clearing from the west, long warm shadows of the cabin and the trees across the golden grass, warm rim light on the treetops. Physics: feet stay on the ground, the runner keeps the can in his hand, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, exactly one man on the roof, one runner and one bear, and nobody leaves the path or the roof. No text, no logos.",
+       "negative": "cartoon, animation, illustration, CGI look, plastic skin, camera movement, zoom, pan, cutaway, insert shot, second camera angle, ground-level shot, close-up, shot change, cut, camera change, a second can, a second bear, a second runner, a second explorer, blood, gore",
+       "refs": {
+        "images": [
+         ".footage/daylight-cabin-chase-keys/styles/topdown.png"
+        ]
+       },
+       "takes": 2,
+       "use": 2,
+       "seconds": 12,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 12.6,
+     "until": 14,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

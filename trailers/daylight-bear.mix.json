@@ -1,0 +1,90 @@
+{
+  "comment": "daylight-bear: compiled by scripts/draft.mjs from briefs/daylight-bear.md. Rebuild: npm run mix -- daylight-bear",
+  "voices": {
+    "narrator": {
+      "voice_id": "eWJunko7SS6O4LhXC3dC",
+      "name": "The Clipped Newsreel"
+    }
+  },
+  "parts": [
+    {
+      "id": "stroll",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear-stroll.vo.mp3",
+      "render": {
+        "text": "[warmly] A fine afternoon on the chain. Our man walks the ridge, cane in hand... entirely UNTROUBLED by the market.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 0.7
+    },
+    {
+      "id": "chart",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear-chart.vo.mp3",
+      "render": {
+        "text": "[matter-of-fact] Two lines. What the holder base PAID for it, and what it is worth today. The gap is profit... and all of it belongs to somebody else.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 0.7
+    },
+    {
+      "id": "ninety",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear-ninety.vo.mp3",
+      "render": {
+        "text": "[amused] Holders are up ninety percent on what they paid. And a newcomer, bless him, chooses THIS precise moment to buy.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 0.6
+    },
+    {
+      "id": "chase",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear-chase.vo.mp3",
+      "render": {
+        "text": "[dry] This... is what buying from people in profit looks like. The gentleman is fine. PROBABLY.",
+        "voice": "narrator"
+      }
+    },
+    {
+      "gap": 0.7
+    },
+    {
+      "id": "close",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear-close.vo.mp3",
+      "render": {
+        "text": "[confident] Daylight. It reads what the holders paid, before you buy. [amused] Do try to look behind you.",
+        "voice": "narrator"
+      }
+    }
+  ],
+  "bed": "/Users/colbymort/Irora-dev/irora-os/ledger/2026/W31/2026-07-27/1843-daylight-explorer-narrator-sound-effects/outputs/wave4-cheeky/mixes/bed-b-radio.mp3",
+  "bedGainDb": 0,
+  "duckDb": 6,
+  "prerollSec": 3,
+  "tailSec": 3,
+  "sfx": [
+    {
+      "at": 35.66,
+      "anchor": "line:ninety.end+0.2",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear-sfxBear.sfx.mp3",
+      "gainDb": -11,
+      "render": {
+        "prompt": "A single deep brown bear growl rising to a short roar, close, dry forest air, no music",
+        "seconds": 3
+      }
+    },
+    {
+      "at": 35.86,
+      "anchor": "line:chase.start-0.2",
+      "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-bear/daylight-bear-sfxRun.sfx.mp3",
+      "gainDb": -14,
+      "render": {
+        "prompt": "Fast boots scrambling on a dirt forest path, breaking twigs and rustling ferns, receding, no music",
+        "seconds": 4
+      }
+    }
+  ]
+}

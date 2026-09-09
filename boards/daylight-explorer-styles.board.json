@@ -1,0 +1,30 @@
+{
+ "name": "daylight-explorer-styles",
+ "comment": "The first style board (2026-09-07, Colby: 'any ways to test different animation/cartoon styles before we do the costly video gen?'). One subject, twelve looks, three cents each on Seedream 4 edit with the mascot face and the golden landscape as references. The winner becomes refs/style/ for the next Daylight piece.",
+ "provider": "fal",
+ "model": "fal-ai/bytedance/seedream/v4/edit",
+ "size": "landscape_16_9",
+ "seed": 7,
+ "subject": "A 16:9 film frame, medium-wide, three-quarter view from behind: the Daylight explorer, an elderly British gentleman (khaki pith helmet, big white walrus moustache, a single gold-rimmed monocle on a fine chain over one eye, many-pocketed khaki safari jacket, leather satchel on a shoulder strap, green trousers, sturdy laced boots, a wooden cane) walks along a pine-forest ridge path at golden hour toward snow-capped mountains; a log cabin with lit windows sits below among the pines; low sun, long warm shadows, haze between the ridges. His identity follows @Image1 (face, helmet, moustache, monocle); the world follows @Image2.",
+ "negative": "text, letters, logos, watermark, real people, extra limbs, spectacles or a second lens",
+ "refs": {
+  "images": [
+   ".footage/daylight-bear/refs/style/react-face.png",
+   ".footage/daylight-bear/refs/brand/landscape-golden.png"
+  ]
+ },
+ "styles": [
+  { "id": "painterly", "label": "Soft painterly 3D (clip one)", "style": "Soft painterly 3D animation look: a rounded, stylised character with soft subsurface shading and no hard outlines, matte-painting brushwork in the world, cinematic shallow depth of field, warm rim light, volumetric haze, fine film grain." },
+  { "id": "cel", "label": "Flat cel-shaded cartoon", "style": "Flat cel-shaded cartoon: bold clean black outlines, two-tone shading, saturated flat colours, a Saturday-morning animation look, simple graphic background." },
+  { "id": "watercolour", "label": "Storybook watercolour", "style": "Storybook watercolour on cold-pressed paper: loose translucent washes, visible paper grain, soft bleeding edges, fine ink line accents, a muted warm palette." },
+  { "id": "painted-anime", "label": "Hand-painted anime feature", "style": "Hand-painted anime feature-film look: gouache skies with soft cloud shapes, lush painted foliage, a simply drawn character with expressive clean line and flat colour, warm nostalgic light." },
+  { "id": "clay", "label": "Stop-motion claymation", "style": "Stop-motion claymation: a sculpted plasticine character with visible fingerprints, a miniature set of felt trees and a painted backdrop, tilt-shift focus, warm studio lighting." },
+  { "id": "screenprint", "label": "Mid-century screen print", "style": "Mid-century screen print, risograph poster: a limited palette of four inks, halftone textures, slight misregistration, bold simplified shapes, cream paper." },
+  { "id": "inkwash", "label": "Ink and wash comic", "style": "Ink and wash comic illustration: confident brush-ink lines, grey and sepia washes, one spot colour on the sunset, cross-hatching in the shadows." },
+  { "id": "pixel", "label": "16-bit pixel art", "style": "16-bit pixel art: a detailed SNES-era scene, dithered gradients in the sky, a crisp sprite character, pixel-perfect edges." },
+  { "id": "papercut", "label": "Paper cut-out diorama", "style": "Layered paper cut-out diorama: every element a cut sheet of textured card with real drop shadows, tiny paper pines, a paper sun, photographed with a macro lens." },
+  { "id": "poster", "label": "1950s travel poster", "style": "Vintage 1950s national-park travel poster: flat graphic shapes, textured lithograph print, dramatic simplified mountains, a bold warm palette." },
+  { "id": "lowpoly", "label": "Low-poly 3D", "style": "Low-poly 3D render: faceted geometry, flat-shaded triangles, soft global illumination, a clean stylised game look." },
+  { "id": "crt-vaultboy", "label": "CRT vault-boy (the mascot's native look)", "style": "The mascot's native look: a 1950s pin-up cartoon character in a retro CRT vault-boy style, thick clean lines, seen through an old monitor with scanlines, phosphor glow and slight barrel distortion." }
+ ]
+}

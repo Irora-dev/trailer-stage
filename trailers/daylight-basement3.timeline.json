@@ -1,0 +1,604 @@
+{
+ "name": "daylight-basement3",
+ "end": 50.54,
+ "blackoutAt": 48.04,
+ "endAnchor": "line:close.end+3.0",
+ "blackoutAnchor": "line:close.end+0.5",
+ "mix": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-basement3/daylight-basement3.wav",
+ "scene": {
+  "kind": "theme",
+  "overlay": "none"
+ },
+ "blackoutColor": "#000000",
+ "tracks": [
+  {
+   "id": "footage",
+   "name": "The continuous take",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "shot1",
+     "at": 2.7,
+     "anchor": "line:open.start-0.3",
+     "until": 16.7,
+     "anchorUntil": "line:open.start+13.7",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Locked-off 35 mm wide, no camera move, one continuous fourteen-second take. THE CHARACTER is the approved character B: a soft, round-shouldered, heavy-set twenty-two-year-old in a lime-green bucket hat pulled low over thick black-rimmed glasses, a thin doomed moustache, a washed-out plain grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides, one matte black energy drink can with a plain green stripe and a phone in a glittery pink case. He is seen from behind in @Image1; the set is exactly @Image2: a fallen log across the frame, the ONLY can standing on the log, the dense pine forest, the low sun flaring between the trunks behind and to the left. He sits hunched on the log scrolling his phone with his thumb, utterly absorbed; without looking up his hand closes on the can on the log, he takes a long sip, sets the can back down on the log, and keeps scrolling with a small satisfied smirk. A deep roar off screen: he freezes mid-scroll, eyes darting sideways. A huge brown grizzly bear walks in from behind the trees at the left along the path behind the log, rises to its full height behind him and leans over his shoulder to look at the phone too; he keeps scrolling for a beat, then slowly turns his head and sees it. He scrambles up off the log with the phone in his hand and stops at the right edge of the frame, still fully in frame, frozen in a half-crouch, the bear looming behind the log. The shot ends with him fully in frame from head to slides, holding still for a beat, the action keeping its pace to the very last frame. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun behind and to the left, warm rim light, a faint glimpse of snow-capped mountains. Physics: feet stay on the ground, a hand closes on a prop before the prop moves, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, and anything that enters walks in from off-frame or from behind cover along a path. No text, no logos.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, cuts, jump cuts",
+       "refs": {
+        "images": [
+         ".footage/basement-char-b/styles/back.png",
+         ".footage/daylight-basement-world/styles/empty-log.png"
+        ]
+       },
+       "seconds": 14,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      },
+      "rate": 1
+     }
+    },
+    {
+     "id": "shot2",
+     "at": 16.7,
+     "anchor": "line:open.start+13.7",
+     "until": 31.7,
+     "anchorUntil": "line:open.start+28.7",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Start exactly from the first frame and continue the same continuous take without any cut. Handheld, following him down the forest path, then settling as he stops. THE CHARACTER is the approved character B: a soft, round-shouldered, heavy-set twenty-two-year-old in a lime-green bucket hat pulled low over thick black-rimmed glasses, a thin doomed moustache, a washed-out plain grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides, one matte black energy drink can with a plain green stripe and a phone in a glittery pink case. He bolts from the log down the forest path STILL staring at his phone, hat and hoodie flapping, the bear crashing after him through the undergrowth; he clips a low branch with his shoulder and keeps going; he skids to a stop, spins to face the bear and holds the phone out at arm's length like a badge, gasping, his thumb stabbing the screen; the bear slows to a walk, puzzled, and stops two metres from him. The shot ends with him fully in frame from head to slides, holding still for a beat, the action keeping its pace to the very last frame. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun behind and to the left, warm rim light, a faint glimpse of snow-capped mountains. Physics: feet stay on the ground, a hand closes on a prop before the prop moves, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, and anything that enters walks in from off-frame or from behind cover along a path. No text, no logos.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, cuts, jump cuts",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement3/refs/chain/shot1-last.png"
+        ]
+       },
+       "seconds": 15,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      },
+      "rate": 1
+     }
+    },
+    {
+     "id": "shot3",
+     "at": 31.7,
+     "anchor": "line:open.start+28.7",
+     "until": 44.23,
+     "anchorUntil": "line:close.start+2.2",
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "label": "AI-generated",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Start exactly from the first frame and continue the same continuous take without any cut. Static camera, no camera move. THE CHARACTER is the approved character B: a soft, round-shouldered, heavy-set twenty-two-year-old in a lime-green bucket hat pulled low over thick black-rimmed glasses, a thin doomed moustache, a washed-out plain grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides, one matte black energy drink can with a plain green stripe and a phone in a glittery pink case. The bear lunges at him with a roar and at the instant of the lunge bursts into a dense cloud of bright multicoloured paper confetti (red, yellow, blue, green, pink squares of paper), no dust and no smoke; the confetti hangs in the sunbeams and rains down over him; he flinches, blinks, lowers the phone, exhales, picks a piece of confetti off his hoodie... and after a beat looks back down at his phone and goes straight back to scrolling. Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun behind and to the left, warm rim light, a faint glimpse of snow-capped mountains. Physics: feet stay on the ground, a hand closes on a prop before the prop moves, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, and anything that enters walks in from off-frame or from behind cover along a path. No text, no logos.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, blood, gore, explorer hat, cuts, jump cuts",
+       "refs": {
+        "images": [
+         ".footage/daylight-basement3/refs/chain/shot2-last.png"
+        ]
+       },
+       "seconds": 12,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      },
+      "rate": 1,
+      "events": {
+       "pop": 2.2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "data",
+   "name": "Data over the take",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "ghostCard",
+     "at": 16.32,
+     "anchor": "line:chase.start+1.2",
+     "until": 28.79,
+     "anchorUntil": "line:daylight.start+1.5",
+     "params": {
+      "piece": "ghostChart",
+      "from": 4812.4,
+      "to": 2839.1,
+      "prefix": "$",
+      "decimals": 2,
+      "pct": -41,
+      "color": "#ff5a5a",
+      "opacity": 0.55,
+      "blur": 0.6,
+      "blend": "normal",
+      "leftVw": 71,
+      "topVh": 30,
+      "widthVw": 44,
+      "heightVh": 38,
+      "label": "an example, invented for this trailer"
+     }
+    },
+    {
+     "id": "readCard",
+     "at": 29.03,
+     "anchor": "line:daylight.end-10.4",
+     "until": 32.53,
+     "anchorUntil": "line:daylight.end-6.9",
+     "params": {
+      "piece": "card",
+      "opacity": 0.95,
+      "width": "52vw",
+      "height": "24vh",
+      "leftVw": 68,
+      "topVh": 25,
+      "header": {
+       "identity": {
+        "name": "$ACORN read",
+        "sub": "an example token, invented for this trailer",
+        "emoji": "☀"
+       },
+       "right": {
+        "at": "@readCard+0.3",
+        "statsAt": "@readCard+0.5"
+       },
+       "headline": {
+        "text": "Should you touch it? No.",
+        "color": "#dc2626"
+       },
+       "stats": [
+        {
+         "label": "Holders in profit",
+         "value": "91%"
+        },
+        {
+         "label": "Bundled supply",
+         "value": "38%"
+        },
+        {
+         "label": "Top wallets leaving",
+         "value": "6 in the last hour"
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "name": "Reveal & close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "flip",
+     "at": 43.93,
+     "anchor": "line:close.start+1.9",
+     "until": 44.53,
+     "anchorUntil": "line:close.start+2.5",
+     "params": {
+      "piece": "channelFlip",
+      "durationMs": 380
+     }
+    },
+    {
+     "id": "mark",
+     "at": 44.13,
+     "anchor": "line:close.start+2.1",
+     "until": 46.94,
+     "anchorUntil": "line:close.end-0.6",
+     "params": {
+      "piece": "logoReveal",
+      "wordmark": "DAYLIGHT",
+      "plateText": "the on-chain survival kit",
+      "poweredText": "powered by Blocktronics"
+     }
+    },
+    {
+     "id": "markUp",
+     "at": 44.63,
+     "anchor": "line:close.start+2.6"
+    },
+    {
+     "id": "wordmark",
+     "at": 45.03,
+     "anchor": "line:close.start+3.0"
+    },
+    {
+     "id": "plate",
+     "at": 45.53,
+     "anchor": "line:close.start+3.5"
+    },
+    {
+     "id": "powered",
+     "at": 46.03,
+     "anchor": "line:close.start+4.0"
+    },
+    {
+     "id": "morph",
+     "anchor": "line:close.end-1.2",
+     "at": 46.34,
+     "params": {
+      "label": "the logo reveal morphs out before the end card"
+     }
+    },
+    {
+     "id": "endCard",
+     "at": 47.34,
+     "anchor": "line:close.end-0.2",
+     "until": 50.08,
+     "anchorUntil": "voice.end+2.5",
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "note": "Understand the market you are walking into.",
+      "chips": [
+       "Contains AI-generated footage",
+       "Example portfolio and tokens, not investment advice"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "name": "Captions",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "cap-open",
+     "at": 3,
+     "anchor": "line:open.start",
+     "until": 11.15,
+     "anchorUntil": "line:open.end",
+     "params": {
+      "piece": "caption",
+      "text": "Behold the retail investor in his natural habitat. He has done his research... by which we mean he has looked at a green line and felt something."
+     }
+    },
+    {
+     "id": "cap-roar",
+     "at": 11.65,
+     "anchor": "line:roar.start",
+     "until": 14.52,
+     "anchorUntil": "line:roar.end",
+     "params": {
+      "piece": "caption",
+      "text": "Ah. The market would like a word."
+     }
+    },
+    {
+     "id": "cap-chase",
+     "at": 15.12,
+     "anchor": "line:chase.start",
+     "until": 26.79,
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "piece": "caption",
+      "text": "Observe the technique. Run first, check the portfolio second. Down four percent. Down twelve. Down forty. Still holding, though. Tremendously brave."
+     }
+    },
+    {
+     "id": "cap-daylight",
+     "at": 27.29,
+     "anchor": "line:daylight.start",
+     "until": 39.43,
+     "anchorUntil": "line:daylight.end",
+     "params": {
+      "piece": "caption",
+      "text": "And then... a thought. Quite possibly his first today. He opens Daylight: who holds this thing, who is quietly leaving, what they paid for it. All of it readable before the forest."
+     }
+    },
+    {
+     "id": "cap-close",
+     "at": 42.03,
+     "anchor": "line:close.start",
+     "until": 47.54,
+     "anchorUntil": "line:close.end",
+     "params": {
+      "piece": "caption",
+      "text": "Daylight. Understand the market you are walking into. The bear was never the problem."
+     }
+    }
+   ]
+  },
+  {
+   "id": "beats",
+   "name": "Beats",
+   "kind": "marker",
+   "clips": [
+    {
+     "id": "bearRise",
+     "at": 12.25,
+     "anchor": "line:roar.start+0.6",
+     "params": {
+      "label": "the bear rises behind him"
+     }
+    },
+    {
+     "id": "portfolioDrop",
+     "at": 18.32,
+     "anchor": "line:chase.start+3.2",
+     "params": {
+      "label": "the ghost portfolio flips red"
+     }
+    },
+    {
+     "id": "readOpen",
+     "at": 29.03,
+     "anchor": "line:daylight.end-10.4",
+     "params": {
+      "label": "the Daylight read appears"
+     }
+    },
+    {
+     "id": "confettiPop",
+     "at": 39.43,
+     "anchor": "line:daylight.end",
+     "params": {
+      "label": "the bear bursts into confetti"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lines",
+   "name": "Narration lines",
+   "kind": "marker",
+   "locked": true,
+   "clips": [
+    {
+     "id": "__line-open",
+     "at": 3,
+     "until": 11.15,
+     "anchor": "line:open.start",
+     "anchorUntil": "line:open.end",
+     "params": {
+      "label": "open"
+     }
+    },
+    {
+     "id": "__line-roar",
+     "at": 11.65,
+     "until": 14.52,
+     "anchor": "line:roar.start",
+     "anchorUntil": "line:roar.end",
+     "params": {
+      "label": "roar"
+     }
+    },
+    {
+     "id": "__line-chase",
+     "at": 15.12,
+     "until": 26.79,
+     "anchor": "line:chase.start",
+     "anchorUntil": "line:chase.end",
+     "params": {
+      "label": "chase"
+     }
+    },
+    {
+     "id": "__line-daylight",
+     "at": 27.29,
+     "until": 39.43,
+     "anchor": "line:daylight.start",
+     "anchorUntil": "line:daylight.end",
+     "params": {
+      "label": "daylight"
+     }
+    },
+    {
+     "id": "__line-close",
+     "at": 42.03,
+     "until": 47.54,
+     "anchor": "line:close.start",
+     "anchorUntil": "line:close.end",
+     "params": {
+      "label": "close"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vo",
+   "name": "Narration (estimated until the mix is built)",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "vo01",
+     "at": 3,
+     "until": 6.02,
+     "params": {
+      "label": "open · seg 1"
+     }
+    },
+    {
+     "id": "vo02",
+     "at": 6.51,
+     "until": 11.16,
+     "params": {
+      "label": "open · seg 2"
+     }
+    },
+    {
+     "id": "vo03",
+     "at": 11.86,
+     "until": 12.23,
+     "params": {
+      "label": "roar · seg 3"
+     }
+    },
+    {
+     "id": "vo04",
+     "at": 12.62,
+     "until": 14.54,
+     "params": {
+      "label": "roar · seg 4"
+     }
+    },
+    {
+     "id": "vo05",
+     "at": 15.14,
+     "until": 16.29,
+     "params": {
+      "label": "chase · seg 5"
+     }
+    },
+    {
+     "id": "vo06",
+     "at": 16.63,
+     "until": 19.11,
+     "params": {
+      "label": "chase · seg 6"
+     }
+    },
+    {
+     "id": "vo07",
+     "at": 19.58,
+     "until": 20.61,
+     "params": {
+      "label": "chase · seg 7"
+     }
+    },
+    {
+     "id": "vo08",
+     "at": 21.24,
+     "until": 22.19,
+     "params": {
+      "label": "chase · seg 8"
+     }
+    },
+    {
+     "id": "vo09",
+     "at": 22.89,
+     "until": 23.94,
+     "params": {
+      "label": "chase · seg 9"
+     }
+    },
+    {
+     "id": "vo10",
+     "at": 24.5,
+     "until": 26.82,
+     "params": {
+      "label": "chase · seg 10"
+     }
+    },
+    {
+     "id": "vo11",
+     "at": 27.43,
+     "until": 27.98,
+     "params": {
+      "label": "daylight · seg 11"
+     }
+    },
+    {
+     "id": "vo12",
+     "at": 28.67,
+     "until": 29.34,
+     "params": {
+      "label": "daylight · seg 12"
+     }
+    },
+    {
+     "id": "vo13",
+     "at": 29.8,
+     "until": 31.36,
+     "params": {
+      "label": "daylight · seg 13"
+     }
+    },
+    {
+     "id": "vo14",
+     "at": 32.08,
+     "until": 33.03,
+     "params": {
+      "label": "daylight · seg 14"
+     }
+    },
+    {
+     "id": "vo15",
+     "at": 33.34,
+     "until": 36.6,
+     "params": {
+      "label": "daylight · seg 15"
+     }
+    },
+    {
+     "id": "vo16",
+     "at": 37.25,
+     "until": 39.39,
+     "params": {
+      "label": "daylight · seg 16"
+     }
+    },
+    {
+     "id": "vo17",
+     "at": 42.13,
+     "until": 42.65,
+     "params": {
+      "label": "close · seg 17"
+     }
+    },
+    {
+     "id": "vo18",
+     "at": 43,
+     "until": 45.02,
+     "params": {
+      "label": "close · seg 18"
+     }
+    },
+    {
+     "id": "vo19",
+     "at": 45.53,
+     "until": 47.58,
+     "params": {
+      "label": "close · seg 19"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bed",
+   "name": "Music bed",
+   "kind": "audio",
+   "locked": true,
+   "clips": [
+    {
+     "id": "bed",
+     "at": 0,
+     "until": 57.6,
+     "params": {
+      "label": "Mock-epic trailer score played completely straight: low stac"
+     }
+    }
+   ]
+  }
+ ],
+ "footage": {
+  "look": "Live-action documentary realism, shot on a full-frame cinema camera, natural skin and fabric, real dust and pollen in the light, subtle lens flare from the low sun between the trunks, fine film grain, true-to-life colour. Late golden hour in a dense pine forest, the sun behind and to the left, warm rim light, a faint glimpse of snow-capped mountains.",
+  "physics": "Physics: feet stay on the ground, a hand closes on a prop before the prop moves, nothing passes through anything, nothing floats, nothing changes size, there is exactly one of each prop, and anything that enters walks in from off-frame or from behind cover along a path.",
+  "handoff": "The shot ends with him fully in frame from head to slides, holding still for a beat, the action keeping its pace to the very last frame."
+ }
+}

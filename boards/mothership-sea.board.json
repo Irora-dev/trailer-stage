@@ -1,0 +1,48 @@
+{
+ "name": "mothership-sea",
+ "kind": "scenes",
+ "comment": "Continuity keyframes for the Mothership nautical concept (Colby, recording 2026-09-08 10:53): four moments of one shot, each drawn with the previous as its reference, then chained through Seedance first/last frames into one continuous take.",
+ "provider": "meshy",
+ "model": "meshy/nano-banana-2",
+ "size": "landscape_16_9",
+ "seed": 11,
+ "subject": "Photoreal live-action cinematography, shot on a full-frame digital cinema camera with a 50mm anamorphic lens from a low vantage just above the water: the open sea at a misty evening, long slow swells, soft grey-blue haze, the last warm light low on the horizon, fine film grain, true-to-life colour, no people, no text, no logos, no flags with symbols.",
+ "negative": "text, letters, logos, watermark, people, pirate flag, skull, black sails, cartoon, illustration, CGI look, blur",
+ "styles": [
+  {
+   "id": "k1-rainbow",
+   "label": "K1 empty sea, strong rainbow",
+   "style": "MOMENT ONE: the sea is empty to the horizon; a strong, vivid double rainbow arcs across the misty evening sky at the right, its colours saturated against the grey haze; thin mist on the water; no ship anywhere."
+  },
+  {
+   "id": "k2-horizon",
+   "label": "K2 a ship on the horizon, rainbow softening",
+   "style": "MOMENT TWO, the same sea, the same camera, the same light, exactly as the reference image: a tall three-masted 1800s naval ship of the line, an admiral's flagship under full sail with a dark hull and a pale gun stripe, appears as a small silhouette on the horizon under the rainbow; the rainbow has softened; a bank of fog is beginning to roll in from the left.",
+   "refs": {
+    "images": [
+     ".footage/mothership-sea/styles/k1-rainbow.png"
+    ]
+   }
+  },
+  {
+   "id": "k3-closer",
+   "label": "K3 the ship at mid distance, fog thickening, rainbow almost gone",
+   "style": "MOMENT THREE, the same sea, camera and light, exactly as the reference image: the same three-masted 1800s ship of the line has sailed much closer, now at mid distance, sails full, bow wave visible, its hull and rigging clear; the fog has thickened across half the frame; the rainbow is a faint trace, almost gone.",
+   "refs": {
+    "images": [
+     ".footage/mothership-sea/styles/k2-horizon.png"
+    ]
+   }
+  },
+  {
+   "id": "k4-looming",
+   "label": "K4 the ship looming, fog everywhere",
+   "style": "MOMENT FOUR, the same sea, camera and light, exactly as the reference image: the same ship of the line looms large and close, its bow cutting the water toward the camera, sails and rigging filling most of the frame, lanterns glowing faintly on the stern; thick fog swallows everything but the ship; no rainbow left; dusk.",
+   "refs": {
+    "images": [
+     ".footage/mothership-sea/styles/k3-closer.png"
+    ]
+   }
+  }
+ ]
+}

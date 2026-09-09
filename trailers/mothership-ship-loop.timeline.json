@@ -1,0 +1,81 @@
+{
+ "name": "mothership-ship-loop",
+ "end": 10,
+ "blackoutAt": 10,
+ "mix": null,
+ "scene": { "kind": "theme" },
+ "notes": "A container for two candidate renders of ONE looping hero shot (the Mothership stained-glass ship). Not a trailer: nothing here is recorded by the stage. The loop closes because the hero image is handed to the model as BOTH the first and the last frame; scripts/loop.mjs (or the ledger's runbook) then trims the duplicate frame and measures the seam. Source still: ~/Downloads/Mothership/Site/Meshy_AI_mothership-hero-glass-layered-v3-lit.png (Meshy AI, 1536x864), copied to .footage/mothership-ship-loop/refs/.",
+ "tracks": [
+  {
+   "id": "candidates",
+   "name": "Loop candidates (A/B)",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "kling",
+     "at": 0,
+     "until": 10,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "fal-ai/kling-video/v3/pro/image-to-video",
+       "prompt": "A luminous stained-glass mosaic seascape, backlit like a cathedral window, gently comes alive. A tall three-masted sailing ship with blue and teal glass sails glides steadily forward through rolling seas; the camera travels alongside so the ship stays exactly centred and the same size in frame. Slow ocean swells roll under the hull: the bow lifts and settles, the hull rolls a few degrees, the sails keep their shape with the faintest ripple and the rigging sways almost imperceptibly. The great curling wave at the left rolls slowly forward and folds over with lazy, sparkling foam; the foreground waves rise and fall in a slow rhythm; light shimmers through every pane of glass on the water. Clouds drift very slowly across the golden sky and the sun's glow behind the ship pulses gently. Two distant ships bob softly on the horizon. Every gold leading line and every glass pane stays crisp, sharp and in place: the mosaic never melts, warps or morphs. Locked-off static wide shot, no zoom, no pan, no camera shake. Continuous, even, unhurried motion from the first frame to the last, with no pause and no change of speed, so the scene arrives back exactly where it began.",
+       "negative": "text, logos, watermark, real people, camera movement, zoom, pan, shake, warping, melting, morphing, flicker, fast motion, jump cut, blur, deformed ship, extra masts",
+       "refs": {
+        "images": [
+         ".footage/mothership-ship-loop/refs/hero-glass-layered-v3-lit.png",
+         ".footage/mothership-ship-loop/refs/hero-glass-layered-v3-lit.png"
+        ]
+       },
+       "seconds": 10,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    },
+    {
+     "id": "seedance",
+     "at": 0,
+     "until": 10,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "A luminous stained-glass mosaic seascape, backlit like a cathedral window, gently comes alive. A tall three-masted sailing ship with blue and teal glass sails glides steadily forward through rolling seas; the camera travels alongside so the ship stays exactly centred and the same size in frame. Slow ocean swells roll under the hull: the bow lifts and settles, the hull rolls a few degrees, the sails keep their shape with the faintest ripple and the rigging sways almost imperceptibly. The great curling wave at the left rolls slowly forward and folds over with lazy, sparkling foam; the foreground waves rise and fall in a slow rhythm; light shimmers through every pane of glass on the water. Clouds drift very slowly across the golden sky and the sun's glow behind the ship pulses gently. Two distant ships bob softly on the horizon. Every gold leading line and every glass pane stays crisp, sharp and in place: the mosaic never melts, warps or morphs. Locked-off static wide shot, no zoom, no pan, no camera shake. Continuous, even, unhurried motion from the first frame to the last, with no pause and no change of speed, so the scene arrives back exactly where it began. No text, no logos, no people.",
+       "refs": {
+        "images": [
+         ".footage/mothership-ship-loop/refs/hero-glass-layered-v3-lit.png",
+         ".footage/mothership-ship-loop/refs/hero-glass-layered-v3-lit.png"
+        ]
+       },
+       "seconds": 10,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "name": "Disclosure (the lane's law; not recorded)",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 9,
+     "until": 10,
+     "params": { "piece": "endCard", "chips": ["Contains AI-generated footage"] }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "name": "basement3-probe",
+ "end": 15,
+ "blackoutAt": 15,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "notes": "Round three, the character bible gate: the approved character B (the bucket hat) as reference images on Seedance reference-to-video. The probe doubles as the real shot one (15 s) if the checker accepts it.",
+ "tracks": [
+  {
+   "id": "layers",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "shot1",
+     "at": 0,
+     "until": 15,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "loop",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Live-action documentary realism, full-frame cinema camera, 35 mm wide, locked off, no camera move, one continuous fourteen-second take. THE CHARACTER is the approved character B, seen from behind in @Image1 and described here: a soft, round-shouldered twenty-two-year-old in a lime-green bucket hat pulled low over thick black-rimmed glasses, a thin doomed moustache, a washed-out plain grey hoodie, giant black over-ear headphones round his neck, baggy black cargo shorts, long white tube socks in black slides, a matte black energy drink can with a plain green stripe and a phone in a glittery pink case. The set is exactly @Image2: a fallen log across the frame in a dense pine forest at late golden hour, the low sun flaring between the trunks behind and to the left, dust and pollen in the light. He sits hunched on the log scrolling his phone with his thumb, utterly absorbed; without looking up he takes a long sip from the can and keeps scrolling with a small satisfied smirk. A deep roar off screen: he freezes mid-sip, eyes darting sideways. Behind him, between the trunks, a huge brown grizzly bear rises to its full height and leans over his shoulder to look at the phone too; he keeps scrolling for a beat, then slowly turns his head, sees the bear, drops the can onto the pine needles, scrambles off the log and bolts out of frame to the right while the bear lumbers after him. Natural skin and fabric, fine film grain, true-to-life colour. No text, no logos.",
+       "negative": "text, logos, brand names, cartoon, animation, illustration, CGI look, plastic skin, warped hands, extra limbs, real people, celebrity likeness, explorer hat, camera movement, blood, gore",
+       "refs": {
+        "images": [
+         ".footage/basement-char-b/styles/back.png",
+         ".footage/daylight-basement-world/styles/empty-log.png"
+        ]
+       },
+       "seconds": 14,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "disclosure",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 10,
+     "until": 11,
+     "params": {
+      "piece": "endCard",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
