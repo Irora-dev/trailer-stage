@@ -1,0 +1,177 @@
+{
+  "version": 4,
+  "model": "bytedance/seedance-2.0/reference-to-video",
+  "status": "prepared_not_submitted",
+  "purpose": "local production handoff; not an API payload",
+  "scenes": [
+    {
+      "id": "01-one-step-ahead",
+      "prompt_file": "prompts/01-one-step-ahead.txt",
+      "reference_images_in_order": [
+        "references/cast-and-forest.jpg",
+        "references/bear-and-honeypot.jpg"
+      ],
+      "settings": {
+        "duration": "15",
+        "aspect_ratio": "16:9",
+        "resolution": "1080p",
+        "generate_audio": true
+      },
+      "finished_target_seconds": 21,
+      "narration": [
+        [
+          "0.0\u20133.0",
+          "Our man is waiting for a signal."
+        ],
+        [
+          "12.0\u201314.0",
+          "Ah. Message received."
+        ],
+        [
+          "15.0\u201321.0",
+          "Stay one step ahead with Daylight. The on-chain survival kit."
+        ]
+      ]
+    },
+    {
+      "id": "02-outrun-the-bear-market",
+      "prompt_file": "prompts/02-outrun-the-bear-market.txt",
+      "reference_images_in_order": [
+        "references/cabin.jpg",
+        "references/cast-and-forest.jpg",
+        "references/bear-and-honeypot.jpg"
+      ],
+      "settings": {
+        "duration": "15",
+        "aspect_ratio": "16:9",
+        "resolution": "1080p",
+        "generate_audio": true
+      },
+      "finished_target_seconds": 19,
+      "narration": [
+        [
+          "0.0\u20134.3",
+          "Our man has decided to outrun the bear market."
+        ],
+        [
+          "4.3\u20136.0",
+          "[No speech. Take a beat.]"
+        ],
+        [
+          "6.0\u20138.2",
+          "He is on lap six."
+        ],
+        [
+          "9.7\u201311.2",
+          "No, wait... seven."
+        ],
+        [
+          "11.2\u201315.0",
+          "[No speech. Tea sip, then fade.]"
+        ],
+        [
+          "15.0\u201319.0",
+          "Introducing Daylight. The onchain survival kit."
+        ]
+      ]
+    },
+    {
+      "id": "03-whale",
+      "prompt_file": "prompts/03-whale.txt",
+      "reference_images_in_order": [
+        "references/lake-and-pier.jpg",
+        "references/cast-and-forest.jpg"
+      ],
+      "settings": {
+        "duration": "15",
+        "aspect_ratio": "16:9",
+        "resolution": "1080p",
+        "generate_audio": true
+      },
+      "finished_target_seconds": 19,
+      "narration": [
+        [
+          "0.0\u201315.0",
+          "[No narration or dialogue.]"
+        ],
+        [
+          "15.0\u201319.0",
+          "Introducing Daylight. The onchain survival kit."
+        ]
+      ]
+    },
+    {
+      "id": "04-honeypot",
+      "prompt_file": "prompts/04-honeypot.txt",
+      "reference_images_in_order": [
+        "references/bear-and-honeypot.jpg",
+        "references/cast-and-forest.jpg"
+      ],
+      "settings": {
+        "duration": "15",
+        "aspect_ratio": "16:9",
+        "resolution": "1080p",
+        "generate_audio": true
+      },
+      "finished_target_seconds": 19,
+      "narration": [
+        [
+          "0.0\u201315.0",
+          "[No narration or dialogue.]"
+        ],
+        [
+          "15.0\u201319.0",
+          "Introducing Daylight. The onchain survival kit."
+        ]
+      ]
+    },
+    {
+      "id": "05-rug",
+      "prompt_file": "prompts/05-rug.txt",
+      "reference_images_in_order": [
+        "references/cast-and-forest.jpg"
+      ],
+      "settings": {
+        "duration": "15",
+        "aspect_ratio": "16:9",
+        "resolution": "1080p",
+        "generate_audio": true
+      },
+      "finished_target_seconds": 19,
+      "narration": [
+        [
+          "0.0\u201315.0",
+          "[No narration or dialogue.]"
+        ],
+        [
+          "15.0\u201319.0",
+          "Introducing Daylight. The onchain survival kit."
+        ]
+      ]
+    },
+    {
+      "id": "06-mechanical-bull",
+      "prompt_file": "prompts/06-mechanical-bull.txt",
+      "reference_images_in_order": [
+        "references/cast-and-forest.jpg"
+      ],
+      "settings": {
+        "duration": "15",
+        "aspect_ratio": "16:9",
+        "resolution": "1080p",
+        "generate_audio": true
+      },
+      "finished_target_seconds": 19,
+      "narration": [
+        [
+          "0.0\u201315.0",
+          "[No narration or dialogue.]"
+        ],
+        [
+          "15.0\u201319.0",
+          "Introducing Daylight. The onchain survival kit."
+        ]
+      ]
+    }
+  ]
+}

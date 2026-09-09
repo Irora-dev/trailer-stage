@@ -1,0 +1,24 @@
+{
+ "comment": "daylight-pack-06-mechbull: the pack's narration on The Clipped Newsreel at the pack's cue times (planning timings; the gaps are re-tuned from the cue map and the picture). Bed: the shot's own generated ambience padded to 25 s. Rebuild: node scripts/build-mix.mjs daylight-pack-06-mechbull --go",
+ "voices": {
+  "narrator": {
+   "voice_id": "eWJunko7SS6O4LhXC3dC",
+   "name": "The Clipped Newsreel"
+  }
+ },
+ "parts": [
+  {
+   "id": "close",
+   "src": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-pack-06-mechbull/close.vo.mp3",
+   "render": {
+    "text": "[confident] Introducing Daylight. The on-chain survival kit.",
+    "voice": "narrator"
+   }
+  }
+ ],
+ "bed": "/Users/colbymort/Irora-dev/trailer-stage/.audio/daylight-pack-06-mechbull/native-padded.wav",
+ "bedGainDb": 0,
+ "duckDb": 4,
+ "prerollSec": 15,
+ "tailSec": 3
+}

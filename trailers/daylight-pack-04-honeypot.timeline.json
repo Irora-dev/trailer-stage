@@ -1,0 +1,74 @@
+{
+ "name": "daylight-pack-04-honeypot",
+ "end": 19,
+ "blackoutAt": 15.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Photorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.",
+  "physics": "The same left wrist remains in the same pot opening from first frame to last. His hand never briefly slips free. The pot is heavy and sits securely on the low stump; do not fuse it to his body, stretch his arm or drag it onto the ground. Sitting must be anatomically possible at this stump height. One bear, no attack, no contact, no injury. Forest air, a little pot scraping, fabric and effort, the bear's soft footfalls and breathing. Once he sits, mostly quiet. No conversation, whimper, “Oh dear,” narrator or music.",
+  "handoff": "(single generation: no handoff)"
+ },
+ "notes": "Daylight Seedance pack v4, film 04-honeypot (Colby, 2026-09-09 17:21: \"now lets use these scripts to create daylight videos in seedance\"). The pack's prompt with the recorded substitutions (see write-daylight-pack-timelines.mjs); references in the pack's order, the bear frame cropped face-free for fal's likeness checker. 480p probe first, then 1080p; the editor's finish adds the narration and the Daylight card.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "honeypot",
+     "at": 0,
+     "until": 15,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Static camera, locked off. CAMERA\nOne continuous locked medium-wide shot for 15 seconds, landscape 16:9. A low broad tree stump with a brown honey pot stands just left of centre. Frame our man's whole body, the pot opening and the clear bear entrance on screen-right. Leave enough room below the stump to see him sit on the ground. No cuts, zoom, camera shake or sudden close-up.\n@Image1 establishes the pot on its stump, the bear and the woodland. @Image2 establishes the explorer and human costumes. The final defeated seated posture is the target emotional state; do not begin the film in that final pose.\nLOOK AND CAST\nPhotorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.\nSCENE AND TIMED ACTION\n0–3 seconds: our man stands hunched over the low stump with his LEFT hand stuck inside the narrow opening of the honey pot. His wrist remains visibly in the opening. He gives a small hopeful tug, then braces his free right hand against the stump. The pot stays on the stump. The explorer walks past in the background carrying his own small closed jar and continues away, taking no part in the predicament.\n3–6 seconds: our man tries harder once, planting a foot against the stump for leverage. His hand does not come out. He stops and lets his shoulders drop. Keep this brief effort natural rather than frantic slapstick.\n6–8 seconds: one large brown bear quietly enters from screen-right and approaches the stump. Our man notices it. His effort stops completely. He looks at the bear, then at his trapped hand. The explorer has already walked out of frame.\n8–10 seconds: our man gives ONE very small, slow, almost defeated final tug. It has barely any force. The hand does not move out of the pot. He already knows it will not work. No vigorous final yank, renewed panic or attempt to run.\n10–12 seconds: he lowers himself onto his backside beside the stump, his left hand STILL inside the pot. The stump is low enough that the arm can stay bent naturally while he sits. His legs extend loosely forward, knees relaxed; his free right hand drops into his lap. Shoulders sag. He settles with the sheepish, caught-in-the-act resignation of a little child with a hand in a cookie jar, while remaining unmistakably the same adult man.\n12–15 seconds: hold the seated tableau completely. Our man sits on his backside, hand in the pot, looking quietly guilty and defeated. The bear stands nearby looking toward the pot without touching him. He does not tug again. Let three full seconds of embarrassed stillness finish the joke.\nPHYSICS AND AUDIO\nThe same left wrist remains in the same pot opening from first frame to last. His hand never briefly slips free. The pot is heavy and sits securely on the low stump; do not fuse it to his body, stretch his arm or drag it onto the ground. Sitting must be anatomically possible at this stump height. One bear, no attack, no contact, no injury. Forest air, a little pot scraping, fabric and effort, the bear's soft footfalls and breathing. Once he sits, mostly quiet. No conversation, whimper, “Oh dear,” narrator or music.\nSOUND AND FINISH\nGenerate only the specified natural location sound and effects. No spoken words, no moving lips, no narrator, no music. Do not put captions, logos, titles, readable phone-interface text or watermarks into the generated scene. Keep the final image alive until the clip ends; the editor adds the fade, brand card and separately recorded narration afterward. No cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals or changing props. Preserve the physical order of cause and effect. The listed seconds are pacing targets, with the pauses and final reaction more important than exact frame timing.",
+       "negative": "cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals, changing props, captions, logos, titles, readable phone-interface text, watermarks, camera orbit, montage, speech, lip movement",
+       "refs": {
+        "images": [
+         "briefs/daylight-seedance-pack/references/pot-stump-bear.jpg",
+         "briefs/daylight-seedance-pack/references/cast-and-forest.jpg"
+        ]
+       },
+       "seconds": 15,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 15.6,
+     "until": 19,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

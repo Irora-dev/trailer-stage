@@ -1,0 +1,21 @@
+CAMERA
+One continuous locked elevated three-quarter wide shot for 15 seconds, landscape 16:9. Frame the entire small cabin and the circuit around it, while keeping the explorer's head, shoulders and tea cup readable on the near roof slope. No cuts, orbit, zoom or aerial flyover.
+
+@Image1 is the exact Daylight cabin and setting: preserve its distinctive roof, walls, scale and clearing. @Image2 establishes human identity and clothing. @Image3 establishes the bear. Recompose only enough to make the sip legible.
+
+LOOK AND CAST
+Photorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.
+
+SCENE AND TIMED ACTION
+0–4 seconds: the chase is already happening. Our man runs clockwise around the small cabin with one brown bear a few strides behind. The explorer sits comfortably on the near roof slope, a tea cup in his right hand. He has already been drinking it. He watches without alarm. Nobody speaks on camera.
+4–6 seconds: our man and the bear disappear naturally behind the cabin on the far side. Hold the roof and the continuing footfalls for a full comic beat.
+6–8 seconds: our man, then the bear, reappear around the near corner and cross a clearly visible landmark such as the cabin's front corner. This is the passage the narrator will call lap six.
+8–11 seconds: they continue the same clockwise circuit. Let the pair disappear behind the cabin again. At approximately 11 seconds, they reappear at the SAME landmark on the following circuit. This is the passage the narrator corrects to lap seven. The small cabin and running speed must make this circuit physically plausible; never teleport them or reverse their direction to manufacture the second pass.
+11–13 seconds: the explorer raises his existing tea cup and takes one slow, contented sip as the runners continue below.
+13–15 seconds: he lowers the cup slightly and rests, while the chase continues around the cabin. Hold his calm posture.
+
+PHYSICS AND AUDIO
+Only one man running and one bear chasing. They follow a clear ground-level loop around the building; neither clips through the cabin, jumps onto the roof or changes direction. The explorer sits securely with believable weight on the roof. His tea cup exists from the first frame and never swaps hands. Keep the cup away from his mouth while later voiceover is speaking; the narration is offscreen. Footsteps, distant panting, bear breath, forest air and a small audible sip. No music or speech.
+
+SOUND AND FINISH
+Generate only the specified natural location sound and effects. No spoken words, no lip-sync, no narrator, no music. Do not put captions, logos, titles, readable phone-interface text or watermarks into the generated scene. Keep the final image alive until the clip ends; the editor adds the fade, brand card and separately recorded narration afterward. No cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals or changing props. Preserve the physical order of cause and effect. The listed seconds are pacing targets, with the pauses and final reaction more important than exact frame timing.

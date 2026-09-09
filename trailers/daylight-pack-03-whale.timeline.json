@@ -1,0 +1,74 @@
+{
+ "name": "daylight-pack-03-whale",
+ "end": 19,
+ "blackoutAt": 15.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Photorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.",
+  "physics": "The fictional lake contains a whale, but the breach, gravity, water displacement and spray behave like live-action physics. One whale, one boat, one pier, one umbrella. Do not capsize the boat, eject our man or have the umbrella hold back a solid wall of water. The explorer does not vanish or become entirely submerged. Soft water and birds, umbrella click, breathy whale breach, heavy splash, then close dripping water. No spoken reaction and no narration.",
+  "handoff": "(single generation: no handoff)"
+ },
+ "notes": "Daylight Seedance pack v4, film 03-whale (Colby, 2026-09-09 17:21: \"now lets use these scripts to create daylight videos in seedance\"). The pack's prompt with the recorded substitutions (see write-daylight-pack-timelines.mjs); references in the pack's order. 480p probe first, then 1080p; the editor's finish adds the narration and the Daylight card.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "whale",
+     "at": 0,
+     "until": 15,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Static camera, locked off. CAMERA\nOne continuous locked eye-level wide shot for 15 seconds, landscape 16:9. Match the lake composition: small rowing boat and our man on screen-left, wooden pier and explorer on screen-right, mountain and forest beyond. Keep both men, the umbrella and enough open water for the whale readable. No cuts, zoom, orbit or underwater shot.\n@Image1 establishes the boat, pier, mountain lake and relative character positions. @Image2 reinforces the established character identities. This version is a splash under an umbrella, not the original boat-ejection action.\nLOOK AND CAST\nPhotorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.\nSCENE AND TIMED ACTION\n0–3 seconds: both men sit fishing in apparent peace. Our man sits in a tiny wooden rowing boat just left of the pier, absorbed in the water. The explorer sits on the pier with his fishing rod resting safely in a simple holder beside him. A closed dark umbrella lies within his reach. Water is almost still and the sky is clear.\n3–5 seconds: the explorer briefly glances at the phone in his left hand, puts it into his shirt pocket, then calmly picks up and opens the umbrella. The screen is not presented as a product insert and no readable text is needed. His rod remains in its holder. All props stay physically distinct.\n5–7 seconds: our man turns screen-right toward the explorer and looks up at the open umbrella, puzzled by it on a clear day. The explorer angles the umbrella toward the open water and settles beneath it. Give this puzzled look a full beat.\n7–10 seconds: a large realistic whale breaches in the open water beyond and just left of the boat, then falls back into the lake. It does not strike the boat or either person. Its landing sends a broad sheet of spray toward the men.\n10–12 seconds: the spray drenches our man, his hat and hoodie. The boat rocks but stays upright and our man remains seated inside it. The explorer's angled umbrella intercepts the spray reaching his head and upper body. Water cascades from the umbrella's rim. Keep the wave reaching the pier modest enough for an umbrella to be a credible shield against spray rather than a tsunami.\n12–15 seconds: our man sits soaked and motionless, then gives the explorer a flat sideways look. The explorer calmly continues sitting beneath the umbrella; one last drip falls from its edge. Hold the contrast. The whale has submerged and does not reappear.\nPHYSICS AND AUDIO\nThe fictional lake contains a whale, but the breach, gravity, water displacement and spray behave like live-action physics. One whale, one boat, one pier, one umbrella. Do not capsize the boat, eject our man or have the umbrella hold back a solid wall of water. The explorer does not vanish or become entirely submerged. Soft water and birds, umbrella click, breathy whale breach, heavy splash, then close dripping water. No spoken reaction and no narration.\nSOUND AND FINISH\nGenerate only the specified natural location sound and effects. No spoken words, no moving lips, no narrator, no music. Do not put captions, logos, titles, readable phone-interface text or watermarks into the generated scene. Keep the final image alive until the clip ends; the editor adds the fade, brand card and separately recorded narration afterward. No cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals or changing props. Preserve the physical order of cause and effect. The listed seconds are pacing targets, with the pauses and final reaction more important than exact frame timing.",
+       "negative": "cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals, changing props, captions, logos, titles, readable phone-interface text, watermarks, camera orbit, montage, speech, lip movement",
+       "refs": {
+        "images": [
+         "briefs/daylight-seedance-pack/references/lake-and-pier.jpg",
+         "briefs/daylight-seedance-pack/references/cast-and-forest.jpg"
+        ]
+       },
+       "seconds": 15,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 15.6,
+     "until": 19,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

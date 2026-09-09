@@ -1,0 +1,73 @@
+{
+ "name": "daylight-pack-05-rug",
+ "end": 19,
+ "blackoutAt": 15.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Photorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.",
+  "physics": "One bull and one continuous rope, attached to the tail at one end and rug at the other, visible as the setup. No tail injury. Loose rope alone accounts for the delayed pull: it must visibly pay out rather than shrink or dissolve. The rope never wraps around either person. The rug does not move until the last slack is gone. The explorer steps clear BEFORE tension reaches the rug and keeps the same tea cup from beginning to end. Hooves pass and recede, soft rope sliding, a brief taut-rope snap, rug scrape, one soft thump, then a small tea sip. No speech, narration, explanation, cartoon boing or music.",
+  "handoff": "(single generation: no handoff)"
+ },
+ "notes": "Daylight Seedance pack v4, film 05-rug (Colby, 2026-09-09 17:21: \"now lets use these scripts to create daylight videos in seedance\"). The pack's prompt with the recorded substitutions (see write-daylight-pack-timelines.mjs); references in the pack's order. 480p probe first, then 1080p; the editor's finish adds the narration and the Daylight card.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "rug",
+     "at": 0,
+     "until": 15,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Static camera, locked off. CAMERA\nOne continuous locked eye-level wide shot for 15 seconds, landscape 16:9, looking across the forest clearing. Frame both men head to toe on a patterned rug in the foreground, a clearly visible loose coil of rope on bare ground to the rug's right, and an unobstructed path in the background. The bull travels screen-left to screen-right. No cuts, zoom, whip-pan or camera orbit.\n@Image1 establishes the clearing, rug and cast. Replace its original rug-pulling action completely. The explorer must never pull the rug or touch the rope.\nLOOK AND CAST\nPhotorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.\nSCENE AND TIMED ACTION\n0–2 seconds: both men stand on the rug. Our man stands on its left half, looking down at the phone in his right hand. The explorer stands near its left/front edge, already drinking tea from a small cup in his right hand. A realistic adult bull runs briskly left to right along the background path and out of frame. A long rope is visibly tied to its tail and trails behind it. The other end is securely attached to the RIGHT edge of the rug, with ample slack arranged as a loose low coil on the bare ground to the rug's right.\n2–6 seconds: the bull is now offscreen right. The loose coil slowly pays out across the ground toward screen-right, becoming visibly smaller. The rug stays completely still because slack remains. Let several empty beats pass. Our man continues looking down at his phone. The explorer notices the paying-out rope and lowers his cup slightly.\n6–8 seconds: keeping the tea steady in his right hand, the explorer calmly steps OFF the rug toward the camera and slightly left, onto clear ground outside the rug's path. Our man remains on the rug, staring at his phone. The last few coils continue slipping away.\n8–10 seconds: the final loop disappears. Our man begins to look up from his phone. At that exact moment, the rope becomes fully taut in a clear straight pull toward screen-right. The explorer is already safely off the rug, cup still in hand.\n10–12 seconds: the taut rope yanks the rug sharply screen-right from beneath our man's feet. He loses his footing and lands harmlessly on his backside on the soft ground. One quick credible fall, not a somersault or flight through the air. The rug travels in the rope's direction, away from the explorer. The bull remains offscreen.\n12–15 seconds: the explorer, who has held his tea throughout, takes another unhurried sip. Our man sits on the ground in bewilderment, still holding his phone. Hold this final image; the explorer never looks pleased to have caused anything because he did not cause it.\nPHYSICS AND AUDIO\nOne bull and one continuous rope, attached to the tail at one end and rug at the other, visible as the setup. No tail injury. Loose rope alone accounts for the delayed pull: it must visibly pay out rather than shrink or dissolve. The rope never wraps around either person. The rug does not move until the last slack is gone. The explorer steps clear BEFORE tension reaches the rug and keeps the same tea cup from beginning to end. Hooves pass and recede, soft rope sliding, a brief taut-rope snap, rug scrape, one soft thump, then a small tea sip. No speech, narration, explanation, cartoon boing or music.\nSOUND AND FINISH\nGenerate only the specified natural location sound and effects. No spoken words, no moving lips, no narrator, no music. Do not put captions, logos, titles, readable phone-interface text or watermarks into the generated scene. Keep the final image alive until the clip ends; the editor adds the fade, brand card and separately recorded narration afterward. No cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals or changing props. Preserve the physical order of cause and effect. The listed seconds are pacing targets, with the pauses and final reaction more important than exact frame timing.",
+       "negative": "cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals, changing props, captions, logos, titles, readable phone-interface text, watermarks, camera orbit, montage, speech, lip movement",
+       "refs": {
+        "images": [
+         "briefs/daylight-seedance-pack/references/cast-and-forest.jpg"
+        ]
+       },
+       "seconds": 15,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 15.6,
+     "until": 19,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

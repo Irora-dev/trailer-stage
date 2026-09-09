@@ -1,0 +1,73 @@
+{
+ "name": "daylight-pack-06-mechbull",
+ "end": 19,
+ "blackoutAt": 15.4,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Photorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.",
+  "physics": "There are exactly two distinct bulls: one inert moulded amusement-ride body mounted to a base, and one living animal galloping through the background. The mechanical bull never becomes alive; its legs are rigid decorative shapes and it moves only at its pivot. The real bull never becomes a machine or breaks. The explorer's feet stay in contact with the real bull's back, his knees absorb the gait and his body maintains believable balance within this deliberately absurd surfing premise. No levitation, ropes, wheels, surfboard, saddle-sitting or airborne rider. The two bulls never collide. The machine's failure comes AFTER the real bull has left and AFTER the sustained following gaze: slow sideways over-tilt, joint crack, short fall, stillness. Keep the camera and ground scale consistent. Sound progression: weak repetitive electric hum and tiny squeak; approaching thunder of hooves; powerful passing hoofbeats; receding hooves; exposed pathetic motor hum; strained creak; one dry crack; soft thump; final rattle; quiet forest. No music, conversation, narrator or comic cartoon effects.",
+  "handoff": "(single generation: no handoff)"
+ },
+ "notes": "Daylight Seedance pack v4, film 06-mechanical-bull (Colby, 2026-09-09 17:21: \"now lets use these scripts to create daylight videos in seedance\"). The pack's prompt with the recorded substitutions (see write-daylight-pack-timelines.mjs); references in the pack's order. 480p probe first, then 1080p; the editor's finish adds the narration and the Daylight card.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "mechbull",
+     "at": 0,
+     "until": 15,
+     "params": {
+      "piece": "footage",
+      "fit": "cover",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/reference-to-video",
+       "prompt": "Static camera, locked off. CAMERA\nOne continuous locked eye-level wide shot for 15 seconds, landscape 16:9. A clearing in the forest, with a small mechanical bull and its low fixed base in the near foreground, slightly right of centre. An open forest path passes behind it from screen-left to screen-right. Frame our man's entire body, the whole mechanical ride and enough background space to see a real bull with a standing rider pass clearly. No cuts, close-ups, zoom, orbit or tracking away from our man.\nREFERENCE\n@Image1 establishes the two human characters, their costumes and the forest's light and texture. It is an appearance reference only. Remove the rug and rope; there is no bear, tea cup or phone in this scene. The real bull should match the bull selected for film 5 when that design is available; the provided image does not contain a bull reference.\nLOOK AND CAST\nPhotorealistic cinematic woodland comedy, natural golden late-afternoon light, rich evergreen forest, warm sun shafts, restrained earthy colours, realistic skin, fur, fabric, wood and water. Match the attached reference images for character identity and environment; they are appearance references, not instructions to repeat their original action. Natural live-action movement with dry visual comedy. Our man is the same heavyset young adult crypto trader in a lime-green bucket hat, pale-grey hoodie, black knee-length shorts, white socks and dark sandals, with black over-ear headphones resting around his neck. The explorer is the same older gentleman with a prominent moustache, khaki pith helmet, classic British khaki safari jacket over a shirt, matching shorts, brown belt and outdoor boots. He is quietly observant and composed. Preserve their faces, body proportions and costumes throughout. Our man's expression is sincere and recognisable, never a caricature. Animals remain realistic animals.\nSCENE AND TIMED ACTION\n0–4 seconds: our man sits astride a small, visibly artificial mechanical bull on a squat amusement-ride base, alone in the foreground. The ride has the scale and weak repetitive movement of a coin-operated children's horse outside a shopping centre: a rigid moulded bull body, a simple saddle and a shallow rocking pivot. It slowly rocks a few degrees forward and back. Our man sits heavily, shoulders slack, hands resting loosely on the ride's handle, expression blank. He makes no attempt to buck, bounce, cheer or ride enthusiastically. The incongruous little machine is simply out here among the trees.\n4–5 seconds: deep thundering hoofbeats approach from offscreen left, sharply contrasting with the small ride's tired motor hum. Our man starts to turn his head toward the sound while the mechanical bull continues its same tiny slow rocking motion.\n5–7 seconds: a powerful real bull thunders left to right along the path behind him, several metres away. The explorer stands upright on the bull's broad back as if surfing, both boots planted in a wide fore-and-aft stance, knees softly bent, arms slightly extended for balance. His composure is effortless. He rides standing for the entire visible pass, never seated in a saddle. The bull gallops through and exits screen-right with the explorer still balanced on its back. A little dust trails behind them. Neither touches our man or the mechanical ride.\n7–10 seconds: stay in the original wide shot. Our man's gaze follows the explorer to screen-right and then remains there for several full beats after the real bull has exited. He looks faintly bewildered rather than excited or jealous. His own ride keeps rocking slowly beneath him. Let the sound of the departing hooves diminish until the little motor hum is audible again. The mechanical ride has not failed yet.\n10–12 seconds: while our man is still looking after the explorer, the mechanical bull slowly leans sideways toward screen-left, beyond its normal shallow range. The body visibly sags at the mounting pivot. Hold a tiny pause at an obviously excessive angle. One dry mechanical crack: the support joint fails. The real bull's wake did not strike it; this is a delayed mechanical breakdown under its own rider.\n12–13 seconds: the moulded bull body tips onto its side beside the fixed base, dropping our man the short distance onto the soft earth on screen-left. One awkward, unglamorous fall onto his backside/hip, legs sliding clear of the ride. No flip, launch, crushed limb or injury detail. The base remains planted; the motor stops.\n13–15 seconds: hold the unchanged wide composition. Our man sits on the ground beside the visibly broken, motionless ride. The proper bull and explorer are long gone. A final little mechanical rattle settles, leaving forest ambience. His deadpan expression is the last image. Do not have him stand up or begin another gag. The editor fades only after this beat.\nPHYSICS AND AUDIO\nThere are exactly two distinct bulls: one inert moulded amusement-ride body mounted to a base, and one living animal galloping through the background. The mechanical bull never becomes alive; its legs are rigid decorative shapes and it moves only at its pivot. The real bull never becomes a machine or breaks. The explorer's feet stay in contact with the real bull's back, his knees absorb the gait and his body maintains believable balance within this deliberately absurd surfing premise. No levitation, ropes, wheels, surfboard, saddle-sitting or airborne rider. The two bulls never collide. The machine's failure comes AFTER the real bull has left and AFTER the sustained following gaze: slow sideways over-tilt, joint crack, short fall, stillness. Keep the camera and ground scale consistent. Sound progression: weak repetitive electric hum and tiny squeak; approaching thunder of hooves; powerful passing hoofbeats; receding hooves; exposed pathetic motor hum; strained creak; one dry crack; soft thump; final rattle; quiet forest. No music, conversation, narrator or comic cartoon effects.\nSOUND AND FINISH\nGenerate only the specified natural location sound and effects. No spoken words, no moving lips, no narrator, no music. Do not put captions, logos, titles, readable phone-interface text or watermarks into the generated scene. Keep the final image alive until the clip ends; the editor adds the fade, brand card and separately recorded narration afterward. No cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals or changing props. Preserve the physical order of cause and effect. The listed seconds are pacing targets, with the pauses and final reaction more important than exact frame timing.",
+       "negative": "cartoon effects, exaggerated rubber limbs, gore, injury detail, magical motion, extra people, duplicate animals, changing props, captions, logos, titles, readable phone-interface text, watermarks, camera orbit, montage, speech, lip movement",
+       "refs": {
+        "images": [
+         "briefs/daylight-seedance-pack/references/cast-and-forest.jpg"
+        ]
+       },
+       "seconds": 15,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": true
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 15.6,
+     "until": 19,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}
