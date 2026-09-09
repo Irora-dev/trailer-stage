@@ -89,13 +89,15 @@ for (const scene of manifest.scenes) {
   // the mix spec: lines at the pack's cue times (gaps are first guesses; the builder's cue map re-times them)
   const dir = `${ROOT}/.audio/${name}`
   const plan = NARRATION[scene.id] ?? { card: 4, parts: [{ id: 'close', text: CLOSE_DEFAULT, at: 15.0 }] }
+  // Measured read lengths from the first mix (The Clipped Newsreel, 2026-09-09 17:4x), so the gaps land the pack's cue times exactly.
+  const READ = { '01-one-step-ahead': { l1: 1.75, l2: 2.14, close: 3.99 }, '02-outrun-the-bear-market': { l1: 2.95, l2: 1.82, l3: 1.9, close: 2.95 } }
   const parts = []
   let cursor = 0
   plan.parts.forEach((p, i) => {
     const gap = Math.max(0.2, p.at - cursor)
     if (i === 0) parts.push({ id: p.id, src: `${dir}/${p.id}.vo.mp3`, render: { text: p.text, voice: 'narrator' } })
     else { parts.push({ gap: Number(gap.toFixed(2)) }); parts.push({ id: p.id, src: `${dir}/${p.id}.vo.mp3`, render: { text: p.text, voice: 'narrator' } }) }
-    cursor = p.at + Math.max(1.6, p.text.replace(/\[[^\]]*\]\s*/g, '').split(/\s+/).length * 0.42) // a rough read length until the cue map says
+    cursor = p.at + (READ[scene.id]?.[p.id] ?? Math.max(1.6, p.text.replace(/\[[^\]]*\]\s*/g, '').split(/\s+/).length * 0.42)) // measured read length where known, else a rough one
   })
   const spec = {
     comment: `${name}: the pack's narration on The Clipped Newsreel at the pack's cue times (planning timings; the gaps are re-tuned from the cue map and the picture). Bed: the shot's own generated ambience padded to 25 s. Rebuild: node scripts/build-mix.mjs ${name} --go`,
