@@ -10,7 +10,7 @@
   "physics": "Physics: the figure stays centred and the same size, the magenta background stays perfectly flat, even and empty with no shadow cast on it, every part stays attached and moves like hinged card, nothing appears except what he takes from his pouch and puts back, and the last frame returns exactly to the pose of the first frame.",
   "handoff": "(single shot: no handoff)"
  },
- "notes": "Paper explorer loop 'facepalm' (Colby, 2026-09-09 ~00:20: six animations, the still as start and end frame). Seedance image-to-video with the still as first AND last frame; then npm run loop -- explorer-paper-facepalm facepalm; then .cache/key-sprite.sh for alpha.",
+ "notes": "Paper explorer loop 'facepalm' (Colby, 2026-09-09 ~00:20: six animations, the still as start and end frame). Seedance image-to-video with the still as first AND last frame; then npm run loop -- explorer-paper-facepalm facepalm; then scripts/tools/key-sprite.sh for alpha.",
  "tracks": [
   {
    "id": "footage",

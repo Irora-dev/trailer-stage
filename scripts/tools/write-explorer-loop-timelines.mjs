@@ -7,6 +7,9 @@
 import { writeFileSync } from 'node:fs'
 
 const STILL = '.footage/explorer-paper/refs/companion-magenta.png'
+// Round four's still: the same companion at 65% on a 1440 x 1440 magenta canvas, so gags have room to move without
+// touching an edge (Colby, 2026-09-09: "there should be magenta all around throughout the entire animation").
+const PADDED = '.footage/explorer-paper/refs/companion-magenta-padded65.png'
 const LOOK =
   'Layered paper cut-out craft animation: every part of the figure is a piece of textured card with visible fibre and clean cut edges, lit by soft studio light from the upper left with gentle paper shadows on the figure only, the figure centred on a flat, pure, even magenta background that never changes.'
 const PHYSICS =
@@ -53,9 +56,30 @@ const anims = {
     'He looks down and to one side at something beyond the frame, freezes, slowly raises one hand and plants it over his goggles in a facepalm, shakes his head twice, lowers the hand with a long silent sigh of the shoulders, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; the magenta stays flat with no shadow anywhere.',
   dozeoff:
     'His eyes droop behind the goggles, his head nods forward once, twice, his whole round body sags into a doze, then he snaps awake with a jolt, looks left and right as if someone saw, straightens his helmet, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; the magenta stays flat with no shadow anywhere.',
+  // Round four (Colby, 2026-09-09 ~12:45: "continue generating more of the robot companion fun animations, just make
+  // sure the animations never clip off the side of the screen, there should be magenta all around throughout"): the
+  // still sits at 65% on a 1440 canvas (PADDED), and every prompt pins the figure and its props inside the frame.
+  juggle:
+    { still: PADDED, text: 'He takes three gold coins from the pouch on his belt and juggles them in a small neat circle no higher than the top of his helmet, catches all three, pockets them with a satisfied pat, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; he and the coins stay well inside the frame with wide magenta on every side at every moment; the magenta stays flat with no shadow anywhere.' },
+  salute:
+    { still: PADDED, text: 'He straightens up, snaps one hand to the brim of his pith helmet in a crisp salute, holds it for a beat with his chest out, drops the hand with a small satisfied nod, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; he stays well inside the frame with wide magenta on every side at every moment; the magenta stays flat with no shadow anywhere.' },
+  stretch:
+    { still: PADDED, text: 'He stretches: both arms rise slowly over his head, his round body lengthens a little, his goggles squint shut in a wide yawn, then everything settles back down with a contented wobble, he finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; his raised arms stay well below the top of the frame and he stays well inside it with wide magenta on every side at every moment; the magenta stays flat with no shadow anywhere.' },
+  dance:
+    { still: PADDED, text: 'He does a little shuffle dance on the spot: a step to the left, a step to the right, his hips wiggling and his arms swinging, a small spin of the helmet, then he plants his feet, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; his steps are small so he stays well inside the frame with wide magenta on every side at every moment; the magenta stays flat with no shadow anywhere.' },
+  peekaboo:
+    { still: PADDED, text: 'He covers his goggles with both hands, waits a beat, parts two fingers and peeks through them, then whips both hands away with his smile at its widest, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; he stays well inside the frame with wide magenta on every side at every moment; the magenta stays flat with no shadow anywhere.' },
+  thumbsup:
+    { still: PADDED, text: 'He turns a little toward the camera, raises one arm and gives a big thumbs up, and one goggle lens closes in a wink while the other stays open, holds it for a beat, lowers the arm, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; he stays well inside the frame with wide magenta on every side at every moment; the magenta stays flat with no shadow anywhere.' },
+  bow:
+    { still: PADDED, text: 'He takes a deep theatrical bow: one arm sweeps out to the side while the other hand holds his pith helmet on, his round body tips forward at the waist, he holds the bow for a beat, straightens up, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; his sweeping arm and his bowed head stay well inside the frame with wide magenta on every side at every moment; the magenta stays flat with no shadow anywhere.' },
+  lantern:
+    { still: PADDED, text: 'He takes a small folded paper lantern from the pouch on his belt, it pops open in his hand and glows warm from inside, he holds it up beside his head and looks left and right by its light, then folds it flat and tucks it away, finishes by the fourth second and holds exactly the first frame\'s pose, perfectly still, for the last second; he and the lantern stay well inside the frame with wide magenta on every side at every moment; the lantern\'s glow lights him only, never the magenta, which stays flat with no shadow anywhere.' },
 }
 
-for (const [id, action] of Object.entries(anims)) {
+for (const [id, spec] of Object.entries(anims)) {
+  const action = typeof spec === 'string' ? spec : spec.text
+  const still = typeof spec === 'string' ? STILL : spec.still
   const name = `explorer-paper-${id}`
   const tl = {
     name,
@@ -84,7 +108,7 @@ for (const [id, action] of Object.entries(anims)) {
                 prompt: `${CAMERA} ${SCENE} ${action} ${LOOK} ${PHYSICS} No text, no logos.`,
                 negative:
                   'cartoon outline, cel shading, 3D render, glossy plastic, photorealistic, camera movement, zoom, pan, cutaway, second figure, background change, gradient background, shadow on the background, drop shadow, ground shadow, contact shadow, shadow under the feet, reflection, the figure drifting or changing size',
-                refs: { images: [STILL, STILL] },
+                refs: { images: [still, still] },
                 seconds: 5,
                 resolution: '1080p',
                 aspect: 'auto',
