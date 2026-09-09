@@ -21,8 +21,8 @@ for T in "$@"; do
   "$FF" -y -v error -i "$LOOP" -vf "setpts=${SLOW}*PTS,minterpolate='fps=24:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1'" -c:v libx264 -preset fast -crf 16 -pix_fmt yuv420p "$D/$T.loop.slow.mp4"
   OUT="$OUTROOT/$T"; mkdir -p "$OUT/natural-pace"
   echo "== $T: keying both paces"
-  zsh scripts/tools/key-sprite.sh "$D/$T.loop.slow.mp4" "$OUT" FF00FF $SIM $ERODE "$T" > /dev/null
-  zsh scripts/tools/key-sprite.sh "$LOOP" "$OUT/natural-pace" FF00FF $SIM $ERODE "$T" > /dev/null
+  zsh scripts/tools/key-sprite-motion.sh "$D/$T.loop.slow.mp4" "$OUT" FF00FF 0.45 4 "$T" > /dev/null
+  zsh scripts/tools/key-sprite-motion.sh "$LOOP" "$OUT/natural-pace" FF00FF 0.45 4 "$T" > /dev/null
   cp "$D/$T.loop.slow.mp4" "$OUT/$T-sway-loop-magenta.mp4"
   cp "$LOOP" "$OUT/natural-pace/$T-sway-loop-magenta.mp4"
   [ -f "$D/$T.loop-x3.mp4" ] && cp "$D/$T.loop-x3.mp4" "$OUT/natural-pace/$T-loop-preview-x3.mp4"
