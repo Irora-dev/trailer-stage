@@ -1,0 +1,73 @@
+{
+ "name": "dogtag-hexagon",
+ "end": 6,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Layered paper cut-out craft: a brass-rimmed tag of textured card with embossed brass ornament, clean cut edges and soft studio light from the upper left, hanging centred on a flat, pure, even magenta background that never changes and carries no shadow.",
+  "physics": "Physics: the tag hangs from its hanger and swings only about that point, every part stays attached and flat, the round hole in its centre stays open and shows only the flat magenta behind it, nothing appears, no glow or reflection appears, the magenta stays flat with no shadow anywhere, and the last frame equals the first.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Dog tag 'hexagon' (Colby, 2026-09-09 ~10:40: light animation, first and last frame the tag). Seedance image-to-video with the still as first AND last frame; then node scripts/loop.mjs dogtag-hexagon hexagon --pingpong; then scripts/tools/key-sprite.sh.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "hexagon",
+     "at": 0,
+     "until": 5,
+     "params": {
+      "piece": "footage",
+      "fit": "contain",
+      "hold": "loop",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Static camera, no push, no zoom, no pan, one single unbroken five-second take from this one camera only. Start exactly from the first frame and end exactly on the same frame, one continuous take without any cut; the camera never changes position, height or angle. The hexagonal brass-rimmed tag with the mountains, the rivets and the compass star hangs from a rope loop exactly as in the first frame, its round centre open to the magenta behind. It sways gently like a pendulum from the top of its hanger: a few degrees to the left, back through centre, a few degrees to the right, back through centre, each swing a little smaller, and it settles to hang exactly as in the first frame with the hanger straight; the a rope loop flexes with it; the paper, the brass rim, the ornament and the rivets stay flat and attached; nothing else moves, and the magenta stays flat with no shadow anywhere. Layered paper cut-out craft: a brass-rimmed tag of textured card with embossed brass ornament, clean cut edges and soft studio light from the upper left, hanging centred on a flat, pure, even magenta background that never changes and carries no shadow. Physics: the tag hangs from its hanger and swings only about that point, every part stays attached and flat, the round hole in its centre stays open and shows only the flat magenta behind it, nothing appears, no glow or reflection appears, the magenta stays flat with no shadow anywhere, and the last frame equals the first. No text, no logos.",
+       "negative": "camera movement, zoom, pan, cutaway, second tag, background change, gradient background, shadow on the background, drop shadow, reflection, glow, the hole filling in, text, lettering, the tag drifting or changing size, spinning, flipping, 3D render, photorealistic",
+       "refs": {
+        "images": [
+         ".footage/dogtags/refs/hexagon.png",
+         ".footage/dogtags/refs/hexagon.png"
+        ]
+       },
+       "seconds": 5,
+       "resolution": "1080p",
+       "aspect": "auto",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 5.2,
+     "until": 6,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}

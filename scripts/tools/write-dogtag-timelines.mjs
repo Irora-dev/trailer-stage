@@ -1,0 +1,82 @@
+// Writes four loop timelines for Colby's paper-craft Daylight dog tags on their magenta plates (typed
+// 2026-09-09 ~10:40, four images: circular, shield, hexagon, notched): a LIGHT animation, the tag swaying
+// gently from its chain or rope like a pendulum and settling back to hang exactly as in the still, which is
+// first AND last frame (refs.images: [still, still]). Closed with `loop.mjs --pingpong` (a sway oscillates)
+// and keyed with scripts/tools/key-sprite.sh (the silhouette moves, so no matte lock). Seedance 2.0
+// image-to-video, 5 s, 1080p, aspect auto, silent.
+// Run from ~/Irora-dev/trailer-stage:  node scripts/tools/write-dogtag-timelines.mjs
+import { writeFileSync } from 'node:fs'
+
+const LOOK =
+  'Layered paper cut-out craft: a brass-rimmed tag of textured card with embossed brass ornament, clean cut edges and soft studio light from the upper left, hanging centred on a flat, pure, even magenta background that never changes and carries no shadow.'
+const PHYSICS =
+  'Physics: the tag hangs from its hanger and swings only about that point, every part stays attached and flat, the round hole in its centre stays open and shows only the flat magenta behind it, nothing appears, no glow or reflection appears, the magenta stays flat with no shadow anywhere, and the last frame equals the first.'
+const CAMERA =
+  'Static camera, no push, no zoom, no pan, one single unbroken five-second take from this one camera only. Start exactly from the first frame and end exactly on the same frame, one continuous take without any cut; the camera never changes position, height or angle.'
+
+const tags = {
+  circular: { file: 'Meshy_AI_daylight-dogtag-circular-solo.png', hanger: 'a short brass chain', shape: 'the round brass-rimmed tag with the laurel sprigs and the star' },
+  shield: { file: 'Meshy_AI_daylight-dogtag-shield-solo.png', hanger: 'a short brass chain', shape: 'the shield-shaped brass-rimmed tag with the laurel sprigs, the rivets and the star' },
+  hexagon: { file: 'Meshy_AI_daylight-dogtag-hexagon-solo.png', hanger: 'a rope loop', shape: 'the hexagonal brass-rimmed tag with the mountains, the rivets and the compass star' },
+  notched: { file: 'Meshy_AI_daylight-dogtag-notched-solo.png', hanger: 'a rope loop', shape: 'the tall rounded tag with the compass rose, the mountains, the rivets and the notch at its foot' },
+}
+
+for (const [id, t] of Object.entries(tags)) {
+  const name = `dogtag-${id}`
+  const still = `.footage/dogtags/refs/${id}.png`
+  const action = `${t.shape[0].toUpperCase()}${t.shape.slice(1)} hangs from ${t.hanger} exactly as in the first frame, its round centre open to the magenta behind. It sways gently like a pendulum from the top of its hanger: a few degrees to the left, back through centre, a few degrees to the right, back through centre, each swing a little smaller, and it settles to hang exactly as in the first frame with the hanger straight; the ${t.hanger} flexes with it; the paper, the brass rim, the ornament and the rivets stay flat and attached; nothing else moves, and the magenta stays flat with no shadow anywhere.`
+  const tl = {
+    name,
+    end: 6,
+    mix: null,
+    scene: { kind: 'theme' },
+    footage: { look: LOOK, physics: PHYSICS, handoff: '(single shot: no handoff)' },
+    notes: `Dog tag '${id}' (Colby, 2026-09-09 ~10:40: light animation, first and last frame the tag). Seedance image-to-video with the still as first AND last frame; then node scripts/loop.mjs ${name} ${id} --pingpong; then scripts/tools/key-sprite.sh.`,
+    tracks: [
+      {
+        id: 'footage',
+        kind: 'visual',
+        clips: [
+          {
+            id,
+            at: 0,
+            until: 5,
+            params: {
+              piece: 'footage',
+              fit: 'contain',
+              hold: 'loop',
+              grade: 'none',
+              render: {
+                provider: 'fal',
+                model: 'bytedance/seedance-2.0/image-to-video',
+                prompt: `${CAMERA} ${action} ${LOOK} ${PHYSICS} No text, no logos.`,
+                negative:
+                  'camera movement, zoom, pan, cutaway, second tag, background change, gradient background, shadow on the background, drop shadow, reflection, glow, the hole filling in, text, lettering, the tag drifting or changing size, spinning, flipping, 3D render, photorealistic',
+                refs: { images: [still, still] },
+                seconds: 5,
+                resolution: '1080p',
+                aspect: 'auto',
+                audio: false,
+              },
+            },
+          },
+        ],
+      },
+      {
+        id: 'close',
+        kind: 'visual',
+        clips: [
+          {
+            id: 'endcard',
+            at: 5.2,
+            until: 6,
+            params: { piece: 'endCard', wordmark: 'DAYLIGHT', plate: 'the on-chain survival kit', chips: ['Contains AI-generated footage'] },
+          },
+        ],
+      },
+      { id: 'captions', kind: 'visual', clips: [] },
+    ],
+  }
+  writeFileSync(`trailers/${name}.timeline.json`, JSON.stringify(tl, null, 1) + '\n')
+  console.log('wrote', name, '←', t.file)
+}
