@@ -1,0 +1,73 @@
+{
+ "name": "book-open3",
+ "end": 7,
+ "mix": null,
+ "scene": {
+  "kind": "theme"
+ },
+ "footage": {
+  "look": "Layered paper cut-out craft with real material texture: worn leather, embossed gold lettering, brass corner plates and buckle, hand-torn parchment pages, soft studio light from the upper left, the book centred with wide flat magenta around it on every side, a pure, even magenta background that never changes and carries no shadow.",
+  "physics": "Physics: the book stays centred and never touches or crosses any edge of the frame, the buckle unclasps before the cover lifts and the strap only falls slack and is hidden by the opening book, the cover swings on its spine like a real hinge, the pages stay bound at the spine and fan once then settle, nothing appears from nowhere and nothing leaves the frame, the magenta stays flat with no shadow anywhere, and the last frame equals the given final frame exactly.",
+  "handoff": "(single shot: no handoff)"
+ },
+ "notes": "Take three (Colby, 2026-09-09 12:3x): take two still let the cover tip touch the top edge mid-swing and the unclasped strap dangle to the bottom edge. Both stills at 60% on the magenta canvas; the strap stays on the book; the cover opens low and flat.",
+ "tracks": [
+  {
+   "id": "footage",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "open",
+     "at": 0,
+     "until": 6,
+     "params": {
+      "piece": "footage",
+      "fit": "contain",
+      "hold": "freeze",
+      "grade": "none",
+      "render": {
+       "provider": "fal",
+       "model": "bytedance/seedance-2.0/image-to-video",
+       "prompt": "Static camera, no push, no zoom, no pan, one single unbroken six-second take from this one camera only. Start exactly from the first frame and end exactly on the given final frame, one continuous take without any cut; the camera never changes position, height or angle. The closed leather book, the Portfolio Handbook with its gold title, brass corners, red ribbon marker and the leather strap buckled across it, lies centred on the flat magenta plate with wide magenta on every side, exactly as in the first frame. The brass buckle unclasps and the two ends of the strap part and lie flat on the book; the strap stays on the book the whole time, never hangs below it, never flies away, and is hidden beneath the open pages by the end. The front cover lifts from its right edge and swings open on its spine toward the left, low and flat, never rising higher than the closed book is tall, the book turning to lie flat and face-on to the camera as it opens, staying centred and small enough that the whole book, its cover and its strap remain inside the frame with wide magenta visible around them at every moment, never touching an edge; the pages fan once and settle, until the book lies fully open as a two-page spread of blank hand-torn parchment with the stitched spine down the middle, exactly as in the final frame, and rests there for the last second. Nothing else moves; the magenta stays flat with no shadow anywhere. Layered paper cut-out craft with real material texture: worn leather, embossed gold lettering, brass corner plates and buckle, hand-torn parchment pages, soft studio light from the upper left, the book centred with wide flat magenta around it on every side, a pure, even magenta background that never changes and carries no shadow. Physics: the book stays centred and never touches or crosses any edge of the frame, the buckle unclasps before the cover lifts and the strap only falls slack and is hidden by the opening book, the cover swings on its spine like a real hinge, the pages stay bound at the spine and fan once then settle, nothing appears from nowhere and nothing leaves the frame, the magenta stays flat with no shadow anywhere, and the last frame equals the given final frame exactly. No text on the pages, no new logos.",
+       "negative": "camera movement, zoom, pan, cutaway, hands, a person, the book touching the frame edge, the book cropped by the frame, the book leaving the frame, the strap flying away, the strap thrown off, text appearing on the pages, writing, illustrations on the pages, glow, sparkles, particles, shadow on the background, drop shadow, gradient background, a second book, the book changing size, 3D render, photorealistic, the strap hanging below the book, the strap dangling, the cover standing tall, the cover reaching the top of the frame",
+       "refs": {
+        "images": [
+         ".footage/book/refs/closed-padded60.png",
+         ".footage/book/refs/open-padded60.png"
+        ]
+       },
+       "seconds": 6,
+       "resolution": "1080p",
+       "aspect": "16:9",
+       "audio": false
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "kind": "visual",
+   "clips": [
+    {
+     "id": "endcard",
+     "at": 6.2,
+     "until": 7,
+     "params": {
+      "piece": "endCard",
+      "wordmark": "DAYLIGHT",
+      "plate": "the on-chain survival kit",
+      "chips": [
+       "Contains AI-generated footage"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "captions",
+   "kind": "visual",
+   "clips": []
+  }
+ ]
+}
